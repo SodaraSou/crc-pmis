@@ -40,7 +40,7 @@
                         <td>
                             <div class="d-flex justify-content-center align-items-center">
                                 <a href="{{ route('permission.edit', $permission->id) }}"
-                                    class="btn btn-sm btn-warning text-white mr-2"><i class="fa fa-pen"></i></a>
+                                    class="btn btn-sm btn-info mr-2"><i class="fa fa-pen"></i></a>
                                 <button class="btn btn-sm btn-danger"
                                     wire:click="$dispatch('alert_delete', {permission_id: {{ $permission->id }}})">
                                     <i class="fa fa-trash" aria-hidden="true"></i>

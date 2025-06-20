@@ -1,4 +1,4 @@
-<div class="card card-warning">
+<div class="card card-info">
     <div class="card-header">
         <h3 class="card-title">កែប្រែមុខងារប្រព័ន្ធ</h3>
     </div>
@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-warning"><i class="fa fa-save mr-1"></i> កែប្រែ</button>
+            <button type="submit" class="btn btn-info"><i class="fa fa-save mr-1"></i> កែប្រែ</button>
         </div>
     </form>
 </div>
