@@ -40,6 +40,8 @@ Route::get('/branch', [BranchController::class, 'index'])->middleware('auth')->n
 
 // Department
 Route::get('/department', [DepartmentController::class, 'index'])->middleware('auth')->name('department.index');
+Route::get('/department/create', [DepartmentController::class, 'create'])->middleware('auth')->name('department.create');
+Route::get('/department/{department}/edit', [DepartmentController::class, 'edit'])->middleware('auth')->name('department.edit');
 
 // Province
 Route::get('/province', [ProvinceController::class, 'index'])->middleware('auth')->name('province.index');

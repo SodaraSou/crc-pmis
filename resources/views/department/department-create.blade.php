@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('title')
-    នាយកដ្ឋាន
+    បង្កេីតនាយកដ្ឋាន
 @endsection
 
 @section('content')
-    @livewire('department.department-table')
+    @livewire('department.department-create-form')
 @endsection
 
 @section('js')
