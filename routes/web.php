@@ -11,6 +11,7 @@ use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserLevelController;
+use App\Http\Controllers\VillageController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->middleware("auth")->name('home');
@@ -55,6 +56,10 @@ Route::get('/district/{district}/edit', [DistrictController::class, 'edit'])->mi
 Route::get('/district/{district}/commune/create', [CommuneController::class, 'create'])->middleware('auth')->name('district-commune.create');
 Route::get('/commune/{commune}', [CommuneController::class, 'show'])->middleware('auth')->name('commune.show');
 Route::get('/commune/{commune}/edit', [CommuneController::class, 'edit'])->middleware('auth')->name('commune.edit');
+
+// Village
+Route::get('/commune/{commune}/village/create', [VillageController::class, 'create'])->middleware('auth')->name('village.create');
+Route::get('/village/{village}/edit', [VillageController::class, 'edit'])->middleware('auth')->name('village.edit');
 
 // Auth
 Route::get('/login', [LoginController::class, 'create'])->name('login');

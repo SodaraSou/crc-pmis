@@ -4,6 +4,7 @@ namespace App\Livewire\Village;
 
 use App\Models\Commune;
 use App\Models\Village;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class VillageTable extends Component
@@ -13,6 +14,22 @@ class VillageTable extends Component
     public function mount(Commune $commune)
     {
         $this->commune = $commune;
+    }
+
+    #[On('confirmed_delete')]
+    public function delete($village_id)
+    {
+        try {
+            $village = Village::find($village_id);
+            if ($village) {
+                $village->delete();
+                $this->dispatch('delete_success');
+            } else {
+                $this->dispatch('delete_fail');
+            }
+        } catch (\Exception $e) {
+            $this->dispatch('delete_fail');
+        }
     }
 
     public function render()

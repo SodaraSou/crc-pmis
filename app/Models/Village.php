@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Village extends Model
 {
     protected $fillable = [
+        "id",
         "en_name",
         "kh_name",
         "commune_id",
