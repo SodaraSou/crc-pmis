@@ -13,9 +13,9 @@ class DistrictCreateForm extends Component
     public $province_id;
     #[Validate('required', message: "សូមបញ្ចូលលេខកូដ")]
     public $code = "";
-    #[Validate('required', message: "សូមបញ្ចូលឈ្មោះខេត្តខ្មែរ")]
+    #[Validate('required', message: "សូមបញ្ចូលឈ្មោះស្រុក/ខណ្ឌខ្មែរ")]
     public $kh_name = "";
-    #[Validate('required', message: "សូមបញ្ចូលឈ្មោះខេត្តឡាតាំង")]
+    #[Validate('required', message: "សូមបញ្ចូលឈ្មោះស្រុក/ខណ្ឌឡាតាំង")]
     public $en_name = "";
 
     public function mount(Province $province)

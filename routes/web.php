@@ -52,7 +52,9 @@ Route::get('/district/{district}', [DistrictController::class, 'show'])->middlew
 Route::get('/district/{district}/edit', [DistrictController::class, 'edit'])->middleware('auth')->name('district.edit');
 
 // Commune
+Route::get('/district/{district}/commune/create', [CommuneController::class, 'create'])->middleware('auth')->name('district-commune.create');
 Route::get('/commune/{commune}', [CommuneController::class, 'show'])->middleware('auth')->name('commune.show');
+Route::get('/commune/{commune}/edit', [CommuneController::class, 'edit'])->middleware('auth')->name('commune.edit');
 
 // Auth
 Route::get('/login', [LoginController::class, 'create'])->name('login');
