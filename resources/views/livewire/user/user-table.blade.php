@@ -42,6 +42,9 @@
                                 <a href="{{ route('user.show', $user->id) }}" class="btn btn-sm btn-primary mr-2">
                                     <i class="fa fa-eye" aria-hidden="true"></i>
                                 </a>
+                                <a href="{{ route('user.edit', $user->id) }}" class="btn btn-sm btn-info mr-2">
+                                    <i class="fa fa-pen" aria-hidden="true"></i>
+                                </a>
                                 {{-- <button class="btn btn-sm btn-danger"
                                     wire:click="$dispatch('alert-delete', {id: {{ $user->id }}})">
                                 <i class="fa fa-trash" aria-hidden="true"></i>

@@ -47,6 +47,7 @@
         </div>
     </form>
 </div>
+
 @script
     <script>
         window.addEventListener("create_fail", () => {

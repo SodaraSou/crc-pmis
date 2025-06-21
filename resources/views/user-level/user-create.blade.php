@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('title')
-    លំដាប់អ្នកប្រើប្រាស់
+    បង្កើតលំដាប់អ្នកប្រើប្រាស់
 @endsection
 
 @section('content')
-    @livewire('user-level.user-level-table')
+    @livewire('user-level.user-level-create-form')
 @endsection
 
 @section('js')
