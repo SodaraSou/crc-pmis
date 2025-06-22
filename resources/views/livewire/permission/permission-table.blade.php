@@ -27,7 +27,10 @@
                         ID
                     </th>
                     <th>
-                        ឈ្មោះ
+                        ឈ្មោះខ្មែរ
+                    </th>
+                    <th>
+                        ឈ្មោះឡាតាំង
                     </th>
                     <th class="text-center">សកម្មភាព</th>
                 </tr>
@@ -36,6 +39,7 @@
                 @foreach ($permissions as $permission)
                     <tr wire:key='{{ $permission->id }}'>
                         <td>{{ $permission->id }}</td>
+                        <td>{{ $permission->kh_name }}</td>
                         <td>{{ $permission->name }}</td>
                         <td>
                             <div class="d-flex justify-content-center align-items-center">
@@ -56,6 +60,7 @@
         {{ $permissions->links() }}
     </div>
 </div>
+
 @script
     <script>
         window.addEventListener("alert_delete", (event) => {
@@ -85,10 +90,10 @@
                 confirmButtonColor: "#28a745"
             });
         });
-        window.addEventListener("delete_fail", () => {
+        window.addEventListener("delete_fail", (event) => {
             Swal.fire({
                 title: "មានបញ្ហា!",
-                text: "លុបមុខងារប្រព័ន្ធមិនជោគជ័យ",
+                text: event.detail.message,
                 icon: "error",
                 confirmButtonText: "អូខេ",
                 confirmButtonColor: "#dc3545"

@@ -27,7 +27,10 @@
                         ID
                     </th>
                     <th>
-                        ឈ្មោះ
+                        ឈ្មោះខ្មែរ
+                    </th>
+                    <th>
+                        ឈ្មោះឡាតាំង
                     </th>
                     <th class="text-center">សកម្មភាព</th>
                 </tr>
@@ -36,6 +39,7 @@
                 @foreach ($users as $user)
                     <tr wire:key='{{ $user->id }}'>
                         <td>{{ $user->id }}</td>
+                        <td>{{ $user->kh_name }}</td>
                         <td>{{ $user->name }}</td>
                         <td>
                             <div class="d-flex justify-content-center align-items-center">

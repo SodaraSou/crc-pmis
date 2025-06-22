@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('title')
-    សាខា
+    កែប្រែអនុសាខា
 @endsection
 
 @section('content')
-    @livewire('branch.branch-table')
+    <livewire:sub-branch.sub-branch-edit-form :sub_branch="$sub_branch" />
 @endsection
 
 @section('js')

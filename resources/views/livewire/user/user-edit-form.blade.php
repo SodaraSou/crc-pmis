@@ -57,7 +57,7 @@
                         <option value="">សូមជ្រើសរើសតួនាទី</option>
                         @foreach ($roles as $role)
                             <option wire:key="{{ $role->id }}" value="{{ $role->name }}">
-                                {{ $role->name }}
+                                {{ $role->kh_name }} ({{ $role->name }})
                             </option>
                         @endforeach
                     </select>

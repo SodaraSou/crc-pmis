@@ -22,4 +22,11 @@ class DepartmentController extends Controller
             'department' => $department
         ]);
     }
+
+    public function show(Department $department)
+    {
+        return view('department.department-show', [
+            'department' => $department
+        ]);
+    }
 }

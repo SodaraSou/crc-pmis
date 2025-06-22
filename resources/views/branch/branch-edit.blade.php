@@ -1,17 +1,16 @@
 @extends('layouts.app')
 
 @section('title')
-    សាខា
+    កែប្រែសាខា
 @endsection
 
 @section('content')
-    @livewire('branch.branch-table')
+    <livewire:branch.branch-edit-form :branch="$branch" />
 @endsection
 
 @section('js')
     <script>
         $(document).ready(function() {
-            $("#sidebar li a").removeClass("active");
             $("#setting>a").addClass("active");
             $("#setting").addClass("menu-open");
             $("#branch>a").addClass("active");

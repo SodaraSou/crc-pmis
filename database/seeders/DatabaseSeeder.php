@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
             DistrictSeeder::class,
             CommuneSeeder::class,
             VillageSeeder::class,
+            BranchSeeder::class,
+            SubBranchSeeder::class,
         ]);
     }
 }

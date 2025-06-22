@@ -38,13 +38,6 @@ class LoginController extends Controller
 
         $user = Auth::user();
 
-        if (!$user || !$user->hasRole('Super-Admin')) {
-            Auth::logout();
-            throw ValidationException::withMessages([
-                'email' => 'Unauthorized',
-            ]);
-        }
-
         RateLimiter::clear($this->throttleKey($request));
 
         $request->session()->regenerate();

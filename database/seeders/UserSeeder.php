@@ -41,7 +41,10 @@ class UserSeeder extends Seeder
         Permission::create(['name' => 'delete_permissions']);
 
         // Create Role
-        $superAdminRole = Role::create(['name' => 'Super-Admin']);
+        $superAdminRole = Role::create([
+            'name' => 'Super-Admin',
+            'kh_name' => "ប្រធានគ្រប់គ្រងប្រព័ន្ធ"
+        ]);
         $superAdminRole->givePermissionTo(Permission::all());
         $superAdmin = User::create([
             'name' => 'admin',

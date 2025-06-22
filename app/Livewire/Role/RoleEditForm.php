@@ -15,6 +15,8 @@ class RoleEditForm extends Component
     public $role;
     #[Validate('required', message: "សូមបញ្ចូលឈ្មោះតួនាទី")]
     public $name;
+    #[Validate('required', message: "សូមបញ្ចូលឈ្មោះខ្មែរ")]
+    public $kh_name;
     #[Validate('required', message: "សូមជ្រើសរើសមុខងារក្នុងប្រព័ន្ធយ៉ាងតិចមួយ")]
     public $selected_permissions = [];
 
@@ -22,6 +24,7 @@ class RoleEditForm extends Component
     {
         $this->role = $role;
         $this->name = $role->name;
+        $this->kh_name = $role->kh_name;
         $this->selected_permissions = $role->permissions->pluck('name')->toArray();
     }
 
@@ -31,6 +34,7 @@ class RoleEditForm extends Component
         try {
             $this->role->update([
                 'name' => $validated['name'],
+                'kh_name' => $validated['kh_name']
             ]);
             $this->role->syncPermissions($validated['selected_permissions']);
 

@@ -1,8 +1,8 @@
 <div class="card card-primary">
     <div class="card-header">
         <div class="d-flex justify-content-between align-items-center">
-            <h3 class="card-title">នាយកដ្ឋាន</h3>
-            <a href="{{ route('department.create') }}" class="btn btn-success"><i class="fa fa-plus mr-1"></i>
+            <h3 class="card-title">អនុសាខា</h3>
+            <a href="{{ route('sub-branch.create', $branch) }}" class="btn btn-success"><i class="fa fa-plus mr-1"></i>
                 បង្កើតថ្មី</a>
         </div>
     </div>
@@ -23,19 +23,19 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($departments as $department)
-                    <tr wire:key='{{ $department->id }}'>
-                        <td>{{ $department->id }}</td>
-                        <td>{{ $department->kh_name }}</td>
-                        <td>{{ $department->en_name }}</td>
+                @foreach ($sub_branches as $sub_branch)
+                    <tr wire:key='{{ $sub_branch->id }}'>
+                        <td>{{ $sub_branch->id }}</td>
+                        <td>{{ $sub_branch->kh_name }}</td>
+                        <td>{{ $sub_branch->en_name }}</td>
                         <td>
                             <div class="d-flex justify-content-center align-items-center">
-                                <a href="{{ route('department.show', $department->id) }}"
+                                <a href="{{ route('sub-branch.show', $sub_branch->id) }}"
                                     class="btn btn-sm btn-primary text-white mr-2"><i class="fa fa-eye"></i></a>
-                                <a href="{{ route('department.edit', $department->id) }}"
-                                    class="btn btn-sm btn-info mr-2"><i class="fa fa-pen"></i></a>
+                                <a href="{{ route('sub-branch.edit', $sub_branch->id) }}"
+                                    class="btn btn-sm btn-info text-white mr-2"><i class="fa fa-pen"></i></a>
                                 <button class="btn btn-sm btn-danger"
-                                    wire:click="$dispatch('alert_delete', {department_id: {{ $department->id }}})">
+                                    wire:click="$dispatch('alert_delete', {sub_branch_id: {{ $sub_branch->id }}})">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </button>
                             </div>
@@ -62,7 +62,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $wire.dispatch('confirmed_delete', {
-                        department_id: event.detail.department_id
+                        sub_branch_id: event.detail.sub_branch_id
                     });
                 }
             });
@@ -70,16 +70,16 @@
         window.addEventListener("delete_success", () => {
             Swal.fire({
                 title: "ជោគជ័យ",
-                text: "លុបនាយកដ្ឋានជោគជ័យ",
+                text: "លុបអនុសាខាជោគជ័យ",
                 icon: "success",
                 confirmButtonText: "អូខេ",
                 confirmButtonColor: "#28a745"
             });
         });
-        window.addEventListener("delete_fail", () => {
+        window.addEventListener("delete_fail", (event) => {
             Swal.fire({
                 title: "មានបញ្ហា!",
-                text: "លុបនាយកដ្ឋនមិនជោគជ័យ",
+                text: event.detail.message,
                 icon: "error",
                 confirmButtonText: "អូខេ",
                 confirmButtonColor: "#dc3545"

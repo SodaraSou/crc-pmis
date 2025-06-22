@@ -1,11 +1,10 @@
 @extends('layouts.app')
 
 @section('title')
-    សាខា
+    {{ $sub_branch->kh_name }}
 @endsection
 
 @section('content')
-    @livewire('branch.branch-table')
 @endsection
 
 @section('js')

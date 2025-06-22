@@ -10,6 +10,8 @@ class PermissionCreateForm extends Component
 {
     #[Validate('required', message: "សូមបញ្ចូលឈ្មោះមុខងារប្រព័ន្ធ")]
     public $name;
+    #[Validate('required', message: "សូមបញ្ចូលឈ្មោះខ្មែរ")]
+    public $kh_name;
 
     public function save()
     {
@@ -18,7 +20,7 @@ class PermissionCreateForm extends Component
             Permission::create($validated);
             return redirect()->to('/permission');
         } catch (\Exception $e) {
-            $this->dispatch('create_fail');
+            $this->dispatch('create_fail', message: $e->getMessage());
         }
     }
 

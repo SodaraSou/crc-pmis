@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SubBranchController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserLevelController;
 use App\Http\Controllers\VillageController;
@@ -39,11 +40,22 @@ Route::get('/user-level/{user_level}/edit', [UserLevelController::class, 'edit']
 
 // Branch
 Route::get('/branch', [BranchController::class, 'index'])->middleware('auth')->name('branch.index');
+Route::get('/branch/create', [BranchController::class, 'create'])->middleware('auth')->name('branch.create');
+Route::get('/branch/{branch}', [BranchController::class, 'show'])->middleware('auth')->name('branch.show');
+Route::get('/branch/{branch}/edit', [BranchController::class, 'edit'])->middleware('auth')->name('branch.edit');
+
+// Sub-Branch
+Route::get('/branch/{branch}/sub-branch/create', [SubBranchController::class, 'create'])->middleware('auth')->name('sub-branch.create');
+Route::get('/sub-branch/{sub_branch}', [SubBranchController::class, 'show'])->middleware('auth')->name('sub-branch.show');
+Route::get('/sub-branch/{sub_branch}/edit', [SubBranchController::class, 'edit'])->middleware('auth')->name('sub-branch.edit');
 
 // Department
 Route::get('/department', [DepartmentController::class, 'index'])->middleware('auth')->name('department.index');
 Route::get('/department/create', [DepartmentController::class, 'create'])->middleware('auth')->name('department.create');
+Route::get('/department/{department}', [DepartmentController::class, 'show'])->middleware('auth')->name('department.show');
 Route::get('/department/{department}/edit', [DepartmentController::class, 'edit'])->middleware('auth')->name('department.edit');
+
+// Office
 
 // Province
 Route::get('/province', [ProvinceController::class, 'index'])->middleware('auth')->name('province.index');

@@ -1,11 +1,10 @@
 @extends('layouts.app')
 
 @section('title')
-    សាខា
+    {{ $department->kh_name }}
 @endsection
 
 @section('content')
-    @livewire('branch.branch-table')
 @endsection
 
 @section('js')
@@ -14,7 +13,7 @@
             $("#sidebar li a").removeClass("active");
             $("#setting>a").addClass("active");
             $("#setting").addClass("menu-open");
-            $("#branch>a").addClass("active");
+            $("#department>a").addClass("active");
         });
     </script>
 @endsection

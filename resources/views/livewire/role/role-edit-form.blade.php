@@ -4,12 +4,21 @@
     </div>
     <form wire:submit.prevent="save">
         <div class="card-body">
-            <div class="form-group">
-                <label>ឈ្មោះ</label>
-                <input wire:model="name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះ">
-                @error('name')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
+            <div class="row g-4">
+                <div class="col-12 col-md-6 form-group">
+                    <label>ឈ្មោះឡាតាំង</label>
+                    <input wire:model="name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះឡាតាំង">
+                    @error('name')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="col-12 col-md-6 form-group">
+                    <label>ឈ្មោះខ្មែរ</label>
+                    <input wire:model="kh_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះខ្មែរ">
+                    @error('kh_name')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
             </div>
             <div class="form-group">
                 <label>ជ្រើសរើសមុខងារប្រព័ន្ធ</label>
