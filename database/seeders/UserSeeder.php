@@ -18,37 +18,80 @@ class UserSeeder extends Seeder
     {
         // Reset cached roles and permissions
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
+        $permissions = [
+            [
+                'name' => 'user_management',
+                'kh_name' => 'គ្រប់គ្រងអ្នកប្រើប្រាស់',
+            ],
+            [
+                'name' => 'user_level_management',
+                'kh_name' => 'កំណត់លំដាប់អ្នកប្រើប្រាស់',
+            ],
+            [
+                'name' => 'role_management',
+                'kh_name' => 'កំណត់តួនាទី',
+            ],
+            [
+                'name' => 'permission_management',
+                'kh_name' => 'កំណត់មុខងារប្រព័ន្ធ',
+            ],
+            [
+                'name' => 'department_management',
+                'kh_name' => 'កំណត់នាយកដ្ឋាន',
+            ],
+            [
+                'name' => 'province_management',
+                'kh_name' => 'កំណត់រាជធានី/ខេត្ត',
+            ],
+            [
+                'name' => 'branch_management',
+                'kh_name' => 'កំណត់សាខា',
+            ],
+            [
+                'name' => 'employee_management',
+                'kh_name' => 'គ្រប់គ្រងបុគ្គលិក',
+            ],
+            [
+                'name' => 'hq_report',
+                'kh_name' => 'របាយការណ៍ថ្នាក់កណ្តាល',
+            ],
+            [
+                'name' => 'branch_report',
+                'kh_name' => 'របាយការណ៍ថ្នាក់សាខា',
+            ],
+            [
+                'name' => 'sub_branch_report',
+                'kh_name' => 'របាយការណ៍ថ្នាក់អនុសាខា',
+            ],
+            [
+                'name' => 'setting_management',
+                'kh_name' => 'កំណត់ប្រព័ន្ធ',
+            ],
+            [
+                'name' => 'security_management',
+                'kh_name' => 'កំណត់សុវត្ថិភាព',
+            ],
+        ];
 
-        // Employee Permission
-        Permission::create(['name' => 'view_employees']);
-        Permission::create(['name' => 'create_employees']);
-        Permission::create(['name' => 'update_employees']);
-        Permission::create(['name' => 'delete_employees']);
-        // User Permission
-        Permission::create(['name' => 'view_users']);
-        Permission::create(['name' => 'create_users']);
-        Permission::create(['name' => 'update_users']);
-        Permission::create(['name' => 'delete_users']);
-        // Role Permission
-        Permission::create(['name' => 'view_roles']);
-        Permission::create(['name' => 'create_roles']);
-        Permission::create(['name' => 'update_roles']);
-        Permission::create(['name' => 'delete_roles']);
-        // Permission Permission
-        Permission::create(['name' => 'view_permissions']);
-        Permission::create(['name' => 'create_permissions']);
-        Permission::create(['name' => 'update_permissions']);
-        Permission::create(['name' => 'delete_permissions']);
+        foreach ($permissions as $permission) {
+            Permission::create($permission);
+        }
 
-        // Create Role
+        Role::create(['name' => 'HQ System Manager', 'kh_name' => 'ប្រធានគ្រប់គ្រងថ្នាក់កណ្តាល']);
+        Role::create(['name' => 'HQ System Operator', 'kh_name' => 'មន្ត្រីគ្រប់គ្រងថ្នាក់កណ្តាល']);
+        Role::create(['name' => 'Branch System Manager', 'kh_name' => 'ប្រធានគ្រប់គ្រងថ្នាក់សាខា']);
+        Role::create(['name' => 'Branch System Operator', 'kh_name' => 'មន្ត្រីគ្រប់គ្រងថ្នាក់សាខា']);
+        Role::create(['name' => 'Sub-Branch System Manager', 'kh_name' => 'ប្រធានគ្រប់គ្រងថ្នាក់អនុសាខា']);
+        Role::create(['name' => 'Sub-Branch System Operator', 'kh_name' => 'មន្ត្រីគ្រប់គ្រងថ្នាក់អនុសាខា']);
+
         $superAdminRole = Role::create([
-            'name' => 'Super-Admin',
-            'kh_name' => "ប្រធានគ្រប់គ្រងប្រព័ន្ធ"
+            'name' => 'System Manager',
+            'kh_name' => 'ប្រធានគ្រប់គ្រងប្រព័ន្ធ',
         ]);
         $superAdminRole->givePermissionTo(Permission::all());
         $superAdmin = User::create([
-            'name' => 'admin',
             'email' => 'admin@admin.com',
+            'name' => 'admin',
             'password' => Hash::make('password'),
             'kh_name' => 'អេតមីន',
             'phone_number' => '012354987',
@@ -56,18 +99,5 @@ class UserSeeder extends Seeder
             'profile_img' => 'https://github.com/shadcn.png'
         ]);
         $superAdmin->assignRole($superAdminRole);
-
-        $normalUserRole = Role::create(['name' => 'User']);
-        $normalUserRole->givePermissionTo('view_employees');
-        $normalUser = User::create([
-            'name' => 'user',
-            'email' => 'user@admin.com',
-            'password' => Hash::make('password'),
-            'kh_name' => 'អ្នកប្រើប្រាស់',
-            'phone_number' => '012354987',
-            'user_level_id' => 1,
-            'profile_img' => 'https://github.com/shadcn.png'
-        ]);
-        $normalUser->assignRole($normalUserRole);
     }
 }

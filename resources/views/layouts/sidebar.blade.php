@@ -27,63 +27,6 @@
                         </p>
                     </a>
                 </li>
-                @if (Auth::user()->hasPermissionTo('hq_report'))
-                    <li class="nav-item" id="hq-report">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-chart-line"></i>
-                            <p>
-                                របាយការណ៍កណ្តាល
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item" id="department">
-                                <a href="{{ route('department.index') }}" class="nav-link">
-                                    <i class="fas fa-angle-double-right nav-icon"></i>
-                                    <p>នាយកដ្ឋាន</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                @endif
-                @if (Auth::user()->hasPermissionTo('branch_report'))
-                    <li class="nav-item" id="branch-report">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-chart-line"></i>
-                            <p>
-                                របាយការណ៍សាខា
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item" id="department">
-                                <a href="{{ route('department.index') }}" class="nav-link">
-                                    <i class="fas fa-angle-double-right nav-icon"></i>
-                                    <p>នាយកដ្ឋាន</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                @endif
-                @if (Auth::user()->hasPermissionTo('sub_branch_report'))
-                    <li class="nav-item" id="sub-branch-report">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-chart-line"></i>
-                            <p>
-                                របាយការណ៍អនុសាខា
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item" id="department">
-                                <a href="{{ route('department.index') }}" class="nav-link">
-                                    <i class="fas fa-angle-double-right nav-icon"></i>
-                                    <p>នាយកដ្ឋាន</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                @endif
                 @if (Auth::user()->user_level_id == 1)
                     @if (Auth::user()->hasPermissionTo('security_management'))
                         <li class="nav-item" id="security">
@@ -167,6 +110,63 @@
                             </ul>
                         </li>
                     @endif
+                @endif
+                @if (Auth::user()->hasPermissionTo('hq_report'))
+                    <li class="nav-item" id="hq-report">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-chart-line"></i>
+                            <p>
+                                របាយការណ៍កណ្តាល
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item" id="department">
+                                <a href="{{ route('department.index') }}" class="nav-link">
+                                    <i class="fas fa-angle-double-right nav-icon"></i>
+                                    <p>នាយកដ្ឋាន</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
+                @if (Auth::user()->hasPermissionTo('branch_report'))
+                    <li class="nav-item" id="branch-report">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-chart-line"></i>
+                            <p>
+                                របាយការណ៍សាខា
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item" id="department">
+                                <a href="{{ route('department.index') }}" class="nav-link">
+                                    <i class="fas fa-angle-double-right nav-icon"></i>
+                                    <p>នាយកដ្ឋាន</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
+                @if (Auth::user()->hasPermissionTo('sub_branch_report'))
+                    <li class="nav-item" id="sub-branch-report">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-chart-line"></i>
+                            <p>
+                                របាយការណ៍អនុសាខា
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item" id="department">
+                                <a href="{{ route('department.index') }}" class="nav-link">
+                                    <i class="fas fa-angle-double-right nav-icon"></i>
+                                    <p>នាយកដ្ឋាន</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 @endif
             </ul>
         </nav>
