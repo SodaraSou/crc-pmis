@@ -5,6 +5,7 @@ use App\Http\Controllers\BranchController;
 use App\Http\Controllers\CommuneController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DistrictController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProvinceController;
@@ -56,6 +57,12 @@ Route::get('/department/{department}', [DepartmentController::class, 'show'])->m
 Route::get('/department/{department}/edit', [DepartmentController::class, 'edit'])->middleware('auth')->name('department.edit');
 
 // Office
+
+// Employee
+Route::get('/employee', [EmployeeController::class, 'index'])->middleware('auth')->name('employee.index');
+Route::get('/employee/create', [EmployeeController::class, 'create'])->middleware('auth')->name('employee.create');
+Route::get('/employee/{employee}', [EmployeeController::class, 'show'])->middleware('auth')->name('employee.show');
+Route::get('/employee/{employee}/edit', [EmployeeController::class, 'edit'])->middleware('auth')->name('employee.edit');
 
 // Province
 Route::get('/province', [ProvinceController::class, 'index'])->middleware('auth')->name('province.index');

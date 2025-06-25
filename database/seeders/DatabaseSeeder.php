@@ -22,6 +22,10 @@ class DatabaseSeeder extends Seeder
             VillageSeeder::class,
             BranchSeeder::class,
             SubBranchSeeder::class,
+            OfficeSeeder::class,
+            PositionSeeder::class,
+            FamilySituationSeeder::class,
+            EmployeeStatusSeeder::class,
         ]);
     }
 }
