@@ -34,11 +34,6 @@ Route::get('/permission', [PermissionController::class, 'index'])->middleware('a
 Route::get('/permission/create', [PermissionController::class, 'create'])->middleware('auth')->name('permission.create');
 Route::get('/permission/{permission}/edit', [PermissionController::class, 'edit'])->middleware('auth')->name('permission.edit');
 
-// User Level
-Route::get('/user-level', [UserLevelController::class, 'index'])->middleware('auth')->name('user-level.index');
-Route::get('/user-level/create', [UserLevelController::class, 'create'])->middleware('auth')->name('user-level.create');
-Route::get('/user-level/{user_level}/edit', [UserLevelController::class, 'edit'])->middleware('auth')->name('user-level.edit');
-
 // Branch
 Route::get('/branch', [BranchController::class, 'index'])->middleware('auth')->name('branch.index');
 Route::get('/branch/create', [BranchController::class, 'create'])->middleware('auth')->name('branch.create');

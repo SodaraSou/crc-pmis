@@ -18,7 +18,7 @@ class OfficeSeeder extends Seeder
                 'department_id' => 2,
             ],
             [
-                'kh_name' => 'ការិយាល័យPMER',
+                'kh_name' => 'ការិយាល័យផែនការនិងរបាយការណ៍',
                 'department_id' => 2,
             ],
             [

@@ -77,17 +77,15 @@ class UserSeeder extends Seeder
             Permission::create($permission);
         }
 
-        Role::create(['name' => 'HQ System Manager', 'kh_name' => 'ប្រធានគ្រប់គ្រងថ្នាក់កណ្តាល']);
-        Role::create(['name' => 'HQ System Operator', 'kh_name' => 'មន្ត្រីគ្រប់គ្រងថ្នាក់កណ្តាល']);
-        Role::create(['name' => 'Branch System Manager', 'kh_name' => 'ប្រធានគ្រប់គ្រងថ្នាក់សាខា']);
-        Role::create(['name' => 'Branch System Operator', 'kh_name' => 'មន្ត្រីគ្រប់គ្រងថ្នាក់សាខា']);
-        Role::create(['name' => 'Sub-Branch System Manager', 'kh_name' => 'ប្រធានគ្រប់គ្រងថ្នាក់អនុសាខា']);
-        Role::create(['name' => 'Sub-Branch System Operator', 'kh_name' => 'មន្ត្រីគ្រប់គ្រងថ្នាក់អនុសាខា']);
-
         $superAdminRole = Role::create([
             'name' => 'System Manager',
             'kh_name' => 'ប្រធានគ្រប់គ្រងប្រព័ន្ធ',
         ]);
+        Role::create(['name' => 'Branch System Manager', 'kh_name' => 'ប្រធានគ្រប់គ្រងថ្នាក់សាខា']);
+        Role::create(['name' => 'Sub-Branch System Manager', 'kh_name' => 'ប្រធានគ្រប់គ្រងថ្នាក់អនុសាខា']);
+        Role::create(['name' => 'Branch System Operator', 'kh_name' => 'មន្ត្រីគ្រប់គ្រងថ្នាក់សាខា']);
+        Role::create(['name' => 'Sub-Branch System Operator', 'kh_name' => 'មន្ត្រីគ្រប់គ្រងថ្នាក់អនុសាខា']);
+
         $superAdminRole->givePermissionTo(Permission::all());
         $superAdmin = User::create([
             'email' => 'admin@admin.com',
@@ -96,7 +94,7 @@ class UserSeeder extends Seeder
             'kh_name' => 'អេតមីន',
             'phone_number' => '012354987',
             'user_level_id' => 1,
-            'profile_img' => 'https://github.com/shadcn.png'
+            'profile_img' => 'https://github.com/shadcn.png',
         ]);
         $superAdmin->assignRole($superAdminRole);
     }

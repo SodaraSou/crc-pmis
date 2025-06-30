@@ -1,10 +1,10 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ route('home') }}" class="brand-link">
-        <img src="{{ asset('Cambodian_Red_Cross_Logo.png') }}" alt="LuyTopia Logo" class="brand-image" style="opacity: .8">
+        <img src="{{ asset('Cambodian_Red_Cross_Logo.png') }}" alt="LuyTopia Logo" class="brand-image"
+             style="opacity: .8">
         <span class="brand-text font-weight-light">CRC PMIS</span>
     </a>
-
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar Menu -->
@@ -19,14 +19,31 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item" id="employee">
-                    <a href="{{ route('home') }}" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>
-                            បុគ្គលិក
-                        </p>
-                    </a>
-                </li>
+                @if(Auth::user()->hasPermissionTo('employee_management'))
+                    <li class="nav-item" id="employee">
+                        <a href=#" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                បុគ្គលិក
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item" id="employee-list">
+                                <a href="{{ route('employee.index') }}" class="nav-link">
+                                    <i class="fas fa-angle-double-right nav-icon"></i>
+                                    <p>បញ្ជីបុគ្គលិក</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" id="employee-create">
+                                <a href="{{ route('employee.create') }}" class="nav-link">
+                                    <i class="fas fa-angle-double-right nav-icon"></i>
+                                    <p>បង្កើតបុគ្គលិក</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
                 @if (Auth::user()->user_level_id == 1)
                     @if (Auth::user()->hasPermissionTo('security_management'))
                         <li class="nav-item" id="security">
@@ -43,14 +60,6 @@
                                         <a href="{{ route('user.index') }}" class="nav-link">
                                             <i class="fas fa-angle-double-right nav-icon"></i>
                                             <p>អ្នកប្រើប្រាស់</p>
-                                        </a>
-                                    </li>
-                                @endif
-                                @if (Auth::user()->hasPermissionTo('user_level_management'))
-                                    <li class="nav-item" id="user-level">
-                                        <a href="{{ route('user-level.index') }}" class="nav-link">
-                                            <i class="fas fa-angle-double-right nav-icon"></i>
-                                            <p>លំដាប់អ្នកប្រើប្រាស់</p>
                                         </a>
                                     </li>
                                 @endif

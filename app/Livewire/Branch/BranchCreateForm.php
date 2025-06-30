@@ -9,8 +9,8 @@ use Livewire\Component;
 
 class BranchCreateForm extends Component
 {
-    #[Validate('required', message: "សូមជ្រើសរើសរាជធានី/ខេត្ត")]
-    public $province_id = "";
+    #[Validate('required', message: 'សូមជ្រើសរើសរាជធានី/ខេត្ត')]
+    public $province_id = '';
 
     public function save()
     {
@@ -22,6 +22,7 @@ class BranchCreateForm extends Component
                 'kh_name' => $province->kh_name,
                 'province_id' => $this->province_id,
             ]);
+
             return redirect()->to('/branch');
         } catch (\Exception $e) {
             $this->dispatch('create_fail', message: $e->getMessage());
@@ -31,7 +32,7 @@ class BranchCreateForm extends Component
     public function render()
     {
         return view('livewire.branch.branch-create-form', [
-            'provinces' => Province::all()
+            'provinces' => Province::all(),
         ]);
     }
 }

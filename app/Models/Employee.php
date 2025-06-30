@@ -28,7 +28,7 @@ class Employee extends Model
         'ad_street_number',
         'ad_street_name',
         'ad_house_number',
-        'user_level_id',
+        'employee_level_id',
         'branch_id',
         'sub_branch_id',
         'department_id',
