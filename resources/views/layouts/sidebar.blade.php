@@ -21,7 +21,7 @@
                 </li>
                 @if(Auth::user()->hasPermissionTo('employee_management'))
                     <li class="nav-item" id="employee">
-                        <a href=#" class="nav-link">
+                        <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-users"></i>
                             <p>
                                 បុគ្គលិក

@@ -120,6 +120,6 @@ class Employee extends Model
 
     public function positions(): BelongsToMany
     {
-        return $this->belongsToMany(Position::class);
+        return $this->belongsToMany(Position::class)->withPivot('start_date', 'opt_position_name', 'end_date');
     }
 }

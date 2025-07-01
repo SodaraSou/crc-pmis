@@ -20,27 +20,27 @@ class DepartmentSeeder extends Seeder
             ],
             [
                 'en_name' => 'Administration and Finance Department',
-                'kh_name' => 'នាយកដ្ឋានរដ្ឋបាល និងហិរញ្ញកិច្ច',
+                'kh_name' => 'រដ្ឋបាល និងហិរញ្ញកិច្ច',
                 'department_order' => 2
             ],
             [
                 'en_name' => 'Crisis Management Department',
-                'kh_name' => 'នាយកដ្ឋានគ្រប់គ្រងគ្រោះមហន្តរាយ',
+                'kh_name' => 'គ្រប់គ្រងគ្រោះមហន្តរាយ',
                 'department_order' => 3
             ],
             [
                 'en_name' => 'Health Department',
-                'kh_name' => 'នាយកដ្ឋានសុខភាព',
+                'kh_name' => 'សុខភាព',
                 'department_order' => 4
             ],
             [
                 'en_name' => 'Communications Department',
-                'kh_name' => 'នាយកដ្ឋានទំនាក់ទំនង',
+                'kh_name' => 'ទំនាក់ទំនង',
                 'department_order' => 5
             ],
             [
                 'en_name' => 'Human Resource Department',
-                'kh_name' => 'នាយកដ្ឋានធនធានមនុស្ស',
+                'kh_name' => 'ធនធានមនុស្ស',
                 'department_order' => 6
             ],
         ]);

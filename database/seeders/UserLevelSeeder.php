@@ -16,15 +16,15 @@ class UserLevelSeeder extends Seeder
         UserLevel::insert([
             [
                 'en_name' => 'Headquarter Level',
-                'kh_name' => 'ថ្នាក់កណ្តាល',
+                'kh_name' => 'កណ្តាល',
             ],
             [
                 'en_name' => 'Branch Level',
-                'kh_name' => 'ថ្នាក់សាខា',
+                'kh_name' => 'សាខា',
             ],
             [
                 'en_name' => 'Sub-branch Level',
-                'kh_name' => 'ថ្នាក់អនុសាខា',
+                'kh_name' => 'អនុសាខា',
             ],
         ]);
     }

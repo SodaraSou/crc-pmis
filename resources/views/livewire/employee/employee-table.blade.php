@@ -23,9 +23,6 @@
         <table class="table table-hover text-nowrap">
             <thead>
             <tr>
-                {{--                <th>--}}
-                {{--                    ID--}}
-                {{--                </th>--}}
                 <th>
                     ឈ្មោះខ្មែរ
                 </th>
@@ -38,21 +35,18 @@
             <tbody>
             @foreach ($employees as $employee)
                 <tr wire:key='{{ $employee->id }}'>
-                    {{--                    <td>{{ $employee->id }}</td>--}}
                     <td>{{ $employee->kh_name }}</td>
                     <td>{{ $employee->en_name }}</td>
                     <td>
                         <div class="d-flex justify-content-center align-items-center">
-                            <a href="{{ route('employee.show', $employee->id) }}" class="btn btn-sm btn-primary mr-2">
+                            <a href="{{ route('employee.show', Crypt::encrypt($employee->id)) }}"
+                               class="btn btn-sm btn-primary mr-2">
                                 <i class="fa fa-eye" aria-hidden="true"></i>
                             </a>
-                            <a href="{{ route('employee.edit', $employee->id) }}" class="btn btn-sm btn-info mr-2">
+                            <a href="{{ route('employee.edit', Crypt::encrypt($employee->id)) }}"
+                               class="btn btn-sm btn-info mr-2">
                                 <i class="fa fa-pen" aria-hidden="true"></i>
                             </a>
-                            {{-- <button class="btn btn-sm btn-danger"
-                                wire:click="$dispatch('alert-delete', {id: {{ $user->id }}})">
-                            <i class="fa fa-trash" aria-hidden="true"></i>
-                        </button> --}}
                         </div>
                     </td>
                 </tr>

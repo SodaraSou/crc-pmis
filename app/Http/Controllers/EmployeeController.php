@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Gate;
 
 class EmployeeController extends Controller
@@ -21,8 +23,10 @@ class EmployeeController extends Controller
         return view('employee.employee-create');
     }
 
-    public function edit(Employee $employee)
+    public function edit(Request $request)
     {
+        $employee = Employee::find(Crypt::decrypt($request->employee_id));
+
         Gate::authorize('update', $employee);
 
         return view('employee.employee-edit', [
@@ -30,12 +34,14 @@ class EmployeeController extends Controller
         ]);
     }
 
-    public function show(Employee $employee)
+    public function show(Request $request)
     {
+        $employee = Employee::find(Crypt::decrypt($request->employee_id));
+
         Gate::authorize('view', $employee);
 
         return view('employee.employee-show', [
-            'employee' => $employee,
+            'employee' => $employee->load(['positions.employees']),
         ]);
     }
 }

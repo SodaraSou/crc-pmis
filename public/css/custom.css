@@ -1,3 +1,7 @@
+body, html {
+    font-family: 'Noto Sans Khmer', 'Roboto', sans-serif;
+}
+
 .my-active {
     background-color: #dc3545;
 }
