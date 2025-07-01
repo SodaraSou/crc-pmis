@@ -32,7 +32,7 @@ class EmployeePolicy
             return $employee->branch_id == $user->branch_id;
         }
 
-        if ($user->hasRole('Sub-Branch System Manager', 'Sub-Branch System Operator')) {
+        if ($user->hasRole(['Sub-Branch System Manager', 'Sub-Branch System Operator'])) {
             return $employee->sub_branch_id == $user->sub_branch_id;
         }
 
@@ -52,9 +52,23 @@ class EmployeePolicy
      */
     public function update(User $user, Employee $employee): bool
     {
-        //        if (! $user->hasPermissionTo('employee_management')) {
-        //            return false;
-        //        }
+        if (! $user->hasPermissionTo('employee_management')) {
+            return false;
+        }
+
+        if ($user->hasRole('System Manager')) {
+            return true;
+        }
+
+        if ($user->hasRole(['Branch System Manager', 'Branch System Operator'])) {
+            return $employee->branch_id == $user->branch_id;
+        }
+
+        if ($user->hasRole(['Sub-Branch System Manager', 'Sub-Branch System Operator'])) {
+            return $employee->sub_branch_id == $user->sub_branch_id;
+        }
+
+        return false;
     }
 
     /**

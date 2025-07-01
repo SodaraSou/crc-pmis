@@ -6,17 +6,17 @@ use App\Http\Controllers\CommuneController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\EmployeePositionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SubBranchController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\UserLevelController;
 use App\Http\Controllers\VillageController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [HomeController::class, 'index'])->middleware("auth")->name('home');
+Route::get('/', [HomeController::class, 'index'])->middleware('auth')->name('home');
 
 // User
 Route::get('/user', [UserController::class, 'index'])->middleware('auth')->name('user.index');
@@ -58,6 +58,9 @@ Route::get('/employee', [EmployeeController::class, 'index'])->middleware('auth'
 Route::get('/employee/create', [EmployeeController::class, 'create'])->middleware('auth')->name('employee.create');
 Route::get('/employee/{employee}', [EmployeeController::class, 'show'])->middleware('auth')->name('employee.show');
 Route::get('/employee/{employee}/edit', [EmployeeController::class, 'edit'])->middleware('auth')->name('employee.edit');
+
+// Employee Position
+Route::get('/employee/{employee}/position/create', [EmployeePositionController::class, 'create'])->middleware('auth')->name('employee.position.create');
 
 // Province
 Route::get('/province', [ProvinceController::class, 'index'])->middleware('auth')->name('province.index');

@@ -134,4 +134,9 @@ class EmployeeForm extends Form
     {
         Employee::create($this->all());
     }
+
+    public function update(): void
+    {
+        $this->employee->update($this->all());
+    }
 }

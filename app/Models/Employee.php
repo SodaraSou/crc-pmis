@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Employee extends Model
 {
@@ -34,4 +36,90 @@ class Employee extends Model
         'department_id',
         'office_id',
     ];
+
+    public function family_situation(): BelongsTo
+    {
+        return $this->belongsTo(FamilySituation::class);
+    }
+
+    public function gender(): BelongsTo
+    {
+        return $this->belongsTo(Gender::class);
+    }
+
+    public function employee_status(): BelongsTo
+    {
+        return $this->belongsTo(EmployeeStatus::class);
+    }
+
+    public function employee_level(): BelongsTo
+    {
+        return $this->belongsTo(UserLevel::class);
+    }
+
+    public function bp_province(): BelongsTo
+    {
+        return $this->belongsTo(Province::class);
+
+    }
+
+    public function bp_district(): BelongsTo
+    {
+        return $this->belongsTo(District::class);
+    }
+
+    public function bp_commune(): BelongsTo
+    {
+        return $this->belongsTo(Commune::class);
+    }
+
+    public function bp_village(): BelongsTo
+    {
+        return $this->belongsTo(Village::class);
+    }
+
+    public function ad_province(): BelongsTo
+    {
+        return $this->belongsTo(Province::class);
+    }
+
+    public function ad_district(): BelongsTo
+    {
+        return $this->belongsTo(District::class);
+    }
+
+    public function ad_commune(): BelongsTo
+    {
+        return $this->belongsTo(Commune::class);
+    }
+
+    public function ad_village(): BelongsTo
+    {
+        return $this->belongsTo(Village::class);
+    }
+
+    public function branch(): BelongsTo
+    {
+        return $this->belongsTo(Branch::class);
+    }
+
+    public function sub_branch(): BelongsTo
+    {
+        return $this->belongsTo(SubBranch::class);
+    }
+
+    public function department(): BelongsTo
+    {
+        return $this->belongsTo(Department::class);
+    }
+
+    public function office(): BelongsTo
+    {
+        return $this->belongsTo(Office::class);
+    }
+
+    public function positions(): BelongsToMany
+    {
+        return $this->belongsToMany(Position::class);
+    }
 }

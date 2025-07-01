@@ -23,6 +23,8 @@ class EmployeeController extends Controller
 
     public function edit(Employee $employee)
     {
+        Gate::authorize('update', $employee);
+
         return view('employee.employee-edit', [
             'employee' => $employee,
         ]);
