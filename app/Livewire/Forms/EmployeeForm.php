@@ -130,9 +130,9 @@ class EmployeeForm extends Form
         $this->office_id = $employee->office_id;
     }
 
-    public function store(): void
+    public function store()
     {
-        Employee::create($this->all());
+        return Employee::create($this->all());
     }
 
     public function update(): void

@@ -16,6 +16,7 @@ use App\Models\SubBranch;
 use App\Models\UserLevel;
 use App\Models\Village;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\View\View;
 use Livewire\Component;
 
@@ -99,9 +100,10 @@ class EmployeeCreateForm extends Component
     {
         $this->validate();
         try {
-            $this->form->store();
+            $employee = $this->form->store();
+            $encrypt_id = Crypt::encrypt($employee->id);
 
-            return redirect()->to('/employee');
+            return redirect()->to("/employee/{$encrypt_id}");
         } catch (\Exception $e) {
             $this->dispatch('create_fail', message: $e->getMessage());
         }

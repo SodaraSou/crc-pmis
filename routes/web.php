@@ -6,7 +6,6 @@ use App\Http\Controllers\CommuneController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\EmployeePositionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProvinceController;
@@ -58,9 +57,8 @@ Route::get('/employee', [EmployeeController::class, 'index'])->middleware('auth'
 Route::get('/employee/create', [EmployeeController::class, 'create'])->middleware('auth')->name('employee.create');
 Route::get('/employee/{employee_id}', [EmployeeController::class, 'show'])->middleware('auth')->name('employee.show');
 Route::get('/employee/{employee_id}/edit', [EmployeeController::class, 'edit'])->middleware('auth')->name('employee.edit');
-
-// Employee Position
-Route::get('/employee/{employee_id}/position/create', [EmployeePositionController::class, 'create'])->middleware('auth')->name('employee.position.create');
+Route::get('/employee/{employee_id}/position/create', [EmployeeController::class, 'createPosition'])->middleware('auth')->name('employee.position.create');
+Route::get('/employee/{employee_id}/position/{employee_position_id}/edit', [EmployeeController::class, 'editPosition'])->middleware('auth')->name('employee.position.edit');
 
 // Province
 Route::get('/province', [ProvinceController::class, 'index'])->middleware('auth')->name('province.index');

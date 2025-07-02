@@ -61,10 +61,10 @@
             <div class="card">
                 <div class="card-header p-2">
                     <ul class="nav nav-pills">
-                        <li class="nav-item"><a class="nav-link" href="#info"
+                        <li class="nav-item"><a class="nav-link active" href="#info"
                                                 data-toggle="tab">ព័ត៍មាន</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link active" href="#timeline"
+                        <li class="nav-item"><a class="nav-link" href="#timeline"
                                                 data-toggle="tab">ប្រវតិ្តដំណែង</a>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="#activity"
@@ -76,39 +76,135 @@
                 </div>
                 <div class="card-body">
                     <div class="tab-content">
-                        <div class="active tab-pane" id="timeline">
+                        <div class="active tab-pane" id="info">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>ឈ្មោះ</th>
+                                    <td>{{ $employee->kh_name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>ឈ្មោះឡាតាំង</th>
+                                    <td>{{ $employee->en_name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>ភេទ</th>
+                                    <td>{{ $employee->gender->kh_name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>ថ្ងៃ/ខែ/ឆ្នាំកំណើត</th>
+                                    <td>{{ $employee->dob }}</td>
+                                </tr>
+                                <tr>
+                                    <th>ទីកន្លែងកំណើត</th>
+                                    <td>
+                                        <dl class="row mb-0">
+                                            <dt class="col-sm-2">ភូមិ</dt>
+                                            <dd class="col-sm-10">{{ $employee->bp_village->kh_name }}</dd>
+
+                                            <dt class="col-sm-2">ឃុំ/សង្កាត់</dt>
+                                            <dd class="col-sm-10">{{ $employee->bp_commune->kh_name }}</dd>
+
+                                            <dt class="col-sm-2">ក្រុង/ស្រុក/ខណ្ឌ</dt>
+                                            <dd class="col-sm-10">{{ $employee->bp_district->kh_name }}</dd>
+
+                                            <dt class="col-sm-2">រាជធានី/ខេត្ត</dt>
+                                            <dd class="col-sm-10">{{ $employee->bp_province->kh_name }}</dd>
+                                        </dl>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>ស្ថានភាពគ្រួសារ</th>
+                                    <td>{{ $employee->family_situation->kh_name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>ស្ថានភាពបុគ្គលិក</th>
+                                    <td>{{ $employee->employee_status->kh_name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>លេខអត្តសញ្ញាណប័ណ្ខ</th>
+                                    <td>{{ $employee->national_id }}</td>
+                                </tr>
+                                <tr>
+                                    <th>លេខទូរស័ព្ទ</th>
+                                    <td>{{ $employee->phone_number }}</td>
+                                </tr>
+                                <tr>
+                                    <th>អុីម៉ែល</th>
+                                    <td>{{ $employee->email }}</td>
+                                </tr>
+                                <tr>
+                                    <th>អាស័យដ្ឋានបច្ចុប្បន្ន</th>
+                                    <td>
+                                        <dl class="row mb-0">
+                                            <dt class="col-sm-2">ភូមិ</dt>
+                                            <dd class="col-sm-10">{{ $employee->ad_village->kh_name }}</dd>
+
+                                            <dt class="col-sm-2">ឃុំ/សង្កាត់</dt>
+                                            <dd class="col-sm-10">{{ $employee->ad_commune->kh_name }}</dd>
+
+                                            <dt class="col-sm-2">ក្រុង/ស្រុក/ខណ្ឌ</dt>
+                                            <dd class="col-sm-10">{{ $employee->ad_district->kh_name }}</dd>
+
+                                            <dt class="col-sm-2">រាជធានី/ខេត្ត</dt>
+                                            <dd class="col-sm-10">{{ $employee->ad_province->kh_name }}</dd>
+                                        </dl>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="timeline">
+                            <div class="text-right">
+                                <a href="{{ route('employee.position.create', Crypt::encrypt($employee->id)) }}"
+                                   class="btn btn-success"><i
+                                        class="fa fa-plus mr-1"></i>
+                                    បង្កើត
+                                </a>
+                            </div>
                             <div class="timeline timeline-inverse">
-                                <?php
-                                dd($positions);
-                                ?>
                                 @foreach($positions as $employee_postion)
                                     <div class="time-label">
-                                        <span class="bg-primary">
-                                            {{$employee_postion->start_date}}
-                                        </span>
+                                        @if($employee_postion->pivot->end_date)
+                                            <span class="bg-danger">
+                                                {{$employee_postion->pivot->start_date}} ដល់ {{$employee_postion->pivot->end_date}}
+                                            </span>
+                                        @else
+                                            <span class="bg-primary">
+                                                {{$employee_postion->pivot->start_date}}
+                                            </span>
+                                        @endif
                                     </div>
                                     <div>
-                                        <i class="fas fa-suitcase bg-primary"></i>
+                                        @if($employee_postion->pivot->end_date)
+                                            <i class="fas fa-suitcase bg-danger"></i>
+                                        @else
+                                            <i class="fas fa-suitcase bg-primary"></i>
+                                        @endif
                                         <div class="timeline-item">
-                                            <h3 class="timeline-header">{{$employee_postion->position->kh_name}}</h3>
+                                            <h3 class="timeline-header">{{$employee_postion->kh_name}}</h3>
                                             <div class="timeline-body">
                                                 <div class="mb-2">
-                                                    នាយកដ្ឋាន: {{$employee_postion->department->kh_name}}
+                                                    នាយកដ្ឋាន: {{$employee_postion->pivot->department->kh_name}}
                                                 </div>
                                                 <div>
-                                                    ការិយាល័យ: {{$employee_postion->office->kh_name}}
+                                                    ការិយាល័យ: {{$employee_postion->pivot->office->kh_name}}
                                                 </div>
                                             </div>
                                             <div class="timeline-footer">
                                                 <a href="{{route('home')}}" class="btn btn-success"><i
                                                         class="fa fa-file-alt mr-2"></i>កុងត្រា</a>
+                                                <a href="{{ route('employee.position.edit', [Crypt::encrypt($employee_postion->pivot->employee_id), Crypt::encrypt($employee_postion->pivot->id)]) }}"
+                                                   class="btn btn-info">
+                                                    <i class="fa fa-pen mr-2"></i>កែប្រែ
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
+                                @endforeach
+                                @if($positions->count() > 0)
                                     <div>
                                         <i class="far fa-clock bg-gray"></i>
                                     </div>
-                                @endforeach
+                                @endif
                             </div>
                         </div>
                         <div class="tab-pane" id="activity">

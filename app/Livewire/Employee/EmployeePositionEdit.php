@@ -5,6 +5,7 @@ namespace App\Livewire\Employee;
 use App\Models\Branch;
 use App\Models\Department;
 use App\Models\Employee;
+use App\Models\EmployeePosition;
 use App\Models\Office;
 use App\Models\Position;
 use App\Models\SubBranch;
@@ -13,9 +14,11 @@ use Illuminate\View\View;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
-class EmployeePositonCreateForm extends Component
+class EmployeePositionEdit extends Component
 {
     public Employee $employee;
+
+    public EmployeePosition $employee_position;
 
     public $offices = [];
 
@@ -57,15 +60,20 @@ class EmployeePositonCreateForm extends Component
         ];
     }
 
-    public function mount(Employee $employee): void
+    public function mount(Employee $employee, EmployeePosition $employee_position): void
     {
         $this->employee = $employee;
-        $this->department_id = $employee->department_id;
-        $this->offices = Office::where('department_id', $employee->department_id)->get();
-        $this->office_id = $employee->office_id;
-        $this->branch_id = $employee->branch_id;
-        $this->sub_branches = SubBranch::where('branch_id', $employee->branch_id)->get();
-        $this->sub_branch_id = $employee->sub_branch_id;
+        $this->employee_position = $employee_position;
+        $this->department_id = $employee_position->department_id;
+        $this->offices = Office::where('department_id', $employee_position->department_id)->get();
+        $this->office_id = $employee_position->office_id;
+        $this->branch_id = $employee_position->branch_id;
+        $this->sub_branches = SubBranch::where('branch_id', $employee_position->branch_id)->get();
+        $this->sub_branch_id = $employee_position->sub_branch_id;
+        $this->position_id = $employee_position->position_id;
+        $this->start_date = $employee_position->start_date;
+        $this->end_date = $employee_position->end_date;
+        $this->opt_position_name = $employee_position->opt_position_name;
     }
 
     public function updatedDepartmentId(): void
@@ -82,8 +90,9 @@ class EmployeePositonCreateForm extends Component
     {
         $validated = $this->validate();
         try {
-            $encrypt_id = Crypt::encrypt($this->employee->id);
-            $this->employee->positions()->attach($validated['position_id'], [
+            $encrypt_id = Crypt::encrypt($this->employee_position->employee_id);
+            $this->employee_position->update([
+                'position_id' => $validated['position_id'],
                 'department_id' => $validated['department_id'],
                 'office_id' => $validated['office_id'],
                 'branch_id' => $validated['branch_id'],
@@ -95,13 +104,13 @@ class EmployeePositonCreateForm extends Component
 
             return redirect()->to("/employee/{$encrypt_id}");
         } catch (\Exception $e) {
-            $this->dispatch('create_fail', message: $e->getMessage());
+            $this->dispatch('update_fail', message: $e->getMessage());
         }
     }
 
     public function render(): View
     {
-        return view('livewire.employee.employee-positon-create-form', [
+        return view('livewire.employee.employee-position-edit', [
             'positions' => Position::all(),
             'departments' => Department::all(),
             'branches' => Branch::all(),

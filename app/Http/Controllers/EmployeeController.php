@@ -45,12 +45,30 @@ class EmployeeController extends Controller
             ->whereNull('end_date')
             ->get();
 
-        $positions = EmployeePosition::where('employee_id', $employee->id)->get();
-
         return view('employee.employee-show', [
             'employee' => $employee->load(['positions.employees']),
             'current_position' => $current_position->first()?->position,
             'positions' => $employee->positions,
+        ]);
+    }
+
+    public function createPosition(Request $request)
+    {
+        $employee = Employee::find(Crypt::decrypt($request->employee_id));
+
+        return view('employee.employee-position-create', [
+            'employee' => $employee,
+        ]);
+    }
+
+    public function editPosition(Request $request)
+    {
+        $employee = Employee::find(Crypt::decrypt($request->employee_id));
+        $employee_position = EmployeePosition::find(Crypt::decrypt($request->employee_position_id));
+
+        return view('employee.employee-position-edit', [
+            'employee' => $employee,
+            'employee_position' => $employee_position,
         ]);
     }
 }
