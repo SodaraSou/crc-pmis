@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\EmployeePosition;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Gate;
@@ -40,8 +41,16 @@ class EmployeeController extends Controller
 
         Gate::authorize('view', $employee);
 
+        $current_position = EmployeePosition::where('employee_id', $employee->id)
+            ->whereNull('end_date')
+            ->get();
+
+        $positions = EmployeePosition::where('employee_id', $employee->id)->get();
+
         return view('employee.employee-show', [
             'employee' => $employee->load(['positions.employees']),
+            'current_position' => $current_position->first()?->position,
+            'positions' => $employee->positions,
         ]);
     }
 }

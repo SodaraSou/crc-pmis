@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('employee_id')->constrained()->cascadeOnDelete();
             $table->foreignId('position_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('department_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('office_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignId('branch_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('sub_branch_id')->nullable()->constrained()->cascadeOnDelete();
             $table->string('opt_position_name')->nullable();
             $table->date('start_date');
             $table->date('end_date')->nullable();

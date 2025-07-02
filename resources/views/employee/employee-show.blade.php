@@ -7,7 +7,6 @@
 @section('content')
     <div class="row">
         <div class="col-md-3">
-            <!-- Profile Image -->
             <div class="card card-primary card-outline">
                 <div class="card-body box-profile">
                     <div class="text-center">
@@ -41,48 +40,20 @@
                             <b>ការិយាល័យ</b> <a class="float-right">{{$employee->office->kh_name}}</a>
                         </li>
                         <li class="list-group-item">
-                            <b>ដំណែង</b> <a class="float-right">{{$employee->positions[0]->kh_name}}</a>
+                            <b>ដំណែង</b> <a class="float-right">{{$current_position->kh_name ?? 'N/A'}}</a>
                         </li>
                     </ul>
-                    <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
-                </div>
-            </div>
-
-            <div class="card card-primary">
-                <div class="card-header">
-                    <h3 class="card-title">About Me</h3>
-                </div>
-                <div class="card-body">
-                    <strong><i class="fas fa-book mr-1"></i> Education</strong>
-
-                    <p class="text-muted">
-                        B.S. in Computer Science from the University of Tennessee at Knoxville
-                    </p>
-
-                    <hr>
-
-                    <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-
-                    <p class="text-muted">Malibu, California</p>
-
-                    <hr>
-
-                    <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-
-                    <p class="text-muted">
-                        <span class="tag tag-danger">UI Design</span>
-                        <span class="tag tag-success">Coding</span>
-                        <span class="tag tag-info">Javascript</span>
-                        <span class="tag tag-warning">PHP</span>
-                        <span class="tag tag-primary">Node.js</span>
-                    </p>
-
-                    <hr>
-
-                    <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                        fermentum enim neque.</p>
+                    <div class="row g-4">
+                        <div class="col-6">
+                            <a href="{{route('employee.edit', Crypt::encrypt($employee->id))}}"
+                               class="btn btn-info btn-block"><i class="fa fa-pen mr-1" aria-hidden="true"></i>
+                                <b>កែប្រែ</b></a>
+                        </div>
+                        <div class="col-6">
+                            <a href="#" class="btn btn-danger btn-block"><i class="fa fa-trash mr-2"
+                                                                            aria-hidden="true"></i><b>លុប</b></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -90,9 +61,16 @@
             <div class="card">
                 <div class="card-header p-2">
                     <ul class="nav nav-pills">
-                        <li class="nav-item"><a class="nav-link active" href="#timeline" data-toggle="tab">Timeline</a>
+                        <li class="nav-item"><a class="nav-link" href="#info"
+                                                data-toggle="tab">ព័ត៍មាន</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#activity" data-toggle="tab">Activity</a>
+                        <li class="nav-item"><a class="nav-link active" href="#timeline"
+                                                data-toggle="tab">ប្រវតិ្តដំណែង</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#activity"
+                                                data-toggle="tab">ប្រវត្តិការសិក្សា</a>
+                        <li class="nav-item"><a class="nav-link" href="#job"
+                                                data-toggle="tab">ប្រវត្តិការងារ</a>
                         </li>
                     </ul>
                 </div>
@@ -100,34 +78,36 @@
                     <div class="tab-content">
                         <div class="active tab-pane" id="timeline">
                             <div class="timeline timeline-inverse">
-                                @foreach($employee->positions as $employee_postion)
-                                    {{--                                    <div class="time-label">--}}
-                                    {{--                                    <span class="bg-primary">--}}
-                                    {{--                                      {{$employee_postion->pivot->start_date}}--}}
-                                    {{--                                    </span>--}}
-                                    {{--                                    </div>--}}
-                                    {{--                                    <div>--}}
-                                    {{--                                        <i class="fas fa-suitcase bg-primary"></i>--}}
-                                    {{--                                        <div class="timeline-item">--}}
-                                    {{--                                            <h3 class="timeline-header">{{$employee_postion->kh_name}}</h3>--}}
-                                    {{--                                            <div class="timeline-body">--}}
-                                    {{--                                                <div class="mb-2">--}}
-                                    {{--                                                    <i class="fa fa-file-alt"></i>--}}
-                                    {{--                                                    នាយកដ្ឋាន: {{$employee_postion->}}--}}
-                                    {{--                                                </div>--}}
-                                    {{--                                                <div>--}}
-                                    {{--                                                    <i class="fa fa-file-alt"></i> ការិយាល័យ:--}}
-                                    {{--                                                </div>--}}
-                                    {{--                                            </div>--}}
-                                    {{--                                            <div class="timeline-footer">--}}
-                                    {{--                                                <a href="{{route('home')}}" class="btn btn-success"><i--}}
-                                    {{--                                                        class="fa fa-file-alt bg-primary"></i> កុងត្រា</a>--}}
-                                    {{--                                            </div>--}}
-                                    {{--                                        </div>--}}
-                                    {{--                                    </div>--}}
-                                    {{--                                    <div>--}}
-                                    {{--                                        <i class="far fa-clock bg-gray"></i>--}}
-                                    {{--                                    </div>--}}
+                                <?php
+                                dd($positions);
+                                ?>
+                                @foreach($positions as $employee_postion)
+                                    <div class="time-label">
+                                        <span class="bg-primary">
+                                            {{$employee_postion->start_date}}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-suitcase bg-primary"></i>
+                                        <div class="timeline-item">
+                                            <h3 class="timeline-header">{{$employee_postion->position->kh_name}}</h3>
+                                            <div class="timeline-body">
+                                                <div class="mb-2">
+                                                    នាយកដ្ឋាន: {{$employee_postion->department->kh_name}}
+                                                </div>
+                                                <div>
+                                                    ការិយាល័យ: {{$employee_postion->office->kh_name}}
+                                                </div>
+                                            </div>
+                                            <div class="timeline-footer">
+                                                <a href="{{route('home')}}" class="btn btn-success"><i
+                                                        class="fa fa-file-alt mr-2"></i>កុងត្រា</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <i class="far fa-clock bg-gray"></i>
+                                    </div>
                                 @endforeach
                             </div>
                         </div>
