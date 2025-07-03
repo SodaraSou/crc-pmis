@@ -17,6 +17,7 @@ use App\Models\SubBranch;
 use App\Models\UserLevel;
 use App\Models\Village;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\View\View;
 use Livewire\Component;
 
@@ -100,11 +101,23 @@ class EmployeeEditForm extends Component
 
     public function save()
     {
+        if ($this->form->sub_branch_id === '') {
+            $this->form->sub_branch_id = null;
+        }
         $this->validate();
         try {
-            $this->form->update();
+            $old_department_id = $this->form->employee->department_id;
+            $old_office_id = $this->form->employee->office_id;
+            $old_branch_id = $this->form->employee->branch_id;
+            $old_sub_branch_id = $this->form->employee->sub_branch_id;
+            $employee = $this->form->update();
+            $encrypt_id = Crypt::encrypt($employee->id);
 
-            return redirect()->to('/employee');
+            if ($old_department_id != $employee->department_id || $old_office_id != $employee->office_id || $old_branch_id != $employee->branch_id || $old_sub_branch_id != $employee->sub_branch_id) {
+                return redirect()->to("/employee/{$encrypt_id}/position/create");
+            }
+
+            return redirect()->to("/employee/{$encrypt_id}");
         } catch (\Exception $e) {
             $this->dispatch('update_fail', message: $e->getMessage());
         }

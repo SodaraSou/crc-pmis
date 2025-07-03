@@ -44,7 +44,7 @@ class EmployeePositonCreateForm extends Component
     protected function rules(): array
     {
         return [
-            'sub_branch_id' => $this->branch_id > 0 ? 'required' : 'nullable',
+            'sub_branch_id' => $this->employee->employee_level_id == 3 ? 'required' : 'nullable',
             'office_id' => $this->department_id == 1 ? 'nullable' : 'required',
         ];
     }

@@ -10,9 +10,9 @@
             <div class="card card-primary card-outline">
                 <div class="card-body box-profile">
                     <div class="text-center">
-                        <img class="profile-user-img img-fluid img-circle"
-                             src="{{$employee->profile_img}}"
-                             alt="User profile picture">
+                        {{--                        <img class="profile-user-img img-fluid img-circle"--}}
+                        {{--                             src="{{$employee->profile_img}}"--}}
+                        {{--                             alt="User profile picture">--}}
                     </div>
 
                     <h3 class="profile-username text-center">{{$employee->kh_name}}</h3>
@@ -36,9 +36,11 @@
                         <li class="list-group-item">
                             <b>នាយកដ្ឋាន</b> <a class="float-right">{{$employee->department->kh_name}}</a>
                         </li>
-                        <li class="list-group-item">
-                            <b>ការិយាល័យ</b> <a class="float-right">{{$employee->office->kh_name}}</a>
-                        </li>
+                        @if($employee->department->id > 1)
+                            <li class="list-group-item">
+                                <b>ការិយាល័យ</b> <a class="float-right">{{$employee->office->kh_name}}</a>
+                            </li>
+                        @endif
                         <li class="list-group-item">
                             <b>ដំណែង</b> <a class="float-right">{{$current_position->kh_name ?? 'N/A'}}</a>
                         </li>
@@ -98,17 +100,17 @@
                                     <th>ទីកន្លែងកំណើត</th>
                                     <td>
                                         <dl class="row mb-0">
-                                            <dt class="col-sm-2">ភូមិ</dt>
-                                            <dd class="col-sm-10">{{ $employee->bp_village->kh_name }}</dd>
+                                            <dt class="col-sm-4">ភូមិ</dt>
+                                            <dd class="col-sm-8">{{ $employee->bp_village->kh_name }}</dd>
 
-                                            <dt class="col-sm-2">ឃុំ/សង្កាត់</dt>
-                                            <dd class="col-sm-10">{{ $employee->bp_commune->kh_name }}</dd>
+                                            <dt class="col-sm-4">ឃុំ/សង្កាត់</dt>
+                                            <dd class="col-sm-8">{{ $employee->bp_commune->kh_name }}</dd>
 
-                                            <dt class="col-sm-2">ក្រុង/ស្រុក/ខណ្ឌ</dt>
-                                            <dd class="col-sm-10">{{ $employee->bp_district->kh_name }}</dd>
+                                            <dt class="col-sm-4">ក្រុង/ស្រុក/ខណ្ឌ</dt>
+                                            <dd class="col-sm-8">{{ $employee->bp_district->kh_name }}</dd>
 
-                                            <dt class="col-sm-2">រាជធានី/ខេត្ត</dt>
-                                            <dd class="col-sm-10">{{ $employee->bp_province->kh_name }}</dd>
+                                            <dt class="col-sm-4">រាជធានី/ខេត្ត</dt>
+                                            <dd class="col-sm-8">{{ $employee->bp_province->kh_name }}</dd>
                                         </dl>
                                     </td>
                                 </tr>
@@ -136,35 +138,48 @@
                                     <th>អាស័យដ្ឋានបច្ចុប្បន្ន</th>
                                     <td>
                                         <dl class="row mb-0">
-                                            <dt class="col-sm-2">ភូមិ</dt>
-                                            <dd class="col-sm-10">{{ $employee->ad_village->kh_name }}</dd>
+                                            @if($employee->ad_street_number)
+                                                <dt class="col-sm-4">លេខផ្លូវ</dt>
+                                                <dd class="col-sm-8">{{ $employee->ad_street_number }}</dd>
+                                            @endif
+                                            @if($employee->ad_street_name)
+                                                <dt class="col-sm-4">ឈ្មោះផ្លូវ</dt>
+                                                <dd class="col-sm-8">{{ $employee->ad_street_name }}</dd>
+                                            @endif
+                                            @if($employee->ad_house_number)
+                                                <dt class="col-sm-4">ផ្ទះលេខ/dt>
+                                                <dd class="col-sm-8">{{ $employee->ad_house_number }}</dd>
+                                            @endif
 
-                                            <dt class="col-sm-2">ឃុំ/សង្កាត់</dt>
-                                            <dd class="col-sm-10">{{ $employee->ad_commune->kh_name }}</dd>
+                                            <dt class="col-sm-4">ភូមិ</dt>
+                                            <dd class="col-sm-8">{{ $employee->ad_village->kh_name }}</dd>
 
-                                            <dt class="col-sm-2">ក្រុង/ស្រុក/ខណ្ឌ</dt>
-                                            <dd class="col-sm-10">{{ $employee->ad_district->kh_name }}</dd>
+                                            <dt class="col-sm-4">ឃុំ/សង្កាត់</dt>
+                                            <dd class="col-sm-8">{{ $employee->ad_commune->kh_name }}</dd>
 
-                                            <dt class="col-sm-2">រាជធានី/ខេត្ត</dt>
-                                            <dd class="col-sm-10">{{ $employee->ad_province->kh_name }}</dd>
+                                            <dt class="col-sm-4">ក្រុង/ស្រុក/ខណ្ឌ</dt>
+                                            <dd class="col-sm-8">{{ $employee->ad_district->kh_name }}</dd>
+
+                                            <dt class="col-sm-4">រាជធានី/ខេត្ត</dt>
+                                            <dd class="col-sm-8">{{ $employee->ad_province->kh_name }}</dd>
                                         </dl>
                                     </td>
                                 </tr>
                             </table>
                         </div>
                         <div class="tab-pane" id="timeline">
-                            <div class="text-right">
-                                <a href="{{ route('employee.position.create', Crypt::encrypt($employee->id)) }}"
-                                   class="btn btn-success"><i
-                                        class="fa fa-plus mr-1"></i>
-                                    បង្កើត
-                                </a>
-                            </div>
+                            {{--                            <div class="text-right">--}}
+                            {{--                                <a href="{{ route('employee.position.create', Crypt::encrypt($employee->id)) }}"--}}
+                            {{--                                   class="btn btn-success"><i--}}
+                            {{--                                        class="fa fa-plus mr-1"></i>--}}
+                            {{--                                    បង្កើត--}}
+                            {{--                                </a>--}}
+                            {{--                            </div>--}}
                             <div class="timeline timeline-inverse">
                                 @foreach($positions as $employee_postion)
                                     <div class="time-label">
                                         @if($employee_postion->pivot->end_date)
-                                            <span class="bg-danger">
+                                            <span class="bg-success">
                                                 {{$employee_postion->pivot->start_date}} ដល់ {{$employee_postion->pivot->end_date}}
                                             </span>
                                         @else
@@ -175,23 +190,33 @@
                                     </div>
                                     <div>
                                         @if($employee_postion->pivot->end_date)
-                                            <i class="fas fa-suitcase bg-danger"></i>
+                                            <i class="fas fa-suitcase bg-success"></i>
                                         @else
                                             <i class="fas fa-suitcase bg-primary"></i>
                                         @endif
                                         <div class="timeline-item">
                                             <h3 class="timeline-header">{{$employee_postion->kh_name}}</h3>
                                             <div class="timeline-body">
-                                                <div class="mb-2">
+                                                <div>
+                                                    សាខា: {{$employee_postion->pivot->branch->kh_name}}
+                                                </div>
+                                                @if($employee_postion->pivot->sub_branch_id)
+                                                    <div>
+                                                        សាខា: {{$employee_postion->pivot->sub_branch->kh_name}}
+                                                    </div>
+                                                @endif
+                                                <div>
                                                     នាយកដ្ឋាន: {{$employee_postion->pivot->department->kh_name}}
                                                 </div>
-                                                <div>
-                                                    ការិយាល័យ: {{$employee_postion->pivot->office->kh_name}}
-                                                </div>
+                                                @if($employee_postion->pivot->office_id)
+                                                    <div>
+                                                        ការិយាល័យ: {{$employee_postion->pivot->office->kh_name}}
+                                                    </div>
+                                                @endif
                                             </div>
                                             <div class="timeline-footer">
-                                                <a href="{{route('home')}}" class="btn btn-success"><i
-                                                        class="fa fa-file-alt mr-2"></i>កុងត្រា</a>
+                                                {{--                                                <a href="{{route('home')}}" class="btn btn-success"><i--}}
+                                                {{--                                                        class="fa fa-file-alt mr-2"></i>កុងត្រា</a>--}}
                                                 <a href="{{ route('employee.position.edit', [Crypt::encrypt($employee_postion->pivot->employee_id), Crypt::encrypt($employee_postion->pivot->id)]) }}"
                                                    class="btn btn-info">
                                                     <i class="fa fa-pen mr-2"></i>កែប្រែ

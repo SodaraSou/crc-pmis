@@ -103,7 +103,7 @@ class EmployeeCreateForm extends Component
             $employee = $this->form->store();
             $encrypt_id = Crypt::encrypt($employee->id);
 
-            return redirect()->to("/employee/{$encrypt_id}");
+            return redirect()->to("/employee/{$encrypt_id}/position/create");
         } catch (\Exception $e) {
             $this->dispatch('create_fail', message: $e->getMessage());
         }

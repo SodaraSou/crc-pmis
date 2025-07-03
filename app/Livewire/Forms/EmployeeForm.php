@@ -135,8 +135,10 @@ class EmployeeForm extends Form
         return Employee::create($this->all());
     }
 
-    public function update(): void
+    public function update()
     {
         $this->employee->update($this->all());
+
+        return $this->employee->refresh();
     }
 }

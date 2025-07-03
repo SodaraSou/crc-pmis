@@ -43,6 +43,7 @@ class EmployeeController extends Controller
 
         $current_position = EmployeePosition::where('employee_id', $employee->id)
             ->whereNull('end_date')
+            ->orderByDesc('start_date')
             ->get();
 
         return view('employee.employee-show', [
