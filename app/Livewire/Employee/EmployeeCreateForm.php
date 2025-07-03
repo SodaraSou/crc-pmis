@@ -86,7 +86,7 @@ class EmployeeCreateForm extends Component
         $this->ad_villages = Village::where('commune_id', $this->form->ad_commune_id)->get();
     }
 
-    public function updatedFormAdBranchId(): void
+    public function updatedFormBranchId(): void
     {
         $this->sub_branches = SubBranch::where('branch_id', $this->form->branch_id)->get();
     }

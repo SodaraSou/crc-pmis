@@ -23,7 +23,7 @@
                         <li class="list-group-item">
                             <b>ថ្នាក់បុគ្គលិក</b> <a class="float-right">{{$employee->employee_level->kh_name}}</a>
                         </li>
-                        @if($employee->employee_level_id > 1)
+                        @if($employee->employee_level_id == 2)
                             <li class="list-group-item">
                                 <b>សាខា</b> <a class="float-right">{{$employee->branch->kh_name}}</a>
                             </li>
@@ -36,16 +36,16 @@
                         <li class="list-group-item">
                             <b>នាយកដ្ឋាន</b> <a class="float-right">{{$employee->department->kh_name}}</a>
                         </li>
-                        @if($employee->department->id > 1)
+                        @if($employee->office_id)
                             <li class="list-group-item">
                                 <b>ការិយាល័យ</b> <a class="float-right">{{$employee->office->kh_name}}</a>
                             </li>
                         @endif
                         <li class="list-group-item">
-                            <b>ដំណែង</b> <a class="float-right">{{$current_position->kh_name ?? 'N/A'}}</a>
+                            <b>តួនាទី</b> <a class="float-right">{{$current_position->kh_name ?? 'N/A'}}</a>
                         </li>
                     </ul>
-                    <div class="row g-4">
+                    <div class="row g-4 mb-3">
                         <div class="col-6">
                             <a href="{{route('employee.edit', Crypt::encrypt($employee->id))}}"
                                class="btn btn-info btn-block"><i class="fa fa-pen mr-1" aria-hidden="true"></i>
@@ -54,6 +54,13 @@
                         <div class="col-6">
                             <a href="#" class="btn btn-danger btn-block"><i class="fa fa-trash mr-2"
                                                                             aria-hidden="true"></i><b>លុប</b></a>
+                        </div>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-6">
+                            <a href="{{route('employee.position.swap', Crypt::encrypt($employee->id))}}"
+                               class="btn btn-success btn-block"><i class="fa fa-suitcase mr-2"
+                                                                    aria-hidden="true"></i><b>ផ្លាស់តួនាទី</b></a>
                         </div>
                     </div>
                 </div>
@@ -197,12 +204,13 @@
                                         <div class="timeline-item">
                                             <h3 class="timeline-header">{{$employee_postion->kh_name}}</h3>
                                             <div class="timeline-body">
-                                                <div>
-                                                    សាខា: {{$employee_postion->pivot->branch->kh_name}}
-                                                </div>
-                                                @if($employee_postion->pivot->sub_branch_id)
+                                                @if(!$employee_postion->pivot->sub_branch_id)
                                                     <div>
-                                                        សាខា: {{$employee_postion->pivot->sub_branch->kh_name}}
+                                                        សាខា: {{$employee_postion->pivot->branch->kh_name}}
+                                                    </div>
+                                                @else
+                                                    <div>
+                                                        អនុសាខា: {{$employee_postion->pivot->sub_branch->kh_name}}
                                                     </div>
                                                 @endif
                                                 <div>
@@ -214,14 +222,14 @@
                                                     </div>
                                                 @endif
                                             </div>
-                                            <div class="timeline-footer">
-                                                {{--                                                <a href="{{route('home')}}" class="btn btn-success"><i--}}
-                                                {{--                                                        class="fa fa-file-alt mr-2"></i>កុងត្រា</a>--}}
-                                                <a href="{{ route('employee.position.edit', [Crypt::encrypt($employee_postion->pivot->employee_id), Crypt::encrypt($employee_postion->pivot->id)]) }}"
-                                                   class="btn btn-info">
-                                                    <i class="fa fa-pen mr-2"></i>កែប្រែ
-                                                </a>
-                                            </div>
+                                            {{--                                            <div class="timeline-footer">--}}
+                                            {{--                                                <a href="{{route('home')}}" class="btn btn-success"><i--}}
+                                            {{--                                                        class="fa fa-file-alt mr-2"></i>កុងត្រា</a>--}}
+                                            {{--                                                <a href="{{ route('employee.position.edit', [Crypt::encrypt($employee_postion->pivot->employee_id), Crypt::encrypt($employee_postion->pivot->id)]) }}"--}}
+                                            {{--                                                   class="btn btn-info">--}}
+                                            {{--                                                    <i class="fa fa-pen mr-2"></i>កែប្រែ--}}
+                                            {{--                                                </a>--}}
+                                            {{--                                            </div>--}}
                                         </div>
                                     </div>
                                 @endforeach

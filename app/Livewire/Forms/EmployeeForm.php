@@ -87,7 +87,6 @@ class EmployeeForm extends Form
     {
         return [
             'sub_branch_id' => $this->employee_level_id == 3 ? 'required' : 'nullable',
-            'office_id' => $this->department_id == 1 ? 'nullable' : 'required',
         ];
     }
 
@@ -95,7 +94,6 @@ class EmployeeForm extends Form
     {
         return [
             'sub_branch_id.required' => 'សូមជ្រើសរើសអនុសាខា',
-            'office_id.required' => 'សូមជ្រើសរើសការិយាល័យ',
         ];
     }
 

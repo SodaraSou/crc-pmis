@@ -359,11 +359,7 @@
                     @enderror
                 </div>
                 <div class="col-12 col-md-6 form-group">
-                    @if ($form->department_id == 1)
-                        <label>ការិយាល័យ</label>
-                    @else
-                        <label>ការិយាល័យ<span class="text-danger">*</span></label>
-                    @endif
+                    <label>ការិយាល័យ</label>
                     <select wire:model="form.office_id" class="form-control">
                         <option value="">សូមជ្រើសរើសការិយាល័យ</option>
                         @foreach ($offices as $office)

@@ -43,7 +43,7 @@ class EmployeeController extends Controller
 
         $current_position = EmployeePosition::where('employee_id', $employee->id)
             ->whereNull('end_date')
-            ->orderByDesc('start_date')
+            ->latest('start_date')
             ->get();
 
         return view('employee.employee-show', [
@@ -57,6 +57,8 @@ class EmployeeController extends Controller
     {
         $employee = Employee::find(Crypt::decrypt($request->employee_id));
 
+        Gate::authorize('managePosition', $employee);
+
         return view('employee.employee-position-create', [
             'employee' => $employee,
         ]);
@@ -67,9 +69,22 @@ class EmployeeController extends Controller
         $employee = Employee::find(Crypt::decrypt($request->employee_id));
         $employee_position = EmployeePosition::find(Crypt::decrypt($request->employee_position_id));
 
+        Gate::authorize('managePosition', $employee);
+
         return view('employee.employee-position-edit', [
             'employee' => $employee,
             'employee_position' => $employee_position,
+        ]);
+    }
+
+    public function swapPosition(Request $request)
+    {
+        $employee = Employee::find(Crypt::decrypt($request->employee_id));
+
+        Gate::authorize('managePosition', $employee);
+
+        return view('employee.employee-position-swap', [
+            'employee' => $employee,
         ]);
     }
 }

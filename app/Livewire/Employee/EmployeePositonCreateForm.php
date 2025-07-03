@@ -45,7 +45,6 @@ class EmployeePositonCreateForm extends Component
     {
         return [
             'sub_branch_id' => $this->employee->employee_level_id == 3 ? 'required' : 'nullable',
-            'office_id' => $this->department_id == 1 ? 'nullable' : 'required',
         ];
     }
 
@@ -53,7 +52,6 @@ class EmployeePositonCreateForm extends Component
     {
         return [
             'sub_branch_id.required' => 'សូមជ្រើសរើសអនុសាខា',
-            'office_id.required' => 'សូមជ្រើសរើសការិយាល័យ',
         ];
     }
 
@@ -62,7 +60,7 @@ class EmployeePositonCreateForm extends Component
         $this->employee = $employee;
         $this->department_id = $employee->department_id;
         $this->offices = Office::where('department_id', $employee->department_id)->get();
-        $this->office_id = $employee->office_id;
+        $this->office_id = $employee->office_id ?? null;
         $this->branch_id = $employee->branch_id;
         $this->sub_branches = SubBranch::where('branch_id', $employee->branch_id)->get();
         $this->sub_branch_id = $employee->sub_branch_id;
@@ -85,7 +83,7 @@ class EmployeePositonCreateForm extends Component
             $encrypt_id = Crypt::encrypt($this->employee->id);
             $this->employee->positions()->attach($validated['position_id'], [
                 'department_id' => $validated['department_id'],
-                'office_id' => $validated['office_id'],
+                'office_id' => $this->office_id,
                 'branch_id' => $validated['branch_id'],
                 'sub_branch_id' => $validated['sub_branch_id'],
                 'opt_position_name' => $this->opt_position_name,

@@ -35,7 +35,7 @@ class EmployeePosition extends Pivot
         return $this->belongsTo(Branch::class);
     }
 
-    public function subbranch(): BelongsTo
+    public function sub_branch(): BelongsTo
     {
         return $this->belongsTo(SubBranch::class);
 

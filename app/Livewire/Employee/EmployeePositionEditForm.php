@@ -14,7 +14,7 @@ use Illuminate\View\View;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
-class EmployeePositionEdit extends Component
+class EmployeePositionEditForm extends Component
 {
     public Employee $employee;
 
@@ -44,22 +44,6 @@ class EmployeePositionEdit extends Component
 
     public $end_date = null;
 
-    protected function rules(): array
-    {
-        return [
-            'sub_branch_id' => $this->branch_id > 0 ? 'required' : 'nullable',
-            'office_id' => $this->department_id == 1 ? 'nullable' : 'required',
-        ];
-    }
-
-    protected function messages(): array
-    {
-        return [
-            'sub_branch_id.required' => 'សូមជ្រើសរើសអនុសាខា',
-            'office_id.required' => 'សូមជ្រើសរើសការិយាល័យ',
-        ];
-    }
-
     public function mount(Employee $employee, EmployeePosition $employee_position): void
     {
         $this->employee = $employee;
@@ -86,6 +70,13 @@ class EmployeePositionEdit extends Component
         $this->sub_branches = SubBranch::where('branch_id', $this->branch_id)->get();
     }
 
+    public function updatedPositionId(): void
+    {
+        if ($this->position_id < 10) {
+            $this->office_id = null;
+        }
+    }
+
     public function save()
     {
         $validated = $this->validate();
@@ -94,7 +85,7 @@ class EmployeePositionEdit extends Component
             $this->employee_position->update([
                 'position_id' => $validated['position_id'],
                 'department_id' => $validated['department_id'],
-                'office_id' => $validated['office_id'],
+                'office_id' => $this->office_id,
                 'branch_id' => $validated['branch_id'],
                 'sub_branch_id' => $validated['sub_branch_id'],
                 'opt_position_name' => $this->opt_position_name,
@@ -110,7 +101,7 @@ class EmployeePositionEdit extends Component
 
     public function render(): View
     {
-        return view('livewire.employee.employee-position-edit', [
+        return view('livewire.employee.employee-position-edit-form', [
             'positions' => Position::all(),
             'departments' => Department::all(),
             'branches' => Branch::all(),

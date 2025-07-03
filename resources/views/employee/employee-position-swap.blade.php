@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('title')
-    កែប្រែដំណែងបុគ្គលិក
+    ផ្លាស់តួនាទីបុគ្គលិក
 @endsection
 
 @section('content')
-    <livewire:employee.employee-position-edit-form :employee="$employee" :employee_position="$employee_position"/>
+    <livewire:employee.employee-position-swap-form :employee="$employee"/>
 @endsection
 
 @section('js')
