@@ -6,6 +6,7 @@ use App\Http\Controllers\CommuneController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\GroupController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProvinceController;
@@ -43,6 +44,10 @@ Route::get('/branch/{branch}/edit', [BranchController::class, 'edit'])->middlewa
 Route::get('/branch/{branch}/sub-branch/create', [SubBranchController::class, 'create'])->middleware('auth')->name('sub-branch.create');
 Route::get('/sub-branch/{sub_branch}', [SubBranchController::class, 'show'])->middleware('auth')->name('sub-branch.show');
 Route::get('/sub-branch/{sub_branch}/edit', [SubBranchController::class, 'edit'])->middleware('auth')->name('sub-branch.edit');
+
+// Group
+Route::get('/sub-branch/{sub_branch}/group/create', [GroupController::class, 'create'])->middleware('auth')->name('group.create');
+Route::get('/group/{group}/edit', [GroupController::class, 'edit'])->middleware('auth')->name('group.edit');
 
 // Department
 Route::get('/department', [DepartmentController::class, 'index'])->middleware('auth')->name('department.index');

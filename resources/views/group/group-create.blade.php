@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('title')
-    {{ $sub_branch->kh_name }}
+    បង្កើតក្រុមអនុសាខា
 @endsection
 
 @section('content')
-    <livewire:group.group-table :sub_branch="$sub_branch"/>
+    <livewire:group.group-create-form :sub_branch="$sub_branch"/>
 @endsection
 
 @section('js')
