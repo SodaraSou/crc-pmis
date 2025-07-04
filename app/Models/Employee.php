@@ -33,8 +33,10 @@ class Employee extends Model
         'employee_level_id',
         'branch_id',
         'sub_branch_id',
+        'group_id',
         'department_id',
         'office_id',
+        'current_position_id',
     ];
 
     public function family_situation(): BelongsTo
@@ -108,6 +110,11 @@ class Employee extends Model
         return $this->belongsTo(SubBranch::class);
     }
 
+    public function group(): BelongsTo
+    {
+        return $this->belongsTo(Group::class);
+    }
+
     public function department(): BelongsTo
     {
         return $this->belongsTo(Department::class);
@@ -118,10 +125,15 @@ class Employee extends Model
         return $this->belongsTo(Office::class);
     }
 
+    public function current_position(): BelongsTo
+    {
+        return $this->belongsTo(EmployeePosition::class);
+    }
+
     public function positions(): BelongsToMany
     {
         return $this->belongsToMany(Position::class)
             ->using(EmployeePosition::class)
-            ->withPivot('id', 'department_id', 'office_id', 'branch_id', 'sub_branch_id', 'start_date', 'opt_position_name', 'end_date');
+            ->withPivot('id', 'department_id', 'office_id', 'branch_id', 'sub_branch_id', 'group_id', 'start_date', 'opt_position_name', 'end_date');
     }
 }

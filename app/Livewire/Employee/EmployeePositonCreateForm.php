@@ -5,9 +5,11 @@ namespace App\Livewire\Employee;
 use App\Models\Branch;
 use App\Models\Department;
 use App\Models\Employee;
+use App\Models\EmployeePosition;
 use App\Models\Office;
 use App\Models\Position;
 use App\Models\SubBranch;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\View\View;
 use Livewire\Attributes\Validate;
@@ -81,7 +83,20 @@ class EmployeePositonCreateForm extends Component
         $validated = $this->validate();
         try {
             $encrypt_id = Crypt::encrypt($this->employee->id);
-            $this->employee->positions()->attach($validated['position_id'], [
+            $previous_positions = EmployeePosition::where('employee_id', $this->employee->id)
+                ->whereNull('end_date')
+                ->get();
+
+            $new_start_date = Carbon::parse($validated['start_date']);
+
+            foreach ($previous_positions as $prev) {
+                $prev->end_date = $new_start_date->copy()->subDay()->format('Y-m-d');
+                $prev->save();
+            }
+
+            EmployeePosition::create([
+                'employee_id' => $this->employee->id,
+                'position_id' => $validated['position_id'],
                 'department_id' => $validated['department_id'],
                 'office_id' => $this->office_id,
                 'branch_id' => $validated['branch_id'],
@@ -89,6 +104,10 @@ class EmployeePositonCreateForm extends Component
                 'opt_position_name' => $this->opt_position_name,
                 'start_date' => $validated['start_date'],
                 'end_date' => $this->end_date,
+            ]);
+            $position = EmployeePosition::where('employee_id', $this->employee->id)->where('position_id', $validated['position_id'])->get();
+            $this->employee->update([
+                'current_position_id' => $position[0]->id,
             ]);
 
             return redirect()->to("/employee/{$encrypt_id}");

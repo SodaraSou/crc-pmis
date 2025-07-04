@@ -42,10 +42,10 @@
                             </li>
                         @endif
                         <li class="list-group-item">
-                            <b>តួនាទី</b> <a class="float-right">{{$current_position->kh_name ?? 'N/A'}}</a>
+                            <b>តួនាទី</b> <a class="float-right">{{$employee->current_position->position->kh_name}}</a>
                         </li>
                     </ul>
-                    <div class="row g-4 mb-3">
+                    <div class="row g-4">
                         <div class="col-6">
                             <a href="{{route('employee.edit', Crypt::encrypt($employee->id))}}"
                                class="btn btn-info btn-block"><i class="fa fa-pen mr-1" aria-hidden="true"></i>
@@ -56,13 +56,13 @@
                                                                             aria-hidden="true"></i><b>លុប</b></a>
                         </div>
                     </div>
-                    <div class="row g-4">
-                        <div class="col-6">
-                            <a href="{{route('employee.position.swap', Crypt::encrypt($employee->id))}}"
-                               class="btn btn-success btn-block"><i class="fa fa-suitcase mr-2"
-                                                                    aria-hidden="true"></i><b>ផ្លាស់តួនាទី</b></a>
-                        </div>
-                    </div>
+                    {{--                    <div class="row g-4">--}}
+                    {{--                        <div class="col-6">--}}
+                    {{--                            <a href="{{route('employee.position.swap', Crypt::encrypt($employee->id))}}"--}}
+                    {{--                               class="btn btn-success btn-block"><i class="fa fa-suitcase mr-2"--}}
+                    {{--                                                                    aria-hidden="true"></i><b>ផ្លាស់តួនាទី</b></a>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
                 </div>
             </div>
         </div>

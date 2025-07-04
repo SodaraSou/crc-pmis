@@ -78,6 +78,8 @@ class EmployeeForm extends Form
 
     public $sub_branch_id = null;
 
+    public $group_id = null;
+
     #[Validate('required', message: 'សូមជ្រើសរើសនាយកដ្ឋាន')]
     public $department_id = null;
 
@@ -86,7 +88,8 @@ class EmployeeForm extends Form
     protected function rules(): array
     {
         return [
-            'sub_branch_id' => $this->employee_level_id == 3 ? 'required' : 'nullable',
+            'sub_branch_id' => $this->employee_level_id > 2 ? 'required' : 'nullable',
+            'group_id' => $this->employee_level_id == 4 ? 'required' : 'nullable',
         ];
     }
 
@@ -94,6 +97,7 @@ class EmployeeForm extends Form
     {
         return [
             'sub_branch_id.required' => 'សូមជ្រើសរើសអនុសាខា',
+            'group_id.required' => 'សូមជ្រើសរើសក្រុមអនុសាខា',
         ];
     }
 
@@ -126,6 +130,7 @@ class EmployeeForm extends Form
         $this->sub_branch_id = $employee->sub_branch_id;
         $this->department_id = $employee->department_id;
         $this->office_id = $employee->office_id;
+        $this->group_id = $employee->group_id;
     }
 
     public function store()

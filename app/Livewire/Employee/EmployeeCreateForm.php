@@ -10,6 +10,7 @@ use App\Models\District;
 use App\Models\EmployeeStatus;
 use App\Models\FamilySituation;
 use App\Models\Gender;
+use App\Models\Group;
 use App\Models\Office;
 use App\Models\Province;
 use App\Models\SubBranch;
@@ -40,6 +41,8 @@ class EmployeeCreateForm extends Component
 
     public $sub_branches = [];
 
+    public $groups = [];
+
     public $offices = [];
 
     public function mount(): void
@@ -53,6 +56,7 @@ class EmployeeCreateForm extends Component
             $this->form->sub_branch_id = Auth::user()->sub_branch_id;
             $this->form->employee_level_id = Auth::user()->user_level_id;
             $this->sub_branches = SubBranch::where('branch_id', Auth::user()->branch_id)->get();
+            $this->groups = Group::where('sub_branch_id', Auth::user()->sub_branch_id)->get();
         }
     }
 
@@ -91,9 +95,33 @@ class EmployeeCreateForm extends Component
         $this->sub_branches = SubBranch::where('branch_id', $this->form->branch_id)->get();
     }
 
+    public function updatedFormSubBranchId(): void
+    {
+        if ($this->form->sub_branch_id == '') {
+            $this->form->sub_branch_id = null;
+        } else {
+            $this->groups = Group::where('sub_branch_id', $this->form->sub_branch_id)->get();
+        }
+    }
+
     public function updatedFormDepartmentId(): void
     {
         $this->offices = Office::where('department_id', $this->form->department_id)->get();
+    }
+
+    public function updatedEmployeeLevelId(): void
+    {
+        if ($this->form->employee_level_id == '') {
+            $this->form->employee_level_id = null;
+            $this->form->group_id = null;
+        }
+    }
+
+    public function updatedGroupId(): void
+    {
+        if ($this->form->group_id == '') {
+            $this->form->group_id = null;
+        }
     }
 
     public function save()

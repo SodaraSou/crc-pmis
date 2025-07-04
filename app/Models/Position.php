@@ -14,6 +14,8 @@ class Position extends Model
 
     public function employees(): BelongsToMany
     {
-        return $this->belongsToMany(Employee::class);
+        return $this->belongsToMany(Employee::class)
+            ->using(EmployeePosition::class)
+            ->withPivot('id', 'department_id', 'office_id', 'branch_id', 'sub_branch_id', 'group_id', 'start_date', 'opt_position_name', 'end_date');
     }
 }

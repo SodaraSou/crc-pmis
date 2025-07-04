@@ -25,6 +25,10 @@ class UserLevelSeeder extends Seeder
                 'en_name' => 'Sub-branch Level',
                 'kh_name' => 'អនុសាខា',
             ],
+            [
+                'en_name' => 'Group Level',
+                'kh_name' => 'ក្រុមអនុសាខា',
+            ],
         ]);
     }
 }

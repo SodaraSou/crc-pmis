@@ -9,6 +9,19 @@ class EmployeePosition extends Pivot
 {
     protected $table = 'employee_position';
 
+    protected $fillable = [
+        'employee_id',
+        'position_id',
+        'department_id',
+        'branch_id',
+        'sub_branch_id',
+        'group_id',
+        'office_id',
+        'opt_position_name',
+        'start_date',
+        'end_date',
+    ];
+
     public function employee(): BelongsTo
     {
         return $this->belongsTo(Employee::class);
@@ -38,6 +51,10 @@ class EmployeePosition extends Pivot
     public function sub_branch(): BelongsTo
     {
         return $this->belongsTo(SubBranch::class);
+    }
 
+    public function group(): BelongsTo
+    {
+        return $this->belongsTo(Group::class);
     }
 }

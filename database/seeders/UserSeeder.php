@@ -94,6 +94,7 @@ class UserSeeder extends Seeder
             'kh_name' => 'អេតមីន',
             'phone_number' => '012354987',
             'user_level_id' => 1,
+            'branch_id' => 0,
             'profile_img' => 'https://github.com/shadcn.png',
         ]);
         $superAdmin->assignRole($superAdminRole);

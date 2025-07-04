@@ -12,7 +12,7 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, HasRoles;
+    use HasFactory, HasRoles, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -29,6 +29,7 @@ class User extends Authenticatable
         'profile_img',
         'branch_id',
         'sub_branch_id',
+        'group_id',
     ];
 
     /**
@@ -67,5 +68,10 @@ class User extends Authenticatable
     public function subBranch(): BelongsTo
     {
         return $this->belongsTo(SubBranch::class);
+    }
+
+    public function group(): BelongsTo
+    {
+        return $this->belongsTo(Group::class);
     }
 }

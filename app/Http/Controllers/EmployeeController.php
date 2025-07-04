@@ -41,14 +41,8 @@ class EmployeeController extends Controller
 
         Gate::authorize('view', $employee);
 
-        $current_position = EmployeePosition::where('employee_id', $employee->id)
-            ->whereNull('end_date')
-            ->latest('start_date')
-            ->get();
-
         return view('employee.employee-show', [
-            'employee' => $employee->load(['positions.employees']),
-            'current_position' => $current_position->first()?->position,
+            'employee' => $employee,
             'positions' => $employee->positions,
         ]);
     }
