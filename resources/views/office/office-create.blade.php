@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('title')
-    {{ $department->kh_name }}
+    បង្កេីតការិយាល័យ
 @endsection
 
 @section('content')
-    <livewire:office.office-table :department="$department"/>
+    <livewire:office.office-create-form :department="$department"/>
 @endsection
 
 @section('js')

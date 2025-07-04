@@ -8,6 +8,7 @@ use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\RoleController;
@@ -56,6 +57,8 @@ Route::get('/department/{department}', [DepartmentController::class, 'show'])->m
 Route::get('/department/{department}/edit', [DepartmentController::class, 'edit'])->middleware('auth')->name('department.edit');
 
 // Office
+Route::get('/department/{department}/office/create', [OfficeController::class, 'create'])->middleware('auth')->name('office.create');
+Route::get('/office/{office}/edit', [OfficeController::class, 'edit'])->middleware('auth')->name('office.edit');
 
 // Employee
 Route::get('/employee', [EmployeeController::class, 'index'])->middleware('auth')->name('employee.index');
