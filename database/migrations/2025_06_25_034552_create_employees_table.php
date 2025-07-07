@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      */
@@ -33,7 +34,7 @@ return new class extends Migration {
             $table->string('ad_street_number')->nullable();
             $table->string('ad_street_name')->nullable();
             $table->string('ad_house_number')->nullable();
-            $table->foreignId('employee_level_id')->constrained('user_levels')->cascadeOnDelete();
+            $table->foreignId('employee_level_id')->nullable()->constrained('user_levels')->cascadeOnDelete();
             $table->foreignId('branch_id')->nullable()->constrained()->cascadeOnDelete();
             $table->foreignId('sub_branch_id')->nullable()->constrained()->cascadeOnDelete();
             $table->foreignId('department_id')->nullable()->constrained()->cascadeOnDelete();

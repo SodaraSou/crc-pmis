@@ -3,18 +3,12 @@
 namespace App\Livewire\Employee;
 
 use App\Livewire\Forms\EmployeeForm;
-use App\Models\Branch;
 use App\Models\Commune;
-use App\Models\Department;
 use App\Models\District;
 use App\Models\EmployeeStatus;
 use App\Models\FamilySituation;
 use App\Models\Gender;
-use App\Models\Group;
-use App\Models\Office;
 use App\Models\Province;
-use App\Models\SubBranch;
-use App\Models\UserLevel;
 use App\Models\Village;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
@@ -25,38 +19,27 @@ class EmployeeCreateForm extends Component
 {
     public EmployeeForm $form;
 
-    // Birth Place
     public $bp_districts = [];
 
     public $bp_communes = [];
 
     public $bp_villages = [];
 
-    // Address
     public $ad_districts = [];
 
     public $ad_communes = [];
 
     public $ad_villages = [];
 
-    public $sub_branches = [];
-
-    public $groups = [];
-
-    public $offices = [];
-
     public function mount(): void
     {
         if (Auth::user()->user_level_id == 2) {
             $this->form->branch_id = Auth::user()->branch_id;
-            $this->sub_branches = SubBranch::where('branch_id', Auth::user()->branch_id)->get();
         }
         if (Auth::user()->user_level_id == 3) {
             $this->form->branch_id = Auth::user()->branch_id;
             $this->form->sub_branch_id = Auth::user()->sub_branch_id;
             $this->form->employee_level_id = Auth::user()->user_level_id;
-            $this->sub_branches = SubBranch::where('branch_id', Auth::user()->branch_id)->get();
-            $this->groups = Group::where('sub_branch_id', Auth::user()->sub_branch_id)->get();
         }
     }
 
@@ -90,40 +73,6 @@ class EmployeeCreateForm extends Component
         $this->ad_villages = Village::where('commune_id', $this->form->ad_commune_id)->get();
     }
 
-    public function updatedFormBranchId(): void
-    {
-        $this->sub_branches = SubBranch::where('branch_id', $this->form->branch_id)->get();
-    }
-
-    public function updatedFormSubBranchId(): void
-    {
-        if ($this->form->sub_branch_id == '') {
-            $this->form->sub_branch_id = null;
-        } else {
-            $this->groups = Group::where('sub_branch_id', $this->form->sub_branch_id)->get();
-        }
-    }
-
-    public function updatedFormDepartmentId(): void
-    {
-        $this->offices = Office::where('department_id', $this->form->department_id)->get();
-    }
-
-    public function updatedEmployeeLevelId(): void
-    {
-        if ($this->form->employee_level_id == '') {
-            $this->form->employee_level_id = null;
-            $this->form->group_id = null;
-        }
-    }
-
-    public function updatedGroupId(): void
-    {
-        if ($this->form->group_id == '') {
-            $this->form->group_id = null;
-        }
-    }
-
     public function save()
     {
         $this->validate();
@@ -143,9 +92,6 @@ class EmployeeCreateForm extends Component
             'family_situations' => FamilySituation::all(),
             'genders' => Gender::all(),
             'employee_statuses' => EmployeeStatus::all(),
-            'user_levels' => UserLevel::all(),
-            'branches' => Branch::all(),
-            'departments' => Department::all(),
             'bp_provinces' => Province::all(),
             'ad_provinces' => Province::all(),
         ]);
