@@ -305,7 +305,7 @@
             </div>
             <div class="row g-4">
                 <div class="col-12 col-md-6 form-group">
-                    @if ($form->employee_level_id == 3)
+                    @if ($form->employee_level_id == 3 || $form->employee_level_id == 4)
                         <label>អនុសាសា<span class="text-danger">*</span></label>
                     @else
                         <label>អនុសាសា</label>
