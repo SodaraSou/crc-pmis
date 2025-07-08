@@ -70,36 +70,36 @@ class EmployeeForm extends Form
 
     public $ad_house_number = null;
 
-    //    #[Validate('required', message: 'សូមជ្រើសរើសថ្នាក់')]
-    //    public $employee_level_id = null;
-    //
-    //    #[Validate('required', message: 'សូមជ្រើសរើសសាខា')]
-    //    public $branch_id = null;
-    //
-    //    public $sub_branch_id = null;
-    //
-    //    public $group_id = null;
-    //
-    //    #[Validate('required', message: 'សូមជ្រើសរើសនាយកដ្ឋាន')]
-    //    public $department_id = null;
-    //
-    //    public $office_id = null;
-    //
-    //    protected function rules(): array
-    //    {
-    //        return [
-    //            'sub_branch_id' => $this->employee_level_id > 2 ? 'required' : 'nullable',
-    //            'group_id' => $this->employee_level_id == 4 ? 'required' : 'nullable',
-    //        ];
-    //    }
-    //
-    //    protected function messages(): array
-    //    {
-    //        return [
-    //            'sub_branch_id.required' => 'សូមជ្រើសរើសអនុសាខា',
-    //            'group_id.required' => 'សូមជ្រើសរើសក្រុមអនុសាខា',
-    //        ];
-    //    }
+    #[Validate('required', message: 'សូមជ្រើសរើសថ្នាក់')]
+    public $employee_level_id = null;
+
+    #[Validate('required', message: 'សូមជ្រើសរើសសាខា')]
+    public $branch_id = null;
+
+    public $sub_branch_id = null;
+
+    public $group_id = null;
+
+    #[Validate('required', message: 'សូមជ្រើសរើសនាយកដ្ឋាន')]
+    public $department_id = null;
+
+    public $office_id = null;
+
+    protected function rules(): array
+    {
+        return [
+            'sub_branch_id' => $this->employee_level_id == 3 ? 'required' : 'nullable',
+            'group_id' => $this->employee_level_id == 4 ? 'required' : 'nullable',
+        ];
+    }
+
+    protected function messages(): array
+    {
+        return [
+            'sub_branch_id.required' => 'សូមជ្រើសរើសអនុសាខា',
+            'group_id.required' => 'សូមជ្រើសរើសក្រុមអនុសាខា',
+        ];
+    }
 
     public function setForm(Employee $employee): void
     {
@@ -125,12 +125,12 @@ class EmployeeForm extends Form
         $this->ad_street_number = $employee->ad_street_number;
         $this->ad_street_name = $employee->ad_street_name;
         $this->ad_house_number = $employee->ad_house_number;
-        //        $this->employee_level_id = $employee->employee_level_id;
-        //        $this->branch_id = $employee->branch_id;
-        //        $this->sub_branch_id = $employee->sub_branch_id;
-        //        $this->department_id = $employee->department_id;
-        //        $this->office_id = $employee->office_id;
-        //        $this->group_id = $employee->group_id;
+        $this->employee_level_id = $employee->employee_level_id;
+        $this->branch_id = $employee->branch_id;
+        $this->sub_branch_id = $employee->sub_branch_id;
+        $this->department_id = $employee->department_id;
+        $this->office_id = $employee->office_id;
+        $this->group_id = $employee->group_id;
     }
 
     public function store()
