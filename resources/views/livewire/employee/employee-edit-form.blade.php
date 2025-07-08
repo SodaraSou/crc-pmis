@@ -259,120 +259,120 @@
                     @enderror
                 </div>
             </div>
-            <div class="row g-4">
-                <div class="col-12 col-md-4 form-group">
-                    <label>ថ្នាក់បុគ្គលិក<span class="text-danger">*</span></label>
-                    @if(Auth::user()->user_level_id == 3)
-                        <select wire:model.live="form.employee_level_id" class="form-control" disabled>
-                            <option value="">សូមជ្រើសរើសថ្នាក់បុគ្គលិក</option>
-                            @foreach ($user_levels as $user_level)
-                                <option wire:key="{{ $user_level->id }}" value="{{ $user_level->id }}">
-                                    {{ $user_level->kh_name }}
-                                </option>
-                            @endforeach
-                        </select>
-                    @else
-                        <select wire:model.live="form.employee_level_id" class="form-control">
-                            <option value="">សូមជ្រើសរើសថ្នាក់បុគ្គលិក</option>
-                            @foreach ($user_levels as $user_level)
-                                @if($user_level->id == 1 && Auth::user()->user_level_id > 1)
-                                    @continue
-                                @endif
-                                <option wire:key="{{ $user_level->id }}" value="{{ $user_level->id }}">
-                                    {{ $user_level->kh_name }}
-                                </option>
-                            @endforeach
-                        </select>
-                    @endif
-                    @error('form.employee_level_id')
-                    <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="col-12 col-md-4 form-group">
-                    <label>សាខា<span class="text-danger">*</span></label>
-                    @if(Auth::user()->user_level_id == 2 || Auth::user()->user_level_id == 3)
-                        <select wire:model.live="form.branch_id" class="form-control" disabled>
-                            <option value="">សូមជ្រើសរើសសាខា</option>
-                            @foreach ($branches as $branch)
-                                <option wire:key="{{ $branch->id }}" value="{{ $branch->id }}">
-                                    {{ $branch->kh_name }}
-                                </option>
-                            @endforeach
-                        </select>
-                    @else
-                        <select wire:model.live="form.branch_id" class="form-control">
-                            <option value="">សូមជ្រើសរើសសាខា</option>
-                            @foreach ($branches as $branch)
-                                <option wire:key="{{ $branch->id }}" value="{{ $branch->id }}">
-                                    {{ $branch->kh_name }}
-                                </option>
-                            @endforeach
-                        </select>
-                    @endif
-                    @error('form.branch_id')
-                    <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="col-12 col-md-4 form-group">
-                    @if ($form->employee_level_id == 3)
-                        <label>អនុសាសា<span class="text-danger">*</span></label>
-                    @else
-                        <label>អនុសាសា</label>
-                    @endif
-                    @if(Auth::user()->user_level_id == 3)
-                        <select wire:model="form.sub_branch_id" class="form-control" disabled>
-                            <option value="">សូមជ្រើសរើសអនុសាខា</option>
-                            @foreach ($sub_branches as $sub_branch)
-                                <option wire:key="{{ $sub_branch->id }}" value="{{ $sub_branch->id }}">
-                                    {{ $sub_branch->kh_name }}
-                                </option>
-                            @endforeach
-                        </select>
-                    @else
-                        <select wire:model="form.sub_branch_id" class="form-control">
-                            <option value="">សូមជ្រើសរើសអនុសាខា</option>
-                            @foreach ($sub_branches as $sub_branch)
-                                <option wire:key="{{ $sub_branch->id }}" value="{{ $sub_branch->id }}">
-                                    {{ $sub_branch->kh_name }}
-                                </option>
-                            @endforeach
-                        </select>
-                    @endif
-                    @error('form.sub_branch_id')
-                    <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-12 col-md-6 form-group">
-                    <label>នាយកដ្ឋាន<span class="text-danger">*</span></label>
-                    <select wire:model.live="form.department_id" class="form-control">
-                        <option value="">សូមជ្រើសរើសនាយកដ្ឋាន</option>
-                        @foreach ($departments as $department)
-                            <option wire:key="{{ $department->id }}" value="{{ $department->id }}">
-                                {{ $department->kh_name }}
-                            </option>
-                        @endforeach
-                    </select>
-                    @error('form.department_id')
-                    <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="col-12 col-md-6 form-group">
-                    <label>ការិយាល័យ</label>
-                    <select wire:model="form.office_id" class="form-control">
-                        <option value="">សូមជ្រើសរើសការិយាល័យ</option>
-                        @foreach ($offices as $office)
-                            <option wire:key="{{ $office->id }}" value="{{ $office->id }}">
-                                {{ $office->kh_name }}
-                            </option>
-                        @endforeach
-                    </select>
-                    @error('form.office_id')
-                    <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-            </div>
+            {{--            <div class="row g-4">--}}
+            {{--                <div class="col-12 col-md-4 form-group">--}}
+            {{--                    <label>ថ្នាក់បុគ្គលិក<span class="text-danger">*</span></label>--}}
+            {{--                    @if(Auth::user()->user_level_id == 3)--}}
+            {{--                        <select wire:model.live="form.employee_level_id" class="form-control" disabled>--}}
+            {{--                            <option value="">សូមជ្រើសរើសថ្នាក់បុគ្គលិក</option>--}}
+            {{--                            @foreach ($user_levels as $user_level)--}}
+            {{--                                <option wire:key="{{ $user_level->id }}" value="{{ $user_level->id }}">--}}
+            {{--                                    {{ $user_level->kh_name }}--}}
+            {{--                                </option>--}}
+            {{--                            @endforeach--}}
+            {{--                        </select>--}}
+            {{--                    @else--}}
+            {{--                        <select wire:model.live="form.employee_level_id" class="form-control">--}}
+            {{--                            <option value="">សូមជ្រើសរើសថ្នាក់បុគ្គលិក</option>--}}
+            {{--                            @foreach ($user_levels as $user_level)--}}
+            {{--                                @if($user_level->id == 1 && Auth::user()->user_level_id > 1)--}}
+            {{--                                    @continue--}}
+            {{--                                @endif--}}
+            {{--                                <option wire:key="{{ $user_level->id }}" value="{{ $user_level->id }}">--}}
+            {{--                                    {{ $user_level->kh_name }}--}}
+            {{--                                </option>--}}
+            {{--                            @endforeach--}}
+            {{--                        </select>--}}
+            {{--                    @endif--}}
+            {{--                    @error('form.employee_level_id')--}}
+            {{--                    <span class="text-danger">{{ $message }}</span>--}}
+            {{--                    @enderror--}}
+            {{--                </div>--}}
+            {{--                <div class="col-12 col-md-4 form-group">--}}
+            {{--                    <label>សាខា<span class="text-danger">*</span></label>--}}
+            {{--                    @if(Auth::user()->user_level_id == 2 || Auth::user()->user_level_id == 3)--}}
+            {{--                        <select wire:model.live="form.branch_id" class="form-control" disabled>--}}
+            {{--                            <option value="">សូមជ្រើសរើសសាខា</option>--}}
+            {{--                            @foreach ($branches as $branch)--}}
+            {{--                                <option wire:key="{{ $branch->id }}" value="{{ $branch->id }}">--}}
+            {{--                                    {{ $branch->kh_name }}--}}
+            {{--                                </option>--}}
+            {{--                            @endforeach--}}
+            {{--                        </select>--}}
+            {{--                    @else--}}
+            {{--                        <select wire:model.live="form.branch_id" class="form-control">--}}
+            {{--                            <option value="">សូមជ្រើសរើសសាខា</option>--}}
+            {{--                            @foreach ($branches as $branch)--}}
+            {{--                                <option wire:key="{{ $branch->id }}" value="{{ $branch->id }}">--}}
+            {{--                                    {{ $branch->kh_name }}--}}
+            {{--                                </option>--}}
+            {{--                            @endforeach--}}
+            {{--                        </select>--}}
+            {{--                    @endif--}}
+            {{--                    @error('form.branch_id')--}}
+            {{--                    <span class="text-danger">{{ $message }}</span>--}}
+            {{--                    @enderror--}}
+            {{--                </div>--}}
+            {{--                <div class="col-12 col-md-4 form-group">--}}
+            {{--                    @if ($form->employee_level_id == 3)--}}
+            {{--                        <label>អនុសាសា<span class="text-danger">*</span></label>--}}
+            {{--                    @else--}}
+            {{--                        <label>អនុសាសា</label>--}}
+            {{--                    @endif--}}
+            {{--                    @if(Auth::user()->user_level_id == 3)--}}
+            {{--                        <select wire:model="form.sub_branch_id" class="form-control" disabled>--}}
+            {{--                            <option value="">សូមជ្រើសរើសអនុសាខា</option>--}}
+            {{--                            @foreach ($sub_branches as $sub_branch)--}}
+            {{--                                <option wire:key="{{ $sub_branch->id }}" value="{{ $sub_branch->id }}">--}}
+            {{--                                    {{ $sub_branch->kh_name }}--}}
+            {{--                                </option>--}}
+            {{--                            @endforeach--}}
+            {{--                        </select>--}}
+            {{--                    @else--}}
+            {{--                        <select wire:model="form.sub_branch_id" class="form-control">--}}
+            {{--                            <option value="">សូមជ្រើសរើសអនុសាខា</option>--}}
+            {{--                            @foreach ($sub_branches as $sub_branch)--}}
+            {{--                                <option wire:key="{{ $sub_branch->id }}" value="{{ $sub_branch->id }}">--}}
+            {{--                                    {{ $sub_branch->kh_name }}--}}
+            {{--                                </option>--}}
+            {{--                            @endforeach--}}
+            {{--                        </select>--}}
+            {{--                    @endif--}}
+            {{--                    @error('form.sub_branch_id')--}}
+            {{--                    <span class="text-danger">{{ $message }}</span>--}}
+            {{--                    @enderror--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
+            {{--            <div class="row g-4">--}}
+            {{--                <div class="col-12 col-md-6 form-group">--}}
+            {{--                    <label>នាយកដ្ឋាន<span class="text-danger">*</span></label>--}}
+            {{--                    <select wire:model.live="form.department_id" class="form-control">--}}
+            {{--                        <option value="">សូមជ្រើសរើសនាយកដ្ឋាន</option>--}}
+            {{--                        @foreach ($departments as $department)--}}
+            {{--                            <option wire:key="{{ $department->id }}" value="{{ $department->id }}">--}}
+            {{--                                {{ $department->kh_name }}--}}
+            {{--                            </option>--}}
+            {{--                        @endforeach--}}
+            {{--                    </select>--}}
+            {{--                    @error('form.department_id')--}}
+            {{--                    <span class="text-danger">{{ $message }}</span>--}}
+            {{--                    @enderror--}}
+            {{--                </div>--}}
+            {{--                <div class="col-12 col-md-6 form-group">--}}
+            {{--                    <label>ការិយាល័យ</label>--}}
+            {{--                    <select wire:model="form.office_id" class="form-control">--}}
+            {{--                        <option value="">សូមជ្រើសរើសការិយាល័យ</option>--}}
+            {{--                        @foreach ($offices as $office)--}}
+            {{--                            <option wire:key="{{ $office->id }}" value="{{ $office->id }}">--}}
+            {{--                                {{ $office->kh_name }}--}}
+            {{--                            </option>--}}
+            {{--                        @endforeach--}}
+            {{--                    </select>--}}
+            {{--                    @error('form.office_id')--}}
+            {{--                    <span class="text-danger">{{ $message }}</span>--}}
+            {{--                    @enderror--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
         </div>
         <div class="card-footer text-right">
             <button type="submit" class="btn btn-info"><i class="fa fa-save mr-1"></i> កែប្រែ</button>
@@ -388,14 +388,14 @@
     $('#reservationdate').on('change.datetimepicker', function () {
         $wire.set('form.dob', $('#dob').val());
     });
-    window.addEventListener("update_fail", event => {
+    $wire.on('update_fail', (event) => {
         Swal.fire({
             title: "មានបញ្ហា!",
-            text: event.detail.message,
+            text: event.message,
             icon: "error",
             confirmButtonText: "អូខេ",
             confirmButtonColor: "#dc3545"
         });
-    });
+    })
 </script>
 @endscript
