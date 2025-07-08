@@ -10,7 +10,8 @@
                     <select wire:model="position_id" class="form-control">
                         <option value="">សូមជ្រើសរើសដំណែង</option>
                         @foreach ($positions as $position)
-                            @if($position->id < 4 && Auth::user()->user_level_id != 1)
+                            @if($position->id < 4 && Auth::user()->user_level_id > 1
+                                || $position->id < 6 && Auth::user()->user_level_id == 3)
                                 @continue
                             @endif
                             <option wire:key="{{ $position->id }}" value="{{ $position->id }}">

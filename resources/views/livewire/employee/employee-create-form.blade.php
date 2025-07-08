@@ -266,7 +266,8 @@
                         <option value="">សូមជ្រើសរើសថ្នាក់បុគ្គលិក</option>
                         @foreach ($user_levels as $user_level)
                             @if($user_level->id == 1 && Auth::user()->user_level_id > 1
-                                || $user_level->id < 2 && Auth::user()->user_level_id > 2)
+                                || $user_level->id < 2 && Auth::user()->user_level_id > 2
+                                || $user_level->id < 3 && Auth::user()->user_level_id == 3)
                                 @continue
                             @endif
                             <option wire:key="{{ $user_level->id }}" value="{{ $user_level->id }}">
@@ -402,7 +403,6 @@
         $wire.set('form.dob', $('#dob').val());
     });
     $wire.on('create_fail', (event) => {
-        console.log(event.message);
         Swal.fire({
             title: "មានបញ្ហា!",
             text: event.message,
