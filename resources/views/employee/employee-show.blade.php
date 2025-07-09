@@ -45,24 +45,24 @@
                             <b>តួនាទី</b> <a class="float-right">{{$employee->current_position->position->kh_name}}</a>
                         </li>
                     </ul>
-                    <div class="row g-4">
-                        <div class="col-6">
+                    <div class="row g-4 mb-3">
+                        <div class="col-12">
                             <a href="{{route('employee.edit', Crypt::encrypt($employee->id))}}"
                                class="btn btn-info btn-block"><i class="fa fa-pen mr-1" aria-hidden="true"></i>
                                 <b>កែប្រែ</b></a>
                         </div>
-                        <div class="col-6">
-                            <a href="#" class="btn btn-danger btn-block"><i class="fa fa-trash mr-2"
-                                                                            aria-hidden="true"></i><b>លុប</b></a>
+                        {{--                        <div class="col-6">--}}
+                        {{--                            <a href="#" class="btn btn-danger btn-block"><i class="fa fa-trash mr-2"--}}
+                        {{--                                                                            aria-hidden="true"></i><b>លុប</b></a>--}}
+                        {{--                        </div>--}}
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <a href="{{route('employee.position.swap', Crypt::encrypt($employee->id))}}"
+                               class="btn btn-success btn-block"><i class="fa fa-suitcase mr-2"
+                                                                    aria-hidden="true"></i><b>ផ្លាស់តួនាទី</b></a>
                         </div>
                     </div>
-                    {{--                    <div class="row g-4">--}}
-                    {{--                        <div class="col-6">--}}
-                    {{--                            <a href="{{route('employee.position.swap', Crypt::encrypt($employee->id))}}"--}}
-                    {{--                               class="btn btn-success btn-block"><i class="fa fa-suitcase mr-2"--}}
-                    {{--                                                                    aria-hidden="true"></i><b>ផ្លាស់តួនាទី</b></a>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@
                                                 data-toggle="tab">ព័ត៍មាន</a>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="#timeline"
-                                                data-toggle="tab">ប្រវតិ្តដំណែង</a>
+                                                data-toggle="tab">ប្រវតិ្តតួនាទី</a>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="#activity"
                                                 data-toggle="tab">ប្រវត្តិការសិក្សា</a>

@@ -344,7 +344,7 @@
                 @if($form->sub_branch_id && $form->employee_level_id == 4)
                     <div class="col-12 col-md-6 form-group">
                         <label>ក្រុមអនុសាខា</label>
-                        <select wire:model="group_id" class="form-control">
+                        <select wire:model="form.group_id" class="form-control">
                             <option value="">សូមជ្រើសរើសក្រុមអនុសាខា</option>
                             @foreach ($groups as $sub_branch)
                                 <option wire:key="{{ $sub_branch->id }}" value="{{ $sub_branch->id }}">
@@ -352,7 +352,7 @@
                                 </option>
                             @endforeach
                         </select>
-                        @error('group_id')
+                        @error('form.group_id')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>

@@ -64,6 +64,10 @@ class UserSeeder extends Seeder
                 'kh_name' => 'របាយការណ៍ថ្នាក់អនុសាខា',
             ],
             [
+                'name' => 'group_report',
+                'kh_name' => 'របាយការណ៍ថ្នាក់ក្រុមអនុសាខា',
+            ],
+            [
                 'name' => 'setting_management',
                 'kh_name' => 'កំណត់ប្រព័ន្ធ',
             ],
