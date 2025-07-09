@@ -33,6 +33,11 @@
                                 <b>អនុសាខា</b> <a class="float-right">{{$employee->sub_branch->kh_name}}</a>
                             </li>
                         @endif
+                        @if($employee->employee_level_id == 4)
+                            <li class="list-group-item">
+                                <b>ក្រុម</b> <a class="float-right">{{$employee->group->kh_name}}</a>
+                            </li>
+                        @endif
                         <li class="list-group-item">
                             <b>នាយកដ្ឋាន</b> <a class="float-right">{{$employee->department->kh_name}}</a>
                         </li>
@@ -56,11 +61,18 @@
                         {{--                                                                            aria-hidden="true"></i><b>លុប</b></a>--}}
                         {{--                        </div>--}}
                     </div>
-                    <div class="row g-4">
+                    <div class="row g-4 mb-3">
                         <div class="col-12">
                             <a href="{{route('employee.position.swap', Crypt::encrypt($employee->id))}}"
                                class="btn btn-success btn-block"><i class="fa fa-suitcase mr-2"
                                                                     aria-hidden="true"></i><b>ផ្លាស់តួនាទី</b></a>
+                        </div>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <a href="{{route('employee.education.create', Crypt::encrypt($employee->id))}}"
+                               class="btn btn-primary btn-block"><i class="fa fa-graduation-cap mr-2"
+                                                                    aria-hidden="true"></i><b>បង្កើតប្រវត្តិសិក្សា</b></a>
                         </div>
                     </div>
                 </div>

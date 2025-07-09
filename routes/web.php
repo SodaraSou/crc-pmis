@@ -68,6 +68,7 @@ Route::get('/employee/{employee_id}/edit', [EmployeeController::class, 'edit'])-
 Route::get('/employee/{employee_id}/position/create', [EmployeeController::class, 'createPosition'])->middleware('auth')->name('employee.position.create');
 Route::get('/employee/{employee_id}/position/{employee_position_id}/edit', [EmployeeController::class, 'editPosition'])->middleware('auth')->name('employee.position.edit');
 Route::get('/employee/{employee_id}/position/swap', [EmployeeController::class, 'swapPosition'])->middleware('auth')->name('employee.position.swap');
+Route::get('/employee/{employee_id}/education/create', [EmployeeController::class, 'createEducation'])->middleware('auth')->name('employee.education.create');
 
 // Province
 Route::get('/province', [ProvinceController::class, 'index'])->middleware('auth')->name('province.index');

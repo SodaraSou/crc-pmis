@@ -44,6 +44,7 @@ class EmployeeController extends Controller
         return view('employee.employee-show', [
             'employee' => $employee,
             'positions' => $employee->positions,
+            'educations' => $employee->educations,
         ]);
     }
 
@@ -78,6 +79,17 @@ class EmployeeController extends Controller
         Gate::authorize('managePosition', $employee);
 
         return view('employee.employee-position-swap', [
+            'employee' => $employee,
+        ]);
+    }
+
+    public function createEducation(Request $request)
+    {
+        $employee = Employee::find(Crypt::decrypt($request->employee_id));
+
+        Gate::authorize('manageEducation', $employee);
+
+        return view('employee.employee-education-create', [
             'employee' => $employee,
         ]);
     }
