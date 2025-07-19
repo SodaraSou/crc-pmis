@@ -116,7 +116,7 @@ class EmployeePolicy
         return false;
     }
 
-    public function manageEducation(User $user, Employee $employee): bool
+    public function createEducation(User $user, Employee $employee): bool
     {
         if (! $user->hasPermissionTo('employee_management')) {
             return false;

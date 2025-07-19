@@ -22,13 +22,8 @@
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<body class="sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
-    <!-- Preloader -->
-    <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="{{ asset('Cambodian_Red_Cross_Logo.png') }}" alt="crc_logo"
-             height="60" width="60"/>
-    </div>
     {{-- Navbar --}}
     @include('layouts.navbar')
     {{-- Sidebar --}}
@@ -55,6 +50,25 @@
 <script src="{{ asset('vendor/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 <!-- JS Script -->
 @yield('js')
+@if (session()->has('toast'))
+    <script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        });
+        Toast.fire({
+            icon: '{{ session('toast.type') }}',
+            title: '{{ session('toast.message') }}'
+        });
+    </script>
+@endif
 </body>
 
 </html>

@@ -88,7 +88,7 @@
                         <li class="nav-item"><a class="nav-link" href="#timeline"
                                                 data-toggle="tab">ប្រវតិ្តតួនាទី</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#activity"
+                        <li class="nav-item"><a class="nav-link" href="#education"
                                                 data-toggle="tab">ប្រវត្តិការសិក្សា</a>
                         <li class="nav-item"><a class="nav-link" href="#job"
                                                 data-toggle="tab">ប្រវត្តិការងារ</a>
@@ -252,7 +252,43 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="tab-pane" id="activity">
+                        <div class="tab-pane" id="education">
+                            <div class="timeline timeline-inverse">
+                                @foreach($educations as $education)
+                                    <div class="time-label">
+                                    <span class="bg-success">
+                                        {{$education->start_year}} ដល់ {{$education->end_year}}
+                                    </span>
+                                    </div>
+                                    <div>
+                                        <i class="fa fa-graduation-cap bg-success"></i>
+                                        <div class="timeline-item">
+                                            <h3 class="timeline-header">{{$education->degree_type->kh_name}}</h3>
+                                            <div class="timeline-body">
+                                                <div>
+                                                    ជំនាញ: {{$education->field_of_study}}
+                                                </div>
+                                                <div>
+                                                    គ្រឹះស្ថានសិក្សា: {{$education->institution}}
+                                                </div>
+                                            </div>
+                                            {{--                                            <div class="timeline-footer">--}}
+                                            {{--                                                <a href="{{route('home')}}" class="btn btn-success"><i--}}
+                                            {{--                                                        class="fa fa-file-alt mr-2"></i>កុងត្រា</a>--}}
+                                            {{--                                                <a href="{{ route('employee.position.edit', [Crypt::encrypt($employee_postion->pivot->employee_id), Crypt::encrypt($employee_postion->pivot->id)]) }}"--}}
+                                            {{--                                                   class="btn btn-info">--}}
+                                            {{--                                                    <i class="fa fa-pen mr-2"></i>កែប្រែ--}}
+                                            {{--                                                </a>--}}
+                                            {{--                                            </div>--}}
+                                        </div>
+                                    </div>
+                                @endforeach
+                                @if($educations->count() > 0)
+                                    <div>
+                                        <i class="far fa-clock bg-gray"></i>
+                                    </div>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>

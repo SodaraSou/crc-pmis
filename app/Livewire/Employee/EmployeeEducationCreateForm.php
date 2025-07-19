@@ -25,6 +25,11 @@ class EmployeeEducationCreateForm extends Component
             $employee_education = $this->form->store();
             $encrypt_id = Crypt::encrypt($employee_education->employee_id);
 
+            session()->flash('toast', [
+                'type' => 'success',
+                'message' => 'បានរក្សាទុកជោគជ័យ!',
+            ]);
+
             return redirect()->to("/employee/{$encrypt_id}");
         } catch (\Exception $e) {
             $this->dispatch('create_fail', message: $e->getMessage());

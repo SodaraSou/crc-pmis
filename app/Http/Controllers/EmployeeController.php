@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\EmployeeEducation;
 use App\Models\EmployeePosition;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -87,10 +88,19 @@ class EmployeeController extends Controller
     {
         $employee = Employee::find(Crypt::decrypt($request->employee_id));
 
-        Gate::authorize('manageEducation', $employee);
+        Gate::authorize('createEducation', $employee);
 
         return view('employee.employee-education-create', [
             'employee' => $employee,
+        ]);
+    }
+
+    public function editEducation(EmployeeEducation $employee_education)
+    {
+        //        Gate::authorize('manageEducation', $employee);
+
+        return view('employee.employee-education-create', [
+
         ]);
     }
 }
