@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
 class AuthController extends BaseController
 {
     public function login(LoginRequest $request)
