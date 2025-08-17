@@ -108,6 +108,12 @@
                                     </a>
                                 </li>
                                 {{-- @endif --}}
+                                    <li class="nav-item" id="committee">
+                                        <a href="{{ route('committee.index') }}" class="nav-link">
+                                            <i class="fas fa-angle-double-right nav-icon"></i>
+                                            <p>គណៈកម្មាធិការ</p>
+                                        </a>
+                                    </li>
                                 @if (Auth::user()->hasPermissionTo('province_management'))
                                     <li class="nav-item" id="province">
                                         <a href="{{ route('province.index') }}" class="nav-link">

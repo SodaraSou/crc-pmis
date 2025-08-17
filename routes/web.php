@@ -16,6 +16,7 @@ use App\Http\Controllers\SubBranchController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VillageController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CommitteeController;
 
 Route::get('/', [HomeController::class, 'index'])->middleware('auth')->name('home');
 
@@ -94,3 +95,7 @@ Route::get('/village/{village}/edit', [VillageController::class, 'edit'])->middl
 Route::get('/login', [LoginController::class, 'create'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
 Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
+
+// Committee
+Route::get('/committee', [CommitteeController::class, 'index'])->middleware('auth')->name('committee.index');
+Route::get('/committee/create', [CommitteeController::class, 'create'])->middleware('auth')->name('committee.create');
