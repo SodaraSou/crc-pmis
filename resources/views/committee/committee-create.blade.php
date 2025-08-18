@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h1>Create Committee</h1>
+    @livewire('committee.committee-create-form')
 @endsection
 
 @section('js')

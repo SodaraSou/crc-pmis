@@ -48,24 +48,6 @@
                     </td>
                 </tr>
             @endforeach
-{{--                <tr>--}}
-{{--                    <td>1</td>--}}
-{{--                    <td>Test</td>--}}
-{{--                    <td>Test</td>--}}
-{{--                    <td>--}}
-{{--                        <div class="d-flex justify-content-center align-items-center">--}}
-{{--                            <a href="{{ route('committee.create', 1) }}" class="btn btn-sm btn-primary text-white mr-2">--}}
-{{--                                <i class="fa fa-eye"></i>--}}
-{{--                            </a>--}}
-{{--                            <a href="{{ route('committee.create', 1) }}" class="btn btn-sm btn-info text-white mr-2">--}}
-{{--                                <i class="fa fa-pen"></i>--}}
-{{--                            </a>--}}
-{{--                            <button class="btn btn-sm btn-danger"--}}
-{{--                                wire:click="$dispatch('alert_delete', {committee_id: 1})">--}}
-{{--                                <i class="fa fa-trash" aria-hidden="true"></i>--}}
-{{--                            </button>--}}
-{{--                        </div>--}}
-{{--                </tr>--}}
             </tbody>
         </table>
     </div>
