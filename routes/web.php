@@ -99,3 +99,4 @@ Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 // Committee
 Route::get('/committee', [CommitteeController::class, 'index'])->middleware('auth')->name('committee.index');
 Route::get('/committee/create', [CommitteeController::class, 'create'])->middleware('auth')->name('committee.create');
+Route::get('/committee/{committee}/edit', [CommitteeController::class, 'edit'])->middleware('auth')->name('committee.edit');

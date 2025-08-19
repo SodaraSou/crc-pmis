@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Committee;
-use Illuminate\Http\Request;
 
 class CommitteeController extends Controller
 {
@@ -15,5 +14,12 @@ class CommitteeController extends Controller
     public function create()
     {
         return view('committee.committee-create');
+    }
+
+    public function edit(Committee $committee)
+    {
+        return view('committee.committee-edit', [
+            'committee' => $committee
+        ]);
     }
 }
