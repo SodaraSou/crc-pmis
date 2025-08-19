@@ -16,6 +16,13 @@ class CommitteeController extends Controller
         return view('committee.committee-create');
     }
 
+    public function show(Committee $committee)
+    {
+        return view('committee.committee-show', [
+            'committee' => $committee
+        ]);
+    }
+
     public function edit(Committee $committee)
     {
         return view('committee.committee-edit', [

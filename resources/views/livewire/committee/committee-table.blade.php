@@ -34,9 +34,9 @@
                     <td>{{ $committee->en_name }}</td>
                     <td>
                         <div class="d-flex justify-content-center align-items-center">
-{{--                            <a href="{{ route('committee.create', $committee->id) }}" class="btn btn-sm btn-primary text-white mr-2">--}}
-{{--                                <i class="fa fa-eye"></i>--}}
-{{--                            </a>--}}
+                            <a href="{{ route('committee.show', $committee->id) }}" class="btn btn-sm btn-primary text-white mr-2">
+                                <i class="fa fa-eye"></i>
+                            </a>
                             <a href="{{ route('committee.edit', $committee->id) }}" class="btn btn-sm btn-info text-white mr-2">
                                 <i class="fa fa-pen"></i>
                             </a>
@@ -55,7 +55,7 @@
 
 @script
     <script>
-        window.addEventListener("alert_delete", (event) => {
+        $wire.on("alert_delete", (event) => {
             Swal.fire({
                 title: "តើអ្នកប្រាកដមែនទេ?",
                 text: "សកម្មភាពនេះមិនអាចត្រឡប់ក្រោយបានទេ!",
@@ -73,7 +73,7 @@
                 }
             })
         });
-        window.addEventListener("delete_success", () => {
+        $wire.on("delete_success", () => {
             Swal.fire({
                 title: "ជោគជ័យ",
                 text: "លុបគណៈកម្មាធិការជោគជ័យ",
@@ -82,7 +82,7 @@
                 confirmButtonColor: "#28a745"
             });
         });
-        window.addEventListener("delete_fail", () => {
+        $wire.on("delete_fail", () => {
             Swal.fire({
                 title: "មានបញ្ហា!",
                 text: "លុបគណៈកម្មាធិការមិនជោគជ័យ",
@@ -93,4 +93,3 @@
         });
     </script>
 @endscript
-
