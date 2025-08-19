@@ -79,7 +79,7 @@
         window.addEventListener("delete_fail", () => {
             Swal.fire({
                 title: "មានបញ្ហា!",
-                text: "លុបនាយកដ្ឋនមិនជោគជ័យ",
+                text: "លុបនាយកដ្ឋានមិនជោគជ័យ",
                 icon: "error",
                 confirmButtonText: "អូខេ",
                 confirmButtonColor: "#dc3545"
