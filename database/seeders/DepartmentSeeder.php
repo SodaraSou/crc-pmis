@@ -14,34 +14,46 @@ class DepartmentSeeder extends Seeder
     {
         Department::insert([
             [
+                'id' => 1,
                 'en_name' => 'General Secretariat',
                 'kh_name' => 'អគ្គលេខាធិការដ្ឋាន',
                 'department_order' => 1,
             ],
             [
+                'id' => 2,
                 'en_name' => 'Administration and Finance Department',
                 'kh_name' => 'រដ្ឋបាល និងហិរញ្ញកិច្ច',
                 'department_order' => 2,
             ],
             [
+                'id' => 3,
                 'en_name' => 'Crisis Management Department',
                 'kh_name' => 'គ្រប់គ្រងគ្រោះមហន្តរាយ',
                 'department_order' => 3,
             ],
             [
+                'id' => 4,
                 'en_name' => 'Health Department',
                 'kh_name' => 'សុខភាព',
                 'department_order' => 4,
             ],
             [
+                'id' => 5,
                 'en_name' => 'Communications Department',
                 'kh_name' => 'ទំនាក់ទំនង',
                 'department_order' => 5,
             ],
             [
+                'id' => 6,
                 'en_name' => 'Human Resource Department',
                 'kh_name' => 'ធនធានមនុស្ស',
                 'department_order' => 6,
+            ],
+            [
+                'id' => 100,
+                'en_name' => 'Test',
+                'kh_name' => 'Test',
+                'department_order' => 100,
             ],
         ]);
     }

@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->string('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->time('check_in_time_morning')->nullable();
             $table->time('check_out_time_morning')->nullable();
             $table->time('check_in_time_afternoon')->nullable();

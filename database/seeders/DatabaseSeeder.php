@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             FamilySituationSeeder::class,
             EmployeeStatusSeeder::class,
             DegreeTypeSeeder::class,
+            OldUserSeeder::class,
         ]);
     }
 }

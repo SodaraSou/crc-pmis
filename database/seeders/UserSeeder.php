@@ -100,6 +100,9 @@ class UserSeeder extends Seeder
             'user_level_id' => 1,
             'branch_id' => 0,
             'profile_img' => 'https://github.com/shadcn.png',
+            'department_id' => 6,
+            'position' => "Admin",
+            'department_position_order' => 100,
         ]);
         $superAdmin->assignRole($superAdminRole);
     }
