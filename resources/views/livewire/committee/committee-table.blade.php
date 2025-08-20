@@ -68,7 +68,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $wire.dispatch('confirmed_delete', {
-                        committee_id: event.detail.committee_id
+                        committee_id: event.committee_id
                     });
                 }
             })
