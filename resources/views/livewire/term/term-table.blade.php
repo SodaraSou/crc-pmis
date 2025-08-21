@@ -35,9 +35,10 @@
                             class="btn btn-sm btn-info text-white mr-2">
                                 <i class="fa fa-pen"></i>
                             </a>
-                            <buttton class="btn btn-sm btn-danger">
+                            <button class="btn btn-sm btn-danger"
+                                wire:click="$dispatch('alert_delete', {term_id: {{ $term->id }}})">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
-                            </buttton>
+                            </button>
                         </div>
                     </td>
                 </tr>
@@ -46,3 +47,44 @@
         </table>
     </div>
 </div>
+
+@script
+    <script>
+        $wire.on("alert_delete", (event) => {
+            Swal.fire({
+                title: "តើអ្នកប្រាកដមែនទេ?",
+                text: "សកម្មភាពនេះមិនអាចត្រឡប់ក្រោយបានទេ!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#007bff",
+                cancelButtonColor: "#dc3545",
+                confirmButtonText: "យល់ព្រម",
+                cancelButtonText: "បញ្ឈប់"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $wire.dispatch('confirmed_delete', {
+                        term_id: event.term_id
+                    });
+                }
+            })
+        });
+        $wire.on("delete_success", () => {
+            Swal.fire({
+                title: "ជោគជ័យ",
+                text: "លុបអាណត្តិជោគជ័យ",
+                icon: "success",
+                confirmButtonText: "អូខេ",
+                confirmButtonColor: "#28a745"
+            });
+        });
+        $wire.on("delete_fail", () => {
+            Swal.fire({
+                title: "មានបញ្ហា!",
+                text: "លុបអាណត្តិមិនជោគជ័យ",
+                icon: "error",
+                confirmButtonText: "អូខេ",
+                confirmButtonColor: "#dc3545"
+            });
+        });
+    </script>
+@endscript

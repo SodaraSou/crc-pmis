@@ -15,6 +15,21 @@ class TermTable extends Component
         $this->committee = $committee;
     }
 
+    #[On('confirmed_delete')]
+    public function delete($term_id)
+    {
+        try{
+            $term = Term::find($term_id);
+            if ($term) {
+                $term->delete();
+                $this->dispatch('delete_success');
+            } else {
+                $this->dispatch('delete_fail');
+            }
+        } catch (\Exception $e) {
+            $this->dispatch('delete_fail', message: $e->getMessage());
+        }
+    }
     public function render()
     {
         return view('livewire.term.term-table', [
