@@ -5,7 +5,8 @@
             <h3 class="card-title">គណៈកម្មាធិការ</h3>
             <a href="{{ route('committee.create') }}" class="btn btn-success">
                 <i class="fa fa-plus mr-1"></i>
-                បង្កើតថ្មី</a>
+                បង្កើតថ្មី
+            </a>
         </div>
     </div>
     <div class="card-body">

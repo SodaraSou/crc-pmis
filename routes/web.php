@@ -17,6 +17,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\VillageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommitteeController;
+use App\Http\Controllers\TermController;
 
 Route::get('/', [HomeController::class, 'index'])->middleware('auth')->name('home');
 
@@ -103,3 +104,4 @@ Route::get('/committee/{committee}/edit', [CommitteeController::class, 'edit'])-
 Route::get('/committee/{committee}', [CommitteeController::class, 'show'])->middleware('auth')->name('committee.show');
 
 // Term
+Route::get('/committee/{committee}/term/create', [TermController::class, 'create'])->middleware('auth')->name('term.create');

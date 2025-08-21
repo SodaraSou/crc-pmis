@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('title')
-    បញ្ជីអាណត្តិ
+    បង្កើតអាណត្តិ
 @endsection
 
 @section('content')
-    <livewire:term.term-table :committee="$committee"/>
+    <livewire:term.term-create-form :committee="$committee" />
 @endsection
 
 @section('js')
@@ -14,6 +14,6 @@
             $("#setting>a").addClass("active");
             $("#setting").addClass("menu-open");
             $("#committee>a").addClass("active");
-        });
+        })
     </script>
 @endsection
