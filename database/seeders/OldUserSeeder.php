@@ -15,7 +15,7 @@ class OldUserSeeder extends Seeder
      */
     public function run(): void
     {
-        $permission = Permission::create(['name' => 'attendance', 'kh_name' => 'វត្តមាន',]);
+        $permission = Permission::create(['name' => 'attendance', 'kh_name' => 'វត្តមាន']);
         $role = Role::create(['name' => 'Officer', 'kh_name' => 'មន្ត្រី']);
 
         $role->givePermissionTo($permission);
@@ -1728,7 +1728,7 @@ class OldUserSeeder extends Seeder
                 'department_id' => 100,
                 'position' => 'ជំនួយការអគ្គលេខាធិការដ្ឋាន',
                 'department_position_order' => 6,
-            ]
+            ],
         ];
 
         foreach ($users as $user) {

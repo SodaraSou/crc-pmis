@@ -19,6 +19,7 @@ class User extends Authenticatable
      * The primary key is a UUID (string) and not incrementing.
      */
     public $incrementing = false;
+
     protected $keyType = 'string';
 
     /**
@@ -40,7 +41,7 @@ class User extends Authenticatable
         'group_id',
         'department_id',
         'position',
-        'department_position_order'
+        'department_position_order',
     ];
 
     /**

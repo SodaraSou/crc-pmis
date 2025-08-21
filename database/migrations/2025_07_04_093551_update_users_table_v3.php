@@ -29,13 +29,13 @@ return new class extends Migration
                 'group_id',
                 'department_id',
                 'position',
-                'department_position_order'
+                'department_position_order',
             ]);
             $table->dropColumn([
                 'group_id',
                 'department_id',
                 'position',
-                'department_position_order'
+                'department_position_order',
             ]);
         });
     }

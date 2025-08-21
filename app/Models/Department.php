@@ -12,6 +12,6 @@ class Department extends Model
         'kh_name',
         'en_abbr',
         'kh_abbr',
-        'department_order'
+        'department_order',
     ];
 }
