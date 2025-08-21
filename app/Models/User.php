@@ -19,7 +19,6 @@ class User extends Authenticatable
      * The primary key is a UUID (string) and not incrementing.
      */
     public $incrementing = false;
-
     protected $keyType = 'string';
 
     /**
@@ -41,7 +40,7 @@ class User extends Authenticatable
         'group_id',
         'department_id',
         'position',
-        'department_position_order',
+        'department_position_order'
     ];
 
     /**
@@ -85,6 +84,11 @@ class User extends Authenticatable
     public function group(): BelongsTo
     {
         return $this->belongsTo(Group::class);
+    }
+
+    public function department(): BelongsTo
+    {
+        return $this->belongsTo(Department::class);
     }
 
     protected static function boot()

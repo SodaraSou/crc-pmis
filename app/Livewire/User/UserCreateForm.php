@@ -3,6 +3,7 @@
 namespace App\Livewire\User;
 
 use App\Models\Branch;
+use App\Models\Department;
 use App\Models\SubBranch;
 use App\Models\User;
 use App\Models\UserLevel;
@@ -32,7 +33,7 @@ class UserCreateForm extends Component
     #[Validate('required', message: 'សូមជ្រើសរើសលំដាប់អ្នកប្រើប្រាស់')]
     public $user_level_id = '';
 
-    #[Validate('required', message: 'សូមជ្រើសរើសតួនាទី')]
+    #[Validate('required', message: 'សូមជ្រើសរើសតួនាទីក្នុងប្រព័ន្ធ')]
     public $selected_role = '';
 
     #[Validate('required', message: 'សូមជ្រើសរើសសាខា')]
@@ -43,6 +44,14 @@ class UserCreateForm extends Component
     public $branches = [];
 
     public $sub_branch_id;
+
+    #[Validate('required', message: 'សូមជ្រើសរើសនាយកដ្ឋាន')]
+    public $department_id;
+
+    #[Validate('required', message: "សូមបញ្ចូលតួនាទី")]
+    public $position = "";
+
+    public $department_position_order = 0;
 
     protected function rules(): array
     {
@@ -89,6 +98,9 @@ class UserCreateForm extends Component
                 'phone_number' => $validated['phone_number'],
                 'user_level_id' => $validated['user_level_id'],
                 'profile_img' => 'https://github.com/shadcn.png',
+                'department_id' => $validated['department_id'],
+                'position' => $validated['position'],
+                'department_position_id' => $this->department_position_order,
             ];
             if ($this->user_level_id == 2 || $this->user_level_id == 3) {
                 $data['branch_id'] = $this->branch_id;
@@ -98,6 +110,11 @@ class UserCreateForm extends Component
             }
             $user = User::create($data);
             $user->assignRole($this->selected_role);
+
+            session()->flash('toast', [
+                'type' => 'success',
+                'message' => 'បានរក្សាទុកជោគជ័យ!',
+            ]);
 
             return redirect()->to('/user');
         } catch (\Exception $e) {
@@ -111,6 +128,7 @@ class UserCreateForm extends Component
             'user_levels' => UserLevel::all(),
             'roles' => Role::all(),
             'branches' => $this->branches,
+            'departments' => Department::all(),
         ]);
     }
 }

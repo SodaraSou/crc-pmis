@@ -9,14 +9,14 @@
                     <label>ឈ្មោះខ្មែរ<span class="text-danger">*</span></label>
                     <input wire:model="kh_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះខ្មែរ">
                     @error('kh_name')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-12 col-md-6 form-group">
                     <label>ឈ្មោះឡាតាំង<span class="text-danger">*</span></label>
                     <input wire:model="name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះឡាតាំង">
                     @error('name')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
@@ -25,14 +25,14 @@
                     <label>អុីម៉ែល<span class="text-danger">*</span></label>
                     <input wire:model="email" class="form-control" placeholder="សូមបញ្ចូលអុីម៉ែល">
                     @error('email')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-12 col-md-6 form-group">
                     <label>លេខទូរស័ព្ទ<span class="text-danger">*</span></label>
                     <input wire:model="phone_number" class="form-control" placeholder="សូមបញ្ចូលលេខទូរស័ព្ទ">
                     @error('phone_number')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
@@ -48,13 +48,13 @@
                         @endforeach
                     </select>
                     @error('user_level_id')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-12 col-md-6 form-group">
-                    <label>តួនាទី<span class="text-danger">*</span></label>
+                    <label>តួនាទីក្នុងប្រព័ន្ធ<span class="text-danger">*</span></label>
                     <select wire:model="selected_role" class="form-control">
-                        <option value="">សូមជ្រើសរើសតួនាទី</option>
+                        <option value="">សូមជ្រើសរើសតួនាទីក្នុងប្រព័ន្ធ</option>
                         @foreach ($roles as $role)
                             <option wire:key="{{ $role->id }}" value="{{ $role->name }}">
                                 {{ $role->name }}
@@ -62,7 +62,7 @@
                         @endforeach
                     </select>
                     @error('selected_role')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
@@ -78,11 +78,11 @@
                         @endforeach
                     </select>
                     @error('branch_id')
-                    <span class="text-danger">{{ $errors->first('branch_id') }}</span>
+                        <span class="text-danger">{{ $errors->first('branch_id') }}</span>
                     @enderror
                 </div>
                 <div class="col-12 col-md-6 form-group">
-                    @if($user_level_id == 3)
+                    @if ($user_level_id == 3)
                         <label>អនុសាសា<span class="text-danger">*</span></label>
                     @else
                         <label>អនុសាសា</label>
@@ -96,16 +96,44 @@
                         @endforeach
                     </select>
                     @error('sub_branch_id')
-                    <span class="text-danger">{{ $errors->first('sub_branch_id') }}</span>
+                        <span class="text-danger">{{ $errors->first('sub_branch_id') }}</span>
                     @enderror
                 </div>
             </div>
             <div class="row g-4">
                 <div class="col-12 col-md-6 form-group">
+                    <label>នាយកដ្ឋាន<span class="text-danger">*</span></label>
+                    <select wire:model.live="branch_id" class="form-control">
+                        <option value="">សូមជ្រើសរើសនាយកដ្ឋាន</option>
+                        @foreach ($departments as $department)
+                            <option wire:key="{{ $department->id }}" value="{{ $department->id }}">
+                                {{ $department->kh_name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('department_id')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="col-12 col-md-6 form-group">
+                    <label>តួនាទី<span class="text-danger">*</span></label>
+                    <input wire:model="position" class="form-control" placeholder="សូមបញ្ចូលតួនាទី">
+                    @error('position')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-12 col-md-6 form-group">
+                    <label>លំដាប់តួនាទី</label>
+                    <input wire:model="department_position_order" class="form-control"
+                        placeholder="សូមបញ្ចូលលំដាប់តួនាទី">
+                </div>
+                <div class="col-12 col-md-6 form-group">
                     <label>លេខសម្ងាត់<span class="text-danger">*</span></label>
                     <input type="password" wire:model="password" class="form-control" placeholder="សូមបញ្ចូលលេខសម្ងាត់">
                     @error('password')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
@@ -117,15 +145,15 @@
 </div>
 
 @script
-<script>
-    window.addEventListener("create_fail", event => {
-        Swal.fire({
-            title: "មានបញ្ហា!",
-            text: event.detail.message,
-            icon: "error",
-            confirmButtonText: "អូខេ",
-            confirmButtonColor: "#dc3545"
+    <script>
+        window.addEventListener("create_fail", event => {
+            Swal.fire({
+                title: "មានបញ្ហា!",
+                text: event.detail.message,
+                icon: "error",
+                confirmButtonText: "អូខេ",
+                confirmButtonColor: "#dc3545"
+            });
         });
-    });
-</script>
+    </script>
 @endscript
