@@ -48,8 +48,8 @@ class UserCreateForm extends Component
     #[Validate('required', message: 'សូមជ្រើសរើសនាយកដ្ឋាន')]
     public $department_id;
 
-    #[Validate('required', message: "សូមបញ្ចូលតួនាទី")]
-    public $position = "";
+    #[Validate('required', message: 'សូមបញ្ចូលតួនាទី')]
+    public $position = '';
 
     public $department_position_order = 0;
 

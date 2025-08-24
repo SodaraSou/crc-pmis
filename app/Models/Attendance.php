@@ -16,6 +16,6 @@ class Attendance extends Model
         'check_in_time_afternoon',
         'check_out_time_afternoon',
         'date',
-        'session'
+        'session',
     ];
 }

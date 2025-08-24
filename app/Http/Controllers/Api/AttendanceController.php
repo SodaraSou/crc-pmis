@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Attendance;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class AttendanceController extends BaseController
 {
@@ -24,12 +23,13 @@ class AttendanceController extends BaseController
 
         if ($hour < 13) {
             // Morning check-in
-            if (!$attendance) {
+            if (! $attendance) {
                 Attendance::create([
                     'user_id' => $user->id,
                     'date' => $currentDate,
                     'check_in_time_morning' => $currentTime,
                 ]);
+
                 return $this->successResponse([], 'ចុះវត្តមានចូលព្រឹកជោគជ័យ');
             }
             if ($attendance->check_in_time_morning) {
@@ -37,12 +37,13 @@ class AttendanceController extends BaseController
             }
         } else {
             // Afternoon check-in
-            if (!$attendance) {
+            if (! $attendance) {
                 Attendance::create([
                     'user_id' => $user->id,
                     'date' => $currentDate,
                     'check_in_time_afternoon' => $currentTime,
                 ]);
+
                 return $this->successResponse([], 'ចុះវត្តមានចូលរសៀលជោគជ័យ');
             }
             if ($attendance->check_in_time_afternoon) {
@@ -50,6 +51,7 @@ class AttendanceController extends BaseController
             }
 
             $attendance->update(['check_in_time_afternoon' => $currentTime]);
+
             return $this->successResponse([], 'ចុះវត្តមានចូលរសៀលជោគជ័យ');
         }
     }
@@ -67,7 +69,7 @@ class AttendanceController extends BaseController
             ->where('date', $currentDate)
             ->first();
 
-        if (!$attendance) {
+        if (! $attendance) {
             return $this->errorResponse('គ្មានទិន្នន័យវត្តមានសម្រាប់ថ្ងៃនេះ');
         }
 
@@ -76,8 +78,9 @@ class AttendanceController extends BaseController
             if ($attendance->check_in_time_morning && $attendance->check_out_time_morning) {
                 return $this->errorResponse('ចុះវត្តមានចេញព្រឹករួចហើយសម្រាប់ថ្ងៃនេះ');
             }
-            if ($attendance->check_in_time_morning && !$attendance->check_out_time_morning) {
+            if ($attendance->check_in_time_morning && ! $attendance->check_out_time_morning) {
                 $attendance->update(['check_out_time_morning' => $currentTime]);
+
                 return $this->successResponse([], 'ចុះវត្តមានចេញព្រឹកជោគជ័យ');
             }
         } else {
@@ -85,12 +88,14 @@ class AttendanceController extends BaseController
             if ($attendance->check_in_time_afternoon && $attendance->check_out_time_afternoon) {
                 return $this->errorResponse('ចុះវត្តមានចេញរសៀលរួចហើយសម្រាប់ថ្ងៃនេះ');
             }
-            if ($attendance->check_in_time_afternoon && !$attendance->check_out_time_afternoon) {
+            if ($attendance->check_in_time_afternoon && ! $attendance->check_out_time_afternoon) {
                 $attendance->update(['check_out_time_afternoon' => $currentTime]);
+
                 return $this->successResponse([], 'ចុះវត្តមានចេញរសៀលជោគជ័យ');
             }
-            if ($attendance->check_in_time_morning && !$attendance->check_out_time_morning && !$attendance->check_in_time_afternoon && !$attendance->check_out_time_afternoon) {
+            if ($attendance->check_in_time_morning && ! $attendance->check_out_time_morning && ! $attendance->check_in_time_afternoon && ! $attendance->check_out_time_afternoon) {
                 $attendance->update(['check_out_time_afternoon' => $currentTime]);
+
                 return $this->successResponse([], 'ចុះវត្តមានចេញរសៀលជោគជ័យ');
             }
         }

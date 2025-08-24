@@ -22,10 +22,12 @@ class UserTable extends Component
 
     #[Url(except: '')]
     public $department_id = '';
+
     public $filter_department = null;
 
     #[Url(except: '')]
     public $branch_id = '';
+
     public $filter_branch = null;
 
     public function resetFilter(): void
@@ -38,10 +40,10 @@ class UserTable extends Component
 
     public function removeFilter($filter): void
     {
-        if ($filter == "department") {
+        if ($filter == 'department') {
             $this->department_id = '';
             $this->filter_department = null;
-        } else if ($filter == 'branch') {
+        } elseif ($filter == 'branch') {
             $this->branch_id = '';
             $this->filter_branch = null;
         }
@@ -52,7 +54,7 @@ class UserTable extends Component
         $query = User::query();
 
         if ($this->search) {
-            $query->where('name', 'like', '%' . $this->search . '%');
+            $query->where('name', 'like', '%'.$this->search.'%');
         }
 
         if ($this->department_id) {
