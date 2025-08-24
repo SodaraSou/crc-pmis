@@ -5,6 +5,7 @@ namespace App\Livewire\Term;
 use Livewire\Component;
 use App\Models\Committee;
 use App\Models\Term;
+use Livewire\Attributes\On;
 
 class TermTable extends Component
 {
@@ -18,7 +19,7 @@ class TermTable extends Component
     #[On('confirmed_delete')]
     public function delete($term_id)
     {
-        try{
+        try {
             $term = Term::find($term_id);
             if ($term) {
                 $term->delete();
