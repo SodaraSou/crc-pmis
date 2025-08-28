@@ -1,8 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ route('home') }}" class="brand-link">
-        <img src="{{ asset('Cambodian_Red_Cross_Logo.png') }}" alt="LuyTopia Logo" class="brand-image"
-             style="opacity: .8">
+        <img src="{{ asset('Cambodian_Red_Cross_Logo.png') }}" alt="LuyTopia Logo" class="brand-image" style="opacity: .8">
         <span class="brand-text font-weight-light">CRC PMIS</span>
     </a>
     <!-- Sidebar -->
@@ -19,7 +18,15 @@
                         </p>
                     </a>
                 </li>
-                @if(Auth::user()->hasPermissionTo('employee_management'))
+                {{-- <li class="nav-item" id="dashboard">
+                    <a href="{{ route('home') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            សាខា
+                        </p>
+                    </a>
+                </li> --}}
+                @if (Auth::user()->hasPermissionTo('employee_management'))
                     <li class="nav-item" id="employee">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-users"></i>
@@ -108,12 +115,12 @@
                                     </a>
                                 </li>
                                 {{-- @endif --}}
-                                    <li class="nav-item" id="committee">
-                                        <a href="{{ route('committee.index') }}" class="nav-link">
-                                            <i class="fas fa-angle-double-right nav-icon"></i>
-                                            <p>គណៈកម្មាធិការ</p>
-                                        </a>
-                                    </li>
+                                <li class="nav-item" id="committee">
+                                    <a href="{{ route('committee.index') }}" class="nav-link">
+                                        <i class="fas fa-angle-double-right nav-icon"></i>
+                                        <p>គណៈកម្មាធិការ</p>
+                                    </a>
+                                </li>
                                 @if (Auth::user()->hasPermissionTo('province_management'))
                                     <li class="nav-item" id="province">
                                         <a href="{{ route('province.index') }}" class="nav-link">
