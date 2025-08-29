@@ -11,8 +11,7 @@
 @section('js')
     <script>
         $(document).ready(function() {
-            $("#setting>a").addClass("active");
-            $("#setting").addClass("menu-open");
+            $("#sidebar li a").removeClass("active");
             $("#branch>a").addClass("active");
         });
     </script>

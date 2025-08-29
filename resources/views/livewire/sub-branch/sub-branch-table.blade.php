@@ -1,4 +1,86 @@
-<div class="card card-primary">
+<div class="card card-solid">
+    <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+            <h4>បញ្ជីអនុសាខា</h4>
+            <a href="{{ route('sub-branch.create', $branch->id) }}" class="btn btn-success float-sm-right"><i
+                    class="fa fa-plus mr-1"></i>
+                បង្កើតអនុសាខាថ្មី</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            @foreach ($sub_branches as $sub_branch)
+                <div wire:key="{{ $sub_branch->id }}"
+                    class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch flex-column">
+                    <div class="card bg-light d-flex flex-fill">
+                        <div class="card-header text-muted border-bottom-0">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="lead"><b>{{ $sub_branch->kh_name }}</b></h2>
+                                    {{-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic
+                                                Artist
+                                                / Coffee Lover </p>
+                                            <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                <li class="small"><span class="fa-li"><i
+                                                            class="fas fa-lg fa-building"></i></span> Address: Demo
+                                                    Street
+                                                    123, Demo City 04312, NJ</li>
+                                                <li class="small"><span class="fa-li"><i
+                                                            class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12
+                                                    12 23
+                                                    52</li>
+                                            </ul> --}}
+                                </div>
+                                <div class="col-5 text-center">
+                                    <img src="{{ asset('Cambodian_Red_Cross_Logo.png') }}" class="img-circle img-fluid"
+                                        style="width: 120px; height: 120px;">
+                                </div>
+                            </div>
+                        </div>
+                        {{-- <div class="card-body pt-0">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <h2 class="lead"><b>Nicole Pearson</b></h2>
+                                            <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic
+                                                Artist
+                                                / Coffee Lover </p>
+                                            <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                <li class="small"><span class="fa-li"><i
+                                                            class="fas fa-lg fa-building"></i></span> Address: Demo
+                                                    Street
+                                                    123, Demo City 04312, NJ</li>
+                                                <li class="small"><span class="fa-li"><i
+                                                            class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12
+                                                    12 23
+                                                    52</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-5 text-center">
+                                            <img src="../../dist/img/user1-128x128.jpg" alt="user-avatar"
+                                                class="img-circle img-fluid">
+                                        </div>
+                                    </div>
+                                </div> --}}
+                        <div class="card-footer">
+                            <div class="text-right">
+                                <a href="{{ route('sub-branch.show', $sub_branch->id) }}"
+                                    class="btn btn-sm btn-primary text-white"><i class="fa fa-eye"></i></a>
+                                <a href="{{ route('sub-branch.edit', $sub_branch->id) }}"
+                                    class="btn btn-sm btn-info text-white"><i class="fa fa-pen"></i></a>
+                                <button class="btn btn-sm btn-danger"
+                                    wire:click="$dispatch('alert_delete', {sub_branch_id: {{ $sub_branch->id }}})">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</div>
+
+{{-- <div class="card card-primary">
     <div class="card-header">
         <div class="d-flex justify-content-between align-items-center">
             <h3 class="card-title">អនុសាខា</h3>
@@ -45,11 +127,11 @@
             </tbody>
         </table>
     </div>
-</div>
+</div> --}}
 
 @script
     <script>
-        window.addEventListener("alert_delete", (event) => {
+        $wire.on("alert_delete", (event) => {
             Swal.fire({
                 title: "តើអ្នកប្រាកដមែនទេ?",
                 text: "សកម្មភាពនេះមិនអាចត្រឡប់ក្រោយបានទេ!",
@@ -62,12 +144,12 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $wire.dispatch('confirmed_delete', {
-                        sub_branch_id: event.detail.sub_branch_id
+                        sub_branch_id: event.sub_branch_id
                     });
                 }
             });
         });
-        window.addEventListener("delete_success", () => {
+        $wire.on("delete_success", () => {
             Swal.fire({
                 title: "ជោគជ័យ",
                 text: "លុបអនុសាខាជោគជ័យ",
@@ -76,10 +158,10 @@
                 confirmButtonColor: "#28a745"
             });
         });
-        window.addEventListener("delete_fail", (event) => {
+        $wire.on("delete_fail", (event) => {
             Swal.fire({
                 title: "មានបញ្ហា!",
-                text: event.detail.message,
+                text: event.message,
                 icon: "error",
                 confirmButtonText: "អូខេ",
                 confirmButtonColor: "#dc3545"

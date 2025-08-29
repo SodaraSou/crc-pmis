@@ -19,7 +19,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <!-- /.login-logo -->
-        <div class="card card-outline card-danger">
+        <div class="card card-outline card-primary">
             <div class="card-header text-center">
                 <img src="{{ asset('Cambodian_Red_Cross_Logo.png') }}" alt="school-logo"
                     style="width: 120px; height: 120px;" />
@@ -63,7 +63,7 @@
                     <div class="row">
                         <!-- /.col -->
                         <div class="col-12">
-                            <button type="submit" class="btn btn-danger btn-block">Login</button>
+                            <button type="submit" class="btn btn-primary btn-block">Login</button>
                         </div>
                         <!-- /.col -->
                     </div>

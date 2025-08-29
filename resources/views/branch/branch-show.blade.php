@@ -5,15 +5,16 @@
 @endsection
 
 @section('content')
-    <livewire:sub-branch.sub-branch-table :branch="$branch" />
+    <section class="container">
+        <livewire:branch.branch-employee-table :branch="$branch" />
+        <livewire:sub-branch.sub-branch-table :branch="$branch" />
+    </section>
 @endsection
 
 @section('js')
     <script>
         $(document).ready(function() {
             $("#sidebar li a").removeClass("active");
-            $("#setting>a").addClass("active");
-            $("#setting").addClass("menu-open");
             $("#branch>a").addClass("active");
         });
     </script>

@@ -1,15 +1,13 @@
-<section>
+<section class="container">
     <section class="content-header p-0">
-        <div class="container-fluid">
-            <div class="row mb-4">
-                <div class="col-sm-6 p-0">
-                    <h1>សាខាទាំង {{ $branches->where('id', '>', 0)->count() }}</h1>
-                </div>
-                <div class="col-sm-6">
-                    <a href="{{ route('branch.create') }}" class="btn btn-success float-sm-right"><i
-                            class="fa fa-plus mr-1"></i>
-                        បង្កើតថ្មី</a>
-                </div>
+        <div class="row mb-4">
+            <div class="col-sm-6 p-0">
+                <h1>សាខាទាំង {{ $branches->where('id', '>', 0)->count() }} រាជធានី/ខេត្ត</h1>
+            </div>
+            <div class="col-sm-6">
+                <a href="{{ route('branch.create') }}" class="btn btn-success float-sm-right"><i
+                        class="fa fa-plus mr-1"></i>
+                    បង្កើតថ្មី</a>
             </div>
         </div>
     </section>
@@ -18,7 +16,8 @@
             <div class="card-body pb-0">
                 <div class="row">
                     @foreach ($branches as $branch)
-                        <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+                        <div wire:key="{{ $branch->id }}"
+                            class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch flex-column">
                             <div class="card bg-light d-flex flex-fill">
                                 <div class="card-header text-muted border-bottom-0">
                                     <div class="row">
@@ -39,8 +38,8 @@
                                             </ul> --}}
                                         </div>
                                         <div class="col-5 text-center">
-                                            <img src="{{ asset('vendor/adminlte/dist/img/AdminLTELogo.png') }}"
-                                                class="img-circle img-fluid">
+                                            <img src="{{ asset('Cambodian_Red_Cross_Logo.png') }}"
+                                                class="img-circle img-fluid" style="width: 120px; height: 120px;">
                                         </div>
                                     </div>
                                 </div>
