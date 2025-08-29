@@ -1,55 +1,111 @@
-<div class="card card-primary">
-    <div class="card-header">
-        <div class="d-flex justify-content-between align-items-center">
-            <h3 class="card-title">សាខា</h3>
-            <a href="{{ route('branch.create') }}" class="btn btn-success"><i class="fa fa-plus mr-1"></i>
-                បង្កើតថ្មី</a>
+<section>
+    <section class="content-header p-0">
+        <div class="container-fluid">
+            <div class="row mb-4">
+                <div class="col-sm-6 p-0">
+                    <h1>សាខាទាំង {{ $branches->where('id', '>', 0)->count() }}</h1>
+                </div>
+                <div class="col-sm-6">
+                    <a href="{{ route('branch.create') }}" class="btn btn-success float-sm-right"><i
+                            class="fa fa-plus mr-1"></i>
+                        បង្កើតថ្មី</a>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="card-body">
-        <table class="table table-hover text-nowrap">
-            <thead>
-                <tr>
-                    <th>
-                        លេខកូដ
-                    </th>
-                    <th>
-                        ឈ្មោះខ្មែរ
-                    </th>
-                    <th>
-                        ឈ្មោះឡាតាំង
-                    </th>
-                    <th class="text-center">សកម្មភាព</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($branches as $branch)
-                    <tr wire:key='{{ $branch->id }}'>
-                        <td>{{ $branch->id }}</td>
-                        <td>{{ $branch->kh_name }}</td>
-                        <td>{{ $branch->en_name }}</td>
-                        <td>
-                            <div class="d-flex justify-content-center align-items-center">
-                                <a href="{{ route('branch.show', $branch->id) }}"
-                                    class="btn btn-sm btn-primary text-white mr-2"><i class="fa fa-eye"></i></a>
-                                <a href="{{ route('branch.edit', $branch->id) }}"
-                                    class="btn btn-sm btn-info text-white mr-2"><i class="fa fa-pen"></i></a>
-                                <button class="btn btn-sm btn-danger"
-                                    wire:click="$dispatch('alert_delete', {branch_id: {{ $branch->id }}})">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                </button>
+    </section>
+    <section class="content">
+        <div class="card card-solid">
+            <div class="card-body pb-0">
+                <div class="row">
+                    @foreach ($branches as $branch)
+                        <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+                            <div class="card bg-light d-flex flex-fill">
+                                <div class="card-header text-muted border-bottom-0">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <h2 class="lead"><b>{{ $branch->kh_name }}</b></h2>
+                                            {{-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic
+                                                Artist
+                                                / Coffee Lover </p>
+                                            <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                <li class="small"><span class="fa-li"><i
+                                                            class="fas fa-lg fa-building"></i></span> Address: Demo
+                                                    Street
+                                                    123, Demo City 04312, NJ</li>
+                                                <li class="small"><span class="fa-li"><i
+                                                            class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12
+                                                    12 23
+                                                    52</li>
+                                            </ul> --}}
+                                        </div>
+                                        <div class="col-5 text-center">
+                                            <img src="{{ asset('vendor/adminlte/dist/img/AdminLTELogo.png') }}"
+                                                class="img-circle img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- <div class="card-body pt-0">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <h2 class="lead"><b>Nicole Pearson</b></h2>
+                                            <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic
+                                                Artist
+                                                / Coffee Lover </p>
+                                            <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                <li class="small"><span class="fa-li"><i
+                                                            class="fas fa-lg fa-building"></i></span> Address: Demo
+                                                    Street
+                                                    123, Demo City 04312, NJ</li>
+                                                <li class="small"><span class="fa-li"><i
+                                                            class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12
+                                                    12 23
+                                                    52</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-5 text-center">
+                                            <img src="../../dist/img/user1-128x128.jpg" alt="user-avatar"
+                                                class="img-circle img-fluid">
+                                        </div>
+                                    </div>
+                                </div> --}}
+                                <div class="card-footer">
+                                    <div class="text-right">
+                                        <a href="{{ route('branch.show', $branch->id) }}"
+                                            class="btn btn-sm btn-primary text-white"><i class="fa fa-eye"></i></a>
+                                        <a href="{{ route('branch.edit', $branch->id) }}"
+                                            class="btn btn-sm btn-info text-white"><i class="fa fa-pen"></i></a>
+                                        <button class="btn btn-sm btn-danger"
+                                            wire:click="$dispatch('alert_delete', {branch_id: {{ $branch->id }}})">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-</div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            {{-- <div class="card-footer">
+                <nav aria-label="Contacts Page Navigation">
+                    <ul class="pagination justify-content-center m-0">
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item"><a class="page-link" href="#">6</a></li>
+                        <li class="page-item"><a class="page-link" href="#">7</a></li>
+                        <li class="page-item"><a class="page-link" href="#">8</a></li>
+                    </ul>
+                </nav>
+            </div> --}}
+        </div>
+    </section>
+</section>
 
 @script
     <script>
-        window.addEventListener("alert_delete", (event) => {
+        $wire.on("alert_delete", (event) => {
             Swal.fire({
                 title: "តើអ្នកប្រាកដមែនទេ?",
                 text: "សកម្មភាពនេះមិនអាចត្រឡប់ក្រោយបានទេ!",
@@ -62,12 +118,12 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $wire.dispatch('confirmed_delete', {
-                        branch_id: event.detail.branch_id
+                        branch_id: event.branch_id
                     });
                 }
             });
         });
-        window.addEventListener("delete_success", () => {
+        $wire.on("delete_success", () => {
             Swal.fire({
                 title: "ជោគជ័យ",
                 text: "លុបសាខាជោគជ័យ",
@@ -76,10 +132,10 @@
                 confirmButtonColor: "#28a745"
             });
         });
-        window.addEventListener("delete_fail", (event) => {
+        $wire.on("delete_fail", (event) => {
             Swal.fire({
                 title: "មានបញ្ហា!",
-                text: event.detail.message,
+                text: event.message,
                 icon: "error",
                 confirmButtonText: "អូខេ",
                 confirmButtonColor: "#dc3545"

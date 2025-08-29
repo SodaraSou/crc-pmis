@@ -18,14 +18,14 @@
                         </p>
                     </a>
                 </li>
-                {{-- <li class="nav-item" id="dashboard">
-                    <a href="{{ route('home') }}" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                <li class="nav-item" id="branch">
+                    <a href="{{ route('branch.index') }}" class="nav-link">
+                        <i class="nav-icon fa fa-university"></i>
                         <p>
                             សាខា
                         </p>
                     </a>
-                </li> --}}
+                </li>
                 @if (Auth::user()->hasPermissionTo('employee_management'))
                     <li class="nav-item" id="employee">
                         <a href="#" class="nav-link">
@@ -107,20 +107,18 @@
                                         </a>
                                     </li>
                                 @endif
-                                {{-- @if (Auth::user()->hasPermissionTo('branch_management')) --}}
-                                <li class="nav-item" id="branch">
+                                {{-- <li class="nav-item" id="branch">
                                     <a href="{{ route('branch.index') }}" class="nav-link">
                                         <i class="fas fa-angle-double-right nav-icon"></i>
                                         <p>សាខា</p>
                                     </a>
                                 </li>
-                                {{-- @endif --}}
                                 <li class="nav-item" id="committee">
                                     <a href="{{ route('committee.index') }}" class="nav-link">
                                         <i class="fas fa-angle-double-right nav-icon"></i>
                                         <p>គណៈកម្មាធិការ</p>
                                     </a>
-                                </li>
+                                </li> --}}
                                 @if (Auth::user()->hasPermissionTo('province_management'))
                                     <li class="nav-item" id="province">
                                         <a href="{{ route('province.index') }}" class="nav-link">
