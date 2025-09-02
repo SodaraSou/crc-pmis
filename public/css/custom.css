@@ -13,11 +13,23 @@ html {
     color: #fff !important;
 }
 
+.nav-tabs .nav-link {
+    color: #4e5761 !important;
+}
+
 .nav-tabs .nav-link.active {
     color: #dc3545 !important;
     border-top: 3px solid #dc3545 !important;
 }
 
-/* .nav-tabs .nav-link:hover {
+.nav-pills > .nav-item-own > .nav-link.active {
+    background-color: #dc3545 !important;
+}
+
+.nav-pills > .nav-item-own > .nav-link.active:hover {
+    color: #ffffff !important;
+}
+
+.nav-pills > .nav-item-own > .nav-link:hover {
     color: #dc3545 !important;
-} */
+}

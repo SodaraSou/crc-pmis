@@ -7,72 +7,72 @@
 @section('content')
     <div class="row">
         <div class="col-md-3">
-            <div class="card card-primary card-outline">
+            <div class="card card-danger card-outline">
                 <div class="card-body box-profile">
                     <div class="text-center">
-                        {{--                        <img class="profile-user-img img-fluid img-circle"--}}
-                        {{--                             src="{{$employee->profile_img}}"--}}
-                        {{--                             alt="User profile picture">--}}
+                        {{--                        <img class="profile-user-img img-fluid img-circle" --}}
+                        {{--                             src="{{$employee->profile_img}}" --}}
+                        {{--                             alt="User profile picture"> --}}
                     </div>
 
-                    <h3 class="profile-username text-center">{{$employee->kh_name}}</h3>
+                    <h3 class="profile-username text-center">{{ $employee->kh_name }}</h3>
 
-                    <p class="text-muted text-center">{{$employee->en_name}}</p>
+                    <p class="text-muted text-center">{{ $employee->en_name }}</p>
 
                     <ul class="list-group list-group-unbordered mb-3">
                         <li class="list-group-item">
-                            <b>ថ្នាក់បុគ្គលិក</b> <a class="float-right">{{$employee->employee_level->kh_name}}</a>
+                            <b>ថ្នាក់បុគ្គលិក</b> <a class="float-right">{{ $employee->employee_level->kh_name }}</a>
                         </li>
-                        @if($employee->employee_level_id == 2)
+                        @if ($employee->employee_level_id == 2)
                             <li class="list-group-item">
-                                <b>សាខា</b> <a class="float-right">{{$employee->branch->kh_name}}</a>
+                                <b>សាខា</b> <a class="float-right">{{ $employee->branch->kh_name }}</a>
                             </li>
                         @endif
-                        @if($employee->employee_level_id == 3)
+                        @if ($employee->employee_level_id == 3)
                             <li class="list-group-item">
-                                <b>អនុសាខា</b> <a class="float-right">{{$employee->sub_branch->kh_name}}</a>
+                                <b>អនុសាខា</b> <a class="float-right">{{ $employee->sub_branch->kh_name }}</a>
                             </li>
                         @endif
-                        @if($employee->employee_level_id == 4)
+                        @if ($employee->employee_level_id == 4)
                             <li class="list-group-item">
-                                <b>ក្រុម</b> <a class="float-right">{{$employee->group->kh_name}}</a>
+                                <b>ក្រុម</b> <a class="float-right">{{ $employee->group->kh_name }}</a>
                             </li>
                         @endif
                         <li class="list-group-item">
-                            <b>នាយកដ្ឋាន</b> <a class="float-right">{{$employee->department->kh_name}}</a>
+                            <b>នាយកដ្ឋាន</b> <a class="float-right">{{ $employee->department->kh_name }}</a>
                         </li>
-                        @if($employee->office_id)
+                        @if ($employee->office_id)
                             <li class="list-group-item">
-                                <b>ការិយាល័យ</b> <a class="float-right">{{$employee->office->kh_name}}</a>
+                                <b>ការិយាល័យ</b> <a class="float-right">{{ $employee->office->kh_name }}</a>
                             </li>
                         @endif
                         <li class="list-group-item">
-                            <b>តួនាទី</b> <a class="float-right">{{$employee->current_position->position->kh_name}}</a>
+                            <b>តួនាទី</b> <a class="float-right">{{ $employee->current_position->position->kh_name }}</a>
                         </li>
                     </ul>
                     <div class="row g-4 mb-3">
                         <div class="col-12">
-                            <a href="{{route('employee.edit', Crypt::encrypt($employee->id))}}"
-                               class="btn btn-info btn-block"><i class="fa fa-pen mr-1" aria-hidden="true"></i>
+                            <a href="{{ route('employee.edit', Crypt::encrypt($employee->id)) }}"
+                                class="btn btn-info btn-block"><i class="fa fa-pen mr-1" aria-hidden="true"></i>
                                 <b>កែប្រែ</b></a>
                         </div>
-                        {{--                        <div class="col-6">--}}
-                        {{--                            <a href="#" class="btn btn-danger btn-block"><i class="fa fa-trash mr-2"--}}
-                        {{--                                                                            aria-hidden="true"></i><b>លុប</b></a>--}}
-                        {{--                        </div>--}}
+                        {{--                        <div class="col-6"> --}}
+                        {{--                            <a href="#" class="btn btn-danger btn-block"><i class="fa fa-trash mr-2" --}}
+                        {{--                                                                            aria-hidden="true"></i><b>លុប</b></a> --}}
+                        {{--                        </div> --}}
                     </div>
                     <div class="row g-4 mb-3">
                         <div class="col-12">
-                            <a href="{{route('employee.position.swap', Crypt::encrypt($employee->id))}}"
-                               class="btn btn-success btn-block"><i class="fa fa-suitcase mr-2"
-                                                                    aria-hidden="true"></i><b>ផ្លាស់តួនាទី</b></a>
+                            <a href="{{ route('employee.position.swap', Crypt::encrypt($employee->id)) }}"
+                                class="btn btn-success btn-block"><i class="fa fa-suitcase mr-2"
+                                    aria-hidden="true"></i><b>ផ្លាស់តួនាទី</b></a>
                         </div>
                     </div>
                     <div class="row g-4">
                         <div class="col-12">
-                            <a href="{{route('employee.education.create', Crypt::encrypt($employee->id))}}"
-                               class="btn btn-primary btn-block"><i class="fa fa-graduation-cap mr-2"
-                                                                    aria-hidden="true"></i><b>បង្កើតប្រវត្តិសិក្សា</b></a>
+                            <a href="{{ route('employee.education.create', Crypt::encrypt($employee->id)) }}"
+                                class="btn btn-primary btn-block"><i class="fa fa-graduation-cap mr-2"
+                                    aria-hidden="true"></i><b>បង្កើតប្រវត្តិសិក្សា</b></a>
                         </div>
                     </div>
                 </div>
@@ -82,16 +82,12 @@
             <div class="card">
                 <div class="card-header p-2">
                     <ul class="nav nav-pills">
-                        <li class="nav-item"><a class="nav-link active" href="#info"
-                                                data-toggle="tab">ព័ត៍មាន</a>
+                        <li class="nav-item nav-item-own"><a class="nav-link active" href="#info" data-toggle="tab">ព័ត៍មាន</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#timeline"
-                                                data-toggle="tab">ប្រវតិ្តតួនាទី</a>
+                        <li class="nav-item nav-item-own"><a class="nav-link" href="#timeline" data-toggle="tab">ប្រវតិ្តតួនាទី</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#education"
-                                                data-toggle="tab">ប្រវត្តិការសិក្សា</a>
-                        <li class="nav-item"><a class="nav-link" href="#job"
-                                                data-toggle="tab">ប្រវត្តិការងារ</a>
+                        <li class="nav-item nav-item-own"><a class="nav-link" href="#education" data-toggle="tab">ប្រវត្តិការសិក្សា</a>
+                        <li class="nav-item nav-item-own"><a class="nav-link" href="#job" data-toggle="tab">ប្រវត្តិការងារ</a>
                         </li>
                     </ul>
                 </div>
@@ -157,15 +153,15 @@
                                     <th>អាស័យដ្ឋានបច្ចុប្បន្ន</th>
                                     <td>
                                         <dl class="row mb-0">
-                                            @if($employee->ad_street_number)
+                                            @if ($employee->ad_street_number)
                                                 <dt class="col-sm-4">លេខផ្លូវ</dt>
                                                 <dd class="col-sm-8">{{ $employee->ad_street_number }}</dd>
                                             @endif
-                                            @if($employee->ad_street_name)
+                                            @if ($employee->ad_street_name)
                                                 <dt class="col-sm-4">ឈ្មោះផ្លូវ</dt>
                                                 <dd class="col-sm-8">{{ $employee->ad_street_name }}</dd>
                                             @endif
-                                            @if($employee->ad_house_number)
+                                            @if ($employee->ad_house_number)
                                                 <dt class="col-sm-4">ផ្ទះលេខ/dt>
                                                 <dd class="col-sm-8">{{ $employee->ad_house_number }}</dd>
                                             @endif
@@ -187,65 +183,66 @@
                             </table>
                         </div>
                         <div class="tab-pane" id="timeline">
-                            {{--                            <div class="text-right">--}}
-                            {{--                                <a href="{{ route('employee.position.create', Crypt::encrypt($employee->id)) }}"--}}
-                            {{--                                   class="btn btn-success"><i--}}
-                            {{--                                        class="fa fa-plus mr-1"></i>--}}
-                            {{--                                    បង្កើត--}}
-                            {{--                                </a>--}}
-                            {{--                            </div>--}}
+                            {{--                            <div class="text-right"> --}}
+                            {{--                                <a href="{{ route('employee.position.create', Crypt::encrypt($employee->id)) }}" --}}
+                            {{--                                   class="btn btn-success"><i --}}
+                            {{--                                        class="fa fa-plus mr-1"></i> --}}
+                            {{--                                    បង្កើត --}}
+                            {{--                                </a> --}}
+                            {{--                            </div> --}}
                             <div class="timeline timeline-inverse">
-                                @foreach($positions as $employee_postion)
+                                @foreach ($positions as $employee_postion)
                                     <div class="time-label">
-                                        @if($employee_postion->pivot->end_date)
+                                        @if ($employee_postion->pivot->end_date)
                                             <span class="bg-success">
-                                                {{$employee_postion->pivot->start_date}} ដល់ {{$employee_postion->pivot->end_date}}
+                                                {{ $employee_postion->pivot->start_date }} ដល់
+                                                {{ $employee_postion->pivot->end_date }}
                                             </span>
                                         @else
                                             <span class="bg-primary">
-                                                {{$employee_postion->pivot->start_date}}
+                                                {{ $employee_postion->pivot->start_date }}
                                             </span>
                                         @endif
                                     </div>
                                     <div>
-                                        @if($employee_postion->pivot->end_date)
+                                        @if ($employee_postion->pivot->end_date)
                                             <i class="fas fa-suitcase bg-success"></i>
                                         @else
                                             <i class="fas fa-suitcase bg-primary"></i>
                                         @endif
                                         <div class="timeline-item">
-                                            <h3 class="timeline-header">{{$employee_postion->kh_name}}</h3>
+                                            <h3 class="timeline-header">{{ $employee_postion->kh_name }}</h3>
                                             <div class="timeline-body">
-                                                @if(!$employee_postion->pivot->sub_branch_id)
+                                                @if (!$employee_postion->pivot->sub_branch_id)
                                                     <div>
-                                                        សាខា: {{$employee_postion->pivot->branch->kh_name}}
+                                                        សាខា: {{ $employee_postion->pivot->branch->kh_name }}
                                                     </div>
                                                 @else
                                                     <div>
-                                                        អនុសាខា: {{$employee_postion->pivot->sub_branch->kh_name}}
+                                                        អនុសាខា: {{ $employee_postion->pivot->sub_branch->kh_name }}
                                                     </div>
                                                 @endif
                                                 <div>
-                                                    នាយកដ្ឋាន: {{$employee_postion->pivot->department->kh_name}}
+                                                    នាយកដ្ឋាន: {{ $employee_postion->pivot->department->kh_name }}
                                                 </div>
-                                                @if($employee_postion->pivot->office_id)
+                                                @if ($employee_postion->pivot->office_id)
                                                     <div>
-                                                        ការិយាល័យ: {{$employee_postion->pivot->office->kh_name}}
+                                                        ការិយាល័យ: {{ $employee_postion->pivot->office->kh_name }}
                                                     </div>
                                                 @endif
                                             </div>
-                                            {{--                                            <div class="timeline-footer">--}}
-                                            {{--                                                <a href="{{route('home')}}" class="btn btn-success"><i--}}
-                                            {{--                                                        class="fa fa-file-alt mr-2"></i>កុងត្រា</a>--}}
-                                            {{--                                                <a href="{{ route('employee.position.edit', [Crypt::encrypt($employee_postion->pivot->employee_id), Crypt::encrypt($employee_postion->pivot->id)]) }}"--}}
-                                            {{--                                                   class="btn btn-info">--}}
-                                            {{--                                                    <i class="fa fa-pen mr-2"></i>កែប្រែ--}}
-                                            {{--                                                </a>--}}
-                                            {{--                                            </div>--}}
+                                            {{--                                            <div class="timeline-footer"> --}}
+                                            {{--                                                <a href="{{route('home')}}" class="btn btn-success"><i --}}
+                                            {{--                                                        class="fa fa-file-alt mr-2"></i>កុងត្រា</a> --}}
+                                            {{--                                                <a href="{{ route('employee.position.edit', [Crypt::encrypt($employee_postion->pivot->employee_id), Crypt::encrypt($employee_postion->pivot->id)]) }}" --}}
+                                            {{--                                                   class="btn btn-info"> --}}
+                                            {{--                                                    <i class="fa fa-pen mr-2"></i>កែប្រែ --}}
+                                            {{--                                                </a> --}}
+                                            {{--                                            </div> --}}
                                         </div>
                                     </div>
                                 @endforeach
-                                @if($positions->count() > 0)
+                                @if ($positions->count() > 0)
                                     <div>
                                         <i class="far fa-clock bg-gray"></i>
                                     </div>
@@ -254,36 +251,36 @@
                         </div>
                         <div class="tab-pane" id="education">
                             <div class="timeline timeline-inverse">
-                                @foreach($educations as $education)
+                                @foreach ($educations as $education)
                                     <div class="time-label">
-                                    <span class="bg-success">
-                                        {{$education->start_year}} ដល់ {{$education->end_year}}
-                                    </span>
+                                        <span class="bg-success">
+                                            {{ $education->start_year }} ដល់ {{ $education->end_year }}
+                                        </span>
                                     </div>
                                     <div>
                                         <i class="fa fa-graduation-cap bg-success"></i>
                                         <div class="timeline-item">
-                                            <h3 class="timeline-header">{{$education->degree_type->kh_name}}</h3>
+                                            <h3 class="timeline-header">{{ $education->degree_type->kh_name }}</h3>
                                             <div class="timeline-body">
                                                 <div>
-                                                    ជំនាញ: {{$education->field_of_study}}
+                                                    ជំនាញ: {{ $education->field_of_study }}
                                                 </div>
                                                 <div>
-                                                    គ្រឹះស្ថានសិក្សា: {{$education->institution}}
+                                                    គ្រឹះស្ថានសិក្សា: {{ $education->institution }}
                                                 </div>
                                             </div>
-                                            {{--                                            <div class="timeline-footer">--}}
-                                            {{--                                                <a href="{{route('home')}}" class="btn btn-success"><i--}}
-                                            {{--                                                        class="fa fa-file-alt mr-2"></i>កុងត្រា</a>--}}
-                                            {{--                                                <a href="{{ route('employee.position.edit', [Crypt::encrypt($employee_postion->pivot->employee_id), Crypt::encrypt($employee_postion->pivot->id)]) }}"--}}
-                                            {{--                                                   class="btn btn-info">--}}
-                                            {{--                                                    <i class="fa fa-pen mr-2"></i>កែប្រែ--}}
-                                            {{--                                                </a>--}}
-                                            {{--                                            </div>--}}
+                                            {{--                                            <div class="timeline-footer"> --}}
+                                            {{--                                                <a href="{{route('home')}}" class="btn btn-success"><i --}}
+                                            {{--                                                        class="fa fa-file-alt mr-2"></i>កុងត្រា</a> --}}
+                                            {{--                                                <a href="{{ route('employee.position.edit', [Crypt::encrypt($employee_postion->pivot->employee_id), Crypt::encrypt($employee_postion->pivot->id)]) }}" --}}
+                                            {{--                                                   class="btn btn-info"> --}}
+                                            {{--                                                    <i class="fa fa-pen mr-2"></i>កែប្រែ --}}
+                                            {{--                                                </a> --}}
+                                            {{--                                            </div> --}}
                                         </div>
                                     </div>
                                 @endforeach
-                                @if($educations->count() > 0)
+                                @if ($educations->count() > 0)
                                     <div>
                                         <i class="far fa-clock bg-gray"></i>
                                     </div>
@@ -299,7 +296,7 @@
 
 @section('js')
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $("#sidebar li a").removeClass("active");
             $("#employee>a").addClass("active");
             $("#employee").addClass("menu-open");
