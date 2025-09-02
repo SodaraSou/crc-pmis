@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             VillageSeeder::class,
             BranchSeeder::class,
             SubBranchSeeder::class,
-            GroupSeeder::class,
+            // GroupSeeder::class,
             UserSeeder::class,
             OfficeSeeder::class,
             PositionSeeder::class,
