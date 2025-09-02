@@ -21,33 +21,35 @@
 
                     <ul class="list-group list-group-unbordered mb-3">
                         <li class="list-group-item">
-                            <b>ថ្នាក់បុគ្គលិក</b> <a class="float-right">{{ $employee->employee_level->kh_name }}</a>
+                            <b>ថ្នាក់បុគ្គលិក</b> <a
+                                class="float-right text-dark">{{ $employee->employee_level->kh_name }}</a>
                         </li>
                         @if ($employee->employee_level_id == 2)
                             <li class="list-group-item">
-                                <b>សាខា</b> <a class="float-right">{{ $employee->branch->kh_name }}</a>
+                                <b>សាខា</b> <a class="float-right text-dark">{{ $employee->branch->kh_name }}</a>
                             </li>
                         @endif
                         @if ($employee->employee_level_id == 3)
                             <li class="list-group-item">
-                                <b>អនុសាខា</b> <a class="float-right">{{ $employee->sub_branch->kh_name }}</a>
+                                <b>អនុសាខា</b> <a class="float-right text-dark">{{ $employee->sub_branch->kh_name }}</a>
                             </li>
                         @endif
                         @if ($employee->employee_level_id == 4)
                             <li class="list-group-item">
-                                <b>ក្រុម</b> <a class="float-right">{{ $employee->group->kh_name }}</a>
+                                <b>ក្រុម</b> <a class="float-right text-dark">{{ $employee->group->kh_name }}</a>
                             </li>
                         @endif
                         <li class="list-group-item">
-                            <b>នាយកដ្ឋាន</b> <a class="float-right">{{ $employee->department->kh_name }}</a>
+                            <b>នាយកដ្ឋាន</b> <a class="float-right text-dark">{{ $employee->department->kh_name }}</a>
                         </li>
                         @if ($employee->office_id)
                             <li class="list-group-item">
-                                <b>ការិយាល័យ</b> <a class="float-right">{{ $employee->office->kh_name }}</a>
+                                <b>ការិយាល័យ</b> <a class="float-right text-dark">{{ $employee->office->kh_name }}</a>
                             </li>
                         @endif
                         <li class="list-group-item">
-                            <b>តួនាទី</b> <a class="float-right">{{ $employee->current_position->position->kh_name }}</a>
+                            <b>តួនាទី</b> <a
+                                class="float-right text-dark    ">{{ $employee->current_position->position->kh_name }}</a>
                         </li>
                     </ul>
                     <div class="row g-4 mb-3">
@@ -82,12 +84,16 @@
             <div class="card">
                 <div class="card-header p-2">
                     <ul class="nav nav-pills">
-                        <li class="nav-item nav-item-own"><a class="nav-link active" href="#info" data-toggle="tab">ព័ត៍មាន</a>
+                        <li class="nav-item nav-item-own"><a class="nav-link active" href="#info"
+                                data-toggle="tab">ព័ត៍មាន</a>
                         </li>
-                        <li class="nav-item nav-item-own"><a class="nav-link" href="#timeline" data-toggle="tab">ប្រវតិ្តតួនាទី</a>
+                        <li class="nav-item nav-item-own"><a class="nav-link" href="#timeline"
+                                data-toggle="tab">ប្រវតិ្តតួនាទី</a>
                         </li>
-                        <li class="nav-item nav-item-own"><a class="nav-link" href="#education" data-toggle="tab">ប្រវត្តិការសិក្សា</a>
-                        <li class="nav-item nav-item-own"><a class="nav-link" href="#job" data-toggle="tab">ប្រវត្តិការងារ</a>
+                        <li class="nav-item nav-item-own"><a class="nav-link" href="#education"
+                                data-toggle="tab">ប្រវត្តិការសិក្សា</a>
+                        <li class="nav-item nav-item-own"><a class="nav-link" href="#job"
+                                data-toggle="tab">ប្រវត្តិការងារ</a>
                         </li>
                     </ul>
                 </div>
