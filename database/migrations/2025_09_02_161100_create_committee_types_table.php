@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('committee_member_types', function (Blueprint $table) {
+        Schema::create('committee_types', function (Blueprint $table) {
             $table->id();
             $table->string('kh_name');
             $table->string('en_name')->nullable();
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('committee_member_types');
+        Schema::dropIfExists('committee_types');
     }
 };

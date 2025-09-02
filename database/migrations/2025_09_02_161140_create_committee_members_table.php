@@ -37,7 +37,7 @@ return new class extends Migration
             $table->foreignId('term_id')->constrained();
             $table->foreignId('committee_position_id')->constrained();
             $table->foreignId('committee_id')->constrained();
-            $table->foreignId('committee_member_type_id')->constrained();
+            $table->foreignId('committee_type_id')->constrained();
             $table->string('gov_position')->nullable();
             $table->date('start_date');
             $table->date('end_date')->nullable();
