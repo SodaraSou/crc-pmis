@@ -1,7 +1,23 @@
-body, html {
-    font-family: 'Noto Sans Khmer', 'Roboto', sans-serif;
+body,
+html {
+    font-family: "Noto Sans Khmer", "Roboto", sans-serif;
 }
 
-.my-active {
-    background-color: #dc3545;
+.nav-sidebar > .nav-item > .nav-link.active {
+    background-color: #dc3545 !important;
+    color: #ffffff !important;
 }
+
+.nav-sidebar .nav-treeview > .nav-item > .nav-link.active {
+    background-color: #4e5761 !important;
+    color: #fff !important;
+}
+
+.nav-tabs .nav-link.active {
+    color: #dc3545 !important;
+    border-top: 3px solid #dc3545 !important;
+}
+
+/* .nav-tabs .nav-link:hover {
+    color: #dc3545 !important;
+} */
