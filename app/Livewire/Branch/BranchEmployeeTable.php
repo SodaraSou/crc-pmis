@@ -3,6 +3,7 @@
 namespace App\Livewire\Branch;
 
 use App\Models\Branch;
+use App\Models\Department;
 use App\Models\Employee;
 use Illuminate\View\View;
 use Livewire\Attributes\Url;
@@ -34,7 +35,8 @@ class BranchEmployeeTable extends Component
             ->paginate($this->per_page);
 
         return view('livewire.branch.branch-employee-table', [
-            'employees' => $employees
+            'employees' => $employees,
+            'departments' => Department::all()
         ]);
     }
 }

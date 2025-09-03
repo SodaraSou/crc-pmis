@@ -63,7 +63,6 @@ class Employee extends Model
     public function bp_province(): BelongsTo
     {
         return $this->belongsTo(Province::class);
-
     }
 
     public function bp_district(): BelongsTo
