@@ -107,7 +107,7 @@
                                         </a>
                                     </li>
                                 @endif
-                                {{-- <li class="nav-item" id="branch">
+                                <li class="nav-item" id="branch">
                                     <a href="{{ route('branch.index') }}" class="nav-link">
                                         <i class="fas fa-angle-double-right nav-icon"></i>
                                         <p>សាខា</p>
@@ -118,7 +118,7 @@
                                         <i class="fas fa-angle-double-right nav-icon"></i>
                                         <p>គណៈកម្មាធិការ</p>
                                     </a>
-                                </li> --}}
+                                </li>
                                 @if (Auth::user()->hasPermissionTo('province_management'))
                                     <li class="nav-item" id="province">
                                         <a href="{{ route('province.index') }}" class="nav-link">

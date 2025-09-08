@@ -4,17 +4,31 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Committee extends Model
 {
     protected $fillable = [
         'kh_name',
         'en_name',
-        'branch_id'
+        'branch_id',
+        'sub_branch_id',
+        'committee_type_id',
+        'committee_level_id'
     ];
 
     public function branch(): BelongsTo
     {
         return $this->belongsTo(Branch::class);
+    }
+
+    public function committee_type(): BelongsTo
+    {
+        return $this->belongsTo(CommitteeType::class);
+    }
+
+    public function committee_level(): BelongsTo
+    {
+        return $this->belongsTo(CommitteeLevel::class);
     }
 }

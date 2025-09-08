@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('committee_members', function (Blueprint $table) {
+        Schema::create('members', function (Blueprint $table) {
             $table->id();
             $table->string('kh_name');
             $table->string('en_name');
@@ -31,16 +31,14 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('committee_member_term', function (Blueprint $table) {
+        Schema::create('committee_members', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('committee_member_id')->constrained();
-            $table->foreignId('term_id')->constrained();
+            $table->foreignId('member_id')->constrained();
+            $table->foreignId('branch_term_id')->nullable()->constrained();
+            $table->foreignId('sub_branch_term_id')->nullable()->constrained();
             $table->foreignId('committee_position_id')->constrained();
             $table->foreignId('committee_id')->constrained();
-            $table->foreignId('committee_type_id')->constrained();
             $table->string('gov_position')->nullable();
-            $table->date('start_date');
-            $table->date('end_date')->nullable();
             $table->boolean('active')->default(true);
             $table->foreignId('created_by')->constrained('users');
             $table->foreignId('updated_by')->nullable()->constrained('users');
@@ -53,7 +51,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('committee_member_term');
         Schema::dropIfExists('committee_members');
+        Schema::dropIfExists('members');
     }
 };

@@ -5,9 +5,14 @@ namespace App\Livewire\Committee;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use App\Models\Committee;
+use Livewire\WithPagination;
 
 class CommitteeTable extends Component
 {
+    use WithPagination;
+
+    public $per_page = 25;
+
     #[On('confirmed_delete')]
     public function delete($committee_id)
     {
@@ -26,9 +31,11 @@ class CommitteeTable extends Component
 
     public function render()
     {
-        return view('livewire.committee.committee-table',
-        [
-            'committees' => Committee::all()
-        ]);
+        return view(
+            'livewire.committee.committee-table',
+            [
+                'committees' => Committee::paginate($this->per_page)
+            ]
+        );
     }
 }

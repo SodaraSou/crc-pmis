@@ -1,5 +1,4 @@
-<div class="card card-primary">
-    {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
+<div class="card">
     <div class="card-header">
         <div class="d-flex justify-content-between align-items-center">
             <h3 class="card-title">គណៈកម្មាធិការ</h3>
@@ -20,7 +19,10 @@
                         ឈ្មោះខ្មែរ
                     </th>
                     <th>
-                        ឈ្មោះឡាតាំង
+                        ប្រភេទ
+                    </th>
+                    <th>
+                        ថ្នាក់
                     </th>
                     <th class="text-center">
                         សកម្មភាព
@@ -28,29 +30,35 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach($committees as $committee)
-                <tr wire:key='{{ $committee->id }}'>
-                    <td>{{ $committee->id }}</td>
-                    <td>{{ $committee->kh_name }}</td>
-                    <td>{{ $committee->en_name }}</td>
-                    <td>
-                        <div class="d-flex justify-content-center align-items-center">
-                            <a href="{{ route('committee.show', $committee->id) }}" class="btn btn-sm btn-primary text-white mr-2">
-                                <i class="fa fa-eye"></i>
-                            </a>
-                            <a href="{{ route('committee.edit', $committee->id) }}" class="btn btn-sm btn-info text-white mr-2">
-                                <i class="fa fa-pen"></i>
-                            </a>
-                            <button class="btn btn-sm btn-danger"
-                                wire:click="$dispatch('alert_delete', {committee_id: {{ $committee->id }}})">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-            @endforeach
+                @foreach ($committees as $committee)
+                    <tr wire:key='{{ $committee->id }}'>
+                        <td>{{ $committee->id }}</td>
+                        <td>{{ $committee->kh_name }}</td>
+                        <td>{{ $committee->committee_type->kh_name }}</td>
+                        <td>{{ $committee->committee_level->kh_name }}</td>
+                        <td>
+                            <div class="d-flex justify-content-center align-items-center">
+                                <a href="{{ route('committee.show', $committee->id) }}"
+                                    class="btn btn-sm btn-primary text-white mr-2">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a href="{{ route('committee.edit', $committee->id) }}"
+                                    class="btn btn-sm btn-info text-white mr-2">
+                                    <i class="fa fa-pen"></i>
+                                </a>
+                                <button class="btn btn-sm btn-danger"
+                                    wire:click="$dispatch('alert_delete', {committee_id: {{ $committee->id }}})">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
+    </div>
+    <div class="card-footer">
+        {{ $committees->links() }}
     </div>
 </div>
 

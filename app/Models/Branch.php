@@ -28,4 +28,9 @@ class Branch extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    public function committees(): HasMany
+    {
+        return $this->hasMany(Committee::class);
+    }
 }

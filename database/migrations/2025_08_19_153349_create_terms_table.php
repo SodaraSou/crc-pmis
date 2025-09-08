@@ -11,11 +11,25 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('terms', function (Blueprint $table) {
+        Schema::create('branch_terms', function (Blueprint $table) {
             $table->id();
             $table->string('en_name');
             $table->string('kh_name');
-            $table->foreignId('committee_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('branch_id')->constrained();
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
+            $table->boolean('active')->default(true);
+            $table->timestamps();
+        });
+
+        Schema::create('sub_branch_terms', function (Blueprint $table) {
+            $table->id();
+            $table->string('en_name');
+            $table->string('kh_name');
+            $table->foreignId('sub_branch_id')->constrained();
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

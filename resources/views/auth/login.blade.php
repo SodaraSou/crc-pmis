@@ -26,7 +26,7 @@
                 <h1 class="h1 m-0"><b>CRC PMIS</b></h1>
             </div>
             <div class="card-body">
-                <p class="login-box-msg">LOGIN TO CONTINUE</p>
+                <p class="login-box-msg">ចូលទៅក្នុងគណនីរបស់អ្នក</p>
 
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
@@ -63,7 +63,7 @@
                     <div class="row">
                         <!-- /.col -->
                         <div class="col-12">
-                            <button type="submit" class="btn btn-danger btn-block">Login</button>
+                            <button type="submit" class="btn btn-danger btn-block">ចូលប្រព័ន្ធ</button>
                         </div>
                         <!-- /.col -->
                     </div>
