@@ -1,5 +1,4 @@
 <div class="card card-success">
-    {{-- Stop trying to control. --}}
     <div class="card-header">
         <h3 class="card-title">បង្កើតគណៈកម្មាធិការ</h3>
     </div>
@@ -23,7 +22,7 @@
                 <label>សាខា</label>
                 <select wire:model="branch_id" class="form-control">
                     <option value="">សូមជ្រើសរើសសាខា</option>
-                    @foreach($branches as $branch)
+                    @foreach ($branches as $branch)
                         <option wire:key="{{ $branch->id }}" value="{{ $branch->id }}">
                             {{ $branch->kh_name }}
                         </option>
