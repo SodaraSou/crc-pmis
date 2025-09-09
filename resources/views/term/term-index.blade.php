@@ -8,10 +8,12 @@
 @endsection
 
 @section('js')
-    {{-- <script>
+    <script>
         $(document).ready(function() {
             $("#sidebar li a").removeClass("active");
-            $("#dashboard > a").addClass("active");
+            $("#setting>a").addClass("active");
+            $("#setting").addClass("menu-open");
+            $("#term>a").addClass("active");
         });
-    </script> --}}
+    </script>
 @endsection

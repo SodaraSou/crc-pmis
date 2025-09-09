@@ -119,6 +119,12 @@
                                         <p>គណៈកម្មាធិការ</p>
                                     </a>
                                 </li>
+                                <li class="nav-item" id="term">
+                                    <a href="{{ route('term.index') }}" class="nav-link">
+                                        <i class="fas fa-angle-double-right nav-icon"></i>
+                                        <p>អាណត្តិ</p>
+                                    </a>
+                                </li>
                                 @if (Auth::user()->hasPermissionTo('province_management'))
                                     <li class="nav-item" id="province">
                                         <a href="{{ route('province.index') }}" class="nav-link">

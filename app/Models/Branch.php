@@ -33,4 +33,9 @@ class Branch extends Model
     {
         return $this->hasMany(Committee::class);
     }
+
+    public function terms(): HasMany
+    {
+        return $this->hasMany(BranchTerm::class);
+    }
 }

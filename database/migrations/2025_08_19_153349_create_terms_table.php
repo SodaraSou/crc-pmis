@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('branch_terms', function (Blueprint $table) {
             $table->id();
-            $table->string('en_name');
             $table->string('kh_name');
+            $table->string('en_name')->nullable();
             $table->foreignId('branch_id')->constrained();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
@@ -24,8 +24,8 @@ return new class extends Migration
 
         Schema::create('sub_branch_terms', function (Blueprint $table) {
             $table->id();
-            $table->string('en_name');
             $table->string('kh_name');
+            $table->string('en_name')->nullable();
             $table->foreignId('sub_branch_id')->constrained();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
