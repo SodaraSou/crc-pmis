@@ -61,6 +61,29 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item" id="committee">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-star"></i>
+                        <p>
+                            គណ:កម្មាធិការ
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item" id="committee-member-list">
+                            <a href="{{ route('committee-member.index') }}" class="nav-link">
+                                <i class="fas fa-angle-double-right nav-icon"></i>
+                                <p>តារាងសមាជិក</p>
+                            </a>
+                        </li>
+                        <li class="nav-item" id="committee-member-create">
+                            <a href="{{ route('committee-member.create') }}" class="nav-link">
+                                <i class="fas fa-angle-double-right nav-icon"></i>
+                                <p>បង្កើតសមាជិក</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 @if (Auth::user()->hasPermissionTo('employee_management'))
                     <li class="nav-item" id="employee">
                         <a href="#" class="nav-link">
@@ -148,12 +171,12 @@
                                         <p>សាខា</p>
                                     </a>
                                 </li>
-                                <li class="nav-item" id="committee">
+                                {{-- <li class="nav-item" id="committee">
                                     <a href="{{ route('committee.index') }}" class="nav-link">
                                         <i class="fas fa-angle-double-right nav-icon"></i>
                                         <p>គណៈកម្មាធិការ</p>
                                     </a>
-                                </li>
+                                </li> --}}
                                 <li class="nav-item" id="term">
                                     <a href="{{ route('term.index') }}" class="nav-link">
                                         <i class="fas fa-angle-double-right nav-icon"></i>

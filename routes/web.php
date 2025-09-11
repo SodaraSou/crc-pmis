@@ -104,6 +104,8 @@ Route::get('/committee', [CommitteeController::class, 'index'])->middleware('aut
 Route::get('/committee/create', [CommitteeController::class, 'create'])->middleware('auth')->name('committee.create');
 Route::get('/committee/{committee}/edit', [CommitteeController::class, 'edit'])->middleware('auth')->name('committee.edit');
 Route::get('/committee/{committee}', [CommitteeController::class, 'show'])->middleware('auth')->name('committee.show');
+Route::get('/committee/member', [CommitteeController::class, 'indexMember'])->middleware('auth')->name('committee-member.index');
+Route::get('/committee/member/create', [CommitteeController::class, 'createMember'])->middleware('auth')->name('committee-member.create');
 
 // Honorary Committee
 Route::get('/honorary-committee/member', [HonoraryCommitteeController::class, 'indexMember'])->middleware('auth')->name('honorary-committee-member.index');

@@ -29,4 +29,14 @@ class CommitteeController extends Controller
             'committee' => $committee
         ]);
     }
+
+    public function indexMember()
+    {
+        return view('committee.committee-member-index');
+    }
+
+    public function createMember()
+    {
+        return view('committee.committee-member-create');
+    }
 }

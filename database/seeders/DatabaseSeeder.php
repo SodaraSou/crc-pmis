@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             CommitteeLevelSeeder::class,
             CommitteeTypeSeeder::class,
             CommitteeSeeder::class,
+            Committee2Seeder::class,
             CommitteePositionSeeder::class,
         ]);
     }
