@@ -9,6 +9,5 @@ class CommitteePosition extends Model
     protected $fillable = [
         'kh_name',
         'en_name',
-        'active'
     ];
 }

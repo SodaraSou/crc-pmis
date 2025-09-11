@@ -39,11 +39,11 @@
                 <div class="tab-content" id="custom-tabs-four-tabContent">
                     <div class="tab-pane fade active show" id="custom-tabs-four-honor" role="tabpanel"
                         aria-labelledby="custom-tabs-four-honor-tab">
-                        Honor Committee
+                        <livewire:branch.branch-honorary-committee-member-table :branch="$branch" />
                     </div>
                     <div class="tab-pane fade" id="custom-tabs-four-committee" role="tabpanel"
                         aria-labelledby="custom-tabs-four-committee-tab">
-                        Committee
+                        <livewire:branch.branch-committee-member-table />
                     </div>
                     <div class="tab-pane fade" id="custom-tabs-four-term" role="tabpanel"
                         aria-labelledby="custom-tabs-four-term-tab">

@@ -1,45 +1,41 @@
-<div class="card card-solid">
-    <div class="card-header">
-        <div class="d-flex justify-content-between align-items-center">
-            <h4>បញ្ជីអនុសាខា</h4>
-            <a href="{{ route('sub-branch.create', $branch->id) }}" class="btn btn-success float-sm-right"><i
-                    class="fa fa-plus mr-1"></i>
+<div>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4>បញ្ជីអនុសាខា</h4>
+        {{-- @if ($user->hasRole('System Manager'))
+            <a href="{{ route('sub-branch.create', $branch->id) }}" class="btn btn-success"><i class="fa fa-plus mr-1"></i>
                 បង្កើតអនុសាខាថ្មី</a>
-        </div>
+        @endif --}}
     </div>
-    <div class="card-body">
-        <div class="row">
-            @foreach ($sub_branches as $sub_branch)
-                <div wire:key="{{ $sub_branch->id }}"
-                    class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch flex-column">
-                    <div class="card bg-light d-flex flex-fill">
-                        <div class="card-header text-muted border-bottom-0">
-                            <div class="row">
-                                <div class="col-7">
-                                    <h2 class="lead"><b>{{ $sub_branch->kh_name }}</b></h2>
-                                </div>
-                                <div class="col-5 text-center">
-                                    <img src="{{ asset('Cambodian_Red_Cross_Logo.png') }}" class="img-circle img-fluid"
-                                        style="width: 120px; height: 120px;">
-                                </div>
+    <div class="row">
+        @foreach ($sub_branches as $sub_branch)
+            <div wire:key="{{ $sub_branch->id }}" class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch flex-column">
+                <div class="card bg-light d-flex flex-fill">
+                    <div class="card-header text-muted border-bottom-0">
+                        <div class="row">
+                            <div class="col-7">
+                                <h2 class="lead"><b>{{ $sub_branch->kh_name }}</b></h2>
                             </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="text-right">
-                                <a href="{{ route('sub-branch.show', $sub_branch->id) }}"
-                                    class="btn btn-sm btn-primary text-white"><i class="fa fa-eye"></i></a>
-                                <a href="{{ route('sub-branch.edit', $sub_branch->id) }}"
-                                    class="btn btn-sm btn-info text-white"><i class="fa fa-pen"></i></a>
-                                <button class="btn btn-sm btn-danger"
-                                    wire:click="$dispatch('alert_delete', {sub_branch_id: {{ $sub_branch->id }}})">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                </button>
+                            <div class="col-5 text-center">
+                                <img src="{{ asset('Cambodian_Red_Cross_Logo.png') }}" class="img-circle img-fluid"
+                                    style="width: 120px; height: 120px;">
                             </div>
                         </div>
                     </div>
+                    <div class="card-footer">
+                        <div class="text-right">
+                            <a href="{{ route('sub-branch.show', $sub_branch->id) }}"
+                                class="btn btn-sm btn-primary text-white"><i class="fa fa-eye"></i></a>
+                            <a href="{{ route('sub-branch.edit', $sub_branch->id) }}"
+                                class="btn btn-sm btn-info text-white"><i class="fa fa-pen"></i></a>
+                            <button class="btn btn-sm btn-danger"
+                                wire:click="$dispatch('alert_delete', {sub_branch_id: {{ $sub_branch->id }}})">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            @endforeach
-        </div>
+            </div>
+        @endforeach
     </div>
 </div>
 

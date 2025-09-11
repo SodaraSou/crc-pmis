@@ -4,16 +4,27 @@ namespace App\Livewire\SubBranch;
 
 use App\Models\Branch;
 use App\Models\SubBranch;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
 class SubBranchTable extends Component
 {
-    public $branch;
+    public $user = null;
+    public $branch = null;
+    public $sub_branches = [];
 
     public function mount(Branch $branch)
     {
-        $this->branch = $branch;
+        $this->user = Auth::user();
+        if ($branch) {
+            $this->branch = $branch;
+            $this->sub_branches = SubBranch::where('branch_id', $this->branch->id)->get();
+        }
+
+        if ($this->user->hasRole('Branch System Operator')) {
+            $this->sub_branches = SubBranch::where('branch_id', $this->user->branch_id)->get();
+        }
     }
 
     #[On('confirmed_delete')]
@@ -34,8 +45,6 @@ class SubBranchTable extends Component
 
     public function render()
     {
-        return view('livewire.sub-branch.sub-branch-table', [
-            'sub_branches' => SubBranch::where('branch_id', $this->branch->id)->get()
-        ]);
+        return view('livewire.sub-branch.sub-branch-table');
     }
 }

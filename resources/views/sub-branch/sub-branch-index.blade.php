@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('title')
-    សាខា
+    អនុសាខា
 @endsection
 
 @section('content')
     <div class="container">
-        @livewire('branch.branch-table')
+        <livewire:sub-branch.sub-branch-table />
     </div>
 @endsection
 
@@ -14,7 +14,7 @@
     <script>
         $(document).ready(function() {
             $("#sidebar li a").removeClass("active");
-            $("#branch>a").addClass("active");
+            $("#sub-branch>a").addClass("active");
         });
     </script>
 @endsection

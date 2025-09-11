@@ -7,6 +7,11 @@ use App\Models\SubBranch;
 
 class SubBranchController extends Controller
 {
+    public function index()
+    {
+        return view('sub-branch.sub-branch-index');
+    }
+
     public function create(Branch $branch)
     {
         return view('sub-branch.sub-branch-create', [

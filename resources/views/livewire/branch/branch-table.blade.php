@@ -1,29 +1,18 @@
-<section class="container">
-    <section class="content-header p-0">
-        <div class="row mb-4">
-            <div class="col-sm-6 p-0">
-                <h1>សាខាទាំង {{ $branches->where('id', '>', 0)->count() }} រាជធានី/ខេត្ត</h1>
-            </div>
-            <div class="col-sm-6">
-                <a href="{{ route('branch.create') }}" class="btn btn-success float-sm-right"><i
-                        class="fa fa-plus mr-1"></i>
-                    បង្កើតថ្មី</a>
-            </div>
-        </div>
-    </section>
-    <section class="content">
-        <div class="card card-solid">
-            <div class="card-body pb-0">
-                <div class="row">
-                    @foreach ($branches as $branch)
-                        <div wire:key="{{ $branch->id }}"
-                            class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch flex-column">
-                            <div class="card bg-light d-flex flex-fill">
-                                <div class="card-header text-muted border-bottom-0">
-                                    <div class="row">
-                                        <div class="col-7">
-                                            <h2 class="lead"><b>{{ $branch->kh_name }}</b></h2>
-                                            {{-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic
+<div>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4>បញ្ជីសាខា</h4>
+        {{-- <a href="{{ route('branch.create') }}" class="btn btn-success float-sm-right"><i class="fa fa-plus mr-1"></i>
+            បង្កើតថ្មី</a> --}}
+    </div>
+    <div class="row">
+        @foreach ($branches as $branch)
+            <div wire:key="{{ $branch->id }}" class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch flex-column">
+                <div class="card bg-light d-flex flex-fill">
+                    <div class="card-header text-muted border-bottom-0">
+                        <div class="row">
+                            <div class="col-7">
+                                <h2 class="lead"><b>{{ $branch->kh_name }}</b></h2>
+                                {{-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic
                                                 Artist
                                                 / Coffee Lover </p>
                                             <ul class="ml-4 mb-0 fa-ul text-muted">
@@ -36,14 +25,14 @@
                                                     12 23
                                                     52</li>
                                             </ul> --}}
-                                        </div>
-                                        <div class="col-5 text-center">
-                                            <img src="{{ asset('Cambodian_Red_Cross_Logo.png') }}"
-                                                class="img-circle img-fluid" style="width: 120px; height: 120px;">
-                                        </div>
-                                    </div>
-                                </div>
-                                {{-- <div class="card-body pt-0">
+                            </div>
+                            <div class="col-5 text-center">
+                                <img src="{{ asset('Cambodian_Red_Cross_Logo.png') }}" class="img-circle img-fluid"
+                                    style="width: 120px; height: 120px;">
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <div class="card-body pt-0">
                                     <div class="row">
                                         <div class="col-7">
                                             <h2 class="lead"><b>Nicole Pearson</b></h2>
@@ -67,40 +56,23 @@
                                         </div>
                                     </div>
                                 </div> --}}
-                                <div class="card-footer">
-                                    <div class="text-right">
-                                        <a href="{{ route('branch.show', $branch->id) }}"
-                                            class="btn btn-sm btn-primary text-white"><i class="fa fa-eye"></i></a>
-                                        <a href="{{ route('branch.edit', $branch->id) }}"
-                                            class="btn btn-sm btn-info text-white"><i class="fa fa-pen"></i></a>
-                                        <button class="btn btn-sm btn-danger"
-                                            wire:click="$dispatch('alert_delete', {branch_id: {{ $branch->id }}})">
-                                            <i class="fa fa-trash" aria-hidden="true"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="card-footer">
+                        <div class="text-right">
+                            <a href="{{ route('branch.show', $branch->id) }}"
+                                class="btn btn-sm btn-primary text-white"><i class="fa fa-eye"></i></a>
+                            <a href="{{ route('branch.edit', $branch->id) }}" class="btn btn-sm btn-info text-white"><i
+                                    class="fa fa-pen"></i></a>
+                            <button class="btn btn-sm btn-danger"
+                                wire:click="$dispatch('alert_delete', {branch_id: {{ $branch->id }}})">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>
                         </div>
-                    @endforeach
+                    </div>
                 </div>
             </div>
-            {{-- <div class="card-footer">
-                <nav aria-label="Contacts Page Navigation">
-                    <ul class="pagination justify-content-center m-0">
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                        <li class="page-item"><a class="page-link" href="#">6</a></li>
-                        <li class="page-item"><a class="page-link" href="#">7</a></li>
-                        <li class="page-item"><a class="page-link" href="#">8</a></li>
-                    </ul>
-                </nav>
-            </div> --}}
-        </div>
-    </section>
-</section>
+        @endforeach
+    </div>
+</div>
 
 @script
     <script>

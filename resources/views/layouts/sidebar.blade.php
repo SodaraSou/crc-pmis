@@ -18,20 +18,55 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item" id="branch">
-                    <a href="{{ route('branch.index') }}" class="nav-link">
-                        <i class="nav-icon fa fa-university"></i>
+                @if (Auth::user()->hasRole('System Manager'))
+                    <li class="nav-item" id="branch">
+                        <a href="{{ route('branch.index') }}" class="nav-link">
+                            <i class="nav-icon fa fa-university"></i>
+                            <p>
+                                សាខា
+                            </p>
+                        </a>
+                    </li>
+                @endif
+                @if (Auth::user()->hasRole('Branch System Operator'))
+                    <li class="nav-item" id="sub-branch">
+                        <a href="{{ route('sub-branch.index') }}" class="nav-link">
+                            <i class="nav-icon fa fa-university"></i>
+                            <p>
+                                អនុសាខា
+                            </p>
+                        </a>
+                    </li>
+                @endif
+                <li class="nav-item" id="honorary-committee">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-star"></i>
                         <p>
-                            សាខា
+                            គណ:កិត្តិយស
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item" id="honorary-committee-member-list">
+                            <a href="{{ route('honorary-committee-member.index') }}" class="nav-link">
+                                <i class="fas fa-angle-double-right nav-icon"></i>
+                                <p>តារាងសមាជិក</p>
+                            </a>
+                        </li>
+                        <li class="nav-item" id="honorary-committee-member-create">
+                            <a href="{{ route('honorary-committee-member.create') }}" class="nav-link">
+                                <i class="fas fa-angle-double-right nav-icon"></i>
+                                <p>បង្កើតសមាជិក</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 @if (Auth::user()->hasPermissionTo('employee_management'))
                     <li class="nav-item" id="employee">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-users"></i>
                             <p>
-                                បុគ្គលិក
+                                មន្ត្រីប្រតិបត្តិ
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
@@ -39,13 +74,13 @@
                             <li class="nav-item" id="employee-list">
                                 <a href="{{ route('employee.index') }}" class="nav-link">
                                     <i class="fas fa-angle-double-right nav-icon"></i>
-                                    <p>បញ្ជីបុគ្គលិក</p>
+                                    <p>បញ្ជីមន្ត្រីប្រតិបត្តិ</p>
                                 </a>
                             </li>
                             <li class="nav-item" id="employee-create">
                                 <a href="{{ route('employee.create') }}" class="nav-link">
                                     <i class="fas fa-angle-double-right nav-icon"></i>
-                                    <p>បង្កើតបុគ្គលិក</p>
+                                    <p>បង្កើតមន្ត្រីប្រតិបត្តិ</p>
                                 </a>
                             </li>
                         </ul>

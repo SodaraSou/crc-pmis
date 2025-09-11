@@ -17,6 +17,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\VillageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommitteeController;
+use App\Http\Controllers\HonoraryCommitteeController;
 use App\Http\Controllers\TermController;
 
 Route::get('/', [HomeController::class, 'index'])->middleware('auth')->name('home');
@@ -45,6 +46,7 @@ Route::get('/branch/{branch}/edit', [BranchController::class, 'edit'])->middlewa
 
 // Sub-Branch
 Route::get('/branch/{branch}/sub-branch/create', [SubBranchController::class, 'create'])->middleware('auth')->name('sub-branch.create');
+Route::get('/sub-branch', [SubBranchController::class, 'index'])->middleware('auth')->name('sub-branch.index');
 Route::get('/sub-branch/{sub_branch}', [SubBranchController::class, 'show'])->middleware('auth')->name('sub-branch.show');
 Route::get('/sub-branch/{sub_branch}/edit', [SubBranchController::class, 'edit'])->middleware('auth')->name('sub-branch.edit');
 
@@ -102,6 +104,10 @@ Route::get('/committee', [CommitteeController::class, 'index'])->middleware('aut
 Route::get('/committee/create', [CommitteeController::class, 'create'])->middleware('auth')->name('committee.create');
 Route::get('/committee/{committee}/edit', [CommitteeController::class, 'edit'])->middleware('auth')->name('committee.edit');
 Route::get('/committee/{committee}', [CommitteeController::class, 'show'])->middleware('auth')->name('committee.show');
+
+// Honorary Committee
+Route::get('/honorary-committee/member', [HonoraryCommitteeController::class, 'indexMember'])->middleware('auth')->name('honorary-committee-member.index');
+Route::get('/honorary-committee/member/create', [HonoraryCommitteeController::class, 'createMember'])->middleware('auth')->name('honorary-committee-member.create');
 
 // Term
 Route::get('/term', [TermController::class, 'index'])->middleware('auth')->name('term.index');
