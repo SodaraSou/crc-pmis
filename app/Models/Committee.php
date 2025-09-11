@@ -22,6 +22,11 @@ class Committee extends Model
         return $this->belongsTo(Branch::class);
     }
 
+    public function sub_branch(): BelongsTo
+    {
+        return $this->belongsTo(SubBranch::class);
+    }
+
     public function committee_type(): BelongsTo
     {
         return $this->belongsTo(CommitteeType::class);

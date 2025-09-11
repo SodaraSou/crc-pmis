@@ -3,6 +3,7 @@
 namespace App\Livewire\HonoraryCommittee;
 
 use App\Livewire\Forms\HonoraryCommitteeMemberForm;
+use App\Models\BranchTerm;
 use App\Models\Committee;
 use App\Models\CommitteeLevel;
 use App\Models\CommitteePosition;
@@ -10,17 +11,17 @@ use App\Models\Commune;
 use App\Models\District;
 use App\Models\Gender;
 use App\Models\Province;
+use App\Models\SubBranchTerm;
 use App\Models\Village;
-use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 class AdminHonoraryCommitteeMemberCreateForm extends Component
 {
     public HonoraryCommitteeMemberForm $form;
 
-    public $committee_level_id = null;
-
     public $committees = [];
+
+    public $terms = [];
 
     public $bp_districts = [];
 
@@ -34,82 +35,68 @@ class AdminHonoraryCommitteeMemberCreateForm extends Component
 
     public $ad_villages = [];
 
-    #[Validate('required', message: 'សូមបញ្ចូលឈ្មោះ')]
-    public $kh_name = '';
-
-    #[Validate('required', message: 'សូមបញ្ចូលឈ្មោះឡាតាំង')]
-    public $en_name = '';
-
-    #[Validate('required', message: 'សូមជ្រើសរើសភេទ')]
-    public $gender_id = null;
-
-    #[Validate('required', message: 'សូមបញ្ចូលលេខទូរស័ព្ទ')]
-    public $phone_number = '';
-
-    #[Validate('required', message: 'សូមជ្រើសរើសខេត្ត/រាជធានី')]
-    public $bp_province_id = null;
-
-    #[Validate('required', message: 'សូមជ្រើសរើសស្រុក/ខណ្ឌ')]
-    public $bp_district_id = null;
-
-    #[Validate('required', message: 'សូមជ្រើសរើសឃុំ/សង្កាត់')]
-    public $bp_commune_id = null;
-
-    #[Validate('required', message: 'សូមជ្រើសរើសភូមិ')]
-    public $bp_village_id = null;
-
-    #[Validate('required', message: 'សូមជ្រើសរើសខេត្ត/រាជធានី')]
-    public $ad_province_id = null;
-
-    #[Validate('required', message: 'សូមជ្រើសរើសស្រុក/ខណ្ឌ')]
-    public $ad_district_id = null;
-
-    #[Validate('required', message: 'សូមជ្រើសរើសឃុំ/សង្កាត់')]
-    public $ad_commune_id = null;
-
-    #[Validate('required', message: 'សូមជ្រើសរើសភូមិ')]
-    public $ad_village_id = null;
-
-    public function updatedBpProvinceId(): void
+    public function updatedFormBpProvinceId(): void
     {
-        $this->bp_districts = District::where('province_id', $this->bp_province_id)->get();
+        $this->bp_districts = District::where('province_id', $this->form->bp_province_id)->get();
     }
 
-    public function updatedBpDistrictId(): void
+    public function updatedFormBpDistrictId(): void
     {
-        $this->bp_communes = Commune::where('district_id', $this->bp_district_id)->get();
+        $this->bp_communes = Commune::where('district_id', $this->form->bp_district_id)->get();
     }
 
-    public function updatedBpCommuneId(): void
+    public function updatedFormBpCommuneId(): void
     {
-        $this->bp_villages = Village::where('commune_id', $this->bp_commune_id)->get();
+        $this->bp_villages = Village::where('commune_id', $this->form->bp_commune_id)->get();
     }
 
-    public function updatedAdProvinceId(): void
+    public function updatedFormAdProvinceId(): void
     {
-        $this->ad_districts = District::where('province_id', $this->ad_province_id)->get();
+        $this->ad_districts = District::where('province_id', $this->form->ad_province_id)->get();
     }
 
-    public function updatedAdDistrictId(): void
+    public function updatedFormAdDistrictId(): void
     {
-        $this->ad_communes = Commune::where('district_id', $this->ad_district_id)->get();
+        $this->ad_communes = Commune::where('district_id', $this->form->ad_district_id)->get();
     }
 
-    public function updatedAdCommuneId(): void
+    public function updatedFormAdCommuneId(): void
     {
-        $this->ad_villages = Village::where('commune_id', $this->ad_commune_id)->get();
+        $this->ad_villages = Village::where('commune_id', $this->form->ad_commune_id)->get();
     }
 
-    public function updatedCommitteeLevelId(): void
+    public function updatedFormCommitteeLevelId(): void
     {
-        $this->committees = Committee::where('committee_level_id', $this->committee_level_id)
+        $this->committees = Committee::where('committee_level_id', $this->form->committee_level_id)
             ->where('committee_type_id', 1)
             ->get();
+    }
+
+    public function updatedFormCommitteeId(): void
+    {
+        $committee = Committee::find($this->form->committee_id);
+        if ($this->form->committee_level_id == 1) {
+            $this->terms = BranchTerm::where('branch_id', $committee->branch->id)->get();
+        } else if ($this->form->committee_level_id == 2) {
+            $this->terms = SubBranchTerm::where('sub_branch_id', $committee->sub_branch->id)->get();
+        }
     }
 
     public function save()
     {
         $this->validate();
+        try {
+            $this->form->store();
+
+            session()->flash('toast', [
+                'type' => 'success',
+                'message' => 'សមាជិកគណ:កិត្តិយសបានបង្កើតដោយជោគជ័យ!'
+            ]);
+
+            return redirect()->to('/honorary-committee/member');
+        } catch (\Exception $e) {
+            $this->dispatch('create_fail', message: $e->getMessage());
+        }
     }
 
     public function render()

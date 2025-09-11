@@ -19,5 +19,7 @@ class Member extends Model
         'ad_district_id',
         'ad_commune_id',
         'ad_village_id',
+        'created_by',
+        'updated_by',
     ];
 }

@@ -5,10 +5,12 @@
 @endsection
 
 @section('content')
-    @if (Auth::user()->hasRole('System Manager'))
-        <livewire:honorary-committee.admin-honorary-committee-member-create-form />
-    @elseif (Auth::user()->hasRole('Branch System Operator'))
-    @endif
+    <div class="container">
+        @if (Auth::user()->hasRole('System Manager'))
+            <livewire:honorary-committee.admin-honorary-committee-member-create-form />
+        @elseif (Auth::user()->hasRole('Branch System Operator'))
+        @endif
+    </div>
 @endsection
 
 @section('js')

@@ -7,15 +7,15 @@
             <div class="row g-4">
                 <div class="col-12 col-md-6 form-group">
                     <label>ឈ្មោះ<span class="text-danger">*</span></label>
-                    <input wire:model="kh_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះ">
-                    @error('kh_name')
+                    <input wire:model="form.kh_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះ">
+                    @error('form.kh_name')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-12 col-md-6 form-group">
                     <label>ឈ្មោះឡាតាំង<span class="text-danger">*</span></label>
-                    <input wire:model="en_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះឡាតាំង">
-                    @error('en_name')
+                    <input wire:model="form.en_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះឡាតាំង">
+                    @error('form.en_name')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
@@ -23,7 +23,7 @@
             <div class="row g-4">
                 <div class="col-12 col-md-6 form-group">
                     <label>ភេទ<span class="text-danger">*</span></label>
-                    <select wire:model="gender_id" class="form-control">
+                    <select wire:model="form.gender_id" class="form-control">
                         <option value="">សូមជ្រើសរើសភេទ</option>
                         @foreach ($genders as $gender)
                             <option wire:key="{{ $gender->id }}" value="{{ $gender->id }}">
@@ -31,14 +31,14 @@
                             </option>
                         @endforeach
                     </select>
-                    @error('gender_id')
+                    @error('form.gender_id')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-12 col-md-6 form-group">
                     <label>លេខទូរស័ព្ទ<span class="text-danger">*</span></label>
-                    <input wire:model="phone_number" class="form-control" placeholder="សូមបញ្ចូលលេខទូរស័ព្ទ">
-                    @error('phone_number')
+                    <input wire:model="form.phone_number" class="form-control" placeholder="សូមបញ្ចូលលេខទូរស័ព្ទ">
+                    @error('form.phone_number')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
@@ -48,7 +48,7 @@
                 <div class="row g-4">
                     <div class="col-12 col-md-6 col-lg-3 form-group">
                         <label>ខេត្ត/រាជធានី<span class="text-danger">*</span></label>
-                        <select wire:model.live="bp_province_id" class="form-control">
+                        <select wire:model.live="form.bp_province_id" class="form-control">
                             <option value="">សូមជ្រើសរើសខេត្ត/រាជធានី</option>
                             @foreach ($bp_provinces as $bp_province)
                                 <option wire:key="{{ $bp_province->id }}" value="{{ $bp_province->id }}">
@@ -56,13 +56,13 @@
                                 </option>
                             @endforeach
                         </select>
-                        @error('bp_province_id')
+                        @error('form.bp_province_id')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-3 form-group">
                         <label>ស្រុក/ខណ្ឌ<span class="text-danger">*</span></label>
-                        <select wire:model.live="bp_district_id" class="form-control">
+                        <select wire:model.live="form.bp_district_id" class="form-control">
                             <option value="">សូមជ្រើសរើសស្រុក/ខណ្ឌ</option>
                             @foreach ($bp_districts as $bp_district)
                                 <option wire:key="{{ $bp_district->id }}" value="{{ $bp_district->id }}">
@@ -70,13 +70,13 @@
                                 </option>
                             @endforeach
                         </select>
-                        @error('bp_district_id')
+                        @error('form.bp_district_id')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-3 form-group">
                         <label>ឃុំ/សង្កាត់<span class="text-danger">*</span></label>
-                        <select wire:model.live="bp_commune_id" class="form-control">
+                        <select wire:model.live="form.bp_commune_id" class="form-control">
                             <option value="">សូមជ្រើសរើសឃុំ/សង្កាត់</option>
                             @foreach ($bp_communes as $bp_commune)
                                 <option wire:key="{{ $bp_commune->id }}" value="{{ $bp_commune->id }}">
@@ -84,7 +84,7 @@
                                 </option>
                             @endforeach
                         </select>
-                        @error('bp_commune_id')
+                        @error('form.bp_commune_id')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
@@ -98,7 +98,7 @@
                                 </option>
                             @endforeach
                         </select>
-                        @error('bp_village_id')
+                        @error('form.bp_village_id')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
@@ -109,7 +109,7 @@
                 <div class="row g-4">
                     <div class="col-12 col-md-6 col-lg-3 form-group">
                         <label>ខេត្ត/រាជធានី<span class="text-danger">*</span></label>
-                        <select wire:model.live="ad_province_id" class="form-control">
+                        <select wire:model.live="form.ad_province_id" class="form-control">
                             <option value="">សូមជ្រើសរើសខេត្ត/រាជធានី</option>
                             @foreach ($ad_provinces as $ad_province)
                                 <option wire:key="{{ $ad_province->id }}" value="{{ $ad_province->id }}">
@@ -117,13 +117,13 @@
                                 </option>
                             @endforeach
                         </select>
-                        @error('ad_province_id')
+                        @error('form.ad_province_id')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-3 form-group">
                         <label>ស្រុក/ខណ្ឌ<span class="text-danger">*</span></label>
-                        <select wire:model.live="ad_district_id" class="form-control">
+                        <select wire:model.live="form.ad_district_id" class="form-control">
                             <option value="">សូមជ្រើសរើសស្រុក/ខណ្ឌ</option>
                             @foreach ($ad_districts as $ad_district)
                                 <option wire:key="{{ $ad_district->id }}" value="{{ $ad_district->id }}">
@@ -131,13 +131,13 @@
                                 </option>
                             @endforeach
                         </select>
-                        @error('ad_district_id')
+                        @error('form.ad_district_id')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-3 form-group">
                         <label>ឃុំ/សង្កាត់<span class="text-danger">*</span></label>
-                        <select wire:model.live="ad_commune_id" class="form-control">
+                        <select wire:model.live="form.ad_commune_id" class="form-control">
                             <option value="">សូមជ្រើសរើសឃុំ/សង្កាត់</option>
                             @foreach ($ad_communes as $ad_commune)
                                 <option wire:key="{{ $ad_commune->id }}" value="{{ $ad_commune->id }}">
@@ -145,7 +145,7 @@
                                 </option>
                             @endforeach
                         </select>
-                        @error('ad_commune_id')
+                        @error('form.ad_commune_id')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
@@ -159,16 +159,16 @@
                                 </option>
                             @endforeach
                         </select>
-                        @error('ad_village_id')
+                        @error('form.ad_village_id')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>
             </div>
             <div class="row g-4">
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-6 form-group">
                     <label>ថ្នាក់គណ:កិត្តិយស<span class="text-danger">*</span></label>
-                    <select wire:model.live="committee_level_id" class="form-control">
+                    <select wire:model.live="form.committee_level_id" class="form-control">
                         <option value="">សូមជ្រើសរើសថ្នាក់</option>
                         @foreach ($committee_levels as $committee_level)
                             <option wire:key="{{ $committee_level->id }}" value="{{ $committee_level->id }}">
@@ -176,13 +176,13 @@
                             </option>
                         @endforeach
                     </select>
-                    @error('committee_level_id')
+                    @error('form.committee_level_id')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-6 form-group">
                     <label>គណ:កិត្តិយស<span class="text-danger">*</span></label>
-                    <select wire:model="form.committee_id" class="form-control">
+                    <select wire:model.live="form.committee_id" class="form-control">
                         <option value="">សូមជ្រើសរើសថ្នាក់</option>
                         @foreach ($committees as $committee)
                             <option wire:key="{{ $committee->id }}" value="{{ $committee->id }}">
@@ -194,8 +194,44 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="col-12 col-md-4"></div>
-                <div class="col-12 col-md-4"></div>
+            </div>
+            <div class="row g-4">
+                <div class="col-12 col-md-4 form-group">
+                    <label>អាណត្តិ<span class="text-danger">*</span></label>
+                    <select wire:model="form.term_id" class="form-control">
+                        <option value="">សូមជ្រើសរើសអាណត្តិ</option>
+                        @foreach ($terms as $term)
+                            <option wire:key="{{ $term->id }}" value="{{ $term->id }}">
+                                {{ $term->kh_name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('form.term_id')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="col-12 col-md-4 form-group">
+                    <label>តួនាទី<span class="text-danger">*</span></label>
+                    <select wire:model="form.committee_position_id" class="form-control">
+                        <option value="">សូមជ្រើសរើសតួនាទី</option>
+                        @foreach ($committee_positions as $committee_position)
+                            <option wire:key="{{ $committee_position->id }}" value="{{ $committee_position->id }}">
+                                {{ $committee_position->kh_name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('form.committee_position_id')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="col-12 col-md-4 form-group">
+                    <label>តួនាទីក្នុងរដ្ឋាភិបាល<span class="text-danger">*</span></label>
+                    <input wire:model="form.gov_position" class="form-control"
+                        placeholder="សូមបញ្ចូលតួនាទីក្នុងរដ្ឋាភិបាល">
+                    @error('form.gov_position')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
             </div>
         </div>
         <div class="card-footer">
@@ -207,12 +243,18 @@
 
 @script
     <script>
+        $(function() {
+            $('.select2').select2({
+                theme: 'bootstrap4'
+            });
+        });
+
         $wire.on("create_fail", (event) => {
             Swal.fire({
                 title: "មានបញ្ហា!",
                 text: event.message,
-                icon: "erro            confirmButtonText: "
-                អូ ខេ ",
+                icon: "error",
+                confirmButtonText: "អូខេ",
                 confirmButtonColor: "#dc3545"
             });
         });
