@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Member extends Model
 {
@@ -22,4 +23,17 @@ class Member extends Model
         'created_by',
         'updated_by',
     ];
+
+    public function committees(): BelongsToMany
+    {
+        return $this->belongsToMany(Committee::class)
+            ->using(CommitteeMember::class)
+            ->withPivot(
+                'committee_id',
+                'sub_branch_term_id',
+                'committee_position_id',
+                'committee_position_id',
+                'gov_position'
+            );
+    }
 }

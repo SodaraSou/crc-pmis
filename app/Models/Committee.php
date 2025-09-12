@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Committee extends Model
 {
@@ -35,5 +35,17 @@ class Committee extends Model
     public function committee_level(): BelongsTo
     {
         return $this->belongsTo(CommitteeLevel::class);
+    }
+
+    public function members(): BelongsToMany
+    {
+        return $this->belongsToMany(Member::class)
+            ->using(CommitteeMember::class)
+            ->withPivot(
+                'branch_term_id',
+                'sub_branch_term_id',
+                'committee_position_id',
+                'gov_position'
+            );
     }
 }

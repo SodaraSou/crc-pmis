@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class CommitteeMember extends Model
+class CommitteeMember extends Pivot
 {
+    protected $table = "committee_member";
+
     protected $fillable = [
         'member_id',
         'branch_term_id',
@@ -16,4 +19,19 @@ class CommitteeMember extends Model
         'created_by',
         'updated_by',
     ];
+
+    public function branch_term(): BelongsTo
+    {
+        return $this->belongsTo(BranchTerm::class);
+    }
+
+    public function sub_branch_term(): BelongsTo
+    {
+        return $this->belongsTo(SubBranchTerm::class);
+    }
+
+    public function committee_position(): BelongsTo
+    {
+        return $this->belongsTo(CommitteePosition::class);
+    }
 }

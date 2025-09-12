@@ -1,6 +1,6 @@
 <div>
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h4>តារាងគណ:កម្មាធិការ</h4>
+        <h4>តារាងគណ:កិត្តិយសសាខា</h4>
         {{-- <a href="{{ route('term.create', ['branch_id' => $branch->id]) }}" class="btn btn-success">
             <i class="fa fa-plus mr-1"></i>
             បង្កើតថ្មី
@@ -21,8 +21,11 @@
                 <tr wire:key='{{ $member->id }}'>
                     <td>{{ $member->id }}</td>
                     <td>{{ $member->kh_name }}</td>
-                    <td>{{ $member->pivot->committee_position->kh_name }}</td>
-                    <td>{{ $member->pivot->gov_position }}</td>
+                    @php
+                        $committee = $member->committees->first();
+                    @endphp
+                    <td>{{ $committee->kh_name }}</td>
+                    <td>{{ $committee->pivot->committee_position->kh_name }}</td>
                     <td></td>
                 </tr>
             @endforeach

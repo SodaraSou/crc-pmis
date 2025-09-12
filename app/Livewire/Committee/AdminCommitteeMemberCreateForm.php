@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Committee;
 
-use App\Livewire\Forms\HonoraryCommitteeMemberForm;
+use App\Livewire\Forms\MemberForm;
 use App\Models\BranchTerm;
 use App\Models\Committee;
 use App\Models\CommitteeLevel;
@@ -17,7 +17,7 @@ use Livewire\Component;
 
 class AdminCommitteeMemberCreateForm extends Component
 {
-    public HonoraryCommitteeMemberForm $form;
+    public MemberForm $form;
 
     public $committees = [];
 
@@ -85,18 +85,18 @@ class AdminCommitteeMemberCreateForm extends Component
     public function save()
     {
         $this->validate();
-        // try {
-        //     $this->form->store();
+        try {
+            $this->form->store();
 
-        //     session()->flash('toast', [
-        //         'type' => 'success',
-        //         'message' => 'សមាជិកគណ:កិត្តិយសបានបង្កើតដោយជោគជ័យ!'
-        //     ]);
+            session()->flash('toast', [
+                'type' => 'success',
+                'message' => 'សមាជិកគណ:កម្មាធិការបានបង្កើតដោយជោគជ័យ!'
+            ]);
 
-        //     return redirect()->to('/honorary-committee/member');
-        // } catch (\Exception $e) {
-        //     $this->dispatch('create_fail', message: $e->getMessage());
-        // }
+            return redirect()->to('/committee/member');
+        } catch (\Exception $e) {
+            $this->dispatch('create_fail', message: $e->getMessage());
+        }
     }
 
     public function render()

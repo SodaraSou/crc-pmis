@@ -84,6 +84,29 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item" id="term">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-star"></i>
+                        <p>
+                            អាណត្តិ
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item" id="term-list">
+                            <a href="{{ route('term.index') }}" class="nav-link">
+                                <i class="fas fa-angle-double-right nav-icon"></i>
+                                <p>តារាងអាណត្តិ</p>
+                            </a>
+                        </li>
+                        <li class="nav-item" id="term-create">
+                            <a href="{{ route('term.create') }}" class="nav-link">
+                                <i class="fas fa-angle-double-right nav-icon"></i>
+                                <p>បង្កើតអាណត្តិ</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 @if (Auth::user()->hasPermissionTo('employee_management'))
                     <li class="nav-item" id="employee">
                         <a href="#" class="nav-link">
@@ -171,12 +194,6 @@
                                         <p>សាខា</p>
                                     </a>
                                 </li>
-                                {{-- <li class="nav-item" id="committee">
-                                    <a href="{{ route('committee.index') }}" class="nav-link">
-                                        <i class="fas fa-angle-double-right nav-icon"></i>
-                                        <p>គណៈកម្មាធិការ</p>
-                                    </a>
-                                </li> --}}
                                 <li class="nav-item" id="term">
                                     <a href="{{ route('term.index') }}" class="nav-link">
                                         <i class="fas fa-angle-double-right nav-icon"></i>
@@ -195,7 +212,7 @@
                         </li>
                     @endif
                 @endif
-                @if (Auth::user()->hasPermissionTo('hq_report'))
+                {{-- @if (Auth::user()->hasPermissionTo('hq_report'))
                     <li class="nav-item" id="hq-report">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-chart-line"></i>
@@ -251,7 +268,7 @@
                             </li>
                         </ul>
                     </li>
-                @endif
+                @endif --}}
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

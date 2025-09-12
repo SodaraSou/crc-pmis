@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
-class HonoraryCommitteeMemberForm extends Form
+class MemberForm extends Form
 {
     #[Validate('required', message: 'សូមបញ្ចូលឈ្មោះ')]
     public $kh_name = '';

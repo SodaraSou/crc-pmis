@@ -11,9 +11,9 @@
     <script>
         $(document).ready(function() {
             $("#sidebar li a").removeClass("active");
-            $("#setting>a").addClass("active");
-            $("#setting").addClass("menu-open");
             $("#term>a").addClass("active");
+            $("#term").addClass("menu-open");
+            $("#term-list>a").addClass("active");
         });
     </script>
 @endsection

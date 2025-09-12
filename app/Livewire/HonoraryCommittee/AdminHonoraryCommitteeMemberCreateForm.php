@@ -2,7 +2,7 @@
 
 namespace App\Livewire\HonoraryCommittee;
 
-use App\Livewire\Forms\HonoraryCommitteeMemberForm;
+use App\Livewire\Forms\MemberForm;
 use App\Models\BranchTerm;
 use App\Models\Committee;
 use App\Models\CommitteeLevel;
@@ -17,7 +17,7 @@ use Livewire\Component;
 
 class AdminHonoraryCommitteeMemberCreateForm extends Component
 {
-    public HonoraryCommitteeMemberForm $form;
+    public MemberForm $form;
 
     public $committees = [];
 
