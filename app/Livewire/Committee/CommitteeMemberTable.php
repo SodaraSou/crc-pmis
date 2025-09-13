@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\HonoraryCommittee;
+namespace App\Livewire\Committee;
 
 use App\Models\Member;
 use Illuminate\Support\Facades\Auth;
@@ -8,7 +8,7 @@ use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class HonoraryCommitteeMemberTable extends Component
+class CommitteeMemberTable extends Component
 {
     use WithPagination;
 
@@ -28,11 +28,11 @@ class HonoraryCommitteeMemberTable extends Component
     {
         $query = Member::where('active', true)
             ->whereHas('committees', function ($q) {
-                $q->where('committee_type_id', 1);
+                $q->where('committee_type_id', 2);
             });
 
         if ($this->user->hasRole('Branch System Operator')) {
-            $branch_id = $this->user->branch_id;    
+            $branch_id = $this->user->branch_id;
             $query->whereHas('committees', function ($q) use ($branch_id) {
                 $q->where('branch_id', $branch_id);
             });
@@ -40,7 +40,7 @@ class HonoraryCommitteeMemberTable extends Component
 
         $members = $query->paginate($this->per_page);
 
-        return view('livewire.honorary-committee.honorary-committee-member-table', [
+        return view('livewire.committee.committee-member-table', [
             'members' => $members,
         ]);
     }
