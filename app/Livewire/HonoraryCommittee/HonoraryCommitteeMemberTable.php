@@ -3,6 +3,7 @@
 namespace App\Livewire\HonoraryCommittee;
 
 use App\Models\Member;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Url;
 use Livewire\Component;
@@ -26,17 +27,23 @@ class HonoraryCommitteeMemberTable extends Component
 
     public function render()
     {
-        $query = Member::where('active', true)
-            ->whereHas('committees', function ($q) {
-                $q->where('committee_type_id', 1);
-            });
+        $current_date = Carbon::today()->toDateString();
 
-        if ($this->user->hasRole('Branch System Operator')) {
-            $branch_id = $this->user->branch_id;    
-            $query->whereHas('committees', function ($q) use ($branch_id) {
-                $q->where('branch_id', $branch_id);
-            });
-        }
+        $query = Member::where('active', true)
+            ->whereHas('committees', function ($committee_query) use ($current_date) {
+                $committee_query->where('committee_type_id', 1)
+                    ->whereHas('branch.terms', function ($term_query) use ($current_date) {
+                        $term_query->where('start_date', '<=', $current_date)
+                            ->where('end_date', '>=', $current_date);
+                    });
+            })
+            ->with(['committees' => function ($committee_query) use ($current_date) {
+                $committee_query->where('committee_type_id', 1)
+                    ->whereHas('branch.terms', function ($term_query) use ($current_date) {
+                        $term_query->where('start_date', '<=', $current_date)
+                            ->where('end_date', '>=', $current_date);
+                    });
+            }]);
 
         $members = $query->paginate($this->per_page);
 

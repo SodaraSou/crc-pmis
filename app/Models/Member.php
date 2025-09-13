@@ -29,7 +29,7 @@ class Member extends Model
         return $this->belongsToMany(Committee::class)
             ->using(CommitteeMember::class)
             ->withPivot(
-                'committee_id',
+                'branch_term_id',
                 'sub_branch_term_id',
                 'committee_position_id',
                 'committee_position_id',
