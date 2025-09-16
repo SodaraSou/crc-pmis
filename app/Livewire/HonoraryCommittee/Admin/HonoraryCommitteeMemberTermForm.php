@@ -66,10 +66,12 @@ class HonoraryCommitteeMemberTermForm extends Component
                 ->where('committee_id', $this->committee_id)
                 ->where('active', true)
                 ->when($this->committee_level_id == 1, function ($q) {
-                    $q->where('branch_term_id', $this->term_id);
+                    $q->where('active', true)
+                        ->where('branch_term_id', $this->term_id);
                 })
                 ->when($this->committee_level_id == 2, function ($q) {
-                    $q->where('sub_branch_term_id', $this->term_id);
+                    $q->where('active', true)
+                        ->where('sub_branch_term_id', $this->term_id);
                 })
                 ->exists();
 

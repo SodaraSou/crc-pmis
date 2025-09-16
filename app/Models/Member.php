@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -25,6 +26,51 @@ class Member extends Model
         'created_by',
         'updated_by',
     ];
+
+    public function gender(): BelongsTo
+    {
+        return $this->belongsTo(Gender::class);
+    }
+
+    public function bp_province(): BelongsTo
+    {
+        return $this->belongsTo(Province::class);
+    }
+
+    public function bp_district(): BelongsTo
+    {
+        return $this->belongsTo(District::class);
+    }
+
+    public function bp_commune(): BelongsTo
+    {
+        return $this->belongsTo(Commune::class);
+    }
+
+    public function bp_village(): BelongsTo
+    {
+        return $this->belongsTo(Village::class);
+    }
+
+    public function ad_province(): BelongsTo
+    {
+        return $this->belongsTo(Province::class);
+    }
+
+    public function ad_district(): BelongsTo
+    {
+        return $this->belongsTo(District::class);
+    }
+
+    public function ad_commune(): BelongsTo
+    {
+        return $this->belongsTo(Commune::class);
+    }
+
+    public function ad_village(): BelongsTo
+    {
+        return $this->belongsTo(Village::class);
+    }
 
     public function committees(): BelongsToMany
     {

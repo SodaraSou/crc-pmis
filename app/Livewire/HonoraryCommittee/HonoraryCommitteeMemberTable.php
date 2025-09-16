@@ -37,10 +37,6 @@ class HonoraryCommitteeMemberTable extends Component
             ->whereHas('committees', function ($q) {
                 $q->where('committee_type_id', 1);
             })
-            // ->whereHas('committee_members.branch_term', function ($q) use ($today) {
-            //     $q->where('start_date', "<=", $today)
-            //         ->where('end_date',  ">=", $today);
-            // })
             ->paginate($this->per_page);
 
         return view('livewire.honorary-committee.honorary-committee-member-table', [

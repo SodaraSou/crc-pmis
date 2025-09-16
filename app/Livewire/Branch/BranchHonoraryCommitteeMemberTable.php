@@ -26,6 +26,7 @@ class BranchHonoraryCommitteeMemberTable extends Component
 
     public Branch $branch;
     public Committee $committee;
+    public $current_term = null;
 
     public function mount(Branch $branch)
     {
@@ -35,29 +36,34 @@ class BranchHonoraryCommitteeMemberTable extends Component
             }
         ]);
         $this->committee = $this->branch->committees->first();
+        $today = now()->toDateString();
+        $this->current_term = BranchTerm::where('active', true)
+            ->where('branch_id', $this->branch->id)
+            ->where('start_date', "<=", $today)
+            ->where('end_date',  ">=", $today)
+            ->first();
+        $this->term_id = $this->current_term->id;
     }
 
     public function render()
     {
         $query = Member::query();
 
-        $today = now()->toDateString();
         $query->where('active', true)
             ->whereHas('committees', function ($q) {
                 $q->where('committees.active', true)
                     ->where('committees.id', $this->committee->id);
             })
-            ->whereHas('committee_members', function ($cm) use ($today) {
+            ->whereHas('committee_members', function ($cm) {
                 $cm->where('committee_member.active', true)
-                    ->whereHas('branch_term', function ($bt) use ($today) {
+                    ->whereHas('branch_term', function ($bt) {
                         $bt->where('branch_terms.active', true);
                     });
             });
 
 
         if ($this->search) {
-            $query->where('active', true)
-                ->where('kh_name', 'like', '%' . $this->search . '%');
+            $query->where('kh_name', 'like', '%' . $this->search . '%');
         }
 
         if ($this->term_id) {
@@ -69,7 +75,8 @@ class BranchHonoraryCommitteeMemberTable extends Component
 
         return view('livewire.branch.branch-honorary-committee-member-table', [
             'members' => $query->get(),
-            'terms' => BranchTerm::where('branch_id', $this->branch->id)->get(),
+            'terms' => BranchTerm::where('active', true)
+                ->where('branch_id', $this->branch->id)->get(),
         ]);
     }
 }
