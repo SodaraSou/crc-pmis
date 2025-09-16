@@ -6,6 +6,23 @@
             បង្កើតថ្មី
         </a> --}}
     </div>
+    <div class="row">
+        <div class="col-12 col-md-6 form-group">
+            <label>ស្វែងរក</label>
+            <input wire:model.live.debounce.500ms="search" type="text" class="form-control" placeholder="ស្វែងរក" />
+        </div>
+        <div class="col-12 col-md-6 form-group">
+            <label>អាណត្តិ</label>
+            <select wire:model.live="term_id" class="form-control">
+                <option value="">ជ្រើសរើសអាណត្តិ</option>
+                @foreach ($terms as $term)
+                    <option wire:key="{{ $term->id }}" value="{{ $term->id }}">
+                        {{ $term->kh_name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+    </div>
     <table class="table table-hover text-nowrap">
         <thead>
             <tr>
@@ -21,9 +38,23 @@
                 <tr wire:key='{{ $member->id }}'>
                     <td>{{ $member->id }}</td>
                     <td>{{ $member->kh_name }}</td>
-                    <td>{{ $member->pivot->committee_position->kh_name }}</td>
-                    <td>{{ $member->pivot->gov_position }}</td>
-                    <td></td>
+                    @php
+                        $committee_membership = $member->committees->first();
+                    @endphp
+                    <td>{{ $committee_membership->pivot->gov_position }}</td>
+                    <td>{{ $committee_membership->pivot->committee_position->kh_name }}</td>
+                    <td>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <a href="{{ route('honorary-committee-member.show', $member->id) }}"
+                                class="btn btn-sm btn-primary mr-2">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            </a>
+                            <a href="{{ route('honorary-committee-member.edit', $member->id) }}"
+                                class="btn btn-sm btn-info mr-2">
+                                <i class="fa fa-pen" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

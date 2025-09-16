@@ -16,6 +16,7 @@ class CommitteeMember extends Pivot
         'committee_id',
         'committee_position_id',
         'gov_position',
+        'active',
         'created_by',
         'updated_by',
     ];
@@ -28,6 +29,11 @@ class CommitteeMember extends Pivot
     public function sub_branch_term(): BelongsTo
     {
         return $this->belongsTo(SubBranchTerm::class);
+    }
+
+    public function committee(): BelongsTo
+    {
+        return $this->belongsTo(Committee::class);
     }
 
     public function committee_position(): BelongsTo

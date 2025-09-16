@@ -2,8 +2,8 @@
 
 namespace App\Livewire\HonoraryCommittee;
 
+use App\Models\CommitteeLevel;
 use App\Models\Member;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Url;
 use Livewire\Component;
@@ -18,6 +18,10 @@ class HonoraryCommitteeMemberTable extends Component
     #[Url()]
     public $search = "";
 
+    public $active_term = false;
+
+    public $committee_level_id = null;
+
     public $per_page = 25;
 
     public function mount()
@@ -27,28 +31,21 @@ class HonoraryCommitteeMemberTable extends Component
 
     public function render()
     {
-        $current_date = Carbon::today()->toDateString();
+        $today = now()->toDateString();
 
-        $query = Member::where('active', true)
-            ->whereHas('committees', function ($committee_query) use ($current_date) {
-                $committee_query->where('committee_type_id', 1)
-                    ->whereHas('branch.terms', function ($term_query) use ($current_date) {
-                        $term_query->where('start_date', '<=', $current_date)
-                            ->where('end_date', '>=', $current_date);
-                    });
+        $members = Member::where('active', true)
+            ->whereHas('committees', function ($q) {
+                $q->where('committee_type_id', 1);
             })
-            ->with(['committees' => function ($committee_query) use ($current_date) {
-                $committee_query->where('committee_type_id', 1)
-                    ->whereHas('branch.terms', function ($term_query) use ($current_date) {
-                        $term_query->where('start_date', '<=', $current_date)
-                            ->where('end_date', '>=', $current_date);
-                    });
-            }]);
-
-        $members = $query->paginate($this->per_page);
+            // ->whereHas('committee_members.branch_term', function ($q) use ($today) {
+            //     $q->where('start_date', "<=", $today)
+            //         ->where('end_date',  ">=", $today);
+            // })
+            ->paginate($this->per_page);
 
         return view('livewire.honorary-committee.honorary-committee-member-table', [
             'members' => $members,
+            'committee_levels' => CommitteeLevel::all(),
         ]);
     }
 }

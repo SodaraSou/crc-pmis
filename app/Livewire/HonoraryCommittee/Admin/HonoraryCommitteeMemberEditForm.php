@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Livewire\HonoraryCommittee;
+namespace App\Livewire\HonoraryCommittee\Admin;
 
 use App\Livewire\Forms\MemberForm;
+use App\Models\Member;
 use App\Models\BranchTerm;
 use App\Models\Committee;
 use App\Models\CommitteeLevel;
@@ -15,7 +16,7 @@ use App\Models\SubBranchTerm;
 use App\Models\Village;
 use Livewire\Component;
 
-class AdminHonoraryCommitteeMemberCreateForm extends Component
+class HonoraryCommitteeMemberEditForm extends Component
 {
     public MemberForm $form;
 
@@ -34,6 +35,26 @@ class AdminHonoraryCommitteeMemberCreateForm extends Component
     public $ad_communes = [];
 
     public $ad_villages = [];
+
+    public function mount(Member $member)
+    {
+        $this->form->is_edit = true;
+        $this->form->setForm($member);
+        $this->bp_districts = District::where('province_id', $this->form->bp_province_id)->get();
+        $this->bp_communes = Commune::where('district_id', $this->form->bp_district_id)->get();
+        $this->bp_villages = Village::where('commune_id', $this->form->bp_commune_id)->get();
+        $this->ad_districts = District::where('province_id', $this->form->ad_province_id)->get();
+        $this->ad_communes = Commune::where('district_id', $this->form->ad_district_id)->get();
+        $this->ad_villages = Village::where('commune_id', $this->form->ad_commune_id)->get();
+        // $this->committees = Committee::where('committee_level_id', $this->form->committee_level_id)
+        //     ->where('committee_type_id', 1)
+        //     ->get();
+        // if ($this->form->committee_level_id == 1) {
+        //     $this->terms = BranchTerm::where('branch_id', $this->form->committee->branch->id)->get();
+        // } else if ($this->form->committee_level_id == 2) {
+        //     $this->terms = SubBranchTerm::where('sub_branch_id', $this->form->committee->sub_branch->id)->get();
+        // }
+    }
 
     public function updatedFormBpProvinceId(): void
     {
@@ -70,6 +91,8 @@ class AdminHonoraryCommitteeMemberCreateForm extends Component
         $this->committees = Committee::where('committee_level_id', $this->form->committee_level_id)
             ->where('committee_type_id', 1)
             ->get();
+        $this->form->committee_id = null;
+        $this->form->term_id = null;
     }
 
     public function updatedFormCommitteeId(): void
@@ -80,28 +103,29 @@ class AdminHonoraryCommitteeMemberCreateForm extends Component
         } else if ($this->form->committee_level_id == 2) {
             $this->terms = SubBranchTerm::where('sub_branch_id', $committee->sub_branch->id)->get();
         }
+        $this->form->term_id = null;
     }
 
     public function save()
     {
         $this->validate();
         try {
-            $this->form->store();
+            $this->form->update();
 
             session()->flash('toast', [
                 'type' => 'success',
-                'message' => 'សមាជិកគណ:កិត្តិយសបានបង្កើតដោយជោគជ័យ!'
+                'message' => 'សមាជិកគណ:កិត្តិយសបានកែប្រែដោយជោគជ័យ!'
             ]);
 
             return redirect()->to('/honorary-committee/member');
         } catch (\Exception $e) {
-            $this->dispatch('create_fail', message: $e->getMessage());
+            $this->dispatch('update_fail', message: $e->getMessage());
         }
     }
 
     public function render()
     {
-        return view('livewire.honorary-committee.admin-honorary-committee-member-create-form', [
+        return view('livewire.honorary-committee.admin.honorary-committee-member-edit-form', [
             'genders' => Gender::all(),
             'bp_provinces' => Province::all(),
             'ad_provinces' => Province::all(),

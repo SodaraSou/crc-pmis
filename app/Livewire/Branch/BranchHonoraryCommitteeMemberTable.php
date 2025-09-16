@@ -3,14 +3,29 @@
 namespace App\Livewire\Branch;
 
 use App\Models\Branch;
+use App\Models\BranchTerm;
 use App\Models\Committee;
+use App\Models\Member;
+use Livewire\Attributes\Url;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class BranchHonoraryCommitteeMemberTable extends Component
 {
+    use WithPagination;
+
+    #[Url(except: 25)]
+    public $per_page = 25;
+
+    #[Url(except: '')]
+    public $search = '';
+
+    #[Url(except: '')]
+    public $term_id = '';
+    public $filter_term = null;
+
     public Branch $branch;
     public Committee $committee;
-    public $members = [];
 
     public function mount(Branch $branch)
     {
@@ -20,11 +35,41 @@ class BranchHonoraryCommitteeMemberTable extends Component
             }
         ]);
         $this->committee = $this->branch->committees->first();
-        $this->members = $this->committee->members;
     }
 
     public function render()
     {
-        return view('livewire.branch.branch-honorary-committee-member-table');
+        $query = Member::query();
+
+        $today = now()->toDateString();
+        $query->where('active', true)
+            ->whereHas('committees', function ($q) {
+                $q->where('committees.active', true)
+                    ->where('committees.id', $this->committee->id);
+            })
+            ->whereHas('committee_members', function ($cm) use ($today) {
+                $cm->where('committee_member.active', true)
+                    ->whereHas('branch_term', function ($bt) use ($today) {
+                        $bt->where('branch_terms.active', true);
+                    });
+            });
+
+
+        if ($this->search) {
+            $query->where('active', true)
+                ->where('kh_name', 'like', '%' . $this->search . '%');
+        }
+
+        if ($this->term_id) {
+            $query->whereHas('committee_members', function ($cm) {
+                $cm->where('active', true)
+                    ->where('branch_term_id', $this->term_id);
+            });
+        }
+
+        return view('livewire.branch.branch-honorary-committee-member-table', [
+            'members' => $query->get(),
+            'terms' => BranchTerm::where('branch_id', $this->branch->id)->get(),
+        ]);
     }
 }

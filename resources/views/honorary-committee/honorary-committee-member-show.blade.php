@@ -1,15 +1,11 @@
 @extends('layouts.app')
 
 @section('title')
-    បង្កើតសមាជិកគណៈកិត្តិយស
+    {{ $member->kh_name }}
 @endsection
 
 @section('content')
     <div class="container">
-        @if (Auth::user()->hasRole('System Manager'))
-            <livewire:honorary-committee.admin.honorary-committee-member-create-form />
-        @elseif (Auth::user()->hasRole('Branch System Operator'))
-        @endif
     </div>
 @endsection
 
@@ -19,7 +15,7 @@
             $("#sidebar li a").removeClass("active");
             $("#honorary-committee>a").addClass("active");
             $("#honorary-committee").addClass("menu-open");
-            $("#honorary-committee-member-create>a").addClass("active");
+            $("#honorary-committee-member-list>a").addClass("active");
         });
     </script>
 @endsection

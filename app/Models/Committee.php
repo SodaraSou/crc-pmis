@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Committee extends Model
 {
@@ -47,5 +48,10 @@ class Committee extends Model
                 'committee_position_id',
                 'gov_position'
             );
+    }
+
+    public function committee_members(): HasMany
+    {
+        return $this->hasMany(CommitteeMember::class);
     }
 }
