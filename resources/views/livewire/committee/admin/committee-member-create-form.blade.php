@@ -167,7 +167,7 @@
             </div>
             <div class="row g-4">
                 <div class="col-12 col-md-6 form-group">
-                    <label>ថ្នាក់គណ:កិត្តិយស<span class="text-danger">*</span></label>
+                    <label>ថ្នាក់គណ:កម្មាធិការ<span class="text-danger">*</span></label>
                     <select wire:model.live="form.committee_level_id" class="form-control">
                         <option value="">សូមជ្រើសរើសថ្នាក់</option>
                         @foreach ($committee_levels as $committee_level)
@@ -181,9 +181,9 @@
                     @enderror
                 </div>
                 <div class="col-12 col-md-6 form-group">
-                    <label>គណ:កិត្តិយស<span class="text-danger">*</span></label>
+                    <label>គណ:កម្មាធិការ<span class="text-danger">*</span></label>
                     <select wire:model.live="form.committee_id" class="form-control">
-                        <option value="">សូមជ្រើសរើសថ្នាក់</option>
+                        <option value="">សូមជ្រើសរើសគណ:កម្មាធិការ</option>
                         @foreach ($committees as $committee)
                             <option wire:key="{{ $committee->id }}" value="{{ $committee->id }}">
                                 {{ $committee->kh_name }}

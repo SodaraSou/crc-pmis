@@ -100,12 +100,15 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 
 // Committee
-Route::get('/committee', [CommitteeController::class, 'index'])->middleware('auth')->name('committee.index');
-Route::get('/committee/create', [CommitteeController::class, 'create'])->middleware('auth')->name('committee.create');
+// Route::get('/committee', [CommitteeController::class, 'index'])->middleware('auth')->name('committee.index');
+// Route::get('/committee/create', [CommitteeController::class, 'create'])->middleware('auth')->name('committee.create');
 Route::get('/committee/member', [CommitteeController::class, 'indexMember'])->middleware('auth')->name('committee-member.index');
 Route::get('/committee/member/create', [CommitteeController::class, 'createMember'])->middleware('auth')->name('committee-member.create');
-Route::get('/committee/{committee}/edit', [CommitteeController::class, 'edit'])->middleware('auth')->name('committee.edit');
-Route::get('/committee/{committee}', [CommitteeController::class, 'show'])->middleware('auth')->name('committee.show');
+Route::get('/committee/member/{member}', [CommitteeController::class, 'showMember'])->middleware('auth')->name('committee-member.show');
+Route::get('/committee/member/{member}/edit', [CommitteeController::class, 'editMember'])->middleware('auth')->name('committee-member.edit');
+Route::get('/committee/member/{member}/term/add', [CommitteeController::class, 'addTerm'])->middleware('auth')->name('committee-member.term-add');
+// Route::get('/committee/{committee}/edit', [CommitteeController::class, 'edit'])->middleware('auth')->name('committee.edit');
+// Route::get('/committee/{committee}', [CommitteeController::class, 'show'])->middleware('auth')->name('committee.show');
 
 // Honorary Committee
 Route::get('/honorary-committee/member', [HonoraryCommitteeController::class, 'indexMember'])->middleware('auth')->name('honorary-committee-member.index');

@@ -1,6 +1,6 @@
-<div class="card card-success">
+<div class="card card-info">
     <div class="card-header">
-        <h3 class="card-title">បង្កើតសមាជិកគណៈកិត្តិយស</h3>
+        <h3 class="card-title">កែប្រែសមាជិកគណៈកម្មាធិការ</h3>
     </div>
     <form wire:submit.prevent="save">
         <div class="card-body">
@@ -165,7 +165,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row g-4">
+            {{-- <div class="row g-4">
                 <div class="col-12 col-md-6 form-group">
                     <label>ថ្នាក់គណ:កិត្តិយស<span class="text-danger">*</span></label>
                     <select wire:model.live="form.committee_level_id" class="form-control">
@@ -183,7 +183,7 @@
                 <div class="col-12 col-md-6 form-group">
                     <label>គណ:កិត្តិយស<span class="text-danger">*</span></label>
                     <select wire:model.live="form.committee_id" class="form-control">
-                        <option value="">សូមជ្រើសរើសគណ:កិត្តិយស</option>
+                        <option value="">សូមជ្រើសរើសថ្នាក់</option>
                         @foreach ($committees as $committee)
                             <option wire:key="{{ $committee->id }}" value="{{ $committee->id }}">
                                 {{ $committee->kh_name }}
@@ -232,11 +232,11 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-            </div>
+            </div> --}}
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-success float-right"><i class="fa fa-save mr-1"></i>
-                រក្សាទុក</button>
+            <button type="submit" class="btn btn-info float-right"><i class="fa fa-save mr-1"></i>
+                កែប្រែ</button>
         </div>
     </form>
 </div>
@@ -248,8 +248,7 @@
                 theme: 'bootstrap4'
             });
         });
-
-        $wire.on("create_fail", (event) => {
+        $wire.on("update_fail", (event) => {
             Swal.fire({
                 title: "មានបញ្ហា!",
                 text: event.message,

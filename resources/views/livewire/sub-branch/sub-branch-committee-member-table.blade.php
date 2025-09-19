@@ -1,6 +1,6 @@
 <div>
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h4>តារាងគណ:កម្មាធិការ</h4>
+        <h4>តារាងគណ:កម្មាធិការអនុសាខា</h4>
         {{-- <a href="{{ route('term.create', ['branch_id' => $branch->id]) }}" class="btn btn-success">
             <i class="fa fa-plus mr-1"></i>
             បង្កើតថ្មី

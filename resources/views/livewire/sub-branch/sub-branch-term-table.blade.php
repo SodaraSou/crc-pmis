@@ -6,7 +6,7 @@
             បង្កើតថ្មី
         </a>
     </div>
-    <table class="table table-hover text-nowrap">
+    <table class="table table-bordered table-hover">
         <thead>
             <tr>
                 <th>ល.រ</th>
@@ -25,9 +25,6 @@
                     <td>{{ $term->end_date }}</td>
                     <td>
                         <div class="d-flex justify-content-center align-items-center">
-                            <a href="" class="btn btn-sm btn-primary text-white mr-2">
-                                <i class="fa fa-eye"></i>
-                            </a>
                             <a href="" class="btn btn-sm btn-info text-white mr-2">
                                 <i class="fa fa-pen"></i>
                             </a>

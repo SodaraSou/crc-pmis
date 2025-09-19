@@ -80,8 +80,8 @@ class MemberForm extends Form
     protected function messages(): array
     {
         return [
-            'committee_level_id.required' => 'សូមជ្រើសរើសថ្នាក់គណ:កិត្តិយស',
-            'committee_id.required' => 'សូមជ្រើសរើសគណ:កិត្តិយស',
+            'committee_level_id.required' => 'សូមជ្រើសរើសថ្នាក់',
+            'committee_id.required' => 'សូមជ្រើសរើស',
             'term_id.required' => 'សូមជ្រើសរើសអាណត្តិ',
             'committee_position_id.required' => 'សូមជ្រើសរើសតួនាទី',
             'gov_position.required' => 'សូមបញ្ចូលតួនាទីក្នុងរដ្ឋាភិបាល',

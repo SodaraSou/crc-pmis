@@ -49,6 +49,7 @@ class HonoraryCommitteeMemberTable extends Component
             $this->filter_committee_level = CommitteeLevel::find($this->committee_level_id);
             $this->committees = Committee::where('active', true)
                 ->where('committee_level_id', $this->committee_level_id)
+                ->where('committee_type_id', 1)
                 ->get();
         }
 
@@ -102,6 +103,7 @@ class HonoraryCommitteeMemberTable extends Component
     {
         $this->committees = Committee::where('active', true)
             ->where('committee_level_id', $this->committee_level_id)
+            ->where('committee_type_id', 1)
             ->get();
         $this->filter_committee_level = CommitteeLevel::find($this->committee_level_id);
     }

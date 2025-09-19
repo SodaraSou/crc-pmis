@@ -44,7 +44,7 @@
                     </div>
                     <div class="tab-pane fade" id="custom-tabs-four-committee" role="tabpanel"
                         aria-labelledby="custom-tabs-four-committee-tab">
-                        Committee
+                        <livewire:sub-branch.sub-branch-committee-member-table :sub_branch="$sub_branch" />
                     </div>
                     <div class="tab-pane fade" id="custom-tabs-four-term" role="tabpanel"
                         aria-labelledby="custom-tabs-four-term-tab">
