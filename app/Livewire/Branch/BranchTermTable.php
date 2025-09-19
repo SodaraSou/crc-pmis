@@ -5,7 +5,7 @@ namespace App\Livewire\Branch;
 use App\Models\Branch;
 use Livewire\Component;
 
-class BranchCommitteeTermTable extends Component
+class BranchTermTable extends Component
 {
     public Branch $branch;
 
@@ -16,7 +16,7 @@ class BranchCommitteeTermTable extends Component
 
     public function render()
     {
-        return view('livewire.branch.branch-committee-term-table', [
+        return view('livewire.branch.branch-term-table', [
             'terms' => $this->branch->terms
         ]);
     }

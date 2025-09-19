@@ -47,14 +47,14 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="col-12 col-md-3 form-group">
+                {{-- <div class="col-12 col-md-3 form-group">
                     <label>ចំនួនមួយទំព័រ</label>
                     <select wire:model.live='per_page' class="form-control">
                         <option value="25">25</option>
                         <option value="50">50</option>
                         <option value="75">75</option>
                     </select>
-                </div>
+                </div> --}}
             </div>
             <div class="d-flex align-items-center">
                 @if ($committee_level_id || $committee_id || $term_id)
@@ -110,7 +110,7 @@
                         <th>ល.រ</th>
                         <th>ឈ្មោះខ្មែរ</th>
                         <th>អាណត្តិ</th>
-                        <th>សកម្មភាព</th>
+                        <th class="text-center">សកម្មភាព</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -129,18 +129,20 @@
                             <td>{{ $committee_membership->pivot->gov_position }}</td>
                             <td>{{ $committee_membership->pivot->committee_position->kh_name }}</td> --}}
                             <td>
-                                <a href="{{ route('honorary-committee-member.show', $member->id) }}"
-                                    class="btn btn-sm btn-primary mr-2">
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                </a>
-                                <a href="{{ route('honorary-committee-member.edit', $member->id) }}"
-                                    class="btn btn-sm btn-info mr-2">
-                                    <i class="fa fa-pen" aria-hidden="true"></i>
-                                </a>
-                                <button class="btn btn-sm btn-danger"
-                                    wire:click="$dispatch('alert_delete', {member_id: {{ $member->id }}})">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                </button>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <a href="{{ route('honorary-committee-member.show', $member->id) }}"
+                                        class="btn btn-sm btn-primary mr-2">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="{{ route('honorary-committee-member.edit', $member->id) }}"
+                                        class="btn btn-sm btn-info mr-2">
+                                        <i class="fa fa-pen" aria-hidden="true"></i>
+                                    </a>
+                                    <button class="btn btn-sm btn-danger"
+                                        wire:click="$dispatch('alert_delete', {member_id: {{ $member->id }}})">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </button>
+                                </div>
                             </td>
                         </tr>
                         <tr class="expandable-body d-none">
@@ -167,10 +169,17 @@
                                                 <div class="timeline-item">
                                                     <h3 class="timeline-header">{{ $term->committee->kh_name }}</h3>
                                                     <div class="timeline-body">
-                                                        <div>
-                                                            រយ:ពេល: {{ $term->branch_term->start_date }} ដល់
-                                                            {{ $term->branch_term->end_date }}
-                                                        </div>
+                                                        @if ($term->committee->committee_level_id == 1)
+                                                            <div>
+                                                                រយ:ពេល: {{ $term->branch_term->start_date }} ដល់
+                                                                {{ $term->branch_term->end_date }}
+                                                            </div>
+                                                        @elseif ($term->committee->committee_level_id == 2)
+                                                            <div>
+                                                                រយ:ពេល: {{ $term->sub_branch_term->start_date }} ដល់
+                                                                {{ $term->sub_branch_term->end_date }}
+                                                            </div>
+                                                        @endif
                                                         <div>
                                                             តួនាទី: {{ $term->committee_position->kh_name }}
                                                         </div>
@@ -190,48 +199,6 @@
                     @endforeach
                 </tbody>
             </table>
-            {{-- <table class="table table-hover text-nowrap">
-                <thead>
-                    <tr>
-                        <th>ល.រ</th>
-                        <th>ឈ្មោះខ្មែរ</th>
-                        <th>សាខា/អនុសាខា</th>
-                        <th>ឋាន:តួនាទី</th>
-                        <th>តួនាទី​ កក្រក</th>
-                        <th class="text-center">សកម្មភាព</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($members as $member)
-                        <tr wire:key='{{ $member->id }}'>
-                            <td>{{ $member->id }}</td>
-                            <td>{{ $member->kh_name }}</td>
-                            @php
-                                $committee_membership = $member->committees->first();
-                            @endphp
-                            <td>{{ $committee_membership->branch->kh_name }}</td>
-                            <td>{{ $committee_membership->pivot->gov_position }}</td>
-                            <td>{{ $committee_membership->pivot->committee_position->kh_name }}</td>
-                            <td>
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <a href="{{ route('honorary-committee-member.show', $member->id) }}"
-                                        class="btn btn-sm btn-primary mr-2">
-                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="{{ route('honorary-committee-member.edit', $member->id) }}"
-                                        class="btn btn-sm btn-info mr-2">
-                                        <i class="fa fa-pen" aria-hidden="true"></i>
-                                    </a>
-                                    <button class="btn btn-sm btn-danger"
-                                        wire:click="$dispatch('alert_delete', {member_id: {{ $member->id }}})">
-                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table> --}}
         </div>
         <div class="card-footer">{{ $members->links() }}</div>
     </div>

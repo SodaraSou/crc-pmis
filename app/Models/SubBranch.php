@@ -29,4 +29,14 @@ class SubBranch extends Model
     {
         return $this->belongsTo(District::class);
     }
+
+    public function committees(): HasMany
+    {
+        return $this->hasMany(Committee::class);
+    }
+
+    public function terms(): HasMany
+    {
+        return $this->hasMany(SubBranchTerm::class);
+    }
 }

@@ -40,24 +40,27 @@
                                     <b>{{ $current_committee->committee->kh_name }}</b>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>អាណត្តិបច្ចុប្បន្ន: {{ $current_committee->branch_term->kh_name }}</b>
+                                    @if ($current_committee->committee->committee_level_id == 1)
+                                        <b>អាណត្តិបច្ចុប្បន្ន: {{ $current_committee->branch_term->kh_name }}</b>
+                                    @elseif ($current_committee->committee->committee_level_id == 2)
+                                        <b>អាណត្តិបច្ចុប្បន្ន: {{ $current_committee->sub_branch_term->kh_name }}</b>
+                                    @endif
                                 </li>
                                 <li class="list-group-item">
                                     <b>តួនាទី: {{ $current_committee->committee_position->kh_name }}</b>
                                 </li>
                             @endif
                         </ul>
-                        <div class="row g-4 mb-3">
-                            <div class="col-12">
+                        <div class="row g-4">
+                            <div class="col-12 mb-2">
                                 <a href="{{ route('honorary-committee-member.edit', $member->id) }}"
                                     class="btn btn-info btn-block">
                                     <i class="fa fa-pen mr-2" aria-hidden="true"></i><b>កែប្រែ</b>
                                 </a>
                             </div>
-                            {{--                        <div class="col-6"> --}}
-                            {{--                            <a href="#" class="btn btn-danger btn-block"><i class="fa fa-trash mr-2" --}}
-                            {{--                                                                            aria-hidden="true"></i><b>លុប</b></a> --}}
-                            {{--                        </div> --}}
+                            <div class="col-12">
+                                <livewire:honorary-committee.honorary-committee-member-delete-button :member="$member" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -150,10 +153,17 @@
                                             <div class="timeline-item">
                                                 <h3 class="timeline-header">{{ $term->committee->kh_name }}</h3>
                                                 <div class="timeline-body">
-                                                    <div>
-                                                        រយ:ពេល: {{ $term->branch_term->start_date }} ដល់
-                                                        {{ $term->branch_term->end_date }}
-                                                    </div>
+                                                    @if ($term->committee->committee_level_id == 1)
+                                                        <div>
+                                                            រយ:ពេល: {{ $term->branch_term->start_date }} ដល់
+                                                            {{ $term->branch_term->end_date }}
+                                                        </div>
+                                                    @elseif ($term->committee->committee_level_id == 2)
+                                                        <div>
+                                                            រយ:ពេល: {{ $term->sub_branch_term->start_date }} ដល់
+                                                            {{ $term->sub_branch_term->end_date }}
+                                                        </div>
+                                                    @endif
                                                     <div>
                                                         តួនាទី: {{ $term->committee_position->kh_name }}
                                                     </div>

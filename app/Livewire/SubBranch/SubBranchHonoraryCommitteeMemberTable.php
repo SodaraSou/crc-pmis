@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Livewire\Branch;
+namespace App\Livewire\SubBranch;
 
-use App\Models\Branch;
-use App\Models\BranchTerm;
 use App\Models\Committee;
 use App\Models\Member;
+use App\Models\SubBranch;
+use App\Models\SubBranchTerm;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class BranchHonoraryCommitteeMemberTable extends Component
+class SubBranchHonoraryCommitteeMemberTable extends Component
 {
     use WithPagination;
 
@@ -24,21 +24,21 @@ class BranchHonoraryCommitteeMemberTable extends Component
     public $term_id = '';
     public $filter_term = null;
 
-    public Branch $branch;
+    public SubBranch $sub_branch;
     public Committee $committee;
     public $current_term = null;
 
-    public function mount(Branch $branch)
+    public function mount(SubBranch $sub_branch)
     {
-        $this->branch = $branch->load([
-            'committees' => function ($query) {
-                $query->where('committee_type_id', 1);
+        $this->sub_branch = $sub_branch->load([
+            'committees' => function ($c) {
+                $c->where('committee_type_id', 1);
             }
         ]);
-        $this->committee = $this->branch->committees->first();
+        $this->committee = $this->sub_branch->committees->first();
         $today = now()->toDateString();
-        $this->current_term = BranchTerm::where('active', true)
-            ->where('branch_id', $this->branch->id)
+        $this->current_term = SubBranchTerm::where('active', true)
+            ->where('sub_branch_id', $this->sub_branch->id)
             ->where('start_date', "<=", $today)
             ->where('end_date',  ">=", $today)
             ->first();
@@ -58,8 +58,8 @@ class BranchHonoraryCommitteeMemberTable extends Component
             })
             ->whereHas('committee_members', function ($cm) {
                 $cm->where('committee_member.active', true)
-                    ->whereHas('branch_term', function ($bt) {
-                        $bt->where('branch_terms.active', true);
+                    ->whereHas('sub_branch_term', function ($sbt) {
+                        $sbt->where('sub_branch_terms.active', true);
                     });
             });
 
@@ -71,14 +71,14 @@ class BranchHonoraryCommitteeMemberTable extends Component
         if ($this->term_id) {
             $query->whereHas('committee_members', function ($cm) {
                 $cm->where('active', true)
-                    ->where('branch_term_id', $this->term_id);
+                    ->where('sub_branch_term_id', $this->term_id);
             });
         }
 
-        return view('livewire.branch.branch-honorary-committee-member-table', [
+        return view('livewire.sub-branch.sub-branch-honorary-committee-member-table', [
             'members' => $query->get(),
-            'terms' => BranchTerm::where('active', true)
-                ->where('branch_id', $this->branch->id)->get(),
+            'terms' => SubBranchTerm::where('active', true)
+                ->where('sub_branch_id', $this->sub_branch->id)->get(),
         ]);
     }
 }

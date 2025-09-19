@@ -44,15 +44,44 @@ class HonoraryCommitteeMemberTable extends Component
     public function mount()
     {
         $this->user = Auth::user();
+
+        if ($this->committee_level_id) {
+            $this->filter_committee_level = CommitteeLevel::find($this->committee_level_id);
+            $this->committees = Committee::where('active', true)
+                ->where('committee_level_id', $this->committee_level_id)
+                ->get();
+        }
+
+        if ($this->committee_id) {
+            $this->filter_committee = Committee::find($this->committee_id);
+            if ($this->committee_level_id == 1 && $this->filter_committee) {
+                $this->terms = BranchTerm::where('active', true)
+                    ->where('branch_id', $this->filter_committee->branch_id)
+                    ->get();
+            } elseif ($this->committee_level_id == 2 && $this->filter_committee) {
+                $this->terms = SubBranchTerm::where('active', true)
+                    ->where('sub_branch_id', $this->filter_committee->sub_branch_id)
+                    ->get();
+            }
+        }
+
+        if ($this->term_id) {
+            if ($this->committee_level_id == 1) {
+                $this->filter_term = BranchTerm::find($this->term_id);
+            } elseif ($this->committee_level_id == 2) {
+                $this->filter_term = SubBranchTerm::find($this->term_id);
+            }
+        }
     }
+
 
     public function resetFilter(): void
     {
         $this->reset('search', 'committee_level_id', 'committee_id', 'term_id');
         $this->per_page = 25;
-        $this->filter_committee_level = '';
-        $this->filter_committee = '';
-        $this->filter_term = '';
+        $this->filter_committee_level = null;
+        $this->filter_committee = null;
+        $this->filter_term = null;
     }
 
     public function removeFilter($filter): void
@@ -74,6 +103,7 @@ class HonoraryCommitteeMemberTable extends Component
         $this->committees = Committee::where('active', true)
             ->where('committee_level_id', $this->committee_level_id)
             ->get();
+        $this->filter_committee_level = CommitteeLevel::find($this->committee_level_id);
     }
 
     public function updatedCommitteeId()
@@ -132,6 +162,13 @@ class HonoraryCommitteeMemberTable extends Component
 
         if ($this->committee_level_id) {
             $this->filter_committee_level = CommitteeLevel::find($this->committee_level_id);
+            $query->whereHas('committee_members', function ($cm) {
+                $cm->where('committee_member.active', true)
+                    ->whereHas('committee', function ($c) {
+                        $c->where('committees.active', true)
+                            ->where('committee_level_id', $this->committee_level_id);
+                    });
+            });
         }
 
         if ($this->committee_id) {
