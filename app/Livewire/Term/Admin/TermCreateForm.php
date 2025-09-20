@@ -110,7 +110,7 @@ class TermCreateForm extends Component
 
     public function render()
     {
-        return view('livewire.term.admin-term-create-form', [
+        return view('livewire.term.admin.term-create-form', [
             'committee_levels' => CommitteeLevel::all(),
             'branches' => Branch::all()
         ]);
