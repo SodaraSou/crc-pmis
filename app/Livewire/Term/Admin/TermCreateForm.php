@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Term;
+namespace App\Livewire\Term\Admin;
 
 use App\Models\Branch;
 use App\Models\BranchTerm;
@@ -10,7 +10,7 @@ use App\Models\SubBranchTerm;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
-class AdminTermCreateForm extends Component
+class TermCreateForm extends Component
 {
     public $branch_id = null;
     public $sub_branch_id = null;
