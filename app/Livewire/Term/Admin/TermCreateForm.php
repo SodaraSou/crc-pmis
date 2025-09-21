@@ -19,8 +19,8 @@ class TermCreateForm extends Component
     public $is_create_from_show = false;
 
     public $en_name = null;
-    #[Validate('required', message: "សូមបញ្ចូលឈ្មោះខ្មែរ")]
 
+    #[Validate('required', message: "សូមបញ្ចូលឈ្មោះខ្មែរ")]
     public $kh_name = null;
 
     public $start_date = null;

@@ -21,4 +21,14 @@ class TermController extends Controller
             'sub_branch_id' => $sub_branch_id
         ]);
     }
+
+    public function editBranchTerm()
+    {
+        return view('term.term-branch-edit');
+    }
+
+    public function editSubBranchTerm()
+    {
+        return view('term.term-branch-edit');
+    }
 }

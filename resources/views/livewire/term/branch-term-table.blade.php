@@ -49,6 +49,7 @@
                     <tr>
                         <th>ល.រ</th>
                         <th>ឈ្មោះខ្មែរ</th>
+                        <th>សាខា</th>
                         <th>ថ្ងៃចាប់ផ្តើមអាណត្តិ</th>
                         <th>ថ្ងៃបញ្ចប់អាណត្តិ</th>
                         <th class="text-center">សកម្មភាព</th>
@@ -59,11 +60,13 @@
                         <tr wire:key='{{ $term->id }}'>
                             <td>{{ $term->id }}</td>
                             <td>{{ $term->kh_name }}</td>
+                            <td>{{ $term->branch->kh_name }}</td>
                             <td>{{ $term->start_date }}</td>
                             <td>{{ $term->end_date }}</td>
                             <td>
                                 <div class="d-flex justify-content-center align-items-center">
-                                    <a href="" class="btn btn-sm btn-info text-white mr-2">
+                                    <a href="{{ route('term.branch.edit', $term->id) }}"
+                                        class="btn btn-sm btn-info text-white mr-2">
                                         <i class="fa fa-pen"></i>
                                     </a>
                                     <button class="btn btn-sm btn-danger"
