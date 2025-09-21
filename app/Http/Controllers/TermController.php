@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BranchTerm;
+use App\Models\SubBranchTerm;
 use Illuminate\Http\Request;
 
 class TermController extends Controller
@@ -22,12 +24,14 @@ class TermController extends Controller
         ]);
     }
 
-    public function editBranchTerm()
+    public function editBranchTerm(BranchTerm $branch_term)
     {
-        return view('term.term-branch-edit');
+        return view('term.term-branch-edit', [
+            'branch_term' => $branch_term
+        ]);
     }
 
-    public function editSubBranchTerm()
+    public function editSubBranchTerm(SubBranchTerm $sub_branch_term)
     {
         return view('term.term-branch-edit');
     }

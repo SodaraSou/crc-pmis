@@ -120,5 +120,5 @@ Route::get('/honorary-committee/member/{member}/term/add', [HonoraryCommitteeCon
 // Term
 Route::get('/term', [TermController::class, 'index'])->middleware('auth')->name('term.index');
 Route::get('/term/create', [TermController::class, 'create'])->middleware('auth')->name('term.create');
-Route::get('/term/branch/{branch}/edit', [TermController::class, 'editBranchTerm'])->middleware('auth')->name('term.branch.edit');
-Route::get('/term/sub-branch/{sub_branch}/edit', [TermController::class, 'editSubBranchTerm'])->middleware('auth')->name('term.sub-branch.edit');
+Route::get('/term/branch/{branch_term}/edit', [TermController::class, 'editBranchTerm'])->middleware('auth')->name('term.branch.edit');
+Route::get('/term/sub-branch/{sub_branch_term}/edit', [TermController::class, 'editSubBranchTerm'])->middleware('auth')->name('term.sub-branch.edit');
