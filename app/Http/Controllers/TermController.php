@@ -33,6 +33,8 @@ class TermController extends Controller
 
     public function editSubBranchTerm(SubBranchTerm $sub_branch_term)
     {
-        return view('term.term-branch-edit');
+        return view('term.term-sub-branch-edit', [
+            'sub_branch_term' => $sub_branch_term,
+        ]);
     }
 }

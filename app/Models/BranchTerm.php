@@ -12,7 +12,8 @@ class BranchTerm extends Model
         'en_name',
         'branch_id',
         'start_date',
-        'end_date'
+        'end_date',
+        'active',
     ];
 
     public function branch(): BelongsTo

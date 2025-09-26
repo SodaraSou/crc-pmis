@@ -16,8 +16,8 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="custom-tabs-four-sub-branch-term-tab" data-toggle="pill"
-                            href="#custom-tabs-four-sub-branch-term" role="tab" aria-controls="custom-tabs-four-sub-branch-term"
-                            aria-selected="false">អាណត្តិអនុសាខា</a>
+                            href="#custom-tabs-four-sub-branch-term" role="tab"
+                            aria-controls="custom-tabs-four-sub-branch-term" aria-selected="false">អាណត្តិអនុសាខា</a>
                     </li>
                 </ul>
             </div>
@@ -29,6 +29,7 @@
                     </div>
                     <div class="tab-pane fade" id="custom-tabs-four-sub-branch-term" role="tabpanel"
                         aria-labelledby="custom-tabs-four-sub-branch-term-tab">
+                        <livewire:term.sub-branch-term-table />
                     </div>
                 </div>
             </div>

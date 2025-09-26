@@ -3,15 +3,16 @@
 namespace App\Livewire\Term;
 
 use App\Models\Branch;
-use App\Models\BranchTerm;
 use App\Models\CommitteeMember;
+use App\Models\SubBranch;
+use App\Models\SubBranchTerm;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class BranchTermTable extends Component
+class SubBranchTermTable extends Component
 {
     use WithPagination;
 
@@ -19,23 +20,35 @@ class BranchTermTable extends Component
 
     public $per_page = 25;
 
+    public $sub_branches = [];
+
     #[Url(except: '')]
-    public $search = "";
+    public $search = '';
 
     #[Url(except: '')]
     public $branch_id = '';
     public $filter_branch = null;
 
+    #[Url(except: '')]
+    public $sub_branch_id = '';
+    public $filter_sub_branch = null;
+
     public function mount()
     {
         $this->user = Auth::user();
+        if ($this->branch_id) {
+            $this->sub_branches = SubBranch::where('active', true)
+                ->where('branch_id', $this->branch_id)
+                ->get();
+        }
     }
 
     public function resetFilter(): void
     {
-        $this->reset('search', 'branch_id');
+        $this->reset('search', 'branch_id', 'sub_branch_id');
         $this->per_page = 25;
         $this->filter_branch = null;
+        $this->filter_sub_branch = null;
     }
 
     public function removeFilter($filter): void
@@ -43,7 +56,20 @@ class BranchTermTable extends Component
         if ($filter == 'branch') {
             $this->branch_id = '';
             $this->filter_branch = null;
+            $this->sub_branch_id = '';
+            $this->filter_sub_branch = null;
+            $this->sub_branches = [];
+        } elseif ($filter == 'sub_branch') {
+            $this->sub_branch_id = '';
+            $this->filter_sub_branch = null;
         }
+    }
+
+    public function updatedBranchId()
+    {
+        $this->sub_branches = SubBranch::where('active', true)
+            ->where('branch_id', $this->branch_id)
+            ->get();
     }
 
     #[On('confirmed_delete')]
@@ -57,7 +83,7 @@ class BranchTermTable extends Component
                 return;
             }
 
-            $term = BranchTerm::where('id', $term_id)->first();
+            $term = SubBranchTerm::where('id', $term_id)->first();
 
             $term->update([
                 'active' => false,
@@ -71,7 +97,7 @@ class BranchTermTable extends Component
 
     public function render()
     {
-        $query = BranchTerm::query();
+        $query = SubBranchTerm::query();
 
         $query->where('active', true);
 
@@ -80,13 +106,17 @@ class BranchTermTable extends Component
         }
 
         if ($this->branch_id) {
-            $query->where('branch_id', $this->branch_id);
             $this->filter_branch = Branch::find($this->branch_id);
         }
 
-        return view('livewire.term.branch-term-table', [
+        if ($this->sub_branch_id) {
+            $query->where('sub_branch_id', $this->sub_branch_id);
+            $this->filter_sub_branch = SubBranch::find($this->sub_branch_id);
+        }
+
+        return view('livewire.term.sub-branch-term-table', [
             'terms' => $query->paginate($this->per_page),
-            'branches' => Branch::all()
+            'branches' => Branch::all(),
         ]);
     }
 }

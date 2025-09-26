@@ -1,5 +1,12 @@
 <div>
-    <div class="card mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4>មន្ត្រីប្រតិបត្តិសាខា</h4>
+        {{-- <a href="{{ route('term.create', ['branch_id' => $branch->id]) }}" class="btn btn-success">
+            <i class="fa fa-plus mr-1"></i>
+            បង្កើតថ្មី
+        </a> --}}
+    </div>
+    <div class="card">
         <div class="card-header">
             <div class="row">
                 <div class="col-12 col-md-4 form-group">
@@ -28,8 +35,23 @@
                 </div>
             </div>
         </div>
+        <div class="card-body">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ល.រ</th>
+                        <th>ឈ្មោះខ្មែរ</th>
+                        <th>តួនាទី​ កក្រក</th>
+                        <th>នាយកដ្ឋាន</th>
+                        <th class="text-center">សកម្មភាព</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>{{ $employees->links() }}</tfoot>
+            </table>
+        </div>
     </div>
-    <div class="row">
+    {{-- <div class="row">
         @foreach ($employees as $employee)
             <div wire:key="{{ $employee->id }}" class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch flex-column">
                 <div class="card bg-light d-flex flex-fill">
@@ -79,6 +101,6 @@
                 </div>
             </div>
         @endforeach
-    </div>
-    <div>{{ $employees->links() }}</div>
+    </div> --}}
+    {{-- <div>{{ $employees->links() }}</div> --}}
 </div>

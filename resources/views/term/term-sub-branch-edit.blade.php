@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="container">
-        <livewire:term.term-edit-form :is_branch="true" :term="$branch_term" />
+        <livewire:term.term-edit-form :is_branch="false" :term="$sub_branch_term" />
     </div>
 @endsection
 

@@ -12,10 +12,11 @@ class SubBranchTerm extends Model
         'en_name',
         'sub_branch_id',
         'start_date',
-        'end_date'
+        'end_date',
+        'active'
     ];
 
-    public function subBranch(): BelongsTo
+    public function sub_branch(): BelongsTo
     {
         return $this->belongsTo(SubBranch::class);
     }

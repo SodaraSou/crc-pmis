@@ -63,7 +63,7 @@
         $('#end_date_picker').on('change.datetimepicker', function() {
             $wire.set('end_date', $('#end_date_input').val());
         });
-        $wire.on('create_fail', (event) => {
+        $wire.on('update_fail', (event) => {
             Swal.fire({
                 title: "មានបញ្ហា!",
                 text: event.message,

@@ -17,7 +17,9 @@ class BranchTermTable extends Component
     public function render()
     {
         return view('livewire.branch.branch-term-table', [
-            'terms' => $this->branch->terms
+            'terms' => $this->branch->terms()
+                ->where('active', true)
+                ->get()
         ]);
     }
 }

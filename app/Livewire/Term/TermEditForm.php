@@ -13,6 +13,8 @@ class TermEditForm extends Component
 
     public SubBranchTerm $sub_branch_term;
 
+    public $is_branch = false;
+
     public $en_name = null;
 
     #[Validate('required', message: "សូមបញ្ចូលឈ្មោះខ្មែរ")]
@@ -22,22 +24,49 @@ class TermEditForm extends Component
 
     public $end_date = null;
 
-    public function mount(BranchTerm $branch_term, SubBranchTerm $sub_branch_term)
+    public function mount($is_branch, $term)
     {
-        if ($branch_term) {
-            $this->branch_term = $branch_term;
-            $this->en_name = $branch_term->en_name;
-            $this->kh_name = $branch_term->kh_name;
-            $this->start_date = $branch_term->start_date;
-            $this->end_date = $branch_term->end_date;
-        } elseif ($sub_branch_term) {
-            $this->sub_branch_term = $sub_branch_term;
-            $this->en_name = $sub_branch_term->en_name;
-            $this->kh_name = $sub_branch_term->kh_name;
+        $this->is_branch = $is_branch;
+        if ($this->is_branch) {
+            $this->branch_term = $term;
+        } else {
+            $this->sub_branch_term = $term;
         }
+        $this->en_name = $term->en_name;
+        $this->kh_name = $term->kh_name;
+        $this->start_date = $term->start_date;
+        $this->end_date = $term->end_date;
     }
 
-    public function save() {}
+    public function save()
+    {
+        try {
+            if ($this->is_branch) {
+                $this->branch_term->update([
+                    'en_name' => $this->en_name,
+                    'kh_name' => $this->kh_name,
+                    'start_date' => $this->start_date,
+                    'end_date' => $this->end_date,
+                ]);
+            } else {
+                $this->sub_branch_term->update([
+                    'en_name' => $this->en_name,
+                    'kh_name' => $this->kh_name,
+                    'start_date' => $this->start_date,
+                    'end_date' => $this->end_date,
+                ]);
+            }
+
+            session()->flash('toast', [
+                'type' => 'success',
+                'message' => 'អាណត្តិបានកែប្រែដោយជោគជ័យ!'
+            ]);
+
+            return redirect()->to('/term');
+        } catch (\Exception $e) {
+            $this->dispatch('update_fail', message: $e->getMessage());
+        }
+    }
 
     public function render()
     {
