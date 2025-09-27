@@ -14,14 +14,19 @@ return new class extends Migration
         Schema::create('employee_position', function (Blueprint $table) {
             $table->id();
             $table->foreignId('employee_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('employee_level_id')->nullable()->constrained('user_levels')->cascadeOnDelete();
             $table->foreignId('position_id')->constrained()->cascadeOnDelete();
             $table->foreignId('department_id')->constrained()->cascadeOnDelete();
             $table->foreignId('office_id')->nullable()->constrained()->cascadeOnDelete();
             $table->foreignId('branch_id')->constrained()->cascadeOnDelete();
             $table->foreignId('sub_branch_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignId('group_id')->nullable()->constrained();
             $table->string('opt_position_name')->nullable();
             $table->date('start_date');
             $table->date('end_date')->nullable();
+            $table->boolean('active')->default(true);
+            $table->foreignId('created_by')->constrained('users');
+            $table->foreignId('updated_by')->nullable()->constrained('users');
             $table->timestamps();
         });
     }

@@ -34,11 +34,9 @@ return new class extends Migration
             $table->string('ad_street_number')->nullable();
             $table->string('ad_street_name')->nullable();
             $table->string('ad_house_number')->nullable();
-            $table->foreignId('employee_level_id')->nullable()->constrained('user_levels')->cascadeOnDelete();
-            $table->foreignId('branch_id')->nullable()->constrained()->cascadeOnDelete();
-            $table->foreignId('sub_branch_id')->nullable()->constrained()->cascadeOnDelete();
-            $table->foreignId('department_id')->nullable()->constrained()->cascadeOnDelete();
-            $table->foreignId('office_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->boolean('active')->default(true);
+            $table->foreignId('created_by')->constrained('users');
+            $table->foreignId('updated_by')->nullable()->constrained('users');
             $table->timestamps();
         });
     }
