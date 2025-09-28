@@ -36,10 +36,10 @@
                 <div class="col-12 col-md-6 form-group">
                     <label>ថ្ងៃ/ខែ/ឆ្នាំកំណើត<span class="text-danger">*</span></label>
                     <div>
-                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                            <input id="dob" wire:model="form.dob" type="text"
-                                class="form-control datetimepicker-input" data-target="#reservationdate" />
-                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                        <div class="input-group date" id="dob" data-target-input="nearest">
+                            <input id="dob_input" wire:model="form.dob" type="text"
+                                class="form-control datetimepicker-input" data-target="#dob" />
+                            <div class="input-group-append" data-target="#dob" data-toggle="datetimepicker">
                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                             </div>
                         </div>
@@ -346,7 +346,7 @@
                         @endif
                         <div class="col-12 col-md-6 form-group">
                             <label>ដំណែង<span class="text-danger">*</span></label>
-                            <select wire:model="position_id" class="form-control">
+                            <select wire:model="form.position_id" class="form-control">
                                 <option value="">សូមជ្រើសរើសដំណែង</option>
                                 @foreach ($positions as $position)
                                     <option wire:key="{{ $position->id }}" value="{{ $position->id }}">
@@ -354,38 +354,39 @@
                                     </option>
                                 @endforeach
                             </select>
-                            @error('position_id')
+                            @error('form.position_id')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="col-12 col-md-6 form-group">
                             <label>ឈ្មោះដំណែង (Optional)</label>
-                            <input wire:model="opt_position_name" class="form-control"
+                            <input wire:model="form.opt_position_name" class="form-control"
                                 placeholder="សូមបញ្ចូលឈ្មោះដំណែង">
                         </div>
                         <div class="col-12 col-md-6 form-group">
                             <label>ថ្ងៃចាប់ផ្តើមដំណែង<span class="text-danger">*</span></label>
                             <div>
-                                <div class="input-group date" id="start_date_picker" data-target-input="nearest">
-                                    <input id="start_date_input" wire:model="start_date" type="text"
-                                        class="form-control datetimepicker-input" data-target="#start_date_picker" />
-                                    <div class="input-group-append" data-target="#start_date_picker"
+                                <div class="input-group date" id="position_start_date" data-target-input="nearest">
+                                    <input id="position_start_date_input" wire:model='form.start_date' type="text"
+                                        class="form-control datetimepicker-input"
+                                        data-target="#position_start_date" />
+                                    <div class="input-group-append" data-target="#position_start_date"
                                         data-toggle="datetimepicker">
                                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                     </div>
                                 </div>
                             </div>
-                            @error('start_date')
+                            @error('form.start_date')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="col-12 col-md-6 form-group">
                             <label>ថ្ងៃបញ្ចប់ដំណែង</label>
                             <div>
-                                <div class="input-group date" id="end_date_picker" data-target-input="nearest">
-                                    <input id="end_date_input" wire:model="end_date" type="text"
-                                        class="form-control datetimepicker-input" data-target="#end_date_picker" />
-                                    <div class="input-group-append" data-target="#end_date_picker"
+                                <div class="input-group date" id="position_end_date" data-target-input="nearest">
+                                    <input id="position_end_date_input" wire:model='form.end_date' type="text"
+                                        class="form-control datetimepicker-input" data-target="#position_end_date" />
+                                    <div class="input-group-append" data-target="#position_end_date"
                                         data-toggle="datetimepicker">
                                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                     </div>
@@ -404,12 +405,27 @@
 
 @script
     <script>
-        $('#reservationdate').datetimepicker({
+        $('#dob').datetimepicker({
             format: 'YYYY-MM-DD'
         });
-        $('#reservationdate').on('change.datetimepicker', function() {
-            $wire.set('form.dob', $('#dob').val());
+        $('#dob').on('change.datetimepicker', function() {
+            $wire.set('form.dob', $('#dob_input').val());
         });
+
+        $('#position_start_date').datetimepicker({
+            format: 'YYYY-MM-DD'
+        })
+        $('#position_start_date').on('change.datetimepicker', function() {
+            $wire.set('form.start_date', $('#position_start_date_input').val());
+        });
+
+        $('#position_end_date').datetimepicker({
+            format: 'YYYY-MM-DD'
+        })
+        $('#position_end_date').on('change.datetimepicker', function() {
+            $wire.set('form.end_date', $('#position_end_date_input').val());
+        });
+
         $wire.on('create_fail', (event) => {
             Swal.fire({
                 title: "មានបញ្ហា!",
@@ -418,6 +434,6 @@
                 confirmButtonText: "អូខេ",
                 confirmButtonColor: "#dc3545"
             });
-        })
+        });
     </script>
 @endscript

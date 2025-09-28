@@ -3,6 +3,9 @@
 namespace App\Livewire\Forms;
 
 use App\Models\Employee;
+use App\Models\EmployeePosition;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
@@ -23,7 +26,7 @@ class EmployeeForm extends Form
     public $gender_id = null;
 
     #[Validate('required', message: 'សូមបញ្ចូលថ្ងៃខែឆ្នាំកំណើត')]
-    public $dob = '';
+    public $dob = null;
 
     #[Validate('required', message: 'សូមបញ្ចូលលេខអត្តសញ្ញាណប័ណ្ខ')]
     public $national_id = '';
@@ -73,7 +76,6 @@ class EmployeeForm extends Form
     #[Validate('required', message: 'សូមជ្រើសរើសថ្នាក់')]
     public $employee_level_id = null;
 
-    #[Validate('required', message: 'សូមជ្រើសរើសសាខា')]
     public $branch_id = null;
 
     public $sub_branch_id = null;
@@ -85,9 +87,20 @@ class EmployeeForm extends Form
 
     public $office_id = null;
 
+    #[Validate('required', message: 'សូមជ្រើសរើសដំណែង')]
+    public $position_id = null;
+
+    public $opt_position_name = null;
+
+    #[Validate('required', message: 'សូមជ្រើសរើសថ្ងៃចាប់ផ្តើម')]
+    public $start_date = null;
+
+    public $end_date = null;
+
     protected function rules(): array
     {
         return [
+            'branch_id' => $this->employee_level_id == 2 ? 'required' : 'nullable',
             'sub_branch_id' => $this->employee_level_id == 3 ? 'required' : 'nullable',
             'group_id' => $this->employee_level_id == 4 ? 'required' : 'nullable',
         ];
@@ -96,6 +109,7 @@ class EmployeeForm extends Form
     protected function messages(): array
     {
         return [
+            'branch_id.required' => 'សូមជ្រើសរើសសាខា',
             'sub_branch_id.required' => 'សូមជ្រើសរើសអនុសាខា',
             'group_id.required' => 'សូមជ្រើសរើសក្រុមអនុសាខា',
         ];
@@ -135,7 +149,49 @@ class EmployeeForm extends Form
 
     public function store()
     {
-        return Employee::create($this->all());
+        return DB::transaction(function () {
+            $employee = Employee::create([
+                'kh_name' => $this->kh_name,
+                'en_name' => $this->en_name,
+                'family_situation_id' => $this->family_situation_id,
+                'gender_id' => $this->gender_id,
+                'dob' => $this->dob,
+                'national_id' => $this->national_id,
+                'employee_status_id' => $this->employee_status_id,
+                'phone_number' => $this->phone_number,
+                'email' => $this->email,
+                'profile_img' => $this->profile_img,
+                'bp_province_id' => $this->bp_province_id,
+                'bp_district_id' => $this->bp_district_id,
+                'bp_commune_id' => $this->bp_commune_id,
+                'bp_village_id' => $this->bp_village_id,
+                'ad_province_id' => $this->ad_province_id,
+                'ad_district_id' => $this->ad_district_id,
+                'ad_commune_id' => $this->ad_commune_id,
+                'ad_village_id' => $this->ad_village_id,
+                'ad_street_name' => $this->ad_street_name,
+                'ad_street_number' => $this->ad_street_number,
+                'ad_house_number' => $this->ad_house_number,
+                'created_by' => Auth::user()->id,
+            ]);
+
+            EmployeePosition::create([
+                'employee_id' => $employee->id,
+                'employee_level_id' => $this->employee_level_id,
+                'position_id' => $this->position_id,
+                'department_id' => $this->department_id,
+                'office_id' => $this->office_id,
+                'branch_id' => $this->branch_id,
+                'sub_branch_id' => $this->sub_branch_id,
+                'group_id' => $this->group_id,
+                'opt_position_name' => $this->opt_position_name,
+                'start_date' => $this->start_date,
+                'end_date' => $this->end_date,
+                'created_by' => Auth::user()->id,
+            ]);
+
+            return $employee;
+        });
     }
 
     public function update()

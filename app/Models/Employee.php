@@ -31,13 +31,9 @@ class Employee extends Model
         'ad_street_number',
         'ad_street_name',
         'ad_house_number',
-        'employee_level_id',
-        'branch_id',
-        'sub_branch_id',
-        'group_id',
-        'department_id',
-        'office_id',
-        'current_position_id',
+        'active',
+        'created_by',
+        'updated_by'
     ];
 
     public function family_situation(): BelongsTo

@@ -17,6 +17,7 @@ use App\Models\Province;
 use App\Models\SubBranch;
 use App\Models\UserLevel;
 use App\Models\Village;
+use Illuminate\Support\Facades\Crypt;
 use Livewire\Component;
 
 class EmployeeCreateForm extends Component
@@ -91,6 +92,25 @@ class EmployeeCreateForm extends Component
     public function updatedFormDepartmentId(): void
     {
         $this->offices = Office::where('department_id', $this->form->department_id)->get();
+    }
+
+    public function save()
+    {
+        $this->validate();
+        try {
+            $employee = $this->form->store();
+
+            session()->flash('toast', [
+                'type' => 'success',
+                'message' => 'សមាជិកគណ:កិត្តិយសបានបង្កើតដោយជោគជ័យ!'
+            ]);
+
+            $encrypt_id = Crypt::encrypt($employee->id);
+
+            return redirect()->to("/employee/{$encrypt_id}");
+        } catch (\Exception $e) {
+            $this->dispatch('create_fail', message: $e->getMessage());
+        }
     }
 
     public function render()
