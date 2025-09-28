@@ -73,7 +73,7 @@ class EmployeeController extends Controller
         ]);
     }
 
-    public function swapPosition(Request $request)
+    public function addPosition(Request $request)
     {
         $employee = Employee::find(Crypt::decrypt($request->employee_id));
 
