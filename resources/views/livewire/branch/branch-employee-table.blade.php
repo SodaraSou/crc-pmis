@@ -41,15 +41,34 @@
                     <tr>
                         <th>ល.រ</th>
                         <th>ឈ្មោះខ្មែរ</th>
-                        <th>តួនាទី​ កក្រក</th>
-                        <th>នាយកដ្ឋាន</th>
+                        <th>តួនាទី​</th>
                         <th class="text-center">សកម្មភាព</th>
                     </tr>
                 </thead>
-                <tbody></tbody>
-                <tfoot>{{ $employees->links() }}</tfoot>
+                <tbody>
+                    @foreach ($employees as $employee)
+                        <tr wire:key='{{ $employee->id }}'>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $employee->kh_name }}</td>
+                            <td></td>
+                            <td>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <a href="{{ route('employee.show', Crypt::encrypt($employee->id)) }}"
+                                        class="btn btn-sm btn-primary mr-2">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="{{ route('employee.edit', Crypt::encrypt($employee->id)) }}"
+                                        class="btn btn-sm btn-info mr-2">
+                                        <i class="fa fa-pen" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
             </table>
         </div>
+        <div class="card-footer">{{ $employees->links() }}</div>
     </div>
     {{-- <div class="row">
         @foreach ($employees as $employee)

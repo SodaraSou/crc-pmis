@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\HonoraryCommittee\Admin;
+namespace App\Livewire\HonoraryCommittee;
 
 use App\Livewire\Forms\MemberForm;
 use App\Models\Member;
@@ -125,7 +125,7 @@ class HonoraryCommitteeMemberEditForm extends Component
 
     public function render()
     {
-        return view('livewire.honorary-committee.admin.honorary-committee-member-edit-form', [
+        return view('livewire.honorary-committee.honorary-committee-member-edit-form', [
             'genders' => Gender::all(),
             'bp_provinces' => Province::all(),
             'ad_provinces' => Province::all(),

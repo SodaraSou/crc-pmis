@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Committee\Admin;
+namespace App\Livewire\Committee;
 
 use App\Livewire\Forms\MemberForm;
 use App\Models\Member;
@@ -105,7 +105,7 @@ class CommitteeMemberEditForm extends Component
 
     public function render()
     {
-        return view('livewire.committee.admin.committee-member-edit-form', [
+        return view('livewire.committee.committee-member-edit-form', [
             'genders' => Gender::all(),
             'bp_provinces' => Province::all(),
             'ad_provinces' => Province::all(),

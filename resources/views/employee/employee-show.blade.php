@@ -58,31 +58,23 @@
                                     class="float-right text-dark">{{ $current_position->position->kh_name }}</a>
                             </li>
                         </ul>
-                        <div class="row g-4 mb-3">
-                            <div class="col-12">
+                        <div class="row g-4">
+                            <div class="col-12 mb-2">
                                 <a href="{{ route('employee.edit', Crypt::encrypt($employee->id)) }}"
                                     class="btn btn-info btn-block"><i class="fa fa-pen mr-1" aria-hidden="true"></i>
                                     <b>កែប្រែ</b></a>
                             </div>
-                            {{--                        <div class="col-6"> --}}
-                            {{--                            <a href="#" class="btn btn-danger btn-block"><i class="fa fa-trash mr-2" --}}
-                            {{--                                                                            aria-hidden="true"></i><b>លុប</b></a> --}}
-                            {{--                        </div> --}}
+                            <div class="col-12">
+                                <livewire:employee.employee-delete-button :employee="$employee" />
+                            </div>
                         </div>
-                        {{-- <div class="row g-4 mb-3">
-                        <div class="col-12">
-                            <a href="{{ route('employee.position.swap', Crypt::encrypt($employee->id)) }}"
-                                class="btn btn-success btn-block"><i class="fa fa-suitcase mr-2"
-                                    aria-hidden="true"></i><b>ផ្លាស់តួនាទី</b></a>
-                        </div>
-                    </div> --}}
-                        <div class="row g-4">
+                        {{-- <div class="row g-4">
                             <div class="col-12">
                                 <a href="{{ route('employee.education.create', Crypt::encrypt($employee->id)) }}"
                                     class="btn btn-primary btn-block"><i class="fa fa-graduation-cap mr-2"
                                         aria-hidden="true"></i><b>បង្កើតប្រវត្តិសិក្សា</b></a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -96,11 +88,11 @@
                             <li class="nav-item nav-item-own"><a class="nav-link" href="#timeline"
                                     data-toggle="tab">ប្រវតិ្តតួនាទី</a>
                             </li>
-                            <li class="nav-item nav-item-own"><a class="nav-link" href="#education"
+                            {{-- <li class="nav-item nav-item-own"><a class="nav-link" href="#education"
                                     data-toggle="tab">ប្រវត្តិការសិក្សា</a>
                             <li class="nav-item nav-item-own"><a class="nav-link" href="#job"
                                     data-toggle="tab">ប្រវត្តិការងារ</a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                     <div class="card-body">
@@ -195,13 +187,6 @@
                                 </table>
                             </div>
                             <div class="tab-pane" id="timeline">
-                                {{--                            <div class="text-right"> --}}
-                                {{--                                <a href="{{ route('employee.position.create', Crypt::encrypt($employee->id)) }}" --}}
-                                {{--                                   class="btn btn-success"><i --}}
-                                {{--                                        class="fa fa-plus mr-1"></i> --}}
-                                {{--                                    បង្កើត --}}
-                                {{--                                </a> --}}
-                                {{--                            </div> --}}
                                 <div class="timeline timeline-inverse">
                                     @foreach ($positions as $position)
                                         <div class="time-label">
@@ -253,7 +238,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="tab-pane" id="education">
+                            {{-- <div class="tab-pane" id="education">
                                 <div class="timeline timeline-inverse">
                                     @foreach ($educations as $education)
                                         <div class="time-label">
@@ -273,14 +258,6 @@
                                                         គ្រឹះស្ថានសិក្សា: {{ $education->institution }}
                                                     </div>
                                                 </div>
-                                                {{--                                            <div class="timeline-footer"> --}}
-                                                {{--                                                <a href="{{route('home')}}" class="btn btn-success"><i --}}
-                                                {{--                                                        class="fa fa-file-alt mr-2"></i>កុងត្រា</a> --}}
-                                                {{--                                                <a href="{{ route('employee.position.edit', [Crypt::encrypt($position->pivot->employee_id), Crypt::encrypt($position->pivot->id)]) }}" --}}
-                                                {{--                                                   class="btn btn-info"> --}}
-                                                {{--                                                    <i class="fa fa-pen mr-2"></i>កែប្រែ --}}
-                                                {{--                                                </a> --}}
-                                                {{--                                            </div> --}}
                                             </div>
                                         </div>
                                     @endforeach
@@ -290,7 +267,7 @@
                                         </div>
                                     @endif
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

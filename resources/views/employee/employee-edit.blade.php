@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    កែប្រែបុគ្គលិក
+    កែប្រែមន្រ្តីប្រតិបត្តិ
 @endsection
 
 @section('content')

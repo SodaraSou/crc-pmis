@@ -7,7 +7,7 @@
 @section('content')
     <div class="container">
         @if (Auth::user()->hasRole('System Manager'))
-            <livewire:committee.admin.committee-member-edit-form :member="$member" />
+            <livewire:committee.committee-member-edit-form :member="$member" />
         @endif
         <livewire:committee.committee-member-term-table :member="$member" />
     </div>

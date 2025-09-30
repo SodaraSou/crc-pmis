@@ -1,6 +1,6 @@
 <div class="card card-info">
     <div class="card-header">
-        <h3 class="card-title">កែប្រែបុគ្គលិក</h3>
+        <h3 class="card-title">កែប្រែមន្រ្តីប្រតិបត្តិ</h3>
     </div>
     <form wire:submit.prevent="save">
         <div class="card-body">

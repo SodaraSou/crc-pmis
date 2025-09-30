@@ -14,28 +14,42 @@ class BranchEmployeeTable extends Component
 {
     use WithPagination;
 
+    public Branch $branch;
+
     public $per_page = 25;
 
-    #[Url()]
+    #[Url(except: '')]
     public $search = "";
 
-    public Branch $branch;
+    #[Url(except: '')]
+    public $department_id = "";
+    public $filter_department = null;
 
     public function mount(Branch $branch): void
     {
         $this->branch = $branch;
     }
 
+    public function updatedDepartmentId()
+    {
+        $this->filter_department = Department::find($this->department_id);
+    }
+
     public function render(): View
     {
         $query = Employee::query();
 
-        $employees = $query
-            ->where('branch_id', $this->branch->id)
-            ->paginate($this->per_page);
+        $query->whereHas('employee_positions', function ($ep) {
+            $ep->where('active', true)
+                ->where('branch_id', $this->branch->id);
+
+            if ($this->department_id) {
+                $ep->where('department_id', $this->department_id);
+            }
+        });
 
         return view('livewire.branch.branch-employee-table', [
-            'employees' => $employees,
+            'employees' => $query->paginate($this->per_page),
             'departments' => Department::all()
         ]);
     }

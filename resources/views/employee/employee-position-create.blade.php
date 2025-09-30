@@ -1,13 +1,14 @@
 @extends('layouts.app')
 
 @section('title')
-    បង្កើតដំណែងបុគ្គលិក
+    បង្កើតដំណែងមន្រ្តីប្រតិបត្តិ
 @endsection
 
 @section('content')
     <div class="container">
-        <livewire:employee.admin.employee-positon-create-form :employee="$employee" />
-        {{-- <livewire:employee.employee-position-swap-form :employee="$employee" /> --}}
+        @if (Auth::user()->hasRole('System Manager'))
+            <livewire:employee.admin.employee-positon-create-form :employee="$employee" />
+        @endif
     </div>
 @endsection
 

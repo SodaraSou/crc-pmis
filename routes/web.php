@@ -69,8 +69,8 @@ Route::get('/employee', [EmployeeController::class, 'index'])->middleware('auth'
 Route::get('/employee/create', [EmployeeController::class, 'create'])->middleware('auth')->name('employee.create');
 Route::get('/employee/{employee_id}', [EmployeeController::class, 'show'])->middleware('auth')->name('employee.show');
 Route::get('/employee/{employee_id}/edit', [EmployeeController::class, 'edit'])->middleware('auth')->name('employee.edit');
+Route::get('/employee/{employee_id}/position/create', [EmployeeController::class, 'createPosition'])->middleware('auth')->name('employee.position.create');
 Route::get('/employee/{employee_id}/position/{employee_position_id}/edit', [EmployeeController::class, 'editPosition'])->middleware('auth')->name('employee.position.edit');
-Route::get('/employee/{employee_id}/position/add', [EmployeeController::class, 'addPosition'])->middleware('auth')->name('employee.position.add');
 Route::get('/employee/{employee_id}/education/create', [EmployeeController::class, 'createEducation'])->middleware('auth')->name('employee.education.create');
 
 // Province
@@ -99,15 +99,11 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 
 // Committee
-// Route::get('/committee', [CommitteeController::class, 'index'])->middleware('auth')->name('committee.index');
-// Route::get('/committee/create', [CommitteeController::class, 'create'])->middleware('auth')->name('committee.create');
 Route::get('/committee/member', [CommitteeController::class, 'indexMember'])->middleware('auth')->name('committee-member.index');
 Route::get('/committee/member/create', [CommitteeController::class, 'createMember'])->middleware('auth')->name('committee-member.create');
 Route::get('/committee/member/{member}', [CommitteeController::class, 'showMember'])->middleware('auth')->name('committee-member.show');
 Route::get('/committee/member/{member}/edit', [CommitteeController::class, 'editMember'])->middleware('auth')->name('committee-member.edit');
 Route::get('/committee/member/{member}/term/add', [CommitteeController::class, 'addTerm'])->middleware('auth')->name('committee-member.term-add');
-// Route::get('/committee/{committee}/edit', [CommitteeController::class, 'edit'])->middleware('auth')->name('committee.edit');
-// Route::get('/committee/{committee}', [CommitteeController::class, 'show'])->middleware('auth')->name('committee.show');
 
 // Honorary Committee
 Route::get('/honorary-committee/member', [HonoraryCommitteeController::class, 'indexMember'])->middleware('auth')->name('honorary-committee-member.index');

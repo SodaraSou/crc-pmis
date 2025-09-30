@@ -1,15 +1,15 @@
-<div class="card card-info">
+<div class="card">
     <div class="card-header">
         <div class="d-flex justify-content-between align-items-center">
             <h3 class="card-title">អាណត្តិសមាជិក</h3>
             <a href="{{ route('honorary-committee-member.term-add', $member->id) }}" class="btn btn-success">
                 <i class="fa fa-plus mr-1"></i>
-                បន្ថែមអាណត្តិ
+                បង្កើត
             </a>
         </div>
     </div>
     <div class="card-body">
-        <table class="table table-hover text-nowrap">
+        <table class="table table-bordered text-nowrap">
             <thead>
                 <tr>
                     <th>ល.រ</th>
