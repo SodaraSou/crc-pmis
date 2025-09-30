@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    <livewire:village.village-create-form :commune="$commune" />
+    <div class="container">
+        <livewire:village.village-create-form :commune="$commune" />
+    </div>
 @endsection
 
 @section('js')

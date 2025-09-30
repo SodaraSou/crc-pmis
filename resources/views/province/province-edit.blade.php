@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    <livewire:province.province-edit-form :province="$province" />
+    <div class="container">
+        <livewire:province.province-edit-form :province="$province" />
+    </div>
 @endsection
 
 @section('js')

@@ -35,7 +35,7 @@ class ProvinceEditForm extends Component
             ]);
             return redirect()->to('/province');
         } catch (\Exception $e) {
-            $this->dispatch('update_fail');
+            $this->dispatch('update_fail', message: $e->getMessage());
         }
     }
 

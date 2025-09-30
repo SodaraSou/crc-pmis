@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    <livewire:district.district-edit-form :district="$district" />
+    <div class="container">
+        <livewire:district.district-edit-form :district="$district" />
+    </div>
 @endsection
 
 @section('js')

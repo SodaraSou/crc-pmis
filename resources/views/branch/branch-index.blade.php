@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="container">
-        @livewire('branch.branch-table')
+        <livewire:branch.branch-table />
     </div>
 @endsection
 

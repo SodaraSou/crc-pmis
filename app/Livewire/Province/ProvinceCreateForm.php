@@ -2,7 +2,10 @@
 
 namespace App\Livewire\Province;
 
+use App\Models\Branch;
+use App\Models\Committee;
 use App\Models\Province;
+use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
@@ -17,16 +20,47 @@ class ProvinceCreateForm extends Component
 
     public function save()
     {
-        $validated = $this->validate();
+        $this->validate();
         try {
-            Province::create([
-                'id' => $validated['code'],
-                'kh_name' => $validated['kh_name'],
-                'en_name' => $validated['en_name']
+            DB::transaction(function () {
+                $province = Province::create([
+                    'id' => $this->code,
+                    'kh_name' => $this->kh_name,
+                    'en_name' => $this->en_name
+                ]);
+
+                $branch = Branch::create([
+                    'id' => $this->code,
+                    'en_name' => $this->en_name,
+                    'kh_name' => $this->kh_name,
+                    'province_id' => $province->id
+                ]);
+
+                Committee::create([
+                    'kh_name' => 'គណៈកិត្តិយសសាខា ខេត្ត' . $this->kh_name,
+                    'en_name' => $this->en_name,
+                    'branch_id' => $branch->id,
+                    'committee_type_id' => 1,
+                    'committee_level_id' => 1,
+                ]);
+
+                Committee::create([
+                    'kh_name' => 'គណៈកម្មាធិការសាខា ខេត្ត' . $this->kh_name,
+                    'en_name' => $this->en_name,
+                    'branch_id' => $branch->id,
+                    'committee_type_id' => 2,
+                    'committee_level_id' => 1,
+                ]);
+            });
+
+            session()->flash('toast', [
+                'type' => 'success',
+                'message' => 'ខេត្តបង្កើតដោយជោគជ័យ!'
             ]);
+
             return redirect()->to('/province');
-        } catch (\Exception $ex) {
-            $this->dispatch('create_fail');
+        } catch (\Exception $e) {
+            $this->dispatch('create_fail', message: $e->getMessage());
         }
     }
 

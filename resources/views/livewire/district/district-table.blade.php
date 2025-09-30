@@ -1,14 +1,14 @@
-<div class="card card-primary">
+<div class="card">
     <div class="card-header">
         <div class="d-flex justify-content-between align-items-center">
             <h3 class="card-title">ស្រុក/ខណ្ឌ</h3>
             <a href="{{ route('province-district.create', $province->id) }}" class="btn btn-success"><i
                     class="fa fa-plus mr-1"></i>
-                បង្កើតថ្មី</a>
+                បង្កើត</a>
         </div>
     </div>
     <div class="card-body">
-        <table class="table table-hover text-nowrap">
+        <table class="table table-bordered text-nowrap">
             <thead>
                 <tr>
                     <th>
@@ -50,7 +50,7 @@
 
 @script
     <script>
-        window.addEventListener("alert_delete", (event) => {
+        $wire.on("alert_delete", (event) => {
             Swal.fire({
                 title: "តើអ្នកប្រាកដមែនទេ?",
                 text: "សកម្មភាពនេះមិនអាចត្រឡប់ក្រោយបានទេ!",
@@ -63,12 +63,12 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $wire.dispatch('confirmed_delete', {
-                        district_id: event.detail.district_id
+                        district_id: event.district_id
                     });
                 }
             });
         });
-        window.addEventListener("delete_success", () => {
+        $wire.on("delete_success", () => {
             Swal.fire({
                 title: "ជោគជ័យ",
                 text: "លុបស្រុក/ខណ្ឌជោគជ័យ",
@@ -77,10 +77,10 @@
                 confirmButtonColor: "#28a745"
             });
         });
-        window.addEventListener("delete_fail", () => {
+        $wire.on("delete_fail", (event) => {
             Swal.fire({
                 title: "មានបញ្ហា!",
-                text: "លុបស្រុក/ខណ្ឌមិនជោគជ័យ",
+                text: event.message,
                 icon: "error",
                 confirmButtonText: "អូខេ",
                 confirmButtonColor: "#dc3545"

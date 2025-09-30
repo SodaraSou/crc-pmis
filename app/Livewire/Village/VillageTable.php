@@ -28,7 +28,7 @@ class VillageTable extends Component
                 $this->dispatch('delete_fail');
             }
         } catch (\Exception $e) {
-            $this->dispatch('delete_fail');
+            $this->dispatch('delete_fail', message: $e->getMessage());
         }
     }
 

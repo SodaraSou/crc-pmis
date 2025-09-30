@@ -2,8 +2,11 @@
 
 namespace App\Livewire\District;
 
+use App\Models\Committee;
 use App\Models\District;
 use App\Models\Province;
+use App\Models\SubBranch;
+use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
@@ -26,17 +29,49 @@ class DistrictCreateForm extends Component
 
     public function save()
     {
-        $validated = $this->validate();
+        $this->validate();
         try {
-            District::create([
-                'id' => $validated['code'],
-                'kh_name' => $validated['kh_name'],
-                'en_name' => $validated['en_name'],
-                'province_id' => $this->province_id
+            DB::transaction(function () {
+                $district = District::create([
+                    'id' => $this->code,
+                    'kh_name' => $this->kh_name,
+                    'en_name' => $this->en_name,
+                    'province_id' => $this->province_id
+                ]);
+
+                $sub_branch = SubBranch::create([
+                    'id' => $this->code,
+                    'kh_name' => $this->kh_name,
+                    'en_name' => $this->en_name,
+                    'branch_id' => $this->province->branch->id,
+                    'district_id' => $district->id,
+                ]);
+
+                Committee::create([
+                    'kh_name' => 'គណៈកិត្តិយសអនុសាខា ស្រុក' . $this->kh_name,
+                    'en_name' => $this->en_name,
+                    'sub_branch_id' => $sub_branch->id,
+                    'committee_type_id' => 1,
+                    'committee_level_id' => 2,
+                ]);
+
+                Committee::create([
+                    'kh_name' => 'គណៈកម្មាធិការអនុសាខា ស្រុក' . $this->kh_name,
+                    'en_name' => $this->en_name,
+                    'sub_branch_id' => $sub_branch->id,
+                    'committee_type_id' => 2,
+                    'committee_level_id' => 2,
+                ]);
+            });
+
+            session()->flash('toast', [
+                'type' => 'success',
+                'message' => 'ស្រុក/ខណ្ឌបង្កើតដោយជោគជ័យ!'
             ]);
+
             return redirect()->to("/province/{$this->province_id}");
-        } catch (\Exception $ex) {
-            $this->dispatch('create_fail');
+        } catch (\Exception $e) {
+            $this->dispatch('create_fail', message: $e->getMessage());
         }
     }
 

@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    <livewire:commune.commune-edit-form :commune="$commune" />
+    <div class="container">
+        <livewire:commune.commune-edit-form :commune="$commune" />
+    </div>
 @endsection
 
 @section('js')

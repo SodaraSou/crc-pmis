@@ -40,7 +40,7 @@
                 @endif
                 <li class="nav-item" id="honorary-committee">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fa fa-star"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
                             គណ:កិត្តិយស
                             <i class="right fas fa-angle-left"></i>
@@ -63,7 +63,7 @@
                 </li>
                 <li class="nav-item" id="committee">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fa fa-star"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
                             គណ:កម្មាធិការ
                             <i class="right fas fa-angle-left"></i>
@@ -80,29 +80,6 @@
                             <a href="{{ route('committee-member.create') }}" class="nav-link">
                                 <i class="fas fa-angle-double-right nav-icon"></i>
                                 <p>បង្កើតសមាជិក</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item" id="term">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fa fa-star"></i>
-                        <p>
-                            អាណត្តិ
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item" id="term-list">
-                            <a href="{{ route('term.index') }}" class="nav-link">
-                                <i class="fas fa-angle-double-right nav-icon"></i>
-                                <p>តារាងអាណត្តិ</p>
-                            </a>
-                        </li>
-                        <li class="nav-item" id="term-create">
-                            <a href="{{ route('term.create') }}" class="nav-link">
-                                <i class="fas fa-angle-double-right nav-icon"></i>
-                                <p>បង្កើតអាណត្តិ</p>
                             </a>
                         </li>
                     </ul>
@@ -132,6 +109,29 @@
                         </ul>
                     </li>
                 @endif
+                <li class="nav-item" id="term">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-star"></i>
+                        <p>
+                            អាណត្តិ
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item" id="term-list">
+                            <a href="{{ route('term.index') }}" class="nav-link">
+                                <i class="fas fa-angle-double-right nav-icon"></i>
+                                <p>តារាងអាណត្តិ</p>
+                            </a>
+                        </li>
+                        <li class="nav-item" id="term-create">
+                            <a href="{{ route('term.create') }}" class="nav-link">
+                                <i class="fas fa-angle-double-right nav-icon"></i>
+                                <p>បង្កើតអាណត្តិ</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 @if (Auth::user()->user_level_id == 1)
                     @if (Auth::user()->hasPermissionTo('security_management'))
                         <li class="nav-item" id="security">

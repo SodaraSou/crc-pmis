@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    <livewire:district.district-table :province="$province" />
+    <div class="container">
+        <livewire:district.district-table :province="$province" />
+    </div>
 @endsection
 
 @section('js')

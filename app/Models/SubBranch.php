@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class SubBranch extends Model
 {
     protected $fillable = [
+        "id",
         "en_name",
         "kh_name",
         "branch_id",

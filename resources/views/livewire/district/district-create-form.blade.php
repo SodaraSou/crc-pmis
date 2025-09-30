@@ -41,17 +41,17 @@
             </div>
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-success"><i class="fa fa-save mr-1"></i> រក្សាទុក</button>
+            <button type="submit" class="btn btn-success float-right"><i class="fa fa-save mr-1"></i> រក្សាទុក</button>
         </div>
     </form>
 </div>
 
 @script
     <script>
-        window.addEventListener("create_fail", () => {
+        $wire.on("create_fail", (event) => {
             Swal.fire({
                 title: "មានបញ្ហា!",
-                text: "បង្កើតស្រុក/ខណ្ឌមិនជោគជ័យ",
+                text: event.message,
                 icon: "error",
                 confirmButtonText: "អូខេ",
                 confirmButtonColor: "#dc3545"

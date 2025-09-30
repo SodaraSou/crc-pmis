@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    <livewire:department.department-edit-form :department="$department" />
+    <div class="container">
+        <livewire:department.department-edit-form :department="$department" />
+    </div>
 @endsection
 
 @section('js')

@@ -38,8 +38,8 @@ class DistrictEditForm extends Component
                 'province_id' => $this->province_id
             ]);
             return redirect()->to("/province/{$this->province_id}");
-        } catch (\Exception $ex) {
-            $this->dispatch('update_fail');
+        } catch (\Exception $e) {
+            $this->dispatch('update_fail', message: $e->getMessage());
         }
     }
 

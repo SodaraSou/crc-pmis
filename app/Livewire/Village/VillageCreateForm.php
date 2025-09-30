@@ -41,8 +41,8 @@ class VillageCreateForm extends Component
                 'commune_id' => $this->commune_id
             ]);
             return redirect()->to("/commune/{$this->commune_id}");
-        } catch (\Exception $ex) {
-            $this->dispatch('create_fail');
+        } catch (\Exception $e) {
+            $this->dispatch('create_fail', message: $e->getMessage());
         }
     }
 

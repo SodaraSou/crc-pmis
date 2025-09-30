@@ -5,12 +5,14 @@
 @endsection
 
 @section('content')
-    <livewire:office.office-create-form :department="$department"/>
+    <div class="container">
+        <livewire:office.office-create-form :department="$department" />
+    </div>
 @endsection
 
 @section('js')
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $("#sidebar li a").removeClass("active");
             $("#setting>a").addClass("active");
             $("#setting").addClass("menu-open");

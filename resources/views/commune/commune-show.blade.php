@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    <livewire:village.village-table :commune="$commune" />
+    <div class="container">
+        <livewire:village.village-table :commune="$commune" />
+    </div>
 @endsection
 
 @section('js')

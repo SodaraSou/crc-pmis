@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    <livewire:commune.commune-create-form :district="$district" />
+    <div class="container">
+        <livewire:commune.commune-create-form :district="$district" />
+    </div>
 @endsection
 
 @section('js')

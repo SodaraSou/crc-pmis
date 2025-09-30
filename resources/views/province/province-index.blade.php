@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    @livewire('province.province-table')
+    <div class="container">
+        <livewire:province.province-table />
+    </div>  
 @endsection
 
 @section('js')
