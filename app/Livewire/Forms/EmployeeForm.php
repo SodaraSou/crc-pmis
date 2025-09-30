@@ -13,6 +13,8 @@ class EmployeeForm extends Form
 {
     public Employee $employee;
 
+    public $is_edit = false;
+
     #[Validate('required', message: 'សូមបញ្ចូលឈ្មោះ')]
     public $kh_name = '';
 
@@ -73,7 +75,6 @@ class EmployeeForm extends Form
 
     public $ad_house_number = null;
 
-    #[Validate('required', message: 'សូមជ្រើសរើសថ្នាក់')]
     public $employee_level_id = null;
 
     public $branch_id = null;
@@ -82,36 +83,44 @@ class EmployeeForm extends Form
 
     public $group_id = null;
 
-    #[Validate('required', message: 'សូមជ្រើសរើសនាយកដ្ឋាន')]
     public $department_id = null;
 
     public $office_id = null;
 
-    #[Validate('required', message: 'សូមជ្រើសរើសដំណែង')]
     public $position_id = null;
 
     public $opt_position_name = null;
 
-    #[Validate('required', message: 'សូមជ្រើសរើសថ្ងៃចាប់ផ្តើម')]
     public $start_date = null;
 
     public $end_date = null;
 
     protected function rules(): array
     {
-        return [
-            'branch_id' => $this->employee_level_id == 2 ? 'required' : 'nullable',
-            'sub_branch_id' => $this->employee_level_id == 3 ? 'required' : 'nullable',
-            'group_id' => $this->employee_level_id == 4 ? 'required' : 'nullable',
-        ];
+        if (!$this->is_edit) {
+            return [
+                'employee_level_id' => 'required',
+                'branch_id' => $this->employee_level_id > 1 ? 'required' : 'nullable',
+                'sub_branch_id' => $this->employee_level_id > 2 ? 'required' : 'nullable',
+                'group_id' => $this->employee_level_id == 4 ? 'required' : 'nullable',
+                'department_id' => 'required',
+                'position_id' => 'required',
+                'start_date' => 'required',
+            ];
+        }
+        return [];
     }
 
     protected function messages(): array
     {
         return [
+            'employee_level_id' => 'សូមជ្រើសរើសថ្នាក់',
             'branch_id.required' => 'សូមជ្រើសរើសសាខា',
             'sub_branch_id.required' => 'សូមជ្រើសរើសអនុសាខា',
             'group_id.required' => 'សូមជ្រើសរើសក្រុមអនុសាខា',
+            'department_id.required' => 'សូមជ្រើសរើសនាយកដ្ឋាន',
+            'position_id' => 'សូមជ្រើសរើសដំណែង',
+            'start_date' => 'សូមជ្រើសរើសថ្ងៃចាប់ផ្តើម',
         ];
     }
 
@@ -139,12 +148,6 @@ class EmployeeForm extends Form
         $this->ad_street_number = $employee->ad_street_number;
         $this->ad_street_name = $employee->ad_street_name;
         $this->ad_house_number = $employee->ad_house_number;
-        $this->employee_level_id = $employee->employee_level_id;
-        $this->branch_id = $employee->branch_id;
-        $this->sub_branch_id = $employee->sub_branch_id;
-        $this->department_id = $employee->department_id;
-        $this->office_id = $employee->office_id;
-        $this->group_id = $employee->group_id;
     }
 
     public function store()
@@ -196,7 +199,30 @@ class EmployeeForm extends Form
 
     public function update()
     {
-        $this->employee->update($this->all());
+        $this->employee->update([
+            'kh_name' => $this->kh_name,
+            'en_name' => $this->en_name,
+            'family_situation_id' => $this->family_situation_id,
+            'gender_id' => $this->gender_id,
+            'dob' => $this->dob,
+            'national_id' => $this->national_id,
+            'employee_status_id' => $this->employee_status_id,
+            'phone_number' => $this->phone_number,
+            'email' => $this->email,
+            'profile_img' => $this->profile_img,
+            'bp_province_id' => $this->bp_province_id,
+            'bp_district_id' => $this->bp_district_id,
+            'bp_commune_id' => $this->bp_commune_id,
+            'bp_village_id' => $this->bp_village_id,
+            'ad_province_id' => $this->ad_province_id,
+            'ad_district_id' => $this->ad_district_id,
+            'ad_commune_id' => $this->ad_commune_id,
+            'ad_village_id' => $this->ad_village_id,
+            'ad_street_name' => $this->ad_street_name,
+            'ad_street_number' => $this->ad_street_number,
+            'ad_house_number' => $this->ad_house_number,
+            'updated_by' => Auth::user()->id,
+        ]);
 
         return $this->employee->refresh();
     }

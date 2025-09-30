@@ -42,14 +42,26 @@ class EmployeeController extends Controller
 
         Gate::authorize('view', $employee);
 
+        $today = now()->toDateString();
+        $current_position = $employee->employee_positions()
+            ->where('active', true)
+            ->where('start_date', '<=', $today)
+            ->orderByDesc('start_date')
+            ->first();
+
+        $positions = $employee->employee_positions()
+            ->where('active', true)
+            ->get();
+
         return view('employee.employee-show', [
             'employee' => $employee,
-            'positions' => $employee->positions,
+            'current_position' => $current_position,
+            'positions' => $positions,
             'educations' => $employee->educations,
         ]);
     }
 
-    public function createPosition(Request $request)
+    public function addPosition(Request $request)
     {
         $employee = Employee::find(Crypt::decrypt($request->employee_id));
 
@@ -73,17 +85,6 @@ class EmployeeController extends Controller
         ]);
     }
 
-    public function addPosition(Request $request)
-    {
-        $employee = Employee::find(Crypt::decrypt($request->employee_id));
-
-        Gate::authorize('managePosition', $employee);
-
-        return view('employee.employee-position-swap', [
-            'employee' => $employee,
-        ]);
-    }
-
     public function createEducation(Request $request)
     {
         $employee = Employee::find(Crypt::decrypt($request->employee_id));
@@ -99,8 +100,6 @@ class EmployeeController extends Controller
     {
         //        Gate::authorize('manageEducation', $employee);
 
-        return view('employee.employee-education-create', [
-
-        ]);
+        return view('employee.employee-education-create', []);
     }
 }

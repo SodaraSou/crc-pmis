@@ -5,12 +5,15 @@
 @endsection
 
 @section('content')
-    <livewire:employee.employee-positon-create-form :employee="$employee"/>
+    <div class="container">
+        <livewire:employee.admin.employee-positon-create-form :employee="$employee" />
+        {{-- <livewire:employee.employee-position-swap-form :employee="$employee" /> --}}
+    </div>
 @endsection
 
 @section('js')
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $("#sidebar li a").removeClass("active");
             $("#employee>a").addClass("active");
             $("#employee").addClass("menu-open");

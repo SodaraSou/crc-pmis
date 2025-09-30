@@ -31,6 +31,11 @@ class EmployeePosition extends Pivot
         return $this->belongsTo(Employee::class);
     }
 
+    public function employee_level(): BelongsTo
+    {
+        return $this->belongsTo(UserLevel::class);
+    }
+
     public function position(): BelongsTo
     {
         return $this->belongsTo(Position::class);

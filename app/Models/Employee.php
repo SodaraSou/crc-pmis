@@ -96,41 +96,16 @@ class Employee extends Model
         return $this->belongsTo(Village::class);
     }
 
-    public function branch(): BelongsTo
-    {
-        return $this->belongsTo(Branch::class);
-    }
-
-    public function sub_branch(): BelongsTo
-    {
-        return $this->belongsTo(SubBranch::class);
-    }
-
-    public function group(): BelongsTo
-    {
-        return $this->belongsTo(Group::class);
-    }
-
-    public function department(): BelongsTo
-    {
-        return $this->belongsTo(Department::class);
-    }
-
-    public function office(): BelongsTo
-    {
-        return $this->belongsTo(Office::class);
-    }
-
-    public function current_position(): BelongsTo
-    {
-        return $this->belongsTo(EmployeePosition::class);
-    }
-
     public function positions(): BelongsToMany
     {
         return $this->belongsToMany(Position::class)
             ->using(EmployeePosition::class)
             ->withPivot('id', 'department_id', 'office_id', 'branch_id', 'sub_branch_id', 'group_id', 'start_date', 'opt_position_name', 'end_date');
+    }
+
+    public function employee_positions(): HasMany
+    {
+        return $this->hasMany(EmployeePosition::class);
     }
 
     public function educations(): HasMany

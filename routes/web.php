@@ -69,7 +69,6 @@ Route::get('/employee', [EmployeeController::class, 'index'])->middleware('auth'
 Route::get('/employee/create', [EmployeeController::class, 'create'])->middleware('auth')->name('employee.create');
 Route::get('/employee/{employee_id}', [EmployeeController::class, 'show'])->middleware('auth')->name('employee.show');
 Route::get('/employee/{employee_id}/edit', [EmployeeController::class, 'edit'])->middleware('auth')->name('employee.edit');
-Route::get('/employee/{employee_id}/position/create', [EmployeeController::class, 'createPosition'])->middleware('auth')->name('employee.position.create');
 Route::get('/employee/{employee_id}/position/{employee_position_id}/edit', [EmployeeController::class, 'editPosition'])->middleware('auth')->name('employee.position.edit');
 Route::get('/employee/{employee_id}/position/add', [EmployeeController::class, 'addPosition'])->middleware('auth')->name('employee.position.add');
 Route::get('/employee/{employee_id}/education/create', [EmployeeController::class, 'createEducation'])->middleware('auth')->name('employee.education.create');

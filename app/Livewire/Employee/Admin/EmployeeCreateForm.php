@@ -102,7 +102,7 @@ class EmployeeCreateForm extends Component
 
             session()->flash('toast', [
                 'type' => 'success',
-                'message' => 'សមាជិកគណ:កិត្តិយសបានបង្កើតដោយជោគជ័យ!'
+                'message' => 'មន្ត្រីប្រតិបត្តិបង្កើតដោយជោគជ័យ!'
             ]);
 
             $encrypt_id = Crypt::encrypt($employee->id);

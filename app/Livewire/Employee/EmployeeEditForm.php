@@ -33,6 +33,7 @@ class EmployeeEditForm extends Component
 
     public function mount(Employee $employee): void
     {
+        $this->form->is_edit = true;
         $this->form->setForm($employee);
         $this->bp_districts = District::where('province_id', $this->form->bp_province_id)->get();
         $this->bp_communes = Commune::where('district_id', $this->form->bp_district_id)->get();
@@ -78,6 +79,11 @@ class EmployeeEditForm extends Component
         try {
             $employee = $this->form->update();
             $encrypt_id = Crypt::encrypt($employee->id);
+
+            session()->flash('toast', [
+                'type' => 'success',
+                'message' => 'មន្រ្តីប្រតិបត្តិបានកែប្រែដោយជោគជ័យ!'
+            ]);
 
             return redirect()->to("/employee/$encrypt_id");
         } catch (\Exception $e) {

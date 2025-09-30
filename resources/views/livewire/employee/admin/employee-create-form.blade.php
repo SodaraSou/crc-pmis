@@ -33,8 +33,13 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="col-12 col-md-6 form-group">
-                    <label>ថ្ងៃ/ខែ/ឆ្នាំកំណើត<span class="text-danger">*</span></label>
+                <div class="col-12 col-md-6 form-group" x-init="$('#dob').datetimepicker({ format: 'YYYY-MM-DD' });
+                $('#dob').on('change.datetimepicker', function(e) {
+                    if (e.date) {
+                        $wire.form.dob = e.date.format('YYYY-MM-DD');
+                    }
+                });">
+                    <label>ថ្ងៃ/ខែ/ឆ្នាំកំណើត <span class="text-danger">*</span></label>
                     <div>
                         <div class="input-group date" id="dob" data-target-input="nearest">
                             <input id="dob_input" wire:model="form.dob" type="text"
@@ -48,6 +53,7 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
+
                 <div class="col-12 col-md-6 form-group">
                     <label>ស្ថានភាពគ្រួសារ<span class="text-danger">*</span></label>
                     <select wire:model="form.family_situation_id" class="form-control">
@@ -363,7 +369,12 @@
                             <input wire:model="form.opt_position_name" class="form-control"
                                 placeholder="សូមបញ្ចូលឈ្មោះដំណែង">
                         </div>
-                        <div class="col-12 col-md-6 form-group">
+                        <div class="col-12 col-md-6 form-group" x-init="$('#position_start_date').datetimepicker({ format: 'YYYY-MM-DD' });
+                        $('#position_start_date').on('change.datetimepicker', function(e) {
+                            if (e.date) {
+                                $wire.form.start_date = e.date.format('YYYY-MM-DD');
+                            }
+                        });">
                             <label>ថ្ងៃចាប់ផ្តើមដំណែង<span class="text-danger">*</span></label>
                             <div>
                                 <div class="input-group date" id="position_start_date" data-target-input="nearest">
@@ -380,7 +391,12 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="col-12 col-md-6 form-group">
+                        <div class="col-12 col-md-6 form-group" x-init="$('#position_end_date').datetimepicker({ format: 'YYYY-MM-DD' });
+                        $('#position_end_date').on('change.datetimepicker', function(e) {
+                            if (e.date) {
+                                $wire.form.end_date = e.date.format('YYYY-MM-DD');
+                            }
+                        });">
                             <label>ថ្ងៃបញ្ចប់ដំណែង</label>
                             <div>
                                 <div class="input-group date" id="position_end_date" data-target-input="nearest">
@@ -405,27 +421,6 @@
 
 @script
     <script>
-        $('#dob').datetimepicker({
-            format: 'YYYY-MM-DD'
-        });
-        $('#dob').on('change.datetimepicker', function() {
-            $wire.set('form.dob', $('#dob_input').val());
-        });
-
-        $('#position_start_date').datetimepicker({
-            format: 'YYYY-MM-DD'
-        })
-        $('#position_start_date').on('change.datetimepicker', function() {
-            $wire.set('form.start_date', $('#position_start_date_input').val());
-        });
-
-        $('#position_end_date').datetimepicker({
-            format: 'YYYY-MM-DD'
-        })
-        $('#position_end_date').on('change.datetimepicker', function() {
-            $wire.set('form.end_date', $('#position_end_date_input').val());
-        });
-
         $wire.on('create_fail', (event) => {
             Swal.fire({
                 title: "មានបញ្ហា!",

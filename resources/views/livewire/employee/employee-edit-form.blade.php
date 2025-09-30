@@ -9,14 +9,14 @@
                     <label>ឈ្មោះ<span class="text-danger">*</span></label>
                     <input wire:model="form.kh_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះ">
                     @error('form.kh_name')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-12 col-md-6 form-group">
                     <label>ឈ្មោះឡាតាំង<span class="text-danger">*</span></label>
                     <input wire:model="form.en_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះឡាតាំង">
                     @error('form.en_name')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
@@ -32,7 +32,7 @@
                         @endforeach
                     </select>
                     @error('form.gender_id')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-12 col-md-6 form-group">
@@ -40,14 +40,14 @@
                     <div>
                         <div class="input-group date" id="reservationdate" data-target-input="nearest">
                             <input id="dob" wire:model="form.dob" type="text"
-                                   class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                                class="form-control datetimepicker-input" data-target="#reservationdate" />
                             <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                             </div>
                         </div>
                     </div>
                     @error('form.dob')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
@@ -63,14 +63,14 @@
                         @endforeach
                     </select>
                     @error('form.family_situation_id')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-12 col-md-6 form-group">
                     <label>លេខអត្តសញ្ញាណប័ណ្ខ<span class="text-danger">*</span></label>
                     <input wire:model="form.national_id" class="form-control" placeholder="សូមបញ្ចូលលេខអត្តសញ្ញាណប័ណ្ខ">
                     @error('form.national_id')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
@@ -86,14 +86,14 @@
                         @endforeach
                     </select>
                     @error('form.employee_status_id')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-12 col-md-6 form-group">
                     <label>លេខទូរស័ព្ទ<span class="text-danger">*</span></label>
                     <input wire:model="form.phone_number" class="form-control" placeholder="សូមបញ្ចូលលេខទូរស័ព្ទ">
                     @error('form.phone_number')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
@@ -102,15 +102,15 @@
                     <label>អុីម៉ែល<span class="text-danger">*</span></label>
                     <input wire:model="form.email" class="form-control" placeholder="សូមបញ្ចូលអុីម៉ែល">
                     @error('form.email')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-12 col-md-6 form-group">
                     <label>រូបភាព<span class="text-danger">*</span></label>
                     <input wire:model="form.profile_img" type="file" class="form-control"
-                           placeholder="សូមបញ្ចូលរូបភាព">
+                        placeholder="សូមបញ្ចូលរូបភាព">
                     @error('form.profile_img')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
@@ -128,7 +128,7 @@
                             @endforeach
                         </select>
                         @error('form.bp_province_id')
-                        <span class="text-danger">{{ $message }}</span>
+                            <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-3 form-group">
@@ -142,7 +142,7 @@
                             @endforeach
                         </select>
                         @error('form.bp_district_id')
-                        <span class="text-danger">{{ $message }}</span>
+                            <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-3 form-group">
@@ -156,7 +156,7 @@
                             @endforeach
                         </select>
                         @error('form.bp_commune_id')
-                        <span class="text-danger">{{ $message }}</span>
+                            <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-3 form-group">
@@ -170,7 +170,7 @@
                             @endforeach
                         </select>
                         @error('form.bp_village_id')
-                        <span class="text-danger">{{ $message }}</span>
+                            <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>
@@ -189,7 +189,7 @@
                             @endforeach
                         </select>
                         @error('form.ad_province_id')
-                        <span class="text-danger">{{ $message }}</span>
+                            <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-3 form-group">
@@ -203,7 +203,7 @@
                             @endforeach
                         </select>
                         @error('form.ad_district_id')
-                        <span class="text-danger">{{ $message }}</span>
+                            <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-3 form-group">
@@ -217,7 +217,7 @@
                             @endforeach
                         </select>
                         @error('form.ad_commune_id')
-                        <span class="text-danger">{{ $message }}</span>
+                            <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="col-12 col-md-6 col-lg-3 form-group">
@@ -231,7 +231,7 @@
                             @endforeach
                         </select>
                         @error('form.ad_village_id')
-                        <span class="text-danger">{{ $message }}</span>
+                            <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>
@@ -241,138 +241,24 @@
                     <label>លេខផ្លូវ</label>
                     <input wire:model="form.ad_street_number" class="form-control" placeholder="សូមបញ្ចូលលេខផ្លូវ">
                     @error('form.ad_street_number')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-12 col-md-4 form-group">
                     <label>ឈ្មោះផ្លូវ</label>
                     <input wire:model="form.ad_street_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះផ្លូវ">
                     @error('form.ad_street_name')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-12 col-md-4 form-group">
                     <label>ផ្ទះលេខ</label>
                     <input wire:model="form.ad_house_number" class="form-control" placeholder="សូមបញ្ចូលផ្ទះលេខ">
                     @error('form.ad_house_number')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
-            {{--            <div class="row g-4">--}}
-            {{--                <div class="col-12 col-md-4 form-group">--}}
-            {{--                    <label>ថ្នាក់បុគ្គលិក<span class="text-danger">*</span></label>--}}
-            {{--                    @if(Auth::user()->user_level_id == 3)--}}
-            {{--                        <select wire:model.live="form.employee_level_id" class="form-control" disabled>--}}
-            {{--                            <option value="">សូមជ្រើសរើសថ្នាក់បុគ្គលិក</option>--}}
-            {{--                            @foreach ($user_levels as $user_level)--}}
-            {{--                                <option wire:key="{{ $user_level->id }}" value="{{ $user_level->id }}">--}}
-            {{--                                    {{ $user_level->kh_name }}--}}
-            {{--                                </option>--}}
-            {{--                            @endforeach--}}
-            {{--                        </select>--}}
-            {{--                    @else--}}
-            {{--                        <select wire:model.live="form.employee_level_id" class="form-control">--}}
-            {{--                            <option value="">សូមជ្រើសរើសថ្នាក់បុគ្គលិក</option>--}}
-            {{--                            @foreach ($user_levels as $user_level)--}}
-            {{--                                @if($user_level->id == 1 && Auth::user()->user_level_id > 1)--}}
-            {{--                                    @continue--}}
-            {{--                                @endif--}}
-            {{--                                <option wire:key="{{ $user_level->id }}" value="{{ $user_level->id }}">--}}
-            {{--                                    {{ $user_level->kh_name }}--}}
-            {{--                                </option>--}}
-            {{--                            @endforeach--}}
-            {{--                        </select>--}}
-            {{--                    @endif--}}
-            {{--                    @error('form.employee_level_id')--}}
-            {{--                    <span class="text-danger">{{ $message }}</span>--}}
-            {{--                    @enderror--}}
-            {{--                </div>--}}
-            {{--                <div class="col-12 col-md-4 form-group">--}}
-            {{--                    <label>សាខា<span class="text-danger">*</span></label>--}}
-            {{--                    @if(Auth::user()->user_level_id == 2 || Auth::user()->user_level_id == 3)--}}
-            {{--                        <select wire:model.live="form.branch_id" class="form-control" disabled>--}}
-            {{--                            <option value="">សូមជ្រើសរើសសាខា</option>--}}
-            {{--                            @foreach ($branches as $branch)--}}
-            {{--                                <option wire:key="{{ $branch->id }}" value="{{ $branch->id }}">--}}
-            {{--                                    {{ $branch->kh_name }}--}}
-            {{--                                </option>--}}
-            {{--                            @endforeach--}}
-            {{--                        </select>--}}
-            {{--                    @else--}}
-            {{--                        <select wire:model.live="form.branch_id" class="form-control">--}}
-            {{--                            <option value="">សូមជ្រើសរើសសាខា</option>--}}
-            {{--                            @foreach ($branches as $branch)--}}
-            {{--                                <option wire:key="{{ $branch->id }}" value="{{ $branch->id }}">--}}
-            {{--                                    {{ $branch->kh_name }}--}}
-            {{--                                </option>--}}
-            {{--                            @endforeach--}}
-            {{--                        </select>--}}
-            {{--                    @endif--}}
-            {{--                    @error('form.branch_id')--}}
-            {{--                    <span class="text-danger">{{ $message }}</span>--}}
-            {{--                    @enderror--}}
-            {{--                </div>--}}
-            {{--                <div class="col-12 col-md-4 form-group">--}}
-            {{--                    @if ($form->employee_level_id == 3)--}}
-            {{--                        <label>អនុសាសា<span class="text-danger">*</span></label>--}}
-            {{--                    @else--}}
-            {{--                        <label>អនុសាសា</label>--}}
-            {{--                    @endif--}}
-            {{--                    @if(Auth::user()->user_level_id == 3)--}}
-            {{--                        <select wire:model="form.sub_branch_id" class="form-control" disabled>--}}
-            {{--                            <option value="">សូមជ្រើសរើសអនុសាខា</option>--}}
-            {{--                            @foreach ($sub_branches as $sub_branch)--}}
-            {{--                                <option wire:key="{{ $sub_branch->id }}" value="{{ $sub_branch->id }}">--}}
-            {{--                                    {{ $sub_branch->kh_name }}--}}
-            {{--                                </option>--}}
-            {{--                            @endforeach--}}
-            {{--                        </select>--}}
-            {{--                    @else--}}
-            {{--                        <select wire:model="form.sub_branch_id" class="form-control">--}}
-            {{--                            <option value="">សូមជ្រើសរើសអនុសាខា</option>--}}
-            {{--                            @foreach ($sub_branches as $sub_branch)--}}
-            {{--                                <option wire:key="{{ $sub_branch->id }}" value="{{ $sub_branch->id }}">--}}
-            {{--                                    {{ $sub_branch->kh_name }}--}}
-            {{--                                </option>--}}
-            {{--                            @endforeach--}}
-            {{--                        </select>--}}
-            {{--                    @endif--}}
-            {{--                    @error('form.sub_branch_id')--}}
-            {{--                    <span class="text-danger">{{ $message }}</span>--}}
-            {{--                    @enderror--}}
-            {{--                </div>--}}
-            {{--            </div>--}}
-            {{--            <div class="row g-4">--}}
-            {{--                <div class="col-12 col-md-6 form-group">--}}
-            {{--                    <label>នាយកដ្ឋាន<span class="text-danger">*</span></label>--}}
-            {{--                    <select wire:model.live="form.department_id" class="form-control">--}}
-            {{--                        <option value="">សូមជ្រើសរើសនាយកដ្ឋាន</option>--}}
-            {{--                        @foreach ($departments as $department)--}}
-            {{--                            <option wire:key="{{ $department->id }}" value="{{ $department->id }}">--}}
-            {{--                                {{ $department->kh_name }}--}}
-            {{--                            </option>--}}
-            {{--                        @endforeach--}}
-            {{--                    </select>--}}
-            {{--                    @error('form.department_id')--}}
-            {{--                    <span class="text-danger">{{ $message }}</span>--}}
-            {{--                    @enderror--}}
-            {{--                </div>--}}
-            {{--                <div class="col-12 col-md-6 form-group">--}}
-            {{--                    <label>ការិយាល័យ</label>--}}
-            {{--                    <select wire:model="form.office_id" class="form-control">--}}
-            {{--                        <option value="">សូមជ្រើសរើសការិយាល័យ</option>--}}
-            {{--                        @foreach ($offices as $office)--}}
-            {{--                            <option wire:key="{{ $office->id }}" value="{{ $office->id }}">--}}
-            {{--                                {{ $office->kh_name }}--}}
-            {{--                            </option>--}}
-            {{--                        @endforeach--}}
-            {{--                    </select>--}}
-            {{--                    @error('form.office_id')--}}
-            {{--                    <span class="text-danger">{{ $message }}</span>--}}
-            {{--                    @enderror--}}
-            {{--                </div>--}}
-            {{--            </div>--}}
         </div>
         <div class="card-footer text-right">
             <button type="submit" class="btn btn-info"><i class="fa fa-save mr-1"></i> កែប្រែ</button>
@@ -381,21 +267,21 @@
 </div>
 
 @script
-<script>
-    $('#reservationdate').datetimepicker({
-        format: 'YYYY-MM-DD'
-    });
-    $('#reservationdate').on('change.datetimepicker', function () {
-        $wire.set('form.dob', $('#dob').val());
-    });
-    $wire.on('update_fail', (event) => {
-        Swal.fire({
-            title: "មានបញ្ហា!",
-            text: event.message,
-            icon: "error",
-            confirmButtonText: "អូខេ",
-            confirmButtonColor: "#dc3545"
+    <script>
+        $('#reservationdate').datetimepicker({
+            format: 'YYYY-MM-DD'
         });
-    })
-</script>
+        $('#reservationdate').on('change.datetimepicker', function() {
+            $wire.set('form.dob', $('#dob').val());
+        });
+        $wire.on('update_fail', (event) => {
+            Swal.fire({
+                title: "មានបញ្ហា!",
+                text: event.message,
+                icon: "error",
+                confirmButtonText: "អូខេ",
+                confirmButtonColor: "#dc3545"
+            });
+        })
+    </script>
 @endscript
