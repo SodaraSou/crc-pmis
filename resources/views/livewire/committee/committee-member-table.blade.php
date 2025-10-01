@@ -47,14 +47,6 @@
                         @endforeach
                     </select>
                 </div>
-                {{-- <div class="col-12 col-md-3 form-group">
-                    <label>ចំនួនមួយទំព័រ</label>
-                    <select wire:model.live='per_page' class="form-control">
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                        <option value="75">75</option>
-                    </select>
-                </div> --}}
             </div>
             <div class="d-flex align-items-center">
                 @if ($committee_level_id || $committee_id || $term_id)
@@ -109,25 +101,19 @@
                     <tr>
                         <th>ល.រ</th>
                         <th>ឈ្មោះខ្មែរ</th>
-                        <th>អាណត្តិ</th>
+                        <th class="text-center">អាណត្តិ</th>
                         <th class="text-center">សកម្មភាព</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($members as $member)
                         <tr wire:key='{{ $member->id }}' aria-expanded="false">
-                            <td>{{ $member->id }}</td>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $member->kh_name }}</td>
-                            <td>
+                            <td class="text-center">
                                 <button class="btn btn-sm btn-success" data-widget="expandable-table"><i
                                         class="fa fa-eye" aria-hidden="true"></i></button>
                             </td>
-                            {{-- @php
-                                $committee_membership = $member->committees->first();
-                            @endphp
-                            <td>{{ $committee_membership->kh_name }}</td>
-                            <td>{{ $committee_membership->pivot->committee_position->kh_name }}</td>
-                            <td>{{ $committee_membership->pivot->gov_position }}</td> --}}
                             <td>
                                 <div class="d-flex justify-content-center align-items-center">
                                     <a href="{{ route('committee-member.show', $member->id) }}"
@@ -200,7 +186,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="card-footer"></div>
+        <div class="card-footer">{{ $members->links() }}</div>
     </div>
 </div>
 

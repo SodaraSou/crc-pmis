@@ -65,5 +65,8 @@
                 </tbody>
             </table>
         </div>
+        <div class="card-footer">
+            {{ $members->links() }}
+        </div>
     </div>
 </div>

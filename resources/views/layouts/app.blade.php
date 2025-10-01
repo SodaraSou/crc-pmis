@@ -38,7 +38,7 @@
             @yield('content')
         </div>
         {{-- Footer --}}
-        {{-- @include('layouts.footer') --}}
+        @include('layouts.footer')
     </div>
 
     <!-- jQuery -->
@@ -63,7 +63,7 @@
                 toast: true,
                 position: "top-end",
                 showConfirmButton: false,
-                timer: 5000,
+                timer: 3000,
                 timerProgressBar: true,
                 didOpen: (toast) => {
                     toast.onmouseenter = Swal.stopTimer;

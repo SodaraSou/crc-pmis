@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Forms;
 
-use App\Models\Committee;
 use App\Models\CommitteeMember;
 use App\Models\Member;
 use Illuminate\Support\Facades\Auth;
@@ -14,11 +13,9 @@ class MemberForm extends Form
 {
     public Member $member;
 
-    public Committee $committee;
-
-    public ?CommitteeMember $committee_member = null;
-
     public $is_edit = false;
+
+    public $title = '';
 
     #[Validate('required', message: 'សូមបញ្ចូលឈ្មោះ')]
     public $kh_name = '';
@@ -91,6 +88,7 @@ class MemberForm extends Form
     public function setForm(Member $member)
     {
         $this->member = $member;
+        $this->title = $member->title;
         $this->kh_name = $member->kh_name;
         $this->en_name = $member->en_name;
         $this->gender_id = $member->gender_id;
@@ -103,36 +101,13 @@ class MemberForm extends Form
         $this->ad_district_id = $member->ad_district_id;
         $this->ad_commune_id  = $member->ad_commune_id;
         $this->ad_village_id  = $member->ad_village_id;
-
-        // $today = now()->toDateString();
-        // $this->committee_member = $member->committee_members()
-        //     ->whereHas('branch_term', function ($bt) use ($today) {
-        //         $bt->where('start_date', '<=', $today)
-        //             ->where('end_date', '>=', $today);
-        //     })
-        //     ->first();
-
-        // if ($this->committee_member) {
-        //     $this->committee = $this->committee_member->committee;
-
-        //     $this->committee_id = $this->committee->id;
-        //     $this->committee_level_id = $this->committee->committee_level_id;
-
-        //     if ($this->committee->committee_level_id == 1) {
-        //         $this->term_id = $this->committee_member->branch_term_id;
-        //     } elseif ($this->committee->committee_level_id == 2) {
-        //         $this->term_id = $this->committee_member->sub_branch_term_id;
-        //     }
-
-        //     $this->committee_position_id = $this->committee_member->committee_position_id;
-        //     $this->gov_position = $this->committee_member->gov_position;
-        // }
     }
 
     public function store()
     {
         DB::transaction(function () {
             $member = Member::create([
+                'title' => $this->title,
                 'kh_name' => $this->kh_name,
                 'en_name' => $this->en_name,
                 'gender_id' => $this->gender_id,
@@ -174,6 +149,7 @@ class MemberForm extends Form
     {
         DB::transaction(function () {
             $this->member->update([
+                'title' => $this->title,
                 'kh_name' => $this->kh_name,
                 'en_name' => $this->en_name,
                 'gender_id' => $this->gender_id,

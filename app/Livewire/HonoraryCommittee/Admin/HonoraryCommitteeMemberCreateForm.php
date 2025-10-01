@@ -67,7 +67,8 @@ class HonoraryCommitteeMemberCreateForm extends Component
 
     public function updatedFormCommitteeLevelId(): void
     {
-        $this->committees = Committee::where('committee_level_id', $this->form->committee_level_id)
+        $this->committees = Committee::where('active', true)
+            ->where('committee_level_id', $this->form->committee_level_id)
             ->where('committee_type_id', 1)
             ->get();
     }

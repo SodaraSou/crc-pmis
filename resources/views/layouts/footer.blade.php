@@ -1,3 +1,3 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2024-2025 <a href="https://sodarasou.tech">SodaraSou.Tech</a>.</strong> All rights reserved.
+    <strong>&copy; 2025 រក្សាសិទ្ធិដោយនាយកដ្ឋានធនធានមនុស្ស</strong>
 </footer>

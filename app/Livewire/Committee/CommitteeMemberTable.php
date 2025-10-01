@@ -86,6 +86,26 @@ class CommitteeMemberTable extends Component
         $this->filter_term = null;
     }
 
+    public function removeFilter($filter): void
+    {
+        if ($filter == 'committee_level') {
+            $this->committee_level_id = '';
+            $this->filter_committee_level = null;
+            $this->committee_id = '';
+            $this->filter_committee = null;
+            $this->term_id = '';
+            $this->filter_term = null;
+        } elseif ($filter == 'committee') {
+            $this->committee_id = '';
+            $this->filter_committee = null;
+            $this->term_id = '';
+            $this->filter_term = null;
+        } elseif ($filter == 'term') {
+            $this->term_id = '';
+            $this->filter_term = null;
+        }
+    }
+
     public function updatedCommitteeLevelId()
     {
         $this->committees = Committee::where('active', true)
@@ -93,6 +113,10 @@ class CommitteeMemberTable extends Component
             ->where('committee_type_id', 2)
             ->get();
         $this->filter_committee_level = CommitteeLevel::find($this->committee_level_id);
+        $this->committee_id = '';
+        $this->filter_committee = null;
+        $this->term_id = '';
+        $this->filter_term = null;
     }
 
     public function updatedCommitteeId()

@@ -52,7 +52,7 @@
                     </div>
                     <div class="tab-pane fade" id="custom-tabs-four-employee" role="tabpanel"
                         aria-labelledby="custom-tabs-four-employee-tab">
-                        {{-- <livewire:branch.branch-employee-table :branch="$branch" /> --}}
+                        <livewire:sub-branch.sub-branch-employee-table :sub_branch="$sub_branch" />
                     </div>
                     <div class="tab-pane fade" id="custom-tabs-four-sub-branch" role="tabpanel"
                         aria-labelledby="custom-tabs-four-sub-branch-tab">

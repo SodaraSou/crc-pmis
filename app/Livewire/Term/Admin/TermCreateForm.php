@@ -91,12 +91,6 @@ class TermCreateForm extends Component
                     'start_date' => $this->start_date,
                     'end_date' => $this->end_date,
                 ]);
-                // session()->flash('toast', [
-                //     'type' => 'success',
-                //     'message' => 'អាណត្តិបានបង្កើតដោយជោគជ័យ!'
-                // ]);
-
-                // return redirect()->to("/branch/{$this->branch_id}");
             } else {
                 SubBranchTerm::create([
                     'kh_name' => $this->kh_name,
@@ -105,12 +99,6 @@ class TermCreateForm extends Component
                     'start_date' => $this->start_date,
                     'end_date' => $this->end_date,
                 ]);
-                // session()->flash('toast', [
-                //     'type' => 'success',
-                //     'message' => 'អាណត្តិបានបង្កើតដោយជោគជ័យ!'
-                // ]);
-
-                // return redirect()->to("/sub-branch/{$this->sub_branch_id}");
             }
 
             session()->flash('toast', [

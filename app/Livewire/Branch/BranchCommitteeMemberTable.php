@@ -76,7 +76,7 @@ class BranchCommitteeMemberTable extends Component
         }
 
         return view('livewire.branch.branch-committee-member-table', [
-            'members' => $query->get(),
+            'members' => $query->paginate($this->per_page),
             'terms' => BranchTerm::where('active', true)
                 ->where('branch_id', $this->branch->id)->get(),
         ]);

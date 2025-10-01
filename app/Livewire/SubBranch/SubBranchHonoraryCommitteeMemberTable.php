@@ -76,7 +76,7 @@ class SubBranchHonoraryCommitteeMemberTable extends Component
         }
 
         return view('livewire.sub-branch.sub-branch-honorary-committee-member-table', [
-            'members' => $query->get(),
+            'members' => $query->paginate($this->per_page),
             'terms' => SubBranchTerm::where('active', true)
                 ->where('sub_branch_id', $this->sub_branch->id)->get(),
         ]);

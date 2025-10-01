@@ -46,14 +46,6 @@ class HonoraryCommitteeMemberEditForm extends Component
         $this->ad_districts = District::where('province_id', $this->form->ad_province_id)->get();
         $this->ad_communes = Commune::where('district_id', $this->form->ad_district_id)->get();
         $this->ad_villages = Village::where('commune_id', $this->form->ad_commune_id)->get();
-        // $this->committees = Committee::where('committee_level_id', $this->form->committee_level_id)
-        //     ->where('committee_type_id', 1)
-        //     ->get();
-        // if ($this->form->committee_level_id == 1) {
-        //     $this->terms = BranchTerm::where('branch_id', $this->form->committee->branch->id)->get();
-        // } else if ($this->form->committee_level_id == 2) {
-        //     $this->terms = SubBranchTerm::where('sub_branch_id', $this->form->committee->sub_branch->id)->get();
-        // }
     }
 
     public function updatedFormBpProvinceId(): void
@@ -84,26 +76,6 @@ class HonoraryCommitteeMemberEditForm extends Component
     public function updatedFormAdCommuneId(): void
     {
         $this->ad_villages = Village::where('commune_id', $this->form->ad_commune_id)->get();
-    }
-
-    public function updatedFormCommitteeLevelId(): void
-    {
-        $this->committees = Committee::where('committee_level_id', $this->form->committee_level_id)
-            ->where('committee_type_id', 1)
-            ->get();
-        $this->form->committee_id = null;
-        $this->form->term_id = null;
-    }
-
-    public function updatedFormCommitteeId(): void
-    {
-        $committee = Committee::find($this->form->committee_id);
-        if ($this->form->committee_level_id < 3) {
-            $this->terms = BranchTerm::where('branch_id', $committee->branch->id)->get();
-        } else if ($this->form->committee_level_id == 3) {
-            $this->terms = SubBranchTerm::where('sub_branch_id', $committee->sub_branch->id)->get();
-        }
-        $this->form->term_id = null;
     }
 
     public function save()

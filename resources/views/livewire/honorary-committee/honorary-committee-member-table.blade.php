@@ -47,14 +47,6 @@
                             @endforeach
                         </select>
                     </div>
-                    {{-- <div class="col-12 col-md-3 form-group">
-                    <label>ចំនួនមួយទំព័រ</label>
-                    <select wire:model.live='per_page' class="form-control">
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                        <option value="75">75</option>
-                    </select>
-                </div> --}}
                 </div>
                 <div class="d-flex align-items-center">
                     @if ($committee_level_id || $committee_id || $term_id)
@@ -62,7 +54,7 @@
                         @if ($committee_level_id)
                             <span wire:key="filter-pill-gender"
                                 class="badge badge-pill badge-info d-inline-flex align-items-center mr-2">
-                                នាយកដ្ឋាន: {{ $filter_committee_level->kh_name }}
+                                ថ្នាក់: {{ $filter_committee_level->kh_name }}
                                 <a href="#" wire:click.prevent="removeFilter('committee_level')"
                                     class="text-white ml-2">
                                     <span class="sr-only">Remove filter option</span>
@@ -76,7 +68,7 @@
                         @if ($committee_id)
                             <span wire:key="filter-pill-gender"
                                 class="badge badge-pill badge-info d-inline-flex align-items-center mr-2">
-                                សាខា: {{ $filter_committee->kh_name }}
+                                គណ:កិត្តិយស: {{ $filter_committee->kh_name }}
                                 <a href="#" wire:click.prevent="removeFilter('committee')"
                                     class="text-white ml-2">
                                     <span class="sr-only">Remove filter option</span>
@@ -90,7 +82,7 @@
                         @if ($term_id)
                             <span wire:key="filter-pill-gender"
                                 class="badge badge-pill badge-info d-inline-flex align-items-center mr-2">
-                                សាខា: {{ $filter_term->kh_name }}
+                                អាណត្តិ: {{ $filter_term->kh_name }}
                                 <a href="#" wire:click.prevent="removeFilter('committee')"
                                     class="text-white ml-2">
                                     <span class="sr-only">Remove filter option</span>
@@ -118,18 +110,12 @@
                     <tbody>
                         @foreach ($members as $member)
                             <tr wire:key='{{ $member->id }}' aria-expanded="false">
-                                <td>{{ $member->id }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $member->kh_name }}</td>
                                 <td class="text-center">
                                     <button class="btn btn-sm btn-success" data-widget="expandable-table"><i
                                             class="fa fa-eye" aria-hidden="true"></i></button>
                                 </td>
-                                {{-- @php
-                                $committee_membership = $member->committees->first();
-                            @endphp
-                            <td>{{ $committee_membership->branch->kh_name }}</td>
-                            <td>{{ $committee_membership->pivot->gov_position }}</td>
-                            <td>{{ $committee_membership->pivot->committee_position->kh_name }}</td> --}}
                                 <td>
                                     <div class="d-flex justify-content-center align-items-center">
                                         <a href="{{ route('honorary-committee-member.show', $member->id) }}"

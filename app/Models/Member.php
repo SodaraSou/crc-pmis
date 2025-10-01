@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Member extends Model
 {
     protected $fillable = [
+        'title',
         'kh_name',
         'en_name',
         'gender_id',

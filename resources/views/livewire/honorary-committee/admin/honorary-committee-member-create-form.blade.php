@@ -5,14 +5,23 @@
     <form wire:submit.prevent="save">
         <div class="card-body">
             <div class="row g-4">
-                <div class="col-12 col-md-6 form-group">
+                <div class="col-12 col-md-4 form-group">
+                    <label>គោរមងារ
+                        {{-- <span class="text-danger">*</span> --}}
+                    </label>
+                    <input wire:model="form.title" class="form-control" placeholder="សូមបញ្ចូលគោរមងារ">
+                    {{-- @error('form.title')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror --}}
+                </div>
+                <div class="col-12 col-md-4 form-group">
                     <label>ឈ្មោះ<span class="text-danger">*</span></label>
                     <input wire:model="form.kh_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះ">
                     @error('form.kh_name')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="col-12 col-md-6 form-group">
+                <div class="col-12 col-md-4 form-group">
                     <label>ឈ្មោះឡាតាំង<span class="text-danger">*</span></label>
                     <input wire:model="form.en_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះឡាតាំង">
                     @error('form.en_name')

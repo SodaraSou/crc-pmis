@@ -67,6 +67,10 @@ class EmployeePositionEditForm extends Component
         $this->opt_position_name = $employee_position->opt_position_name;
         $this->start_date = $employee_position->start_date;
         $this->end_date = $employee_position->end_date;
+
+        if ($employee_position->department_id > 1) {
+            $this->offices = Office::where('department_id', $employee_position->department_id)->get();
+        }
     }
 
     protected function rules(): array

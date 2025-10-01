@@ -77,9 +77,15 @@ class EmployeeTable extends Component
         if ($filter == 'branch') {
             $this->branch_id = '';
             $this->filter_branch = null;
+            $this->sub_branch_id = '';
+            $this->filter_sub_branch = null;
+            $this->group_id = '';
+            $this->filter_group = null;
         } elseif ($filter == 'sub_branch') {
             $this->sub_branch_id = '';
             $this->filter_sub_branch = null;
+            $this->group_id = '';
+            $this->filter_group = null;
         } elseif ($filter == 'group') {
             $this->group_id = '';
             $this->filter_group = null;
@@ -90,12 +96,18 @@ class EmployeeTable extends Component
     {
         $this->filter_branch = Branch::find($this->branch_id);
         $this->sub_branches = SubBranch::where('branch_id', $this->branch_id)->get();
+        $this->sub_branch_id = '';
+        $this->filter_sub_branch = null;
+        $this->group_id = '';
+        $this->filter_group = null;
     }
 
     public function updatedSubBranchId()
     {
         $this->filter_sub_branch = SubBranch::find($this->sub_branch_id);
         $this->groups = Group::where('sub_branch_id', $this->sub_branch_id)->get();
+        $this->group_id = '';
+        $this->filter_group = null;
     }
 
     public function updatedGroupId()
