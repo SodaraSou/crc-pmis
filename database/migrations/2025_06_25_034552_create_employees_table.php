@@ -13,15 +13,16 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
             $table->string('kh_name');
             $table->string('en_name');
             $table->foreignId('family_situation_id')->constrained()->cascadeOnDelete();
             $table->foreignId('gender_id')->constrained()->cascadeOnDelete();
             $table->date('dob');
-            $table->string('national_id')->unique();
+            $table->string('national_id');
             $table->foreignId('employee_status_id')->constrained()->cascadeOnDelete();
-            $table->string('phone_number')->unique();
-            $table->string('email')->unique();
+            $table->string('phone_number');
+            $table->string('email');
             $table->string('profile_img');
             $table->foreignId('bp_province_id')->constrained('provinces')->cascadeOnDelete();
             $table->foreignId('bp_district_id')->constrained('districts')->cascadeOnDelete();
