@@ -40,9 +40,9 @@
                                     <b>{{ $current_committee->committee->kh_name }}</b>
                                 </li>
                                 <li class="list-group-item">
-                                    @if ($current_committee->committee->committee_level_id == 1)
+                                    @if ($current_committee->committee->committee_level_id < 3)
                                         <b>អាណត្តិបច្ចុប្បន្ន: {{ $current_committee->branch_term->kh_name }}</b>
-                                    @elseif ($current_committee->committee->committee_level_id == 2)
+                                    @elseif ($current_committee->committee->committee_level_id == 3)
                                         <b>អាណត្តិបច្ចុប្បន្ន: {{ $current_committee->sub_branch_term->kh_name }}</b>
                                     @endif
                                 </li>
@@ -138,11 +138,11 @@
                                     @endphp
                                     @foreach ($terms as $term)
                                         <div class="time-label">
-                                            @if ($term->committee->committee_level_id == 1)
+                                            @if ($term->committee->committee_level_id < 3)
                                                 <span class="bg-success">
-                                                    @if ($term->committee->committee_level_id == 1)
+                                                    @if ($term->committee->committee_level_id < 3)
                                                         {{ $term->branch_term->kh_name }}
-                                                    @elseif ($term->committee->committee_level_id == 2)
+                                                    @elseif ($term->committee->committee_level_id == 3)
                                                         {{ $term->sub_branch_term->kh_name }}
                                                     @endif
                                                 </span>
@@ -153,12 +153,12 @@
                                             <div class="timeline-item">
                                                 <h3 class="timeline-header">{{ $term->committee->kh_name }}</h3>
                                                 <div class="timeline-body">
-                                                    @if ($term->committee->committee_level_id == 1)
+                                                    @if ($term->committee->committee_level_id < 3)
                                                         <div>
                                                             រយ:ពេល: {{ $term->branch_term->start_date }} ដល់
                                                             {{ $term->branch_term->end_date }}
                                                         </div>
-                                                    @elseif ($term->committee->committee_level_id == 2)
+                                                    @elseif ($term->committee->committee_level_id == 3)
                                                         <div>
                                                             រយ:ពេល: {{ $term->sub_branch_term->start_date }} ដល់
                                                             {{ $term->sub_branch_term->end_date }}

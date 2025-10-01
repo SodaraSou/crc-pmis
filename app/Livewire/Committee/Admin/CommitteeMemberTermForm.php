@@ -51,9 +51,9 @@ class CommitteeMemberTermForm extends Component
     public function updatedCommitteeId(): void
     {
         $committee = Committee::find($this->committee_id);
-        if ($this->committee_level_id == 1) {
+        if ($this->committee_level_id < 3) {
             $this->terms = BranchTerm::where('branch_id', $committee->branch->id)->get();
-        } else if ($this->committee_level_id == 2) {
+        } else if ($this->committee_level_id == 3) {
             $this->terms = SubBranchTerm::where('sub_branch_id', $committee->sub_branch->id)->get();
         }
     }
@@ -65,11 +65,11 @@ class CommitteeMemberTermForm extends Component
             $exists = $this->member->committee_members()
                 ->where('committee_id', $this->committee_id)
                 ->where('active', true)
-                ->when($this->committee_level_id == 1, function ($q) {
+                ->when($this->committee_level_id < 3, function ($q) {
                     $q->where('active', true)
                         ->where('branch_term_id', $this->term_id);
                 })
-                ->when($this->committee_level_id == 2, function ($q) {
+                ->when($this->committee_level_id == 3, function ($q) {
                     $q->where('active', true)
                         ->where('sub_branch_term_id', $this->term_id);
                 })
@@ -80,7 +80,7 @@ class CommitteeMemberTermForm extends Component
                 return;
             }
 
-            if ($this->committee_level_id == 1) {
+            if ($this->committee_level_id < 3) {
                 CommitteeMember::create([
                     'member_id' => $this->member->id,
                     'branch_term_id' => $this->term_id,
@@ -89,7 +89,7 @@ class CommitteeMemberTermForm extends Component
                     'gov_position' => $this->gov_position,
                     'created_by' => Auth::user()->id,
                 ]);
-            } else if ($this->committee_level_id == 2) {
+            } else if ($this->committee_level_id == 3) {
                 CommitteeMember::create([
                     'member_id' => $this->member->id,
                     'sub_branch_term_id' => $this->term_id,

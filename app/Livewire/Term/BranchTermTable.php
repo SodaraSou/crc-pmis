@@ -46,7 +46,7 @@ class BranchTermTable extends Component
         }
     }
 
-    #[On('confirmed_delete')]
+    #[On('confirmed_delete_branch_term')]
     public function delete($term_id)
     {
         try {

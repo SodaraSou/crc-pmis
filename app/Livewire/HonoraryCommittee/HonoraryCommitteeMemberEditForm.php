@@ -98,9 +98,9 @@ class HonoraryCommitteeMemberEditForm extends Component
     public function updatedFormCommitteeId(): void
     {
         $committee = Committee::find($this->form->committee_id);
-        if ($this->form->committee_level_id == 1) {
+        if ($this->form->committee_level_id < 3) {
             $this->terms = BranchTerm::where('branch_id', $committee->branch->id)->get();
-        } else if ($this->form->committee_level_id == 2) {
+        } else if ($this->form->committee_level_id == 3) {
             $this->terms = SubBranchTerm::where('sub_branch_id', $committee->sub_branch->id)->get();
         }
         $this->form->term_id = null;

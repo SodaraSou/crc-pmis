@@ -60,12 +60,12 @@
                         <div class="text-right">
                             <a href="{{ route('branch.show', $branch->id) }}"
                                 class="btn btn-sm btn-primary text-white"><i class="fa fa-eye"></i></a>
-                            <a href="{{ route('branch.edit', $branch->id) }}" class="btn btn-sm btn-info text-white"><i
+                            {{-- <a href="{{ route('branch.edit', $branch->id) }}" class="btn btn-sm btn-info text-white"><i
                                     class="fa fa-pen"></i></a>
                             <button class="btn btn-sm btn-danger"
                                 wire:click="$dispatch('alert_delete', {branch_id: {{ $branch->id }}})">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
-                            </button>
+                            </button> --}}
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
     </div>
 </div>
 
-@script
+{{-- @script
     <script>
         $wire.on("alert_delete", (event) => {
             Swal.fire({
@@ -113,4 +113,4 @@
             });
         });
     </script>
-@endscript
+@endscript --}}

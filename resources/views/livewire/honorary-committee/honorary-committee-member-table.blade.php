@@ -111,7 +111,7 @@
                         <tr>
                             <th>ល.រ</th>
                             <th>ឈ្មោះ</th>
-                            <th>អាណត្តិ</th>
+                            <th class="text-center">អាណត្តិ</th>
                             <th class="text-center">សកម្មភាព</th>
                         </tr>
                     </thead>
@@ -120,7 +120,7 @@
                             <tr wire:key='{{ $member->id }}' aria-expanded="false">
                                 <td>{{ $member->id }}</td>
                                 <td>{{ $member->kh_name }}</td>
-                                <td>
+                                <td class="text-center">
                                     <button class="btn btn-sm btn-success" data-widget="expandable-table"><i
                                             class="fa fa-eye" aria-hidden="true"></i></button>
                                 </td>
@@ -172,12 +172,12 @@
                                                         <h3 class="timeline-header">{{ $term->committee->kh_name }}
                                                         </h3>
                                                         <div class="timeline-body">
-                                                            @if ($term->committee->committee_level_id == 1)
+                                                            @if ($term->committee->committee_level_id < 3)
                                                                 <div>
                                                                     រយ:ពេល: {{ $term->branch_term->start_date }} ដល់
                                                                     {{ $term->branch_term->end_date }}
                                                                 </div>
-                                                            @elseif ($term->committee->committee_level_id == 2)
+                                                            @elseif ($term->committee->committee_level_id == 3)
                                                                 <div>
                                                                     រយ:ពេល: {{ $term->sub_branch_term->start_date }}
                                                                     ដល់

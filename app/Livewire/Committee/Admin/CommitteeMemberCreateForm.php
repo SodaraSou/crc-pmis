@@ -75,10 +75,14 @@ class CommitteeMemberCreateForm extends Component
     public function updatedFormCommitteeId(): void
     {
         $committee = Committee::find($this->form->committee_id);
-        if ($this->form->committee_level_id == 1) {
-            $this->terms = BranchTerm::where('branch_id', $committee->branch->id)->get();
-        } else if ($this->form->committee_level_id == 2) {
-            $this->terms = SubBranchTerm::where('sub_branch_id', $committee->sub_branch->id)->get();
+        if ($this->form->committee_level_id < 3) {
+            $this->terms = BranchTerm::where('active', true)
+                ->where('branch_id', $committee->branch->id)
+                ->get();
+        } else if ($this->form->committee_level_id == 3) {
+            $this->terms = SubBranchTerm::where('active', true)
+                ->where('sub_branch_id', $committee->sub_branch->id)
+                ->get();
         }
     }
 

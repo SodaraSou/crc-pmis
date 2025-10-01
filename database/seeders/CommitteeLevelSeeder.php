@@ -14,6 +14,10 @@ class CommitteeLevelSeeder extends Seeder
     {
         CommitteeLevel::insert([
             [
+                'en_name' => 'Headquarter Level',
+                'kh_name' => 'កណ្តាល',
+            ],
+            [
                 'en_name' => 'Branch Level',
                 'kh_name' => 'សាខា',
             ],

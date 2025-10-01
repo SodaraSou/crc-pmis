@@ -148,7 +148,7 @@ class MemberForm extends Form
                 'created_by' => Auth::user()->id,
             ]);
 
-            if ($this->committee_level_id == 1) {
+            if ($this->committee_level_id < 3) {
                 CommitteeMember::create([
                     'member_id' => $member->id,
                     'branch_term_id' => $this->term_id,
@@ -157,7 +157,7 @@ class MemberForm extends Form
                     'gov_position' => $this->gov_position,
                     'created_by' => Auth::user()->id,
                 ]);
-            } else if ($this->committee_level_id == 2) {
+            } else if ($this->committee_level_id == 3) {
                 CommitteeMember::create([
                     'member_id' => $member->id,
                     'sub_branch_term_id' => $this->term_id,

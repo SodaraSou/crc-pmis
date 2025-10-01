@@ -30,12 +30,18 @@ class TermCreateForm extends Component
     public function mount($branch_id, $sub_branch_id)
     {
         if ($branch_id) {
-            $this->is_create_from_show = true;
-            $this->level_id = 1;
-            $this->branch_id = $branch_id;
+            if ($branch_id == 0) {
+                $this->is_create_from_show = true;
+                $this->level_id = 1;
+                $this->branch_id = $branch_id;
+            } else if ($branch_id > 0) {
+                $this->is_create_from_show = true;
+                $this->level_id = 2;
+                $this->branch_id = $branch_id;
+            }
         } else if ($sub_branch_id) {
             $this->is_create_from_show = true;
-            $this->level_id = 2;
+            $this->level_id = 3;
             $this->sub_branch_id = $sub_branch_id;
         }
     }
@@ -44,8 +50,8 @@ class TermCreateForm extends Component
     {
         return [
             'level_id' => !$this->branch_id && !$this->sub_branch_id ? 'required' : 'nullable',
-            'branch_id' => $this->level_id == 1 ? 'required' : 'nullable',
-            'sub_branch_id' => $this->level_id == 2 ? 'required' : 'nullable'
+            'branch_id' => $this->level_id < 3 ? 'required' : 'nullable',
+            'sub_branch_id' => $this->level_id == 3 ? 'required' : 'nullable'
         ];
     }
 
@@ -65,7 +71,10 @@ class TermCreateForm extends Component
 
     public function updatedLevelId()
     {
-        if ($this->level_id == 2) {
+        if ($this->level_id == 1) {
+            $this->branch_id = 0;
+        }
+        if ($this->level_id == 3) {
             $this->sub_branches = SubBranch::where('branch_id', $this->branch_id)->get();
         }
     }
@@ -74,7 +83,7 @@ class TermCreateForm extends Component
     {
         $this->validate();
         try {
-            if ($this->level_id == 1) {
+            if ($this->level_id < 3) {
                 BranchTerm::create([
                     'kh_name' => $this->kh_name,
                     'en_name' => $this->en_name,
@@ -82,12 +91,12 @@ class TermCreateForm extends Component
                     'start_date' => $this->start_date,
                     'end_date' => $this->end_date,
                 ]);
-                session()->flash('toast', [
-                    'type' => 'success',
-                    'message' => 'អាណត្តិបានបង្កើតដោយជោគជ័យ!'
-                ]);
+                // session()->flash('toast', [
+                //     'type' => 'success',
+                //     'message' => 'អាណត្តិបានបង្កើតដោយជោគជ័យ!'
+                // ]);
 
-                return redirect()->to("/branch/{$this->branch_id}");
+                // return redirect()->to("/branch/{$this->branch_id}");
             } else {
                 SubBranchTerm::create([
                     'kh_name' => $this->kh_name,
@@ -96,13 +105,20 @@ class TermCreateForm extends Component
                     'start_date' => $this->start_date,
                     'end_date' => $this->end_date,
                 ]);
-                session()->flash('toast', [
-                    'type' => 'success',
-                    'message' => 'អាណត្តិបានបង្កើតដោយជោគជ័យ!'
-                ]);
+                // session()->flash('toast', [
+                //     'type' => 'success',
+                //     'message' => 'អាណត្តិបានបង្កើតដោយជោគជ័យ!'
+                // ]);
 
-                return redirect()->to("/sub-branch/{$this->sub_branch_id}");
+                // return redirect()->to("/sub-branch/{$this->sub_branch_id}");
             }
+
+            session()->flash('toast', [
+                'type' => 'success',
+                'message' => 'អាណត្តិបានបង្កើតដោយជោគជ័យ!'
+            ]);
+
+            return redirect()->to('/term');
         } catch (\Exception $e) {
             $this->dispatch('create_fail', message: $e->getMessage());
         }

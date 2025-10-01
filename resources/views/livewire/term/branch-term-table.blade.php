@@ -97,7 +97,7 @@
                 cancelButtonText: "បញ្ឈប់"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    $wire.dispatch('confirmed_delete', {
+                    $wire.dispatch('confirmed_delete_branch_term', {
                         term_id: event.term_id
                     });
                 }

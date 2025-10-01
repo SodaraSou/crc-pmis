@@ -41,7 +41,7 @@ class ProvinceCreateForm extends Component
                     'en_name' => $this->en_name,
                     'branch_id' => $branch->id,
                     'committee_type_id' => 1,
-                    'committee_level_id' => 1,
+                    'committee_level_id' => 2,
                 ]);
 
                 Committee::create([
@@ -49,7 +49,7 @@ class ProvinceCreateForm extends Component
                     'en_name' => $this->en_name,
                     'branch_id' => $branch->id,
                     'committee_type_id' => 2,
-                    'committee_level_id' => 1,
+                    'committee_level_id' => 2,
                 ]);
             });
 

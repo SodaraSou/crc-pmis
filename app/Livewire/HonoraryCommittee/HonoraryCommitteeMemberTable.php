@@ -55,11 +55,11 @@ class HonoraryCommitteeMemberTable extends Component
 
         if ($this->committee_id) {
             $this->filter_committee = Committee::find($this->committee_id);
-            if ($this->committee_level_id == 1 && $this->filter_committee) {
+            if ($this->committee_level_id < 3 && $this->filter_committee) {
                 $this->terms = BranchTerm::where('active', true)
                     ->where('branch_id', $this->filter_committee->branch_id)
                     ->get();
-            } elseif ($this->committee_level_id == 2 && $this->filter_committee) {
+            } elseif ($this->committee_level_id == 3 && $this->filter_committee) {
                 $this->terms = SubBranchTerm::where('active', true)
                     ->where('sub_branch_id', $this->filter_committee->sub_branch_id)
                     ->get();
@@ -67,9 +67,9 @@ class HonoraryCommitteeMemberTable extends Component
         }
 
         if ($this->term_id) {
-            if ($this->committee_level_id == 1) {
+            if ($this->committee_level_id < 3) {
                 $this->filter_term = BranchTerm::find($this->term_id);
-            } elseif ($this->committee_level_id == 2) {
+            } elseif ($this->committee_level_id == 3) {
                 $this->filter_term = SubBranchTerm::find($this->term_id);
             }
         }
@@ -114,11 +114,11 @@ class HonoraryCommitteeMemberTable extends Component
             ->where('id', $this->committee_id)
             ->first();
         $this->filter_committee = $committee;
-        if ($this->committee_level_id == 1) {
+        if ($this->committee_level_id < 3) {
             $this->terms = BranchTerm::where('active', true)
                 ->where('branch_id', $committee->branch->id)
                 ->get();
-        } elseif ($this->committee_level_id == 2) {
+        } elseif ($this->committee_level_id == 3) {
             $this->terms = SubBranchTerm::where('active', true)
                 ->where('sub_branch_id', $committee->sub_branch->id)
                 ->get();
@@ -181,13 +181,13 @@ class HonoraryCommitteeMemberTable extends Component
         }
 
         if ($this->term_id) {
-            if ($this->committee_level_id == 1) {
+            if ($this->committee_level_id < 3) {
                 $query->whereHas('committee_members', function ($cm) {
                     $cm->where('active', true)
                         ->where('branch_term_id', $this->term_id);
                 });
                 $this->filter_term = BranchTerm::find($this->term_id);
-            } elseif ($this->committee_level_id == 2) {
+            } elseif ($this->committee_level_id == 3) {
                 $query->whereHas('committee_members', function ($cm) {
                     $cm->where('active', true)
                         ->where('sub_branch_term_id', $this->term_id);

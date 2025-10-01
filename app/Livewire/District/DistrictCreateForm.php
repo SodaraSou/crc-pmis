@@ -52,7 +52,7 @@ class DistrictCreateForm extends Component
                     'en_name' => $this->en_name,
                     'sub_branch_id' => $sub_branch->id,
                     'committee_type_id' => 1,
-                    'committee_level_id' => 2,
+                    'committee_level_id' => 3,
                 ]);
 
                 Committee::create([
@@ -60,7 +60,7 @@ class DistrictCreateForm extends Component
                     'en_name' => $this->en_name,
                     'sub_branch_id' => $sub_branch->id,
                     'committee_type_id' => 2,
-                    'committee_level_id' => 2,
+                    'committee_level_id' => 3,
                 ]);
             });
 

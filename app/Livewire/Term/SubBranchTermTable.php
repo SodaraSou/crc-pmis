@@ -72,7 +72,7 @@ class SubBranchTermTable extends Component
             ->get();
     }
 
-    #[On('confirmed_delete')]
+    #[On('confirmed_delete_sub_branch_term')]
     public function delete($term_id)
     {
         try {
