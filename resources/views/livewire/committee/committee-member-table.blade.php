@@ -155,12 +155,12 @@
                                                 <div class="timeline-item">
                                                     <h3 class="timeline-header">{{ $term->committee->kh_name }}</h3>
                                                     <div class="timeline-body">
-                                                        @if ($term->committee->committee_level_id == 1)
+                                                        @if ($term->committee->committee_level_id < 3)
                                                             <div>
                                                                 រយ:ពេល: {{ $term->branch_term->start_date }} ដល់
                                                                 {{ $term->branch_term->end_date }}
                                                             </div>
-                                                        @elseif ($term->committee->committee_level_id == 2)
+                                                        @elseif ($term->committee->committee_level_id == 3)
                                                             <div>
                                                                 រយ:ពេល: {{ $term->sub_branch_term->start_date }} ដល់
                                                                 {{ $term->sub_branch_term->end_date }}

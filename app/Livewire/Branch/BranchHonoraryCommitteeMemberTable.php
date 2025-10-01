@@ -63,7 +63,6 @@ class BranchHonoraryCommitteeMemberTable extends Component
                     });
             });
 
-
         if ($this->search) {
             $query->where('kh_name', 'like', '%' . $this->search . '%');
         }
@@ -78,7 +77,8 @@ class BranchHonoraryCommitteeMemberTable extends Component
         return view('livewire.branch.branch-honorary-committee-member-table', [
             'members' => $query->paginate($this->per_page),
             'terms' => BranchTerm::where('active', true)
-                ->where('branch_id', $this->branch->id)->get(),
+                ->where('branch_id', $this->branch->id)
+                ->get(),
         ]);
     }
 }

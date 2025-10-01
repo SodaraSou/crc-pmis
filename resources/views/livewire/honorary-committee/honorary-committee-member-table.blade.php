@@ -142,15 +142,13 @@
                                             @endphp
                                             @foreach ($terms as $term)
                                                 <div class="time-label">
-                                                    @if ($term->committee->committee_level_id == 1)
-                                                        <span class="bg-success">
-                                                            @if ($term->committee->committee_level_id == 1)
-                                                                {{ $term->branch_term->kh_name }}
-                                                            @elseif ($term->committee->committee_level_id == 2)
-                                                                {{ $term->sub_branch_term->kh_name }}
-                                                            @endif
-                                                        </span>
-                                                    @endif
+                                                    <span class="bg-success">
+                                                        @if ($term->committee->committee_level_id < 3)
+                                                            {{ $term->branch_term->kh_name }}
+                                                        @elseif ($term->committee->committee_level_id == 3)
+                                                            {{ $term->sub_branch_term->kh_name }}
+                                                        @endif
+                                                    </span>
                                                 </div>
                                                 <div>
                                                     <i class="fas fa-suitcase bg-success"></i>

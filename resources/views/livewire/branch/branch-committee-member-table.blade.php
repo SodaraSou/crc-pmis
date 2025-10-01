@@ -41,10 +41,11 @@
                 <tbody>
                     @foreach ($members as $member)
                         <tr wire:key='{{ $member->id }}'>
-                            <td>{{ $member->id }}</td>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $member->kh_name }}</td>
                             @php
                                 $committee_membership = $member->committees->first();
+                                // $current_membership = $member->committee_members()->where('active', true)->where()
                             @endphp
                             <td>{{ $committee_membership->pivot->gov_position }}</td>
                             <td>{{ $committee_membership->pivot->committee_position->kh_name }}</td>

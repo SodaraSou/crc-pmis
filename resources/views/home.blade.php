@@ -16,7 +16,7 @@
                         <p>សាខា</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-bag"></i>
+                        <i class="fa fa-university"></i>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                         <p>អនុសាខា</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
+                        <i class="fa fa-university"></i>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                         <p class="text-white">គណ:កិត្តិយស</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-person-add"></i>
+                        <i class="fas fa-users"></i>
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                         <p>គណ:កម្មាធិការ</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-pie-graph"></i>
+                        <i class="fas fa-users"></i>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                         <p>សមាជិកគណ:កិត្តិយស</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-bag"></i>
+                        <i class="fas fa-users"></i>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@
                         <p>សមាជិកគណ:កម្មាធិការ</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
+                        <i class="fas fa-users"></i>
                     </div>
                 </div>
             </div>
