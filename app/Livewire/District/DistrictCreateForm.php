@@ -50,6 +50,7 @@ class DistrictCreateForm extends Component
                 Committee::create([
                     'kh_name' => 'គណៈកិត្តិយសអនុសាខា ស្រុក' . $this->kh_name,
                     'en_name' => $this->en_name,
+                    'branch_id' => $this->province->branch->id,
                     'sub_branch_id' => $sub_branch->id,
                     'committee_type_id' => 1,
                     'committee_level_id' => 3,
@@ -58,6 +59,7 @@ class DistrictCreateForm extends Component
                 Committee::create([
                     'kh_name' => 'គណៈកម្មាធិការអនុសាខា ស្រុក' . $this->kh_name,
                     'en_name' => $this->en_name,
+                    'branch_id' => $this->province->branch->id,
                     'sub_branch_id' => $sub_branch->id,
                     'committee_type_id' => 2,
                     'committee_level_id' => 3,

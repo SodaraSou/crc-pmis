@@ -224,7 +224,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកមង្គលបូរី",
                 "en_name" => "Mongkol Borei",
-                "branch_id" => null,
+                "branch_id" => 1,
                 "sub_branch_id" => 102,
                 'committee_type_id' => 2,
                 'committee_level_id' => 3,
@@ -232,7 +232,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកភ្នំស្រុក",
                 "en_name" => "Phnum Srok",
-                "branch_id" => null,
+                "branch_id" => 1,
                 "sub_branch_id" => 103,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -240,7 +240,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកព្រះនេត្រព្រះ",
                 "en_name" => "Preah Netr Preah",
-                "branch_id" => null,
+                "branch_id" => 1,
                 "sub_branch_id" => 104,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -248,7 +248,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកអូរជ្រៅ",
                 "en_name" => "Ou Chrov",
-                "branch_id" => null,
+                "branch_id" => 1,
                 "sub_branch_id" => 105,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -256,7 +256,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកសិរីសោភ័ណ",
                 "en_name" => "Serei Saophoan",
-                "branch_id" => null,
+                "branch_id" => 1,
                 "sub_branch_id" => 106,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -264,7 +264,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកថ្មពួក",
                 "en_name" => "Thma Puok",
-                "branch_id" => null,
+                "branch_id" => 1,
                 "sub_branch_id" => 107,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -272,7 +272,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកស្វាយចេក",
                 "en_name" => "Svay Chek",
-                "branch_id" => null,
+                "branch_id" => 1,
                 "sub_branch_id" => 108,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -280,7 +280,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកម៉ាឡៃ",
                 "en_name" => "Malai",
-                "branch_id" => null,
+                "branch_id" => 1,
                 "sub_branch_id" => 109,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -288,7 +288,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកប៉ោយប៉ែត",
                 "en_name" => "Paoy Paet",
-                "branch_id" => null,
+                "branch_id" => 1,
                 "sub_branch_id" => 110,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -296,7 +296,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកបាណន់",
                 "en_name" => "Banan",
-                "branch_id" => null,
+                "branch_id" => 2,
                 "sub_branch_id" => 201,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -304,7 +304,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកថ្មគោល",
                 "en_name" => "Thma Koul",
-                "branch_id" => null,
+                "branch_id" => 2,
                 "sub_branch_id" => 202,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -312,7 +312,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកបាត់ដំបង",
                 "en_name" => "Battambang",
-                "branch_id" => null,
+                "branch_id" => 2,
                 "sub_branch_id" => 203,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -320,7 +320,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកបវេល",
                 "en_name" => "Bavel",
-                "branch_id" => null,
+                "branch_id" => 2,
                 "sub_branch_id" => 204,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -328,7 +328,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកឯកភ្នំ",
                 "en_name" => "Aek Phnum",
-                "branch_id" => null,
+                "branch_id" => 2,
                 "sub_branch_id" => 205,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -336,7 +336,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកមោងឫស្សី",
                 "en_name" => "Moung Ruessei",
-                "branch_id" => null,
+                "branch_id" => 2,
                 "sub_branch_id" => 206,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -344,7 +344,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុករតនមណ្ឌល",
                 "en_name" => "Rotonak Mondol",
-                "branch_id" => null,
+                "branch_id" => 2,
                 "sub_branch_id" => 207,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -352,7 +352,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកសង្កែ",
                 "en_name" => "Sangkae",
-                "branch_id" => null,
+                "branch_id" => 2,
                 "sub_branch_id" => 208,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -360,7 +360,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកសំឡូត",
                 "en_name" => "Samlout",
-                "branch_id" => null,
+                "branch_id" => 2,
                 "sub_branch_id" => 209,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -368,7 +368,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកសំពៅលូន",
                 "en_name" => "Sampov Lun",
-                "branch_id" => null,
+                "branch_id" => 2,
                 "sub_branch_id" => 210,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -376,7 +376,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកភ្នំព្រឹក",
                 "en_name" => "Phnum Proek",
-                "branch_id" => null,
+                "branch_id" => 2,
                 "sub_branch_id" => 211,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -384,7 +384,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកំរៀង",
                 "en_name" => "Kamrieng",
-                "branch_id" => null,
+                "branch_id" => 2,
                 "sub_branch_id" => 212,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -392,7 +392,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកគាស់ក្រឡ",
                 "en_name" => "Koas Krala",
-                "branch_id" => null,
+                "branch_id" => 2,
                 "sub_branch_id" => 213,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -400,7 +400,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុករុក្ខគិរី",
                 "en_name" => "Rukh Kiri",
-                "branch_id" => null,
+                "branch_id" => 2,
                 "sub_branch_id" => 214,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -408,7 +408,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកបាធាយ",
                 "en_name" => "Batheay",
-                "branch_id" => null,
+                "branch_id" => 3,
                 "sub_branch_id" => 301,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -416,7 +416,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកចំការលើ",
                 "en_name" => "Chamkar Leu",
-                "branch_id" => null,
+                "branch_id" => 3,
                 "sub_branch_id" => 302,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -424,7 +424,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកជើងព្រៃ",
                 "en_name" => "Cheung Prey",
-                "branch_id" => null,
+                "branch_id" => 3,
                 "sub_branch_id" => 303,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -432,7 +432,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកំពង់ចាម",
                 "en_name" => "Kampong Cham",
-                "branch_id" => null,
+                "branch_id" => 3,
                 "sub_branch_id" => 305,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -440,7 +440,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកំពង់សៀម",
                 "en_name" => "Kampong Siem",
-                "branch_id" => null,
+                "branch_id" => 3,
                 "sub_branch_id" => 306,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -448,7 +448,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកងមាស",
                 "en_name" => "Kang Meas",
-                "branch_id" => null,
+                "branch_id" => 3,
                 "sub_branch_id" => 307,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -456,7 +456,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកោះសូទិន",
                 "en_name" => "Kaoh Soutin",
-                "branch_id" => null,
+                "branch_id" => 3,
                 "sub_branch_id" => 308,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -464,7 +464,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកព្រៃឈរ",
                 "en_name" => "Prey Chhor",
-                "branch_id" => null,
+                "branch_id" => 3,
                 "sub_branch_id" => 313,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -472,7 +472,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកស្រីសន្ធរ",
                 "en_name" => "Srei Santhor",
-                "branch_id" => null,
+                "branch_id" => 3,
                 "sub_branch_id" => 314,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -480,7 +480,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកស្ទឹងត្រង់",
                 "en_name" => "Stueng Trang",
-                "branch_id" => null,
+                "branch_id" => 3,
                 "sub_branch_id" => 315,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -488,7 +488,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកបរិបូណ៌",
                 "en_name" => "Baribour",
-                "branch_id" => null,
+                "branch_id" => 4,
                 "sub_branch_id" => 401,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -496,7 +496,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកជលគីរី",
                 "en_name" => "Chol Kiri",
-                "branch_id" => null,
+                "branch_id" => 4,
                 "sub_branch_id" => 402,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -504,7 +504,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកំពង់ឆ្នាំង",
                 "en_name" => "Kampong Chhnang",
-                "branch_id" => null,
+                "branch_id" => 4,
                 "sub_branch_id" => 403,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -512,7 +512,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកំពង់លែង",
                 "en_name" => "Kampong Leaeng",
-                "branch_id" => null,
+                "branch_id" => 4,
                 "sub_branch_id" => 404,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -520,7 +520,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកំពង់ត្រឡាច",
                 "en_name" => "Kampong Tralach",
-                "branch_id" => null,
+                "branch_id" => 4,
                 "sub_branch_id" => 405,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -528,7 +528,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុករលាប្អៀរ",
                 "en_name" => "Rolea Bier",
-                "branch_id" => null,
+                "branch_id" => 4,
                 "sub_branch_id" => 406,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -536,7 +536,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកសាមគ្គីមានជ័យ",
                 "en_name" => "Sameakki Mean Chey",
-                "branch_id" => null,
+                "branch_id" => 4,
                 "sub_branch_id" => 407,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -544,7 +544,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកទឹកផុស",
                 "en_name" => "Tuek Phos",
-                "branch_id" => null,
+                "branch_id" => 4,
                 "sub_branch_id" => 408,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -552,7 +552,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកបរសេដ្ឋ",
                 "en_name" => "Basedth",
-                "branch_id" => null,
+                "branch_id" => 5,
                 "sub_branch_id" => 501,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -560,7 +560,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកច្បារមន",
                 "en_name" => "Chbar Mon",
-                "branch_id" => null,
+                "branch_id" => 5,
                 "sub_branch_id" => 502,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -568,7 +568,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកគងពិសី",
                 "en_name" => "Kong Pisei",
-                "branch_id" => null,
+                "branch_id" => 5,
                 "sub_branch_id" => 503,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -576,7 +576,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកឱរ៉ាល់",
                 "en_name" => "Aoral",
-                "branch_id" => null,
+                "branch_id" => 5,
                 "sub_branch_id" => 504,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -584,7 +584,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកឧដុង្គ",
                 "en_name" => "Odongk",
-                "branch_id" => null,
+                "branch_id" => 5,
                 "sub_branch_id" => 505,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -592,7 +592,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកភ្នំស្រួច",
                 "en_name" => "Phnum Sruoch",
-                "branch_id" => null,
+                "branch_id" => 5,
                 "sub_branch_id" => 506,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -600,7 +600,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកសំរោងទង",
                 "en_name" => "Samraong Tong",
-                "branch_id" => null,
+                "branch_id" => 5,
                 "sub_branch_id" => 507,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -608,7 +608,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកថ្ពង",
                 "en_name" => "Thpong",
-                "branch_id" => null,
+                "branch_id" => 5,
                 "sub_branch_id" => 508,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -616,7 +616,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកបារាយណ៍",
                 "en_name" => "Baray",
-                "branch_id" => null,
+                "branch_id" => 6,
                 "sub_branch_id" => 601,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -624,7 +624,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកំពង់ស្វាយ",
                 "en_name" => "Kampong Svay",
-                "branch_id" => null,
+                "branch_id" => 6,
                 "sub_branch_id" => 602,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -632,7 +632,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកស្ទឹងសែន",
                 "en_name" => "Stueng Saen",
-                "branch_id" => null,
+                "branch_id" => 6,
                 "sub_branch_id" => 603,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -640,7 +640,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកប្រាសាទបល្ល័ង្គ",
                 "en_name" => "Prasat Ballangk",
-                "branch_id" => null,
+                "branch_id" => 6,
                 "sub_branch_id" => 604,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -648,7 +648,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកប្រាសាទសំបូរ",
                 "en_name" => "Prasat Sambour",
-                "branch_id" => null,
+                "branch_id" => 6,
                 "sub_branch_id" => 605,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -656,7 +656,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកសន្តាន់",
                 "en_name" => "Sandan",
-                "branch_id" => null,
+                "branch_id" => 6,
                 "sub_branch_id" => 606,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -664,7 +664,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកសន្ទុក",
                 "en_name" => "Santuk",
-                "branch_id" => null,
+                "branch_id" => 6,
                 "sub_branch_id" => 607,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -672,7 +672,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកស្ទោង",
                 "en_name" => "Stoung",
-                "branch_id" => null,
+                "branch_id" => 6,
                 "sub_branch_id" => 608,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -680,7 +680,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកតាំងគោក",
                 "en_name" => "Taing Kouk",
-                "branch_id" => null,
+                "branch_id" => 6,
                 "sub_branch_id" => 609,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -688,7 +688,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកអង្គរជ័យ",
                 "en_name" => "Angkor Chey",
-                "branch_id" => null,
+                "branch_id" => 7,
                 "sub_branch_id" => 701,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -696,7 +696,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកបន្ទាយមាស",
                 "en_name" => "Banteay Meas",
-                "branch_id" => null,
+                "branch_id" => 7,
                 "sub_branch_id" => 702,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -704,7 +704,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកឈូក",
                 "en_name" => "Chhuk",
-                "branch_id" => null,
+                "branch_id" => 7,
                 "sub_branch_id" => 703,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -712,7 +712,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកជុំគិរី",
                 "en_name" => "Chum Kiri",
-                "branch_id" => null,
+                "branch_id" => 7,
                 "sub_branch_id" => 704,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -720,7 +720,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកដងទង់",
                 "en_name" => "Dang Tong",
-                "branch_id" => null,
+                "branch_id" => 7,
                 "sub_branch_id" => 705,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -728,7 +728,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកំពង់ត្រាច",
                 "en_name" => "Kampong Trach",
-                "branch_id" => null,
+                "branch_id" => 7,
                 "sub_branch_id" => 706,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -736,7 +736,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកទឹកឈូ",
                 "en_name" => "Tuek Chhou",
-                "branch_id" => null,
+                "branch_id" => 7,
                 "sub_branch_id" => 707,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -744,7 +744,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកំពត",
                 "en_name" => "Kampot",
-                "branch_id" => null,
+                "branch_id" => 7,
                 "sub_branch_id" => 708,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -752,7 +752,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកណ្ដាលស្ទឹង",
                 "en_name" => "Kandal Stueng",
-                "branch_id" => null,
+                "branch_id" => 8,
                 "sub_branch_id" => 801,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -760,7 +760,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកៀនស្វាយ",
                 "en_name" => "Kien Svay",
-                "branch_id" => null,
+                "branch_id" => 8,
                 "sub_branch_id" => 802,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -768,7 +768,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកខ្សាច់កណ្ដាល",
                 "en_name" => "Khsach Kandal",
-                "branch_id" => null,
+                "branch_id" => 8,
                 "sub_branch_id" => 803,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -776,7 +776,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកោះធំ",
                 "en_name" => "Kaoh Thum",
-                "branch_id" => null,
+                "branch_id" => 8,
                 "sub_branch_id" => 804,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -784,7 +784,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកលើកដែក",
                 "en_name" => "Leuk Daek",
-                "branch_id" => null,
+                "branch_id" => 8,
                 "sub_branch_id" => 805,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -792,7 +792,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកល្វាឯម",
                 "en_name" => "Lvea Aem",
-                "branch_id" => null,
+                "branch_id" => 8,
                 "sub_branch_id" => 806,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -800,7 +800,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកមុខកំពូល",
                 "en_name" => "Mukh Kampul",
-                "branch_id" => null,
+                "branch_id" => 8,
                 "sub_branch_id" => 807,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -808,7 +808,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកអង្គស្នួល",
                 "en_name" => "Angk Snuol",
-                "branch_id" => null,
+                "branch_id" => 8,
                 "sub_branch_id" => 808,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -816,7 +816,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកពញាឮ",
                 "en_name" => "Ponhea Lueu",
-                "branch_id" => null,
+                "branch_id" => 8,
                 "sub_branch_id" => 809,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -824,7 +824,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកស្អាង",
                 "en_name" => "Sang",
-                "branch_id" => null,
+                "branch_id" => 8,
                 "sub_branch_id" => 810,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -832,7 +832,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកតាខ្មៅ",
                 "en_name" => "Ta Khmau",
-                "branch_id" => null,
+                "branch_id" => 8,
                 "sub_branch_id" => 811,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -840,7 +840,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកបុទុមសាគរ",
                 "en_name" => "Botum Sakor",
-                "branch_id" => null,
+                "branch_id" => 9,
                 "sub_branch_id" => 901,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -848,7 +848,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកគិរីសាគរ",
                 "en_name" => "Kiri Sakor",
-                "branch_id" => null,
+                "branch_id" => 9,
                 "sub_branch_id" => 902,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -856,7 +856,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកោះកុង",
                 "en_name" => "Kaoh Kong",
-                "branch_id" => null,
+                "branch_id" => 9,
                 "sub_branch_id" => 903,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -864,7 +864,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកខេមរភូមិន្ទ",
                 "en_name" => "Khemara Phoumin",
-                "branch_id" => null,
+                "branch_id" => 9,
                 "sub_branch_id" => 904,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -872,7 +872,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកមណ្ឌលសីមា",
                 "en_name" => "Mondol Seima",
-                "branch_id" => null,
+                "branch_id" => 9,
                 "sub_branch_id" => 905,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -880,7 +880,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកស្រែ អំបិល",
                 "en_name" => "Srae Ambel",
-                "branch_id" => null,
+                "branch_id" => 9,
                 "sub_branch_id" => 906,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -888,7 +888,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកថ្មបាំង",
                 "en_name" => "Thma Bang",
-                "branch_id" => null,
+                "branch_id" => 9,
                 "sub_branch_id" => 907,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -896,7 +896,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកឆ្លូង",
                 "en_name" => "Chhloung",
-                "branch_id" => null,
+                "branch_id" => 10,
                 "sub_branch_id" => 1001,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -904,7 +904,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកក្រចេះ",
                 "en_name" => "Kracheh",
-                "branch_id" => null,
+                "branch_id" => 10,
                 "sub_branch_id" => 1002,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -912,7 +912,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកព្រែកប្រសព្វ",
                 "en_name" => "Prek Prasab",
-                "branch_id" => null,
+                "branch_id" => 10,
                 "sub_branch_id" => 1003,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -920,7 +920,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកសំបូរ",
                 "en_name" => "Sambour",
-                "branch_id" => null,
+                "branch_id" => 10,
                 "sub_branch_id" => 1004,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -928,7 +928,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកស្នួល",
                 "en_name" => "Snuol",
-                "branch_id" => null,
+                "branch_id" => 10,
                 "sub_branch_id" => 1005,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -936,7 +936,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកចិត្របុរី",
                 "en_name" => "Chetr Borei",
-                "branch_id" => null,
+                "branch_id" => 10,
                 "sub_branch_id" => 1006,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -944,7 +944,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកែវសីមា",
                 "en_name" => "Kaev Seima",
-                "branch_id" => null,
+                "branch_id" => 11,
                 "sub_branch_id" => 1101,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -952,7 +952,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកោះញែក",
                 "en_name" => "Kaoh Nheaek",
-                "branch_id" => null,
+                "branch_id" => 11,
                 "sub_branch_id" => 1102,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -960,7 +960,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកអូររាំង",
                 "en_name" => "Ou Reang",
-                "branch_id" => null,
+                "branch_id" => 11,
                 "sub_branch_id" => 1103,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -968,7 +968,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកពេជ្រាដា",
                 "en_name" => "Pech Chreada",
-                "branch_id" => null,
+                "branch_id" => 11,
                 "sub_branch_id" => 1104,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -976,7 +976,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកសែនមនោរម្យ",
                 "en_name" => "Saen Monourom",
-                "branch_id" => null,
+                "branch_id" => 11,
                 "sub_branch_id" => 1105,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -984,7 +984,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកចំការមន",
                 "en_name" => "Chamkar Mon",
-                "branch_id" => null,
+                "branch_id" => 12,
                 "sub_branch_id" => 1201,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -992,7 +992,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកដូនពេញ",
                 "en_name" => "Doun Penh",
-                "branch_id" => null,
+                "branch_id" => 12,
                 "sub_branch_id" => 1202,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1000,7 +1000,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុក៧មករា",
                 "en_name" => "Prampir Meakkakra",
-                "branch_id" => null,
+                "branch_id" => 12,
                 "sub_branch_id" => 1203,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1008,7 +1008,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកទួលគោក",
                 "en_name" => "Tuol Kouk",
-                "branch_id" => null,
+                "branch_id" => 12,
                 "sub_branch_id" => 1204,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1016,7 +1016,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកដង្កោ",
                 "en_name" => "Dangkao",
-                "branch_id" => null,
+                "branch_id" => 12,
                 "sub_branch_id" => 1205,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1024,7 +1024,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកមានជ័យ",
                 "en_name" => "Mean Chey",
-                "branch_id" => null,
+                "branch_id" => 12,
                 "sub_branch_id" => 1206,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1032,7 +1032,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកឫស្សីកែវ",
                 "en_name" => "Russey Keo",
-                "branch_id" => null,
+                "branch_id" => 12,
                 "sub_branch_id" => 1207,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1040,7 +1040,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកសែនសុខ",
                 "en_name" => "Saensokh",
-                "branch_id" => null,
+                "branch_id" => 12,
                 "sub_branch_id" => 1208,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1048,7 +1048,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកពោធិ៍សែនជ័យ",
                 "en_name" => "Pur SenChey",
-                "branch_id" => null,
+                "branch_id" => 12,
                 "sub_branch_id" => 1209,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1056,7 +1056,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកជ្រោយចង្វារ",
                 "en_name" => "Chraoy Chongvar",
-                "branch_id" => null,
+                "branch_id" => 12,
                 "sub_branch_id" => 1210,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1064,7 +1064,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកព្រែកព្នៅ",
                 "en_name" => "Praek Pnov",
-                "branch_id" => null,
+                "branch_id" => 12,
                 "sub_branch_id" => 1211,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1072,7 +1072,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកច្បារអំពៅ",
                 "en_name" => "Chbar Ampov",
-                "branch_id" => null,
+                "branch_id" => 12,
                 "sub_branch_id" => 1212,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1080,7 +1080,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកបឹងកេងកង",
                 "en_name" => "Kengkong",
-                "branch_id" => null,
+                "branch_id" => 12,
                 "sub_branch_id" => 1213,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1088,7 +1088,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកំបូល",
                 "en_name" => "Kambol",
-                "branch_id" => null,
+                "branch_id" => 12,
                 "sub_branch_id" => 1214,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1096,7 +1096,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកជ័យសែន",
                 "en_name" => "Chey Saen",
-                "branch_id" => null,
+                "branch_id" => 13,
                 "sub_branch_id" => 1301,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1104,7 +1104,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកឆែប",
                 "en_name" => "Chhaeb",
-                "branch_id" => null,
+                "branch_id" => 13,
                 "sub_branch_id" => 1302,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1112,7 +1112,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកជាំក្សាន្ដ",
                 "en_name" => "Choam Ksant",
-                "branch_id" => null,
+                "branch_id" => 13,
                 "sub_branch_id" => 1303,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1120,7 +1120,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកគូលែន",
                 "en_name" => "Kuleaen",
-                "branch_id" => null,
+                "branch_id" => 13,
                 "sub_branch_id" => 1304,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1128,7 +1128,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុករវៀង",
                 "en_name" => "Rovieng",
-                "branch_id" => null,
+                "branch_id" => 13,
                 "sub_branch_id" => 1305,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1136,7 +1136,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកសង្គមថ្មី",
                 "en_name" => "Sangkum Thmei",
-                "branch_id" => null,
+                "branch_id" => 13,
                 "sub_branch_id" => 1306,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1144,7 +1144,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកត្បែងមានជ័យ",
                 "en_name" => "Tbaeng Mean Chey",
-                "branch_id" => null,
+                "branch_id" => 13,
                 "sub_branch_id" => 1307,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1152,7 +1152,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកព្រះវិហារ",
                 "en_name" => "Preah Vihear",
-                "branch_id" => null,
+                "branch_id" => 13,
                 "sub_branch_id" => 1308,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1160,7 +1160,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកបាភ្នំ",
                 "en_name" => "Ba Phnum",
-                "branch_id" => null,
+                "branch_id" => 14,
                 "sub_branch_id" => 1401,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1168,7 +1168,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកំចាយមារ",
                 "en_name" => "Kamchay Mear",
-                "branch_id" => null,
+                "branch_id" => 14,
                 "sub_branch_id" => 1402,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1176,7 +1176,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកំពង់ត្របែក",
                 "en_name" => "Kampong Trabaek",
-                "branch_id" => null,
+                "branch_id" => 14,
                 "sub_branch_id" => 1403,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1184,7 +1184,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកញ្ជ្រៀច",
                 "en_name" => "Kanhchriech",
-                "branch_id" => null,
+                "branch_id" => 14,
                 "sub_branch_id" => 1404,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1192,7 +1192,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកមេសាង",
                 "en_name" => "Me Sang",
-                "branch_id" => null,
+                "branch_id" => 14,
                 "sub_branch_id" => 1405,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1200,7 +1200,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកពាមជរ",
                 "en_name" => "Peam Chor",
-                "branch_id" => null,
+                "branch_id" => 14,
                 "sub_branch_id" => 1406,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1208,7 +1208,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកពាមរក៍",
                 "en_name" => "Peam Ro",
-                "branch_id" => null,
+                "branch_id" => 14,
                 "sub_branch_id" => 1407,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1216,7 +1216,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកពារាំង",
                 "en_name" => "Pea Reang",
-                "branch_id" => null,
+                "branch_id" => 14,
                 "sub_branch_id" => 1408,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1224,7 +1224,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកព្រះស្ដេច",
                 "en_name" => "Preah Sdach",
-                "branch_id" => null,
+                "branch_id" => 14,
                 "sub_branch_id" => 1409,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1232,7 +1232,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកព្រៃវែង",
                 "en_name" => "Prey Veng",
-                "branch_id" => null,
+                "branch_id" => 14,
                 "sub_branch_id" => 1410,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1240,7 +1240,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកពោធិ៍រៀង",
                 "en_name" => "Pur Rieng",
-                "branch_id" => null,
+                "branch_id" => 14,
                 "sub_branch_id" => 1411,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1248,7 +1248,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកស៊ីធរកណ្ដាល",
                 "en_name" => "Sithor Kandal",
-                "branch_id" => null,
+                "branch_id" => 14,
                 "sub_branch_id" => 1412,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1256,7 +1256,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកស្វាយអន្ទរ",
                 "en_name" => "Svay Antor",
-                "branch_id" => null,
+                "branch_id" => 14,
                 "sub_branch_id" => 1413,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1264,7 +1264,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកបាកាន",
                 "en_name" => "Bakan",
-                "branch_id" => null,
+                "branch_id" => 15,
                 "sub_branch_id" => 1501,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1272,7 +1272,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកណ្ដៀង",
                 "en_name" => "Kandieng",
-                "branch_id" => null,
+                "branch_id" => 15,
                 "sub_branch_id" => 1502,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1280,7 +1280,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកក្រគរ",
                 "en_name" => "Krakor",
-                "branch_id" => null,
+                "branch_id" => 15,
                 "sub_branch_id" => 1503,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1288,7 +1288,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកភ្នំក្រវ៉ាញ",
                 "en_name" => "Phnum Kravanh",
-                "branch_id" => null,
+                "branch_id" => 15,
                 "sub_branch_id" => 1504,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1296,7 +1296,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកពោធិ៍សាត់",
                 "en_name" => "Pursat",
-                "branch_id" => null,
+                "branch_id" => 15,
                 "sub_branch_id" => 1505,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1304,7 +1304,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកវាលវែង",
                 "en_name" => "Veal Veaeng",
-                "branch_id" => null,
+                "branch_id" => 15,
                 "sub_branch_id" => 1506,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1312,7 +1312,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកតាលោសែនជ័យ",
                 "en_name" => "Ta Lou Senchey",
-                "branch_id" => null,
+                "branch_id" => 15,
                 "sub_branch_id" => 1507,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1320,7 +1320,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកអណ្ដូងមាស",
                 "en_name" => "Andoung Meas",
-                "branch_id" => null,
+                "branch_id" => 16,
                 "sub_branch_id" => 1601,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1328,7 +1328,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកបានលុង",
                 "en_name" => "Ban Lung",
-                "branch_id" => null,
+                "branch_id" => 16,
                 "sub_branch_id" => 1602,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1336,7 +1336,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកបរកែវ",
                 "en_name" => "Bar Kaev",
-                "branch_id" => null,
+                "branch_id" => 16,
                 "sub_branch_id" => 1603,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1344,7 +1344,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកូនមុំ",
                 "en_name" => "Koun Mom",
-                "branch_id" => null,
+                "branch_id" => 16,
                 "sub_branch_id" => 1604,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1352,7 +1352,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកលំផាត់",
                 "en_name" => "Lumphat",
-                "branch_id" => null,
+                "branch_id" => 16,
                 "sub_branch_id" => 1605,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1360,7 +1360,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកអូរជុំ",
                 "en_name" => "Ou Chum",
-                "branch_id" => null,
+                "branch_id" => 16,
                 "sub_branch_id" => 1606,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1368,7 +1368,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកអូរយ៉ាដាវ",
                 "en_name" => "Ou Ya Dav",
-                "branch_id" => null,
+                "branch_id" => 16,
                 "sub_branch_id" => 1607,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1376,7 +1376,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកតាវែង",
                 "en_name" => "Ta Veaeng",
-                "branch_id" => null,
+                "branch_id" => 16,
                 "sub_branch_id" => 1608,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1384,7 +1384,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកវើនសៃ",
                 "en_name" => "Veun Sai",
-                "branch_id" => null,
+                "branch_id" => 16,
                 "sub_branch_id" => 1609,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1392,7 +1392,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកអង្គរជុំ",
                 "en_name" => "Angkor Chum",
-                "branch_id" => null,
+                "branch_id" => 17,
                 "sub_branch_id" => 1701,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1400,7 +1400,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកអង្គរធំ",
                 "en_name" => "Angkor Thum",
-                "branch_id" => null,
+                "branch_id" => 17,
                 "sub_branch_id" => 1702,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1408,7 +1408,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកបន្ទាយស្រី",
                 "en_name" => "Banteay Srei",
-                "branch_id" => null,
+                "branch_id" => 17,
                 "sub_branch_id" => 1703,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1416,7 +1416,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកជីក្រែង",
                 "en_name" => "Chi Kraeng",
-                "branch_id" => null,
+                "branch_id" => 17,
                 "sub_branch_id" => 1704,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1424,7 +1424,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកក្រឡាញ់",
                 "en_name" => "Kralanh",
-                "branch_id" => null,
+                "branch_id" => 17,
                 "sub_branch_id" => 1706,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1432,7 +1432,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកពួក",
                 "en_name" => "Puok",
-                "branch_id" => null,
+                "branch_id" => 17,
                 "sub_branch_id" => 1707,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1440,7 +1440,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកប្រាសាទបាគង",
                 "en_name" => "Prasat Bakong",
-                "branch_id" => null,
+                "branch_id" => 17,
                 "sub_branch_id" => 1709,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1448,7 +1448,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកសៀមរាប",
                 "en_name" => "Siem Reap",
-                "branch_id" => null,
+                "branch_id" => 17,
                 "sub_branch_id" => 1710,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1456,7 +1456,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកសូទ្រនិគម",
                 "en_name" => "Soutr Nikom",
-                "branch_id" => null,
+                "branch_id" => 17,
                 "sub_branch_id" => 1711,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1464,7 +1464,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកស្រីស្នំ",
                 "en_name" => "Srei Snam",
-                "branch_id" => null,
+                "branch_id" => 17,
                 "sub_branch_id" => 1712,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1472,7 +1472,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកស្វាយលើ",
                 "en_name" => "Svay Leu",
-                "branch_id" => null,
+                "branch_id" => 17,
                 "sub_branch_id" => 1713,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1480,7 +1480,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកវ៉ារិន",
                 "en_name" => "Varin",
-                "branch_id" => null,
+                "branch_id" => 17,
                 "sub_branch_id" => 1714,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1488,7 +1488,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកព្រះសីហនុ",
                 "en_name" => "Preah Sihanouk",
-                "branch_id" => null,
+                "branch_id" => 18,
                 "sub_branch_id" => 1801,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1496,7 +1496,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកព្រៃនប់",
                 "en_name" => "Prey Nob",
-                "branch_id" => null,
+                "branch_id" => 18,
                 "sub_branch_id" => 1802,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1504,7 +1504,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកស្ទឹងហាវ",
                 "en_name" => "Stueng Hav",
-                "branch_id" => null,
+                "branch_id" => 18,
                 "sub_branch_id" => 1803,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1512,7 +1512,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកំពង់សីលា",
                 "en_name" => "Kampong Seila",
-                "branch_id" => null,
+                "branch_id" => 18,
                 "sub_branch_id" => 1804,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1520,7 +1520,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកោះរ៉ុង",
                 "en_name" => "Kaoh Rung Municipality",
-                "branch_id" => null,
+                "branch_id" => 18,
                 "sub_branch_id" => 1805,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1528,7 +1528,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកសេសាន",
                 "en_name" => "Sesan",
-                "branch_id" => null,
+                "branch_id" => 19,
                 "sub_branch_id" => 1901,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1536,7 +1536,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកសៀមបូក",
                 "en_name" => "Siem Bouk",
-                "branch_id" => null,
+                "branch_id" => 19,
                 "sub_branch_id" => 1902,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1544,7 +1544,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកសៀមប៉ាង",
                 "en_name" => "Siem Pang",
-                "branch_id" => null,
+                "branch_id" => 19,
                 "sub_branch_id" => 1903,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1552,7 +1552,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកស្ទឹងត្រែង",
                 "en_name" => "Stueng Traeng",
-                "branch_id" => null,
+                "branch_id" => 19,
                 "sub_branch_id" => 1904,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1560,7 +1560,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកថាឡាបរិវ៉ាត់",
                 "en_name" => "Thala Barivat",
-                "branch_id" => null,
+                "branch_id" => 19,
                 "sub_branch_id" => 1905,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1568,7 +1568,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកបុរីអូរស្វាយសែនជ័យ",
                 "en_name" => "Borei Ou Svay Senchey",
-                "branch_id" => null,
+                "branch_id" => 19,
                 "sub_branch_id" => 1906,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1576,7 +1576,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកចន្ទ្រា",
                 "en_name" => "Chantrea",
-                "branch_id" => null,
+                "branch_id" => 20,
                 "sub_branch_id" => 2001,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1584,7 +1584,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកំពង់រោទិ៍",
                 "en_name" => "Kampong Rou",
-                "branch_id" => null,
+                "branch_id" => 20,
                 "sub_branch_id" => 2002,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1592,7 +1592,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុករំដួល",
                 "en_name" => "Rumduol",
-                "branch_id" => null,
+                "branch_id" => 20,
                 "sub_branch_id" => 2003,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1600,7 +1600,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុករមាសហែក",
                 "en_name" => "Romeas Haek",
-                "branch_id" => null,
+                "branch_id" => 20,
                 "sub_branch_id" => 2004,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1608,7 +1608,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកស្វាយជ្រំ",
                 "en_name" => "Svay Chrum",
-                "branch_id" => null,
+                "branch_id" => 20,
                 "sub_branch_id" => 2005,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1616,7 +1616,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកស្វាយរៀង",
                 "en_name" => "Svay Rieng",
-                "branch_id" => null,
+                "branch_id" => 20,
                 "sub_branch_id" => 2006,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1624,7 +1624,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកស្វាយទាប",
                 "en_name" => "Svay Teab",
-                "branch_id" => null,
+                "branch_id" => 20,
                 "sub_branch_id" => 2007,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1632,7 +1632,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកបាវិត",
                 "en_name" => "Bavet",
-                "branch_id" => null,
+                "branch_id" => 20,
                 "sub_branch_id" => 2008,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1640,7 +1640,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកអង្គរបូរី",
                 "en_name" => "Angkor Borei",
-                "branch_id" => null,
+                "branch_id" => 21,
                 "sub_branch_id" => 2101,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1648,7 +1648,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកបាទី",
                 "en_name" => "Bati",
-                "branch_id" => null,
+                "branch_id" => 21,
                 "sub_branch_id" => 2102,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1656,7 +1656,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកបូរីជលសារ",
                 "en_name" => "Borei Cholsar",
-                "branch_id" => null,
+                "branch_id" => 21,
                 "sub_branch_id" => 2103,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1664,7 +1664,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកគីរីវង់",
                 "en_name" => "Kiri Vong",
-                "branch_id" => null,
+                "branch_id" => 21,
                 "sub_branch_id" => 2104,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1672,7 +1672,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកោះអណ្ដែត",
                 "en_name" => "Kaoh Andaet",
-                "branch_id" => null,
+                "branch_id" => 21,
                 "sub_branch_id" => 2105,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1680,7 +1680,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកព្រៃកប្បាស",
                 "en_name" => "Prey Kabbas",
-                "branch_id" => null,
+                "branch_id" => 21,
                 "sub_branch_id" => 2106,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1688,7 +1688,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកសំរោង",
                 "en_name" => "Samraong",
-                "branch_id" => null,
+                "branch_id" => 21,
                 "sub_branch_id" => 2107,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1696,7 +1696,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកដូនកែវ",
                 "en_name" => "Doun Kaev",
-                "branch_id" => null,
+                "branch_id" => 21,
                 "sub_branch_id" => 2108,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1704,7 +1704,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកត្រាំកក់",
                 "en_name" => "Tram Kak",
-                "branch_id" => null,
+                "branch_id" => 21,
                 "sub_branch_id" => 2109,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1712,7 +1712,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកទ្រាំង",
                 "en_name" => "Treang",
-                "branch_id" => null,
+                "branch_id" => 21,
                 "sub_branch_id" => 2110,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1720,7 +1720,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកអន្លង់វែង",
                 "en_name" => "Anlong Veaeng",
-                "branch_id" => null,
+                "branch_id" => 22,
                 "sub_branch_id" => 2201,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1728,7 +1728,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកបន្ទាយអំពិល",
                 "en_name" => "Banteay Ampil",
-                "branch_id" => null,
+                "branch_id" => 22,
                 "sub_branch_id" => 2202,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1736,7 +1736,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកចុងកាល់",
                 "en_name" => "Chong Kal",
-                "branch_id" => null,
+                "branch_id" => 22,
                 "sub_branch_id" => 2203,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1744,7 +1744,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកសំរោង",
                 "en_name" => "Samraong",
-                "branch_id" => null,
+                "branch_id" => 22,
                 "sub_branch_id" => 2204,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1752,7 +1752,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកត្រពាំងប្រាសាទ",
                 "en_name" => "Trapeang Prasat",
-                "branch_id" => null,
+                "branch_id" => 22,
                 "sub_branch_id" => 2205,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1760,7 +1760,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកដំណាក់ចង្អើរ",
                 "en_name" => "Damnak Changaeur",
-                "branch_id" => null,
+                "branch_id" => 23,
                 "sub_branch_id" => 2301,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1768,7 +1768,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកកែប",
                 "en_name" => "Kaeb",
-                "branch_id" => null,
+                "branch_id" => 23,
                 "sub_branch_id" => 2302,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1776,7 +1776,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកប៉ៃលិន",
                 "en_name" => "Pailin",
-                "branch_id" => null,
+                "branch_id" => 24,
                 "sub_branch_id" => 2401,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1784,7 +1784,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកសាលាក្រៅ",
                 "en_name" => "Sala Krau",
-                "branch_id" => null,
+                "branch_id" => 24,
                 "sub_branch_id" => 2402,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1792,7 +1792,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកតំបែរ",
                 "en_name" => "Dambae",
-                "branch_id" => null,
+                "branch_id" => 25,
                 "sub_branch_id" => 2501,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1800,7 +1800,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកក្រូចឆ្មារ",
                 "en_name" => "Krouch Chhmar",
-                "branch_id" => null,
+                "branch_id" => 25,
                 "sub_branch_id" => 2502,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1808,7 +1808,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកមេមត់",
                 "en_name" => "Memot",
-                "branch_id" => null,
+                "branch_id" => 25,
                 "sub_branch_id" => 2503,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1816,7 +1816,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកអូររាំងឪ",
                 "en_name" => "Ou Reang Ov",
-                "branch_id" => null,
+                "branch_id" => 25,
                 "sub_branch_id" => 2504,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1824,7 +1824,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកពញាក្រែក",
                 "en_name" => "Ponhea Kraek",
-                "branch_id" => null,
+                "branch_id" => 25,
                 "sub_branch_id" => 2505,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1832,7 +1832,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកសួង",
                 "en_name" => "Suong",
-                "branch_id" => null,
+                "branch_id" => 25,
                 "sub_branch_id" => 2506,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,
@@ -1840,7 +1840,7 @@ class Committee2Seeder extends Seeder
             [
                 "kh_name" => "គណ:កម្មាធិការអនុសាខា ស្រុកត្បូងឃ្មុំ",
                 "en_name" => "Tboung Khmum",
-                "branch_id" => null,
+                "branch_id" => 25,
                 "sub_branch_id" => 2507,
                 'committee_type_id' => 2,
                 "committee_level_id" => 3,

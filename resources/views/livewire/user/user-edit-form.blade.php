@@ -9,14 +9,14 @@
                     <label>ឈ្មោះខ្មែរ</label>
                     <input wire:model="kh_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះខ្មែរ">
                     @error('kh_name')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-12 col-md-6 form-group">
                     <label>ឈ្មោះឡាតាំង</label>
                     <input wire:model="name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះឡាតាំង">
                     @error('name')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
@@ -25,14 +25,14 @@
                     <label>អុីម៉ែល</label>
                     <input wire:model="email" class="form-control" placeholder="សូមបញ្ចូលអុីម៉ែល">
                     @error('email')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-12 col-md-6 form-group">
                     <label>លេខទូរស័ព្ទ</label>
                     <input wire:model="phone_number" class="form-control" placeholder="សូមបញ្ចូលលេខទូរស័ព្ទ">
                     @error('phone_number')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
@@ -48,7 +48,7 @@
                         @endforeach
                     </select>
                     @error('user_level_id')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-12 col-md-6 form-group">
@@ -62,7 +62,7 @@
                         @endforeach
                     </select>
                     @error('selected_role')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
@@ -78,7 +78,7 @@
                         @endforeach
                     </select>
                     @error('branch_id')
-                    <span class="text-danger">{{ $errors->first('branch_id') }}</span>
+                        <span class="text-danger">{{ $errors->first('branch_id') }}</span>
                     @enderror
                 </div>
                 <div class="col-12 col-md-6 form-group">
@@ -92,7 +92,7 @@
                         @endforeach
                     </select>
                     @error('sub_branch_id')
-                    <span class="text-danger">{{ $errors->first('sub_branch_id') }}</span>
+                        <span class="text-danger">{{ $errors->first('sub_branch_id') }}</span>
                     @enderror
                 </div>
             </div>
@@ -101,27 +101,27 @@
                     <label>លេខសម្ងាត់</label>
                     <input type="password" wire:model="password" class="form-control" placeholder="សូមបញ្ចូលលេខសម្ងាត់">
                     @error('password')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-info"><i class="fa fa-save mr-1"></i> កែប្រែ</button>
+            <button type="submit" class="btn btn-info float-right"><i class="fa fa-save mr-1"></i> កែប្រែ</button>
         </div>
     </form>
 </div>
 
 @script
-<script>
-    window.addEventListener("update_fail", event => {
-        Swal.fire({
-            title: "មានបញ្ហា!",
-            text: event.detail.message,
-            icon: "error",
-            confirmButtonText: "អូខេ",
-            confirmButtonColor: "#dc3545"
+    <script>
+        $wire.on("update_fail", event => {
+            Swal.fire({
+                title: "មានបញ្ហា!",
+                text: event.message,
+                icon: "error",
+                confirmButtonText: "អូខេ",
+                confirmButtonColor: "#dc3545"
+            });
         });
-    });
-</script>
+    </script>
 @endscript

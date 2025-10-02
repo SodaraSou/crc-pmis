@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    <livewire:permission.permission-edit-form :permission="$permission" />
+    <div class="container">
+        <livewire:permission.permission-edit-form :permission="$permission" />
+    </div>
 @endsection
 
 @section('js')

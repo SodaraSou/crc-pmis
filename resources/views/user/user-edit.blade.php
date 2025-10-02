@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    <livewire:user.user-edit-form :user="$user" />
+    <div class="container">
+        <livewire:user.user-edit-form :user="$user" />
+    </div>
 @endsection
 
 @section('js')

@@ -12,7 +12,7 @@ class PermissionTable extends Component
 {
     use WithPagination;
 
-    public $per_page = 10;
+    public $per_page = 25;
     #[Url()]
     public $search = '';
 

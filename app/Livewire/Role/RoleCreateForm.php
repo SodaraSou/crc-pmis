@@ -35,7 +35,7 @@ class RoleCreateForm extends Component
             $role->syncPermissions($validated['selected_permissions']);
             return redirect()->to('/role');
         } catch (\Exception $e) {
-            $this->dispatch('create_fail');
+            $this->dispatch('create_fail', message: $e->getMessage());
         }
     }
 

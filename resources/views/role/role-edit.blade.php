@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    <livewire:role.role-edit-form :role="$role" />
+    <div class="container">
+        <livewire:role.role-edit-form :role="$role" />
+    </div>
 @endsection
 
 @section('js')
