@@ -27,18 +27,20 @@
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 </head>
 
-<body class="sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<body class="sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed" style="height: auto;">
     <div class="wrapper">
         {{-- Navbar --}}
         @include('layouts.navbar')
         {{-- Sidebar --}}
         @include('layouts.sidebar')
         {{-- Content Wrapper --}}
-        <div class="content-wrapper p-4">
-            @yield('content')
+        <div class="content-wrapper">
+            <div class="pt-3">
+                @yield('content')
+            </div>
         </div>
         {{-- Footer --}}
-        {{-- @include('layouts.footer') --}}
+        @include('layouts.footer')
     </div>
 
     <!-- jQuery -->

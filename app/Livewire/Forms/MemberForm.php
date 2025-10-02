@@ -26,31 +26,31 @@ class MemberForm extends Form
     #[Validate('required', message: 'សូមជ្រើសរើសភេទ')]
     public $gender_id = null;
 
-    #[Validate('required', message: 'សូមបញ្ចូលលេខទូរស័ព្ទ')]
+    // #[Validate('required', message: 'សូមបញ្ចូលលេខទូរស័ព្ទ')]
     public $phone_number = '';
 
-    #[Validate('required', message: 'សូមជ្រើសរើសខេត្ត/រាជធានី')]
+    // #[Validate('required', message: 'សូមជ្រើសរើសខេត្ត/រាជធានី')]
     public $bp_province_id = null;
 
-    #[Validate('required', message: 'សូមជ្រើសរើសស្រុក/ខណ្ឌ')]
+    // #[Validate('required', message: 'សូមជ្រើសរើសស្រុក/ខណ្ឌ')]
     public $bp_district_id = null;
 
-    #[Validate('required', message: 'សូមជ្រើសរើសឃុំ/សង្កាត់')]
+    // #[Validate('required', message: 'សូមជ្រើសរើសឃុំ/សង្កាត់')]
     public $bp_commune_id = null;
 
-    #[Validate('required', message: 'សូមជ្រើសរើសភូមិ')]
+    // #[Validate('required', message: 'សូមជ្រើសរើសភូមិ')]
     public $bp_village_id = null;
 
-    #[Validate('required', message: 'សូមជ្រើសរើសខេត្ត/រាជធានី')]
+    // #[Validate('required', message: 'សូមជ្រើសរើសខេត្ត/រាជធានី')]
     public $ad_province_id = null;
 
-    #[Validate('required', message: 'សូមជ្រើសរើសស្រុក/ខណ្ឌ')]
+    // #[Validate('required', message: 'សូមជ្រើសរើសស្រុក/ខណ្ឌ')]
     public $ad_district_id = null;
 
-    #[Validate('required', message: 'សូមជ្រើសរើសឃុំ/សង្កាត់')]
+    // #[Validate('required', message: 'សូមជ្រើសរើសឃុំ/សង្កាត់')]
     public $ad_commune_id = null;
 
-    #[Validate('required', message: 'សូមជ្រើសរើសភូមិ')]
+    // #[Validate('required', message: 'សូមជ្រើសរើសភូមិ')]
     public $ad_village_id = null;
 
     public $committee_level_id = null;

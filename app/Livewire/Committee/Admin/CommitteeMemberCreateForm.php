@@ -3,6 +3,7 @@
 namespace App\Livewire\Committee\Admin;
 
 use App\Livewire\Forms\MemberForm;
+use App\Models\Branch;
 use App\Models\BranchTerm;
 use App\Models\Committee;
 use App\Models\CommitteeLevel;
@@ -18,6 +19,8 @@ use Livewire\Component;
 class CommitteeMemberCreateForm extends Component
 {
     public MemberForm $form;
+
+    public $branch_id = null;
 
     public $committees = [];
 
@@ -73,6 +76,30 @@ class CommitteeMemberCreateForm extends Component
             ->get();
     }
 
+
+    protected function rules(): array
+    {
+        return [
+            'branch_id' => $this->form->committee_level_id == 3 ? 'required' : 'nullable'
+        ];
+    }
+
+    protected function messages(): array
+    {
+        return [
+            'branch_id.required' => 'សូមជ្រើសរើសសាខា'
+        ];
+    }
+
+    public function updatedBranchId()
+    {
+        $this->committees = Committee::where('active', true)
+            ->where('committee_level_id', $this->form->committee_level_id)
+            ->where('committee_type_id', 2)
+            ->where('branch_id', $this->branch_id)
+            ->get();
+    }
+
     public function updatedFormCommitteeId(): void
     {
         $committee = Committee::find($this->form->committee_id);
@@ -112,6 +139,7 @@ class CommitteeMemberCreateForm extends Component
             'ad_provinces' => Province::all(),
             'committee_levels' => CommitteeLevel::all(),
             'committee_positions' => CommitteePosition::all(),
+            'branches' => Branch::all()
         ]);
     }
 }

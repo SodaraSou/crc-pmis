@@ -4,15 +4,12 @@ namespace App\Livewire\Committee;
 
 use App\Livewire\Forms\MemberForm;
 use App\Models\Member;
-use App\Models\BranchTerm;
-use App\Models\Committee;
 use App\Models\CommitteeLevel;
 use App\Models\CommitteePosition;
 use App\Models\Commune;
 use App\Models\District;
 use App\Models\Gender;
 use App\Models\Province;
-use App\Models\SubBranchTerm;
 use App\Models\Village;
 use Livewire\Component;
 

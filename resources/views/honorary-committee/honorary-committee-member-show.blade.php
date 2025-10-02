@@ -98,16 +98,16 @@
                                         <td>
                                             <dl class="row mb-0">
                                                 <dt class="col-sm-4">ភូមិ</dt>
-                                                <dd class="col-sm-8">{{ $member->bp_village->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $member->bp_village->kh_name ?? 'N/A' }}</dd>
 
                                                 <dt class="col-sm-4">ឃុំ/សង្កាត់</dt>
-                                                <dd class="col-sm-8">{{ $member->bp_commune->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $member->bp_commune->kh_name ?? 'N/A' }}</dd>
 
                                                 <dt class="col-sm-4">ក្រុង/ស្រុក/ខណ្ឌ</dt>
-                                                <dd class="col-sm-8">{{ $member->bp_district->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $member->bp_district->kh_name ?? 'N/A' }}</dd>
 
                                                 <dt class="col-sm-4">រាជធានី/ខេត្ត</dt>
-                                                <dd class="col-sm-8">{{ $member->bp_province->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $member->bp_province->kh_name ?? 'N/A' }}</dd>
                                             </dl>
                                         </td>
                                     </tr>
@@ -116,16 +116,16 @@
                                         <td>
                                             <dl class="row mb-0">
                                                 <dt class="col-sm-4">ភូមិ</dt>
-                                                <dd class="col-sm-8">{{ $member->ad_village->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $member->ad_village->kh_name ?? 'N/A' }}</dd>
 
                                                 <dt class="col-sm-4">ឃុំ/សង្កាត់</dt>
-                                                <dd class="col-sm-8">{{ $member->ad_commune->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $member->ad_commune->kh_name ?? 'N/A' }}</dd>
 
                                                 <dt class="col-sm-4">ក្រុង/ស្រុក/ខណ្ឌ</dt>
-                                                <dd class="col-sm-8">{{ $member->ad_district->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $member->ad_district->kh_name ?? 'N/A' }}</dd>
 
                                                 <dt class="col-sm-4">រាជធានី/ខេត្ត</dt>
-                                                <dd class="col-sm-8">{{ $member->ad_province->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $member->ad_province->kh_name ?? 'N/A' }}</dd>
                                             </dl>
                                         </td>
                                     </tr>
@@ -138,15 +138,13 @@
                                     @endphp
                                     @foreach ($terms as $term)
                                         <div class="time-label">
-                                            @if ($term->committee->committee_level_id < 3)
-                                                <span class="bg-success">
-                                                    @if ($term->committee->committee_level_id < 3)
-                                                        {{ $term->branch_term->kh_name }}
-                                                    @elseif ($term->committee->committee_level_id == 3)
-                                                        {{ $term->sub_branch_term->kh_name }}
-                                                    @endif
-                                                </span>
-                                            @endif
+                                            <span class="bg-success">
+                                                @if ($term->committee->committee_level_id < 3)
+                                                    {{ $term->branch_term->kh_name }}
+                                                @elseif ($term->committee->committee_level_id == 3)
+                                                    {{ $term->sub_branch_term->kh_name }}
+                                                @endif
+                                            </span>
                                         </div>
                                         <div>
                                             <i class="fas fa-suitcase bg-success"></i>
