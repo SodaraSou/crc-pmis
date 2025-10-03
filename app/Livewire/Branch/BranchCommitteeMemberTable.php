@@ -36,14 +36,8 @@ class BranchCommitteeMemberTable extends Component
             }
         ]);
         $this->committee = $this->branch->committees->first();
-        $today = now()->toDateString();
-        $this->current_term = BranchTerm::where('active', true)
-            ->where('branch_id', $this->branch->id)
-            ->where('start_date', "<=", $today)
-            ->where('end_date',  ">=", $today)
-            ->first();
-        if ($this->current_term) {
-            $this->term_id = $this->current_term->id;
+        if ($this->branch->current_term) {
+            $this->term_id = $this->branch->current_term->id;
         }
     }
 
