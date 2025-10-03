@@ -41,6 +41,7 @@
                     <tr>
                         <th>ល.រ</th>
                         <th>ឈ្មោះខ្មែរ</th>
+                        <th>នាយកដ្ឋាន</th>
                         <th>តួនាទី​</th>
                         <th class="text-center">សកម្មភាព</th>
                     </tr>
@@ -50,7 +51,8 @@
                         <tr wire:key='{{ $employee->id }}'>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $employee->kh_name }}</td>
-                            <td></td>
+                            <td>{{ $employee->current_position->department->kh_name }}</td>
+                            <td>{{ $employee->current_position->position->kh_name }}</td>
                             <td>
                                 <div class="d-flex justify-content-center align-items-center">
                                     <a href="{{ route('employee.show', Crypt::encrypt($employee->id)) }}"

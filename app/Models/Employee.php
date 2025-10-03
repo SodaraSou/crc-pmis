@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Employee extends Model
 {
     protected $fillable = [
+        'title',
         'kh_name',
         'en_name',
         'family_situation_id',
@@ -106,6 +108,14 @@ class Employee extends Model
     public function employee_positions(): HasMany
     {
         return $this->hasMany(EmployeePosition::class);
+    }
+
+    public function current_position(): HasOne
+    {
+        return $this->hasOne(EmployeePosition::class)
+            ->where('active', true)
+            ->where('start_date', '<=', now()->toDateString())
+            ->latest('start_date');
     }
 
     public function educations(): HasMany

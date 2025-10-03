@@ -25,12 +25,12 @@
                         <div class="text-right">
                             <a href="{{ route('sub-branch.show', $sub_branch->id) }}"
                                 class="btn btn-sm btn-primary text-white"><i class="fa fa-eye"></i></a>
-                            <a href="{{ route('sub-branch.edit', $sub_branch->id) }}"
+                            {{-- <a href="{{ route('sub-branch.edit', $sub_branch->id) }}"
                                 class="btn btn-sm btn-info text-white"><i class="fa fa-pen"></i></a>
                             <button class="btn btn-sm btn-danger"
                                 wire:click="$dispatch('alert_delete', {sub_branch_id: {{ $sub_branch->id }}})">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
-                            </button>
+                            </button> --}}
                         </div>
                     </div>
                 </div>

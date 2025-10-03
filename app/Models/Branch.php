@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Branch extends Model
 {
@@ -38,5 +39,13 @@ class Branch extends Model
     public function terms(): HasMany
     {
         return $this->hasMany(BranchTerm::class);
+    }
+
+    public function current_term(): HasOne
+    {
+        return $this->hasOne(BranchTerm::class)
+            ->where('active', true)
+            ->where('start_date', '<=', now()->toDateString())
+            ->latest('start_date');
     }
 }

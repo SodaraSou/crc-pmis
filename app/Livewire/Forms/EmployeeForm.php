@@ -15,58 +15,60 @@ class EmployeeForm extends Form
 
     public $is_edit = false;
 
+    public $title = '';
+
     #[Validate('required', message: 'សូមបញ្ចូលឈ្មោះ')]
     public $kh_name = '';
 
     #[Validate('required', message: 'សូមបញ្ចូលឈ្មោះឡាតាំង')]
     public $en_name = '';
 
-    #[Validate('required', message: 'សូមជ្រើសរើសស្ថានភាពគ្រួសារ')]
+    // #[Validate('required', message: 'សូមជ្រើសរើសស្ថានភាពគ្រួសារ')]
     public $family_situation_id = null;
 
     #[Validate('required', message: 'សូមជ្រើសរើសភេទ')]
     public $gender_id = null;
 
-    #[Validate('required', message: 'សូមបញ្ចូលថ្ងៃខែឆ្នាំកំណើត')]
+    // #[Validate('required', message: 'សូមបញ្ចូលថ្ងៃខែឆ្នាំកំណើត')]
     public $dob = null;
 
-    #[Validate('required', message: 'សូមបញ្ចូលលេខអត្តសញ្ញាណប័ណ្ខ')]
+    // #[Validate('required', message: 'សូមបញ្ចូលលេខអត្តសញ្ញាណប័ណ្ខ')]
     public $national_id = '';
 
-    #[Validate('required', message: 'សូមជ្រើសរើសស្ថានភាពបុគ្គលិក')]
+    // #[Validate('required', message: 'សូមជ្រើសរើសស្ថានភាពបុគ្គលិក')]
     public $employee_status_id = null;
 
-    #[Validate('required', message: 'សូមបញ្ចូលលេខទូរស័ព្ទ')]
+    // #[Validate('required', message: 'សូមបញ្ចូលលេខទូរស័ព្ទ')]
     public $phone_number = '';
 
-    #[Validate('required', message: 'សូមបញ្ចូលអុីម៉ែល')]
+    // #[Validate('required', message: 'សូមបញ្ចូលអុីម៉ែល')]
     public $email = '';
 
-    #[Validate('required', message: 'សូមបញ្ចូលរូបភាព')]
+    // #[Validate('required', message: 'សូមបញ្ចូលរូបភាព')]
     public $profile_img = 'https://github.com/shadcn.png';
 
-    #[Validate('required', message: 'សូមជ្រើសរើសខេត្ត/រាជធានី')]
+    // #[Validate('required', message: 'សូមជ្រើសរើសខេត្ត/រាជធានី')]
     public $bp_province_id = null;
 
-    #[Validate('required', message: 'សូមជ្រើសរើសស្រុក/ខណ្ឌ')]
+    // #[Validate('required', message: 'សូមជ្រើសរើសស្រុក/ខណ្ឌ')]
     public $bp_district_id = null;
 
-    #[Validate('required', message: 'សូមជ្រើសរើសឃុំ/សង្កាត់')]
+    // #[Validate('required', message: 'សូមជ្រើសរើសឃុំ/សង្កាត់')]
     public $bp_commune_id = null;
 
-    #[Validate('required', message: 'សូមជ្រើសរើសភូមិ')]
+    // #[Validate('required', message: 'សូមជ្រើសរើសភូមិ')]
     public $bp_village_id = null;
 
-    #[Validate('required', message: 'សូមជ្រើសរើសខេត្ត/រាជធានី')]
+    // #[Validate('required', message: 'សូមជ្រើសរើសខេត្ត/រាជធានី')]
     public $ad_province_id = null;
 
-    #[Validate('required', message: 'សូមជ្រើសរើសស្រុក/ខណ្ឌ')]
+    // #[Validate('required', message: 'សូមជ្រើសរើសស្រុក/ខណ្ឌ')]
     public $ad_district_id = null;
 
-    #[Validate('required', message: 'សូមជ្រើសរើសឃុំ/សង្កាត់')]
+    // #[Validate('required', message: 'សូមជ្រើសរើសឃុំ/សង្កាត់')]
     public $ad_commune_id = null;
 
-    #[Validate('required', message: 'សូមជ្រើសរើសភូមិ')]
+    // #[Validate('required', message: 'សូមជ្រើសរើសភូមិ')]
     public $ad_village_id = null;
 
     public $ad_street_number = null;
@@ -127,6 +129,7 @@ class EmployeeForm extends Form
     public function setForm(Employee $employee): void
     {
         $this->employee = $employee;
+        $this->title = $employee->title;
         $this->kh_name = $employee->kh_name;
         $this->en_name = $employee->en_name;
         $this->family_situation_id = $employee->family_situation_id;
@@ -154,6 +157,7 @@ class EmployeeForm extends Form
     {
         return DB::transaction(function () {
             $employee = Employee::create([
+                'title' => $this->title,
                 'kh_name' => $this->kh_name,
                 'en_name' => $this->en_name,
                 'family_situation_id' => $this->family_situation_id,
@@ -200,6 +204,7 @@ class EmployeeForm extends Form
     public function update()
     {
         $this->employee->update([
+            'title' => $this->title,
             'kh_name' => $this->kh_name,
             'en_name' => $this->en_name,
             'family_situation_id' => $this->family_situation_id,

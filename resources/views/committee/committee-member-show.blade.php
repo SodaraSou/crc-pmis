@@ -18,21 +18,19 @@
                         <h3 class="profile-username text-center">{{ $member->kh_name }}</h3>
                         <p class="text-muted text-center">{{ $member->en_name }}</p>
                         <ul class="list-group list-group-unbordered mb-3">
-                            @if ($current_committee)
-                                <li class="list-group-item">
-                                    <b>{{ $current_committee->committee->kh_name }}</b>
-                                </li>
-                                <li class="list-group-item">
-                                    @if ($current_committee->committee->committee_level_id < 3)
-                                        <b>អាណត្តិបច្ចុប្បន្ន: {{ $current_committee->branch_term->kh_name }}</b>
-                                    @elseif ($current_committee->committee->committee_level_id == 3)
-                                        <b>អាណត្តិបច្ចុប្បន្ន: {{ $current_committee->sub_branch_term->kh_name }}</b>
-                                    @endif
-                                </li>
-                                <li class="list-group-item">
-                                    <b>តួនាទី: {{ $current_committee->committee_position->kh_name }}</b>
-                                </li>
-                            @endif
+                            <li class="list-group-item">
+                                <b>{{ $member->current_membership->committee->kh_name }}</b>
+                            </li>
+                            <li class="list-group-item">
+                                @if ($member->current_membership->committee->committee_level_id < 3)
+                                    <b>អាណត្តិបច្ចុប្បន្ន: {{ $member->current_membership->branch_term->kh_name }}</b>
+                                @elseif ($member->current_membership->committee->committee_level_id == 3)
+                                    <b>អាណត្តិបច្ចុប្បន្ន: {{ $member->current_membership->sub_branch_term->kh_name }}</b>
+                                @endif
+                            </li>
+                            <li class="list-group-item">
+                                <b>តួនាទី: {{ $member->current_membership->committee_position->kh_name }}</b>
+                            </li>
                         </ul>
                         <div class="row g-4">
                             <div class="col-12 mb-2">

@@ -18,8 +18,11 @@ class HonoraryCommitteeController extends Controller
 
     public function showMember(Member $member)
     {
+        $terms = $member->committee_members()->where('active', true)->get();
+
         return view('honorary-committee.honorary-committee-member-show', [
-            'member' => $member
+            'member' => $member,
+            'terms' => $terms
         ]);
     }
 
