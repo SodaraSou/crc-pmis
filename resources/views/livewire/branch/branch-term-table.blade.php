@@ -19,20 +19,16 @@
         <tbody>
             @foreach ($terms as $term)
                 <tr wire:key='{{ $term->id }}'>
-                    <td>{{ $term->id }}</td>
+                    <td>{{ $loop->iteration }}</td>
                     <td>{{ $term->kh_name }}</td>
                     <td>{{ $term->start_date }}</td>
                     <td>{{ $term->end_date }}</td>
                     <td>
                         <div class="d-flex justify-content-center align-items-center">
-                            <a href="{{ route('term.branch.edit', $term->id) }}"
+                            {{-- <a href="{{ route('term.branch.edit', $term->id) }}"
                                 class="btn btn-sm btn-info text-white mr-2">
                                 <i class="fa fa-pen"></i>
-                            </a>
-                            <button class="btn btn-sm btn-danger"
-                                wire:click="$dispatch('alert_delete', {term_id: {{ $term->id }}})">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </button>
+                            </a> --}}
                         </div>
                     </td>
                 </tr>

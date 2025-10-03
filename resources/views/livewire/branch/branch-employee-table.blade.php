@@ -40,7 +40,7 @@
                 <thead>
                     <tr>
                         <th>ល.រ</th>
-                        <th>ឈ្មោះខ្មែរ</th>
+                        <th>ឈ្មោះ</th>
                         <th>នាយកដ្ឋាន</th>
                         <th>តួនាទី​</th>
                         <th class="text-center">សកម្មភាព</th>

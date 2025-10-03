@@ -45,7 +45,7 @@ class SubBranchEmployeeTable extends Component
             if ($this->department_id) {
                 $ep->where('department_id', $this->department_id);
             }
-        });
+        })->with(['current_position']);
 
         return view('livewire.sub-branch.sub-branch-employee-table', [
             'employees' => $query->paginate($this->per_page),

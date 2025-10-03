@@ -26,7 +26,6 @@ class BranchHonoraryCommitteeMemberTable extends Component
 
     public Branch $branch;
     public Committee $committee;
-    public $current_term = null;
 
     public function mount(Branch $branch)
     {
@@ -55,7 +54,8 @@ class BranchHonoraryCommitteeMemberTable extends Component
                     ->whereHas('branch_term', function ($bt) {
                         $bt->where('branch_terms.active', true);
                     });
-            });
+            })
+            ->with(['current_membership']);
 
         if ($this->search) {
             $query->where('kh_name', 'like', '%' . $this->search . '%');

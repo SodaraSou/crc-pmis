@@ -7,7 +7,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card card-danger card-outline">
                     <div class="card-body box-profile">
                         <div class="text-center">
@@ -78,7 +78,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-header p-2">
                         <ul class="nav nav-pills">
@@ -120,26 +120,26 @@
                                         <td>
                                             <dl class="row mb-0">
                                                 <dt class="col-sm-4">ភូមិ</dt>
-                                                <dd class="col-sm-8">{{ $employee->bp_village->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $employee->bp_village->kh_name ?? 'N/A' }}</dd>
 
                                                 <dt class="col-sm-4">ឃុំ/សង្កាត់</dt>
-                                                <dd class="col-sm-8">{{ $employee->bp_commune->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $employee->bp_commune->kh_name ?? 'N/A' }}</dd>
 
                                                 <dt class="col-sm-4">ក្រុង/ស្រុក/ខណ្ឌ</dt>
-                                                <dd class="col-sm-8">{{ $employee->bp_district->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $employee->bp_district->kh_name ?? 'N/A' }}</dd>
 
                                                 <dt class="col-sm-4">រាជធានី/ខេត្ត</dt>
-                                                <dd class="col-sm-8">{{ $employee->bp_province->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $employee->bp_province->kh_name ?? 'N/A' }}</dd>
                                             </dl>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>ស្ថានភាពគ្រួសារ</th>
-                                        <td>{{ $employee->family_situation->kh_name }}</td>
+                                        <td>{{ $employee->family_situation->kh_name ?? 'N/A' }}</td>
                                     </tr>
                                     <tr>
                                         <th>ស្ថានភាពបុគ្គលិក</th>
-                                        <td>{{ $employee->employee_status->kh_name }}</td>
+                                        <td>{{ $employee->employee_status->kh_name ?? 'N/A' }}</td>
                                     </tr>
                                     <tr>
                                         <th>លេខអត្តសញ្ញាណប័ណ្ខ</th>
@@ -171,16 +171,16 @@
                                                 @endif
 
                                                 <dt class="col-sm-4">ភូមិ</dt>
-                                                <dd class="col-sm-8">{{ $employee->ad_village->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $employee->ad_village->kh_name ?? 'N/A' }}</dd>
 
                                                 <dt class="col-sm-4">ឃុំ/សង្កាត់</dt>
-                                                <dd class="col-sm-8">{{ $employee->ad_commune->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $employee->ad_commune->kh_name ?? 'N/A' }}</dd>
 
                                                 <dt class="col-sm-4">ក្រុង/ស្រុក/ខណ្ឌ</dt>
-                                                <dd class="col-sm-8">{{ $employee->ad_district->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $employee->ad_district->kh_name ?? 'N/A' }}</dd>
 
                                                 <dt class="col-sm-4">រាជធានី/ខេត្ត</dt>
-                                                <dd class="col-sm-8">{{ $employee->ad_province->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $employee->ad_province->kh_name ?? 'N/A' }}</dd>
                                             </dl>
                                         </td>
                                     </tr>

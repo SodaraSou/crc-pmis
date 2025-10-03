@@ -125,7 +125,9 @@
                     @enderror --}}
                 </div>
                 <div class="col-12 col-md-6 form-group">
-                    <label>រូបភាព<span class="text-danger">*</span></label>
+                    <label>រូបភាព
+                        {{-- <span class="text-danger">*</span> --}}
+                    </label>
                     <input wire:model="form.profile_img" type="file" class="form-control"
                         placeholder="សូមបញ្ចូលរូបភាព">
                     {{-- @error('form.profile_img')
@@ -184,7 +186,9 @@
                             @enderror --}}
                         </div>
                         <div class="col-12 col-md-6 col-lg-3 form-group">
-                            <label>ភូមិ<span class="text-danger">*</span></label>
+                            <label>ភូមិ
+                                {{-- <span class="text-danger">*</span> --}}
+                            </label>
                             <select wire:model="form.bp_village_id" class="form-control">
                                 <option value="">សូមជ្រើសរើសភូមិ</option>
                                 @foreach ($bp_villages as $bp_village)
@@ -193,9 +197,9 @@
                                     </option>
                                 @endforeach
                             </select>
-                            @error('form.bp_village_id')
+                            {{-- @error('form.bp_village_id')
                                 <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            @enderror --}}
                         </div>
                     </div>
                 </div>
@@ -203,7 +207,9 @@
                     <label>លំនៅដ្ឋានបច្ចុប្បន្ន</label>
                     <div class="row g-4">
                         <div class="col-12 col-md-6 col-lg-3 form-group">
-                            <label>ខេត្ត/រាជធានី<span class="text-danger">*</span></label>
+                            <label>ខេត្ត/រាជធានី
+                                {{-- <span class="text-danger">*</span> --}}
+                            </label>
                             <select wire:model.live="form.ad_province_id" class="form-control">
                                 <option value="">សូមជ្រើសរើសខេត្ត/រាជធានី</option>
                                 @foreach ($ad_provinces as $ad_province)
@@ -212,12 +218,14 @@
                                     </option>
                                 @endforeach
                             </select>
-                            @error('form.ad_province_id')
+                            {{-- @error('form.ad_province_id')
                                 <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            @enderror --}}
                         </div>
                         <div class="col-12 col-md-6 col-lg-3 form-group">
-                            <label>ស្រុក/ខណ្ឌ<span class="text-danger">*</span></label>
+                            <label>ស្រុក/ខណ្ឌ
+                                {{-- <span class="text-danger">*</span> --}}
+                            </label>
                             <select wire:model.live="form.ad_district_id" class="form-control">
                                 <option value="">សូមជ្រើសរើសស្រុក/ខណ្ឌ</option>
                                 @foreach ($ad_districts as $ad_district)
@@ -226,12 +234,14 @@
                                     </option>
                                 @endforeach
                             </select>
-                            @error('form.ad_district_id')
+                            {{-- @error('form.ad_district_id')
                                 <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            @enderror --}}
                         </div>
                         <div class="col-12 col-md-6 col-lg-3 form-group">
-                            <label>ឃុំ/សង្កាត់<span class="text-danger">*</span></label>
+                            <label>ឃុំ/សង្កាត់
+                                {{-- <span class="text-danger">*</span> --}}
+                            </label>
                             <select wire:model.live="form.ad_commune_id" class="form-control">
                                 <option value="">សូមជ្រើសរើសឃុំ/សង្កាត់</option>
                                 @foreach ($ad_communes as $ad_commune)
@@ -240,12 +250,14 @@
                                     </option>
                                 @endforeach
                             </select>
-                            @error('form.ad_commune_id')
+                            {{-- @error('form.ad_commune_id')
                                 <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            @enderror --}}
                         </div>
                         <div class="col-12 col-md-6 col-lg-3 form-group">
-                            <label>ភូមិ<span class="text-danger">*</span></label>
+                            <label>ភូមិ
+                                {{-- <span class="text-danger">*</span> --}}
+                            </label>
                             <select wire:model="form.ad_village_id" class="form-control">
                                 <option value="">សូមជ្រើសរើសភូមិ</option>
                                 @foreach ($ad_villages as $ad_village)
@@ -254,9 +266,9 @@
                                     </option>
                                 @endforeach
                             </select>
-                            @error('form.ad_village_id')
+                            {{-- @error('form.ad_village_id')
                                 <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            @enderror --}}
                         </div>
                         <div class="col-12 col-md-4 form-group">
                             <label>លេខផ្លូវ</label>
