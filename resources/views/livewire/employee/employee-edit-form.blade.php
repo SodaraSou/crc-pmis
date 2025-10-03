@@ -4,8 +4,25 @@
     </div>
     <form wire:submit.prevent="save">
         <div class="card-body">
+            <div class="d-flex align-items-center justify-content-center mb-3">
+                <div class="mr-4">
+                    @if ($form->preview_profile_img)
+                        <img src="{{ $form->preview_profile_img->temporaryUrl() }}"
+                            class="profile-user-img img-fluid img-circle">
+                    @else
+                        <img src="{{ $form->profile_img }}" class="profile-user-img img-fluid img-circle">
+                    @endif
+                </div>
+                <div>
+                    <input wire:model="form.preview_profile_img" type="file" class="form-control"
+                        placeholder="សូមបញ្ចូលរូបភាព">
+                    @error('form.preview_profile_img')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
             <div class="row g-4">
-                <div class="col-12 col-md-4 form-group">
+                <div class="col-12 col-md-6 form-group">
                     <label>គោរមងារ
                         {{-- <span class="text-danger">*</span> --}}
                     </label>
@@ -14,14 +31,14 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror --}}
                 </div>
-                <div class="col-12 col-md-4 form-group">
+                <div class="col-12 col-md-6 form-group">
                     <label>ឈ្មោះ<span class="text-danger">*</span></label>
                     <input wire:model="form.kh_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះ">
                     @error('form.kh_name')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="col-12 col-md-4 form-group">
+                <div class="col-12 col-md-6 form-group">
                     <label>ឈ្មោះឡាតាំង<span class="text-danger">*</span></label>
                     <input wire:model="form.en_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះឡាតាំង">
                     @error('form.en_name')
@@ -123,16 +140,6 @@
                     </label>
                     <input wire:model="form.email" class="form-control" placeholder="សូមបញ្ចូលអុីម៉ែល">
                     {{-- @error('form.email')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror --}}
-                </div>
-                <div class="col-12 col-md-6 form-group">
-                    <label>រូបភាព
-                        {{-- <span class="text-danger">*</span> --}}
-                    </label>
-                    <input wire:model="form.profile_img" type="file" class="form-control"
-                        placeholder="សូមបញ្ចូលរូបភាព">
-                    {{-- @error('form.profile_img')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror --}}
                 </div>

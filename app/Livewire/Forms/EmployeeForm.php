@@ -6,6 +6,7 @@ use App\Models\Employee;
 use App\Models\EmployeePosition;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
@@ -44,8 +45,9 @@ class EmployeeForm extends Form
     // #[Validate('required', message: 'សូមបញ្ចូលអុីម៉ែល')]
     public $email = '';
 
-    // #[Validate('required', message: 'សូមបញ្ចូលរូបភាព')]
-    public $profile_img = 'https://github.com/shadcn.png';
+    // #[Validate('image', message: 'សូមបញ្ចូលជារូបថត')]
+    public $profile_img;
+    public $preview_profile_img;
 
     // #[Validate('required', message: 'សូមជ្រើសរើសខេត្ត/រាជធានី')]
     public $bp_province_id = null;
@@ -167,7 +169,6 @@ class EmployeeForm extends Form
                 'employee_status_id' => $this->employee_status_id,
                 'phone_number' => $this->phone_number,
                 'email' => $this->email,
-                'profile_img' => $this->profile_img,
                 'bp_province_id' => $this->bp_province_id,
                 'bp_district_id' => $this->bp_district_id,
                 'bp_commune_id' => $this->bp_commune_id,
@@ -181,6 +182,13 @@ class EmployeeForm extends Form
                 'ad_house_number' => $this->ad_house_number,
                 'created_by' => Auth::user()->id,
             ]);
+
+            if ($this->preview_profile_img) {
+                $path = $this->preview_profile_img->store("employee/img", 'public');
+                $employee->update([
+                    'profile_img' => Storage::url($path),
+                ]);
+            }
 
             EmployeePosition::create([
                 'employee_id' => $employee->id,
@@ -203,6 +211,18 @@ class EmployeeForm extends Form
 
     public function update()
     {
+        // Handle profile image update
+        if ($this->preview_profile_img) {
+            // Delete old image if exists
+            if ($this->profile_img) {
+                $oldPath = str_replace('/storage/', '', $this->profile_img);
+                Storage::disk('public')->delete($oldPath);
+            }
+            // Store new image
+            $path = $this->preview_profile_img->store("employee/img", 'public');
+            $this->profile_img = Storage::url($path);
+        }
+
         $this->employee->update([
             'title' => $this->title,
             'kh_name' => $this->kh_name,
