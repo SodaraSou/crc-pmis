@@ -1,10 +1,10 @@
 <div>
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h4>អាណត្តិ</h4>
-        <a href="{{ route('term.create', ['sub_branch_id' => $sub_branch->id]) }}" class="btn btn-success">
+        {{-- <a href="{{ route('term.create', ['sub_branch_id' => $sub_branch->id]) }}" class="btn btn-success">
             <i class="fa fa-plus mr-1"></i>
             បង្កើតថ្មី
-        </a>
+        </a> --}}
     </div>
     <table class="table table-bordered table-hover">
         <thead>

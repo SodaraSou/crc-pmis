@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    @livewire('role.role-create-form')
+    <div class="container">
+        <livewire:role.role-create-form />
+    </div>
 @endsection
 
 @section('js')

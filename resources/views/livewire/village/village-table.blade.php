@@ -3,7 +3,7 @@
         <div class="d-flex justify-content-between align-items-center">
             <h3 class="card-title">ភូមិ</h3>
             <a href="{{ route('village.create', $commune) }}" class="btn btn-success"><i class="fa fa-plus mr-1"></i>
-                បង្កើតថ្មី</a>
+                បង្កើត</a>
         </div>
     </div>
     <div class="card-body">

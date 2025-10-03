@@ -12,7 +12,7 @@ class RoleTable extends Component
 {
     use WithPagination;
 
-    public $per_page = 10;
+    public $per_page = 25;
     #[Url()]
     public $search = '';
 
@@ -50,10 +50,8 @@ class RoleTable extends Component
             $query->where('name', 'like', '%' . $this->search . '%');
         }
 
-        $roles = $query->paginate($this->per_page);
-
         return view('livewire.role.role-table', [
-            'roles' => $roles
+            'roles' => $query->paginate($this->per_page)
         ]);
     }
 }

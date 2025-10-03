@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    @livewire('permission.permission-table')
+    <div class="container">
+        <livewire:permission.permission-table />
+    </div>
 @endsection
 
 @section('js')

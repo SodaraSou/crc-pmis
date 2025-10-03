@@ -39,8 +39,8 @@ class RoleEditForm extends Component
             $this->role->syncPermissions($validated['selected_permissions']);
 
             return redirect()->to('/role');
-        } catch (\Exception $th) {
-            $this->dispatch('update_fail');
+        } catch (\Exception $e) {
+            $this->dispatch('update_fail', message: $e->getMessage());
         }
     }
 

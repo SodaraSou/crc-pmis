@@ -35,7 +35,7 @@
         @include('layouts.sidebar')
         {{-- Content Wrapper --}}
         <div class="content-wrapper">
-            <div class="pt-3">
+            <div class="pt-3 px-3">
                 @yield('content')
             </div>
         </div>
