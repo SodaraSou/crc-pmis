@@ -42,7 +42,6 @@ class ProvinceCreateForm extends Component
                     'province_id' => $province->id
                 ]);
 
-
                 if ($this->branch_img) {
                     $path = $this->branch_img->store("branch/img", 'public');
                     $branch->update([

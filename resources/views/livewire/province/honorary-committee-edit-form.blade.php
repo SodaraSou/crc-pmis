@@ -1,16 +1,11 @@
 <div class="card card-info">
     <div class="card-header">
-        <h3 class="card-title">កែប្រែរាជធានី/ខេត្ត</h3>
+        <h3 class="card-title">
+            កែប្រែគណ:កិត្តិយស
+        </h3>
     </div>
     <form wire:submit.prevent="save">
         <div class="card-body">
-            <div class="form-group">
-                <label>លេខកូដ</label>
-                <input wire:model="code" class="form-control" placeholder="សូមបញ្ចូលលេខកូដ">
-                @error('code')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
             <div class="form-group">
                 <label>ឈ្មោះ</label>
                 <input wire:model="kh_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះខ្មែរ">

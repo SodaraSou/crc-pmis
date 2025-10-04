@@ -13,6 +13,7 @@ class SubBranchTerm extends Model
         'sub_branch_id',
         'start_date',
         'end_date',
+        'sub_branch_img',
         'active'
     ];
 
