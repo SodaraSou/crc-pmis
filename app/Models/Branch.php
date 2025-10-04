@@ -14,6 +14,7 @@ class Branch extends Model
         "en_name",
         "kh_name",
         "province_id",
+        'branch_profile_img',
     ];
 
     public function province(): BelongsTo

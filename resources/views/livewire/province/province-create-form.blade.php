@@ -4,6 +4,21 @@
     </div>
     <form wire:submit.prevent="save">
         <div class="card-body">
+            <div class="d-flex align-items-center justify-content-center mb-3">
+                <div class="mr-4">
+                    @if ($branch_img)
+                        <img src="{{ $branch_img->temporaryUrl() }}" class="profile-user-img img-fluid img-circle">
+                    @else
+                        <img src="{{ asset('default-profile-img.jpg') }}" class="profile-user-img img-fluid img-circle">
+                    @endif
+                </div>
+                <div>
+                    <input wire:model="branch_img" type="file" class="form-control" placeholder="សូមបញ្ចូលរូបភាព">
+                    @error('branch_img')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
             <div class="form-group">
                 <label>លេខកូដ</label>
                 <input wire:model="code" class="form-control" placeholder="សូមបញ្ចូលលេខកូដ">

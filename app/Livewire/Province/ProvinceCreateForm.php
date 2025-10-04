@@ -6,17 +6,44 @@ use App\Models\Branch;
 use App\Models\Committee;
 use App\Models\Province;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class ProvinceCreateForm extends Component
 {
+    use WithFileUploads;
+
     #[Validate('required', message: "សូមបញ្ចូលលេខកូដ")]
     public $code = "";
     #[Validate('required', message: "សូមបញ្ចូលឈ្មោះខេត្តខ្មែរ")]
     public $kh_name = "";
     #[Validate('required', message: "សូមបញ្ចូលឈ្មោះខេត្តឡាតាំង")]
     public $en_name = "";
+    #[Validate(
+        'nullable|image|max:2048',
+        message: [
+            'image' => 'សូមជ្រើសរូបភាពត្រឹមត្រូវ',
+            'max'   => 'រូបភាពមិនអាចធំជាង 2MB'
+        ]
+    )]
+    public $branch_img;
+
+    // protected function rules(): array
+    // {
+    //     return [
+    //         'branch_img' => 'nullable|image|max:2048'
+    //     ];
+    // }
+
+    // protected function messages(): array
+    // {
+    //     return [
+    //         'branch_img.image' => 'សូមជ្រើសរូបភាពត្រឹមត្រូវ',
+    //         'branch_img.max' => 'រូបភាពមិនអាចធំជាង 2MB'
+    //     ];
+    // }
 
     public function save()
     {
@@ -35,6 +62,14 @@ class ProvinceCreateForm extends Component
                     'kh_name' => $this->kh_name,
                     'province_id' => $province->id
                 ]);
+
+
+                if ($this->branch_img) {
+                    $path = $this->branch_img->store("branch/img", 'public');
+                    $branch->update([
+                        'branch_img' => Storage::url($path)
+                    ]);
+                }
 
                 Committee::create([
                     'kh_name' => 'គណៈកិត្តិយសសាខា ខេត្ត' . $this->kh_name,

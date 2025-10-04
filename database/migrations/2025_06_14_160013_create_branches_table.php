@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('kh_name');
             $table->boolean('active')->default(true);
             $table->foreignId('province_id')->constrained();
+            $table->string('branch_img')->nullable();
             $table->timestamps();
         });
     }
