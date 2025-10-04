@@ -21,29 +21,8 @@ class ProvinceCreateForm extends Component
     public $kh_name = "";
     #[Validate('required', message: "សូមបញ្ចូលឈ្មោះខេត្តឡាតាំង")]
     public $en_name = "";
-    #[Validate(
-        'nullable|image|max:2048',
-        message: [
-            'image' => 'សូមជ្រើសរូបភាពត្រឹមត្រូវ',
-            'max'   => 'រូបភាពមិនអាចធំជាង 2MB'
-        ]
-    )]
+    #[Validate('nullable|image', message: 'សូមជ្រើសរូបភាពត្រឹមត្រូវ')]
     public $branch_img;
-
-    // protected function rules(): array
-    // {
-    //     return [
-    //         'branch_img' => 'nullable|image|max:2048'
-    //     ];
-    // }
-
-    // protected function messages(): array
-    // {
-    //     return [
-    //         'branch_img.image' => 'សូមជ្រើសរូបភាពត្រឹមត្រូវ',
-    //         'branch_img.max' => 'រូបភាពមិនអាចធំជាង 2MB'
-    //     ];
-    // }
 
     public function save()
     {
