@@ -179,6 +179,41 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item" id="hq-report">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-chart-line"></i>
+                        <p>
+                            របាយការណ៌ថ្នាក់កណ្តាល
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item" id="hq-report-index">
+                            <a href="{{ route('hq-report.report-index') }}" class="nav-link">
+                                <i class="fas fa-angle-double-right nav-icon"></i>
+                                <p>របាយការណ៌ទូទៅ</p>
+                            </a>
+                        </li>
+                        <li class="nav-item" id="hq-employee-report">
+                            <a href="{{ route('hq-report.employee-report') }}" class="nav-link">
+                                <i class="fas fa-angle-double-right nav-icon"></i>
+                                <p>របាយការណ៌មន្រ្តីប្រតិបត្តិ</p>
+                            </a>
+                        </li>
+                        <li class="nav-item" id="hq-honorary-committee-report">
+                            <a href="{{ route('hq-report.honorary-committee-report') }}" class="nav-link">
+                                <i class="fas fa-angle-double-right nav-icon"></i>
+                                <p>របាយការណ៌គណ:កិត្តិយស</p>
+                            </a>
+                        </li>
+                        <li class="nav-item" id="hq-committee-report">
+                            <a href="{{ route('hq-report.committee-report') }}" class="nav-link">
+                                <i class="fas fa-angle-double-right nav-icon"></i>
+                                <p>របាយការណ៌គណ:កម្មាធិការ</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

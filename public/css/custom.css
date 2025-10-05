@@ -33,3 +33,75 @@ html {
 .nav-pills > .nav-item-own > .nav-link:hover {
     color: #dc3545 !important;
 }
+
+@font-face {
+    font-family: khmoul;
+    src: url("../fonts/KhmerOSmuollight.ttf");
+}
+@font-face {
+    font-family: kh;
+    src: url("../fonts/KhmerOSsiemreap.ttf");
+}
+@font-face {
+    font-family: khb;
+    src: url("../fonts/KhmerOSbokor.ttf");
+}
+@font-face {
+    font-family: ens;
+    src: url("../fonts/Poppins/Poppins-Regular.ttf");
+}
+@font-face {
+    font-family: enb;
+    src: url("../fonts/Poppins/Poppins-SemiBold.ttf");
+}
+
+.khm,
+.khm p {
+    font-family: khmoul;
+}
+.khs,
+.khs p {
+    font-family: kh;
+}
+.khb,
+.khb p {
+    font-family: khb;
+}
+.ens,
+.ens p {
+    font-family: ens;
+}
+.enb,
+.enb p {
+    font-family: enb;
+}
+
+.ac_table,
+.ac_table td {
+    border: 1px black solid;
+    padding: 0;
+}
+.ac_table table td {
+    border: 0px;
+    border-right: 1px black solid;
+}
+.ac_table table td:last-child {
+    border: 0px;
+}
+.ac_text {
+    border: 0px;
+    border-bottom: 1px gray solid;
+    margin-bottom: 0.1cm;
+    margin-top: 0.1cm;
+}
+
+.ac_table td.ac_title1 {
+    background-color: #9cc6f9;
+    padding: 0.1cm;
+}
+.ac_table .ac_group label {
+    font-weight: normal;
+}
+.ac_table .ac_group {
+    float: left;
+}

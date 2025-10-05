@@ -18,6 +18,7 @@ use App\Http\Controllers\VillageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommitteeController;
 use App\Http\Controllers\HonoraryCommitteeController;
+use App\Http\Controllers\HqReportController;
 use App\Http\Controllers\TermController;
 
 Route::get('/', [HomeController::class, 'index'])->middleware('auth')->name('home');
@@ -117,3 +118,9 @@ Route::get('/term', [TermController::class, 'index'])->middleware('auth')->name(
 Route::get('/term/create', [TermController::class, 'create'])->middleware('auth')->name('term.create');
 Route::get('/term/branch/{branch_term}/edit', [TermController::class, 'editBranchTerm'])->middleware('auth')->name('term.branch.edit');
 Route::get('/term/sub-branch/{sub_branch_term}/edit', [TermController::class, 'editSubBranchTerm'])->middleware('auth')->name('term.sub-branch.edit');
+
+// HQ Report
+Route::get('/hq-report', [HqReportController::class, 'reportIndex'])->middleware('auth')->name('hq-report.report-index');
+Route::get('/hq-report/employee', [HqReportController::class, 'employeeReport'])->middleware('auth')->name('hq-report.employee-report');
+Route::get('/hq-report/honorary-committee', [HqReportController::class, 'honoraryCommitteeReport'])->middleware('auth')->name('hq-report.honorary-committee-report');
+Route::get('/hq-report/committee', [HqReportController::class, 'committeeReport'])->middleware('auth')->name('hq-report.committee-report');
