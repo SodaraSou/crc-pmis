@@ -19,7 +19,7 @@ class SubBranchTable extends Component
         $this->user = Auth::user();
         if ($branch) {
             $this->branch = $branch;
-            $this->sub_branches = SubBranch::where('branch_id', $this->branch->id)->get();
+            $this->sub_branches = SubBranch::where('branch_id', $this->branch->id)->orderBy('id')->get();
         }
 
         if ($this->user->hasRole('Branch System Operator')) {

@@ -1,25 +1,25 @@
 <?php
 
-namespace App\Livewire\Province;
+namespace App\Livewire\District;
 
 use App\Models\Committee;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
-class CommitteeEditForm extends Component
+class HonoraryCommitteeEditForm extends Component
 {
     public $committee;
-    public $province_id;
+    public $district_id;
 
     #[Validate('required', message: "សូមបញ្ចូលឈ្មោះ")]
     public $kh_name = "";
     #[Validate('required', message: "សូមបញ្ចូលឈ្មោះឡាតាំង")]
     public $en_name = "";
 
-    public function mount(Committee $committee, $province_id)
+    public function mount(Committee $committee, $district_id)
     {
         $this->committee = $committee;
-        $this->province_id = $province_id;
+        $this->district_id = $district_id;
         $this->kh_name = $committee->kh_name;
         $this->en_name = $committee->en_name;
     }
@@ -35,10 +35,10 @@ class CommitteeEditForm extends Component
 
             session()->flash('toast', [
                 'type' => 'success',
-                'message' => 'គណ:កម្មាធិការកែប្រែដោយជោគជ័យ!'
+                'message' => 'គណ:កិត្តិយសកែប្រែដោយជោគជ័យ!'
             ]);
 
-            return redirect()->to("/province/$this->province_id");
+            return redirect()->to("/district/$this->district_id");
         } catch (\Exception $e) {
             $this->dispatch('update_fail', message: $e->getMessage());
         }
@@ -46,6 +46,6 @@ class CommitteeEditForm extends Component
 
     public function render()
     {
-        return view('livewire.province.committee-edit-form');
+        return view('livewire.district.honorary-committee-edit-form');
     }
 }

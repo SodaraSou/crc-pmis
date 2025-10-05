@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->string('kh_name');
             $table->string('en_name');
+            $table->string('member_img')->nullable();
             $table->foreignId('gender_id')->constrained();
             $table->string('phone_number')->nullable();
             $table->foreignId('bp_province_id')->nullable()->constrained('provinces');

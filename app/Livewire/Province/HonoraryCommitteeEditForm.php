@@ -11,9 +11,9 @@ class HonoraryCommitteeEditForm extends Component
     public $committee;
     public $province_id;
 
-    #[Validate('required', message: "សូមបញ្ចូលឈ្មោះខេត្តខ្មែរ")]
+    #[Validate('required', message: "សូមបញ្ចូលឈ្មោះ")]
     public $kh_name = "";
-    #[Validate('required', message: "សូមបញ្ចូលឈ្មោះខេត្តឡាតាំង")]
+    #[Validate('required', message: "សូមបញ្ចូលឈ្មោះឡាតាំង")]
     public $en_name = "";
 
     public function mount(Committee $committee, $province_id)

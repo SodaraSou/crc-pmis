@@ -27,7 +27,7 @@ class BranchTable extends Component
     public function render()
     {
         return view('livewire.branch.branch-table', [
-            'branches' => Branch::all()
+            'branches' => Branch::orderBy('id')->get()
         ]);
     }
 }

@@ -5,29 +5,8 @@
     <form wire:submit.prevent="save">
         <div class="card-body">
             <div class="form-group">
-                <label>លេខកូដ</label>
-                <input wire:model="code" class="form-control" placeholder="សូមបញ្ចូលលេខកូដ">
-                @error('code')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label>រាជធានី/ខេត្ត</label>
-                <select wire:model="province_id" class="form-control" disabled>
-                    <option value="">សូមជ្រើសរើសខេត្ត</option>
-                    @foreach ($provinces as $province)
-                        <option wire:key="{{ $province->id }}" value="{{ $province->id }}">
-                            {{ $province->kh_name }}
-                        </option>
-                    @endforeach
-                </select>
-                @error('province_id')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label>ឈ្មោះខ្មែរ</label>
-                <input wire:model="kh_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះខ្មែរ">
+                <label>ឈ្មោះ</label>
+                <input wire:model="kh_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះ">
                 @error('kh_name')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror

@@ -8,7 +8,7 @@
     </div>
     <div class="row">
         @foreach ($sub_branches as $sub_branch)
-            <div wire:key="{{ $sub_branch->id }}" class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch flex-column">
+            <div wire:key="{{ $sub_branch->id }}" class="col-12 col-md-6">
                 <div class="card bg-light d-flex flex-fill">
                     <div class="card-header text-muted border-bottom-0">
                         <div class="row">

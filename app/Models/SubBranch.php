@@ -15,6 +15,7 @@ class SubBranch extends Model
         "kh_name",
         "branch_id",
         "district_id",
+        'sub_branch_img'
     ];
 
     public function users(): HasMany

@@ -9,17 +9,14 @@ use Livewire\Component;
 class ProvinceEditForm extends Component
 {
     public $province;
-    #[Validate('required', message: "សូមបញ្ចូលលេខកូដ")]
-    public $code = "";
-    #[Validate('required', message: "សូមបញ្ចូលឈ្មោះខេត្តខ្មែរ")]
+    #[Validate('required', message: "សូមបញ្ចូលឈ្មោះ")]
     public $kh_name = "";
-    #[Validate('required', message: "សូមបញ្ចូលឈ្មោះខេត្តឡាតាំង")]
+    #[Validate('required', message: "សូមបញ្ចូលឈ្មោះឡាតាំង")]
     public $en_name = "";
 
     public function mount(Province $province)
     {
         $this->province = $province;
-        $this->code = $province->id;
         $this->kh_name = $province->kh_name;
         $this->en_name = $province->en_name;
     }
@@ -29,11 +26,16 @@ class ProvinceEditForm extends Component
         $validated = $this->validate();
         try {
             $this->province->update([
-                'id' => $validated['code'],
                 'kh_name' => $validated['kh_name'],
                 'en_name' => $validated['en_name']
             ]);
-            return redirect()->to('/province');
+
+            session()->flash('toast', [
+                'type' => 'success',
+                'message' => 'ខេត្តកែប្រែដោយជោគជ័យ!'
+            ]);
+
+            return redirect()->to("/province/$this->province->id");
         } catch (\Exception $e) {
             $this->dispatch('update_fail', message: $e->getMessage());
         }

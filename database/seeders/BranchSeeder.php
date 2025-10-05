@@ -87,7 +87,7 @@ class BranchSeeder extends Seeder
             ],
             [
                 'id' => 12,
-                'kh_name' => 'សាខាកក្រក ខេត្តរាជធានីភ្នំពេញ',
+                'kh_name' => 'សាខាកក្រក រាជធានីភ្នំពេញ',
                 'en_name' => 'Phnom Penh',
                 'province_id' => 12,
             ],
