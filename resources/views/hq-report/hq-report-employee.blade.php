@@ -10,58 +10,56 @@
             <button id="btn-print" class="btn btn-primary float-right"><i class="fa fa-print"></i> បោះពុម្ភ</button>
         </div>
     </div>
-    <div class="card" id="printable-area">
-        <div class="card-body">
-            <div>
-                <div class="row">
-                    <div class="col-3 text-center">
-                        <div class="khm">កាកបាទក្រហមកម្ពុជា</div>
-                        <div class="khm">នាយកដ្ឋានធនធានមនុស្ស</div>
+    <div class="container">
+        <div class="card" id="printable-area">
+            <div class="card-body">
+                <div>
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-4 text-center">
+                            <img src="{{ asset('Cambodian_Red_Cross_Logo.png') }}" alt="crc-logo"
+                                style="width: 120px; height: 120px;" class="mb-3">
+                            <div class="khm">កាកបាទក្រហមកម្ពុជា</div>
+                            <div class="khm">នាយកដ្ឋានធនធានមនុស្ស</div>
+                        </div>
+                        <div class="col-4"></div>
                     </div>
-                    <div class="col"></div>
-                    <div class="col-3 text-center">
-                        <div class="khm">ព្រះរាជាណាចក្រកម្ពុជា</div>
-                        <div class="khm">ជាតិ សាសនា ព្រះមហាក្សត្រ</div>
+                    <div class="row my-3">
+                        <div class="col-12 text-center">
+                            <div class="khm">
+                                បញ្ជីររាយនាមមន្រ្តីប្រតិបត្តិស្នាក់ការកណ្តាលកាកបាទក្រហមកម្ពុជា</div>
+                        </div>
                     </div>
                 </div>
-                <div class="row my-3">
-                    <div class="col-12 text-center">
-                        <div class="khm">
-                            បញ្ជីររាយនាមមន្រ្តីប្រតិបត្តិដែលកំពុងបម្រើការងារនៅស្នាក់ការកណ្តាលកាកបាទក្រហមកម្ពុជា</div>
-                    </div>
-                </div>
-            </div>
-            <table class="table table-sm table-bordered cell-center">
-                <tbody>
-                    <tr>
-                        <td class="khm text-center">ល.រ</td>
-                        <td class="khm text-center">គោត្តនាម-នាម</td>
-                        <td class="khm text-center">ភេទ</td>
-                        <td class="khm text-center">នាយកដ្ឋាន</td>
-                        <td class="khm text-center">តួនាទី ក្នុងកក្រក</td>
-                        <td class="khm text-center">លេខទូរស័ព្ទ</td>
-                    </tr>
-                    @foreach ($grouped_employees_by_department as $department_json => $employees)
-                        @php
-                            $department = json_decode($department_json);
-                        @endphp
+                <table class="table table-sm table-bordered cell-center">
+                    <thead>
                         <tr>
-                            <td class="khm" colspan="6">{{ $department->kh_name }}</td>
+                            <th class="khm text-center font-weight-normal">ល.រ</th>
+                            <th class="khm text-center font-weight-normal">គោត្តនាម-នាម</th>
+                            <th class="khm text-center font-weight-normal">ភេទ</th>
+                            <th class="khm text-center font-weight-normal">តួនាទី ក្នុងកក្រក</th>
+                            <th class="khm text-center font-weight-normal">លេខទូរស័ព្ទ</th>
                         </tr>
-                        @foreach ($employees as $employee)
+                    </thead>
+                    <tbody>
+                        @foreach ($departments as $department)
                             <tr>
-                                <td class="khs text-center">{{ $loop->iteration }}</td>
-                                <td class="khs text-center">{{ $employee->kh_name }}</td>
-                                <td class="khs text-center">{{ $employee->gender->kh_abbr }}</td>
-                                <td class="khs text-center">{{ $employee->current_position->department->kh_name }}</td>
-                                <td class="khs text-center">{{ $employee->current_position->position->kh_name }}</td>
-                                <td class="khs text-center">{{ $employee->phone_number }}</td>
+                                <td class="khm" colspan="6">{{ $department->kh_name }}</td>
                             </tr>
+                            @foreach ($department->employees as $employee)
+                                <tr>
+                                    <td class="khs text-center">{{ $loop->iteration }}</td>
+                                    <td class="khs text-center">{{ $employee->kh_name }}</td>
+                                    <td class="khs text-center">{{ $employee->gender->kh_abbr }}</td>
+                                    <td class="khs text-center">{{ $employee->current_position->position->kh_name }}</td>
+                                    <td class="khs text-center">{{ $employee->phone_number }}</td>
+                                </tr>
+                            @endforeach
                         @endforeach
-                    @endforeach
-                </tbody>
-                <tfoot></tfoot>
-            </table>
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </div>
         </div>
     </div>
 @endsection

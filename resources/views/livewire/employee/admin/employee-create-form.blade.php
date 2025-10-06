@@ -32,28 +32,32 @@
                 </div>
             </div>
             <div class="row g-4">
-                <div class="col-12 col-md-6 form-group">
-                    <label>ឈ្មោះ<span class="text-danger">*</span></label>
-                    <input wire:model="form.kh_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះ">
-                    @error('form.kh_name')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="col-12 col-md-6 form-group">
-                    <label>ឈ្មោះឡាតាំង<span class="text-danger">*</span></label>
-                    <input wire:model="form.en_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះឡាតាំង">
-                    @error('form.en_name')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="col-12 col-md-6 form-group">
-                    <label>គោរមងារ
-                        {{-- <span class="text-danger">*</span> --}}
-                    </label>
-                    <input wire:model="form.title" class="form-control" placeholder="សូមបញ្ចូលគោរមងារ">
-                    {{-- @error('form.title')
+                <div class="col-12">
+                    <div class="row g-4">
+                        <div class="col-12 col-md-4 form-group">
+                            <label>គោរមងារ
+                                {{-- <span class="text-danger">*</span> --}}
+                            </label>
+                            <input wire:model="form.title" class="form-control" placeholder="សូមបញ្ចូលគោរមងារ">
+                            {{-- @error('form.title')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror --}}
+                        </div>
+                        <div class="col-12 col-md-4 form-group">
+                            <label>ឈ្មោះ<span class="text-danger">*</span></label>
+                            <input wire:model="form.kh_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះ">
+                            @error('form.kh_name')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="col-12 col-md-4 form-group">
+                            <label>ឈ្មោះឡាតាំង<span class="text-danger">*</span></label>
+                            <input wire:model="form.en_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះឡាតាំង">
+                            @error('form.en_name')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
                 </div>
                 <div class="col-12 col-md-6 form-group">
                     <label>ភេទ<span class="text-danger">*</span></label>
@@ -418,6 +422,11 @@
                             @error('form.position_id')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
+                        </div>
+                        <div class="col-12 col-md-6 form-group">
+                            <label>លំដាប់តួនាទី</label>
+                            <input wire:model="form.employee_position_order" class="form-control"
+                                placeholder="សូមបញ្ចូលលំដាប់តួនាទី">
                         </div>
                         <div class="col-12 col-md-6 form-group">
                             <label>ឈ្មោះតួនាទី (Optional)</label>

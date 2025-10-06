@@ -5,24 +5,37 @@
     <form wire:submit.prevent="save">
         <div class="card-body">
             <div class="d-flex align-items-center justify-content-center mb-3">
-                <div class="mr-4">
+                <div class="mr-4 position-relative" style="width: 120px; height: 120px;">
                     @if ($form->preview_profile_img)
                         <img src="{{ $form->preview_profile_img->temporaryUrl() }}"
-                            class="profile-user-img img-fluid img-circle">
+                            class="profile-user-img img-fluid img-circle w-100 h-100" style="object-fit: cover;">
+                    @elseif ($form->profile_img)
+                        <img src="{{ $form->profile_img }}" class="profile-user-img img-fluid img-circle w-100 h-100"
+                            style="object-fit: cover;">
                     @else
-                        <img src="{{ $form->profile_img }}" class="profile-user-img img-fluid img-circle">
+                        <img src="{{ asset('default.png') }}" class="profile-user-img img-fluid img-circle w-100 h-100"
+                            style="object-fit: cover;">
                     @endif
+                    <div wire:loading wire:target="form.preview_profile_img" class="position-absolute"
+                        style="top:0; left:0; width:100%; height:100%;">
+                        <div class="d-flex justify-content-center align-items-center w-100 h-100"
+                            style="background: rgba(255,255,255,0.8); border-radius: 50%;">
+                            <div class="spinner-border text-success"></div>
+                        </div>
+                    </div>
                 </div>
                 <div>
-                    <input wire:model="form.preview_profile_img" type="file" class="form-control"
-                        placeholder="សូមបញ្ចូលរូបភាព">
-                    @error('form.preview_profile_img')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
+                    <div class="custom-file">
+                        <input wire:model="form.preview_profile_img" type="file" class="custom-file-input">
+                        <label class="custom-file-label">សូមបញ្ចូលរូបថត</label>
+                        @error('form.preview_profile_img')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
                 </div>
             </div>
             <div class="row g-4">
-                <div class="col-12 col-md-6 form-group">
+                <div class="col-12 col-md-4 form-group">
                     <label>គោរមងារ
                         {{-- <span class="text-danger">*</span> --}}
                     </label>
@@ -31,14 +44,14 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror --}}
                 </div>
-                <div class="col-12 col-md-6 form-group">
+                <div class="col-12 col-md-4 form-group">
                     <label>ឈ្មោះ<span class="text-danger">*</span></label>
                     <input wire:model="form.kh_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះ">
                     @error('form.kh_name')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="col-12 col-md-6 form-group">
+                <div class="col-12 col-md-4 form-group">
                     <label>ឈ្មោះឡាតាំង<span class="text-danger">*</span></label>
                     <input wire:model="form.en_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះឡាតាំង">
                     @error('form.en_name')
@@ -142,6 +155,11 @@
                     {{-- @error('form.email')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror --}}
+                </div>
+                <div class="col-12 col-md-6 form-group">
+                    <label>លំដាប់តួនាទី</label>
+                    <input wire:model="form.employee_position_order" class="form-control"
+                        placeholder="សូមបញ្ចូលលំដាប់តួនាទី">
                 </div>
             </div>
             <div>

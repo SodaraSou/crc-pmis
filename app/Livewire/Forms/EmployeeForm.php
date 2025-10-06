@@ -93,6 +93,8 @@ class EmployeeForm extends Form
 
     public $position_id = null;
 
+    public $employee_position_order = 100;
+
     public $opt_position_name = null;
 
     public $start_date = null;
@@ -153,6 +155,7 @@ class EmployeeForm extends Form
         $this->ad_street_number = $employee->ad_street_number;
         $this->ad_street_name = $employee->ad_street_name;
         $this->ad_house_number = $employee->ad_house_number;
+        $this->employee_position_order = $employee->employee_position_order;
     }
 
     public function store()
@@ -180,6 +183,7 @@ class EmployeeForm extends Form
                 'ad_street_name' => $this->ad_street_name,
                 'ad_street_number' => $this->ad_street_number,
                 'ad_house_number' => $this->ad_house_number,
+                'employee_position_order' => $this->employee_position_order,
                 'created_by' => Auth::user()->id,
             ]);
 
@@ -246,6 +250,7 @@ class EmployeeForm extends Form
             'ad_street_name' => $this->ad_street_name,
             'ad_street_number' => $this->ad_street_number,
             'ad_house_number' => $this->ad_house_number,
+            'employee_position_order' => $this->employee_position_order,
             'updated_by' => Auth::user()->id,
         ]);
 

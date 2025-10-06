@@ -33,6 +33,7 @@ class Employee extends Model
         'ad_street_number',
         'ad_street_name',
         'ad_house_number',
+        'employee_position_order',
         'active',
         'created_by',
         'updated_by'
@@ -115,6 +116,7 @@ class Employee extends Model
         return $this->hasOne(EmployeePosition::class)
             ->where('active', true)
             ->where('start_date', '<=', now()->toDateString())
+            ->whereNull('end_date')
             ->latest('start_date');
     }
 

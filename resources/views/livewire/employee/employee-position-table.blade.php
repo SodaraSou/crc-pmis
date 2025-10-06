@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-header">
         <div class="d-flex justify-content-between align-items-center">
-            <h3 class="card-title">ដំណែងមន្រ្តីប្រតិបត្តិ</h3>
+            <h3 class="card-title">តួនាទីមន្រ្តីប្រតិបត្តិ</h3>
             <a href="{{ route('employee.position.create', Crypt::encrypt($employee->id)) }}" class="btn btn-success"><i
                     class="fa fa-plus mr-1"></i>
                 បង្កើត</a>
@@ -13,7 +13,7 @@
                 <tr>
                     <th>ល.រ</th>
                     <th>
-                        ដំណែង
+                        តួនាទី
                     </th>
                     <th>
                         កាលបរិចេ្ឆទចាប់ផ្តើម
@@ -73,7 +73,7 @@
         $wire.on("delete_success", () => {
             Swal.fire({
                 title: "ជោគជ័យ",
-                text: "លុបដំណែងមន្រ្តីប្រតិបត្តិជោគជ័យ",
+                text: "លុបតួនាទីមន្រ្តីប្រតិបត្តិជោគជ័យ",
                 icon: "success",
                 confirmButtonText: "អូខេ",
                 confirmButtonColor: "#28a745"

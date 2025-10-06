@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Employee;
+use App\Models\Department;
 
 class HqReportController extends Controller
 {
@@ -13,29 +13,21 @@ class HqReportController extends Controller
 
     public function employeeReport()
     {
-        $grouped_employees_by_department = Employee::where('active', true)
-            ->where('employee_status_id', 1)
-            ->whereHas(
-                'current_position',
-                function ($cp) {
-                    $cp->where('employee_level_id', 1);
-                }
-            )
+        $departments = Department::orderBy('department_order')
             ->with([
-                'current_position' => function ($cp) {
-                    $cp->where('employee_level_id', 1)
-                        ->with([
-                            'department:id,kh_name,department_order',
-                            'position:id,kh_name'
-                        ]);
-                },
+                'employees' => function ($e) {
+                    $e->where('employees.active', true)
+                        ->where('employee_status_id', 1)
+                        ->whereHas('current_position', function ($cp) {
+                            $cp->where('employee_level_id', 1);
+                        })
+                        ->orderBy('employee_position_order');
+                }
             ])
-            ->get()
-            ->sortBy('current_position.department.department_order')
-            ->groupBy('current_position.department');
+            ->get();
 
         return view('hq-report.hq-report-employee', [
-            'grouped_employees_by_department' => $grouped_employees_by_department
+            'departments' => $departments
         ]);
     }
 

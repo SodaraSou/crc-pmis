@@ -1,6 +1,6 @@
 <div class="card card-success">
     <div class="card-header">
-        <h3 class="card-title">បង្កើតដំណែងមន្រ្តីប្រតិបត្តិ</h3>
+        <h3 class="card-title">បង្កើតតួនាទីមន្រ្តីប្រតិបត្តិ</h3>
     </div>
     <form wire:submit.prevent="save">
         <div class="card-body">
@@ -101,9 +101,9 @@
                     </div>
                 @endif
                 <div class="col-12 col-md-6 form-group">
-                    <label>ដំណែង<span class="text-danger">*</span></label>
+                    <label>តួនាទី<span class="text-danger">*</span></label>
                     <select wire:model="position_id" class="form-control">
-                        <option value="">សូមជ្រើសរើសដំណែង</option>
+                        <option value="">សូមជ្រើសរើសតួនាទី</option>
                         @foreach ($positions as $position)
                             @if (($position->id < 4 && Auth::user()->user_level_id > 1) || ($position->id < 6 && Auth::user()->user_level_id == 3))
                                 @continue
@@ -118,8 +118,8 @@
                     @enderror
                 </div>
                 <div class="col-12 col-md-6 form-group">
-                    <label>ឈ្មោះដំណែង (Optional)</label>
-                    <input wire:model="opt_position_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះដំណែង">
+                    <label>ឈ្មោះតួនាទី (Optional)</label>
+                    <input wire:model="opt_position_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះតួនាទី">
                 </div>
                 <div class="col-12 col-md-6 form-group" x-init="$('#position_start_date').datetimepicker({ format: 'YYYY-MM-DD' });
                 $('#position_start_date').on('change.datetimepicker', function(e) {
@@ -127,7 +127,7 @@
                         $wire.start_date = e.date.format('YYYY-MM-DD');
                     }
                 });">
-                    <label>ថ្ងៃចាប់ផ្តើមដំណែង<span class="text-danger">*</span></label>
+                    <label>ថ្ងៃចាប់ផ្តើមតួនាទី<span class="text-danger">*</span></label>
                     <div>
                         <div class="input-group date" id="position_start_date" data-target-input="nearest">
                             <input id="position_start_date_input" wire:model='start_date' type="text"
@@ -148,7 +148,7 @@
                         $wire.end_date = e.date.format('YYYY-MM-DD');
                     }
                 });">
-                    <label>ថ្ងៃបញ្ចប់ដំណែង</label>
+                    <label>ថ្ងៃបញ្ចប់តួនាទី</label>
                     <div>
                         <div class="input-group date" id="position_end_date" data-target-input="nearest">
                             <input id="position_end_date_input" wire:model='end_date' type="text"
