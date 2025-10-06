@@ -3,37 +3,6 @@ html {
     font-family: "Noto Sans Khmer", "Roboto", sans-serif;
 }
 
-.nav-sidebar > .nav-item > .nav-link.active {
-    background-color: #dc3545 !important;
-    color: #ffffff !important;
-}
-
-.nav-sidebar .nav-treeview > .nav-item > .nav-link.active {
-    background-color: #4e5761 !important;
-    color: #fff !important;
-}
-
-.nav-tabs .nav-link {
-    color: #4e5761 !important;
-}
-
-.nav-tabs .nav-link.active {
-    color: #dc3545 !important;
-    border-top: 3px solid #dc3545 !important;
-}
-
-.nav-pills > .nav-item-own > .nav-link.active {
-    background-color: #dc3545 !important;
-}
-
-.nav-pills > .nav-item-own > .nav-link.active:hover {
-    color: #ffffff !important;
-}
-
-.nav-pills > .nav-item-own > .nav-link:hover {
-    color: #dc3545 !important;
-}
-
 @font-face {
     font-family: khmoul;
     src: url("../fonts/KhmerOSmuollight.ttf");
@@ -76,32 +45,61 @@ html {
     font-family: enb;
 }
 
-.ac_table,
-.ac_table td {
-    border: 1px black solid;
-    padding: 0;
-}
-.ac_table table td {
-    border: 0px;
-    border-right: 1px black solid;
-}
-.ac_table table td:last-child {
-    border: 0px;
-}
-.ac_text {
-    border: 0px;
-    border-bottom: 1px gray solid;
-    margin-bottom: 0.1cm;
-    margin-top: 0.1cm;
+@media print {
+    @page {
+        size: A4;
+    }
+
+    body * {
+        visibility: hidden;
+    }
+
+    .wrapper,
+    .content-wrapper {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #printable-area,
+    #printable-area * {
+        visibility: visible;
+    }
+
+    #printable-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
 }
 
-.ac_table td.ac_title1 {
-    background-color: #9cc6f9;
-    padding: 0.1cm;
+.nav-sidebar > .nav-item > .nav-link.active {
+    background-color: #dc3545 !important;
+    color: #ffffff !important;
 }
-.ac_table .ac_group label {
-    font-weight: normal;
+
+.nav-sidebar .nav-treeview > .nav-item > .nav-link.active {
+    background-color: #4e5761 !important;
+    color: #fff !important;
 }
-.ac_table .ac_group {
-    float: left;
+
+.nav-tabs .nav-link {
+    color: #4e5761 !important;
+}
+
+.nav-tabs .nav-link.active {
+    color: #dc3545 !important;
+    border-top: 3px solid #dc3545 !important;
+}
+
+.nav-pills > .nav-item-own > .nav-link.active {
+    background-color: #dc3545 !important;
+}
+
+.nav-pills > .nav-item-own > .nav-link.active:hover {
+    color: #ffffff !important;
+}
+
+.nav-pills > .nav-item-own > .nav-link:hover {
+    color: #dc3545 !important;
 }
