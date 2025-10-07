@@ -20,7 +20,6 @@
                             <img src="{{ asset('Cambodian_Red_Cross_Logo.png') }}" alt="crc-logo"
                                 style="width: 120px; height: 120px;" class="mb-3">
                             <div class="khm">កាកបាទក្រហមកម្ពុជា</div>
-                            <div class="khm">នាយកដ្ឋានធនធានមនុស្ស</div>
                         </div>
                         <div class="col-4"></div>
                     </div>

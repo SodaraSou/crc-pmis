@@ -23,7 +23,9 @@ class HqReportController extends Controller
             ])
             ->get();
 
-        return view('hq-report.hq-report-employee', compact('departments'));
+        return view('hq-report.hq-report-employee', [
+            'departments' => $departments
+        ]);
     }
 
 
