@@ -15,21 +15,17 @@ class HqReportController extends Controller
     {
         $departments = Department::orderBy('department_order')
             ->with([
-                'employees' => function ($e) {
-                    $e->where('employees.active', true)
-                        ->where('employee_status_id', 1)
-                        ->whereHas('current_position', function ($cp) {
-                            $cp->where('employee_level_id', 1);
-                        })
+                'current_employees' => function ($ce) {
+                    $ce->where('employee_status_id', 1)
+                        ->with('current_position')
                         ->orderBy('employee_position_order');
                 }
             ])
             ->get();
 
-        return view('hq-report.hq-report-employee', [
-            'departments' => $departments
-        ]);
+        return view('hq-report.hq-report-employee', compact('departments'));
     }
+
 
     public function honoraryCommitteeReport()
     {

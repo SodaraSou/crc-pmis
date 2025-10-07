@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Department extends Model
 {
@@ -15,15 +15,18 @@ class Department extends Model
         'department_order'
     ];
 
-    public function employees(): HasManyThrough
+    public function current_employees(): BelongsToMany
     {
-        return $this->hasManyThrough(
-            Employee::class,           // Final model
-            EmployeePosition::class,   // Intermediate model
-            'department_id',           // Foreign key on employee_positions table
-            'id',                      // Foreign key on employees table
-            'id',                      // Local key on departments table
-            'employee_id'              // Local key on employee_positions table
-        );
+        return $this->belongsToMany(Employee::class, 'employee_position')
+            ->withPivot([
+                'id',
+                'employee_level_id',
+                'position_id',
+                'start_date',
+                'end_date',
+            ])
+            ->where('employees.active', true)
+            ->where('employee_position.active', true)
+            ->whereNull('employee_position.end_date');
     }
 }

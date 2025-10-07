@@ -34,9 +34,9 @@
                 <table class="table table-sm table-bordered cell-center">
                     <thead>
                         <tr>
-                            <th class="khm text-center font-weight-normal">ល.រ</th>
+                            <th class="khm text-center font-weight-normal" colspan="1">ល.រ</th>
                             <th class="khm text-center font-weight-normal">គោត្តនាម-នាម</th>
-                            <th class="khm text-center font-weight-normal">ភេទ</th>
+                            <th class="khm text-center font-weight-normal" colspan="1">ភេទ</th>
                             <th class="khm text-center font-weight-normal">តួនាទី ក្នុងកក្រក</th>
                             <th class="khm text-center font-weight-normal">លេខទូរស័ព្ទ</th>
                         </tr>
@@ -46,12 +46,24 @@
                             <tr>
                                 <td class="khm" colspan="6">{{ $department->kh_name }}</td>
                             </tr>
-                            @foreach ($department->employees as $employee)
+                            @foreach ($department->current_employees as $employee)
                                 <tr>
-                                    <td class="khs text-center">{{ $loop->iteration }}</td>
-                                    <td class="khs text-center">{{ $employee->kh_name }}</td>
-                                    <td class="khs text-center">{{ $employee->gender->kh_abbr }}</td>
-                                    <td class="khs text-center">{{ $employee->current_position->position->kh_name }}</td>
+                                    <td class="khs text-center" colspan="1">{{ $loop->iteration }}</td>
+                                    <td class="khs text-center">
+                                        @if ($employee->title)
+                                            {{ $employee->title }}
+                                        @endif {{ $employee->kh_name }}
+                                    </td>
+                                    <td class="khs text-center" colspan="1">{{ $employee->gender->kh_abbr }}</td>
+                                    <td class="khs text-center">
+                                        @if ($employee->current_position->opt_position_name)
+                                            {{ $employee->current_position->opt_position_name }}
+                                        @elseif ($employee->current_position->office)
+                                            {{ $employee->current_position->position->kh_name }}{{ $employee->current_position->office->kh_name }}
+                                        @else
+                                            {{ $employee->current_position->position->kh_name }}
+                                        @endif
+                                    </td>
                                     <td class="khs text-center">{{ $employee->phone_number }}</td>
                                 </tr>
                             @endforeach

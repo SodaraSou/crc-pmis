@@ -103,7 +103,17 @@ class Employee extends Model
     {
         return $this->belongsToMany(Position::class)
             ->using(EmployeePosition::class)
-            ->withPivot('id', 'department_id', 'office_id', 'branch_id', 'sub_branch_id', 'group_id', 'start_date', 'opt_position_name', 'end_date');
+            ->withPivot(
+                'id',
+                'department_id',
+                'office_id',
+                'branch_id',
+                'sub_branch_id',
+                'group_id',
+                'start_date',
+                'opt_position_name',
+                'end_date'
+            );
     }
 
     public function employee_positions(): HasMany
@@ -116,8 +126,7 @@ class Employee extends Model
         return $this->hasOne(EmployeePosition::class)
             ->where('active', true)
             ->where('start_date', '<=', now()->toDateString())
-            ->whereNull('end_date')
-            ->latest('start_date');
+            ->whereNull('end_date');
     }
 
     public function educations(): HasMany
