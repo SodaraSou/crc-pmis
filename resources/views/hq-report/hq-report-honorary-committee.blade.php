@@ -36,8 +36,9 @@
                             <th class="khm text-center font-weight-normal" colspan="1">ល.រ</th>
                             <th class="khm text-center font-weight-normal">គោត្តនាម-នាម</th>
                             <th class="khm text-center font-weight-normal" colspan="1">ភេទ</th>
+                            <th class="khm text-center font-weight-normal">ឋាន:តួនាទី</th>
                             <th class="khm text-center font-weight-normal">តួនាទី ក្នុងកក្រក</th>
-                            <th class="khm text-center font-weight-normal">លេខទូរស័ព្ទ</th>
+                            <th class="khm text-center font-weight-normal">អាណត្តិបច្ចុប្បន្ន</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,6 +46,22 @@
                             <tr>
                                 <td class="khm" colspan="6">{{ $committee->kh_name }}</td>
                             </tr>
+                            @foreach ($committee->members as $member)
+                                <tr>
+                                    <td class="khs text-center">{{ $loop->iteration }}</td>
+                                    <td class="khs text-center">{{ $member->kh_name }}</td>
+                                    <td class="khs text-center">{{ $member->gender_abbr }}</td>
+                                    <td class="khs text-center">{{ $member->gov_position }}</td>
+                                    <td class="khs text-center">{{ $member->committee_position }}</td>
+                                    <td class="khs text-center">
+                                        @if ($member->branch_term)
+                                            {{ $member->branch_term }}
+                                        @else
+                                            {{ $member->sub_branch_term }}
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
                         @endforeach
                     </tbody>
                 </table>
