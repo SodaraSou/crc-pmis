@@ -47,7 +47,7 @@
                                 <td class="khm text-center" colspan="2">{{ $branch->total_honorary_member }}</td>
                                 <td class="khm text-center" colspan="2">{{ $branch->total_member }}</td>
                                 <td class="khm text-center" colspan="2">{{ $branch->total_employee }}</td>
-                                <td class="khm text-center" colspan="2"></td>
+                                <td class="khm text-center" colspan="2">{{ $branch->current_term->kh_name }}</td>
                             </tr>
                         @endforeach
                     </tbody>

@@ -37,14 +37,23 @@ class HqReportController extends Controller
 
                 $total_honorary_member = $base_query->where('committees.committee_type_id', 1)->count();
                 $total_member = $base_query->where('committees.committee_type_id', 2)->count();
+                $current_term = DB::table('branch_terms')
+                    ->where('branch_terms.branch_id', $branch->branch_id)
+                    ->where('branch_terms.active', true)
+                    ->where('branch_terms.start_date', '<=', now()->toDateString())
+                    ->whereNull('branch_terms.end_date')
+                    ->first();
 
                 return (object)[
                     'branch_name' => $branch->branch_name,
                     'total_honorary_member' => $total_honorary_member,
                     'total_member' => $total_member,
                     'total_employee' => 0,
+                    'current_term' => $current_term
                 ];
             });
+
+        // dd($branches);
 
         return view('hq-report.hq-report-index', [
             'branches' => $branches
