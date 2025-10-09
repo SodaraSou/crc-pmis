@@ -124,7 +124,13 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $employee->kh_name }}</td>
                             <td>{{ $employee->current_position->department->kh_name }}</td>
-                            <td>{{ $employee->current_position->position->kh_name }}</td>
+                            <td>
+                                @if ($employee->current_position->opt_position_name)
+                                    {{ $employee->current_position->opt_position_name }}
+                                @else
+                                    {{ $employee->current_position->position->kh_name }}
+                                @endif
+                            </td>
                             <td>
                                 <div class="d-flex justify-content-center align-items-center">
                                     <a href="{{ route('employee.show', Crypt::encrypt($employee->id)) }}"

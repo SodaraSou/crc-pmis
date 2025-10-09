@@ -43,17 +43,23 @@ class HqReportController extends Controller
                     ->where('branch_terms.start_date', '<=', now()->toDateString())
                     ->whereNull('branch_terms.end_date')
                     ->first();
+                $total_employee = DB::table('employees')
+                    ->leftJoin('employee_position', 'employee_position.employee_id', '=', 'employees.id')
+                    ->where('employees.active', true)
+                    ->where('employee_position.active', true)
+                    ->where('employee_position.branch_id', $branch->branch_id)
+                    ->where('employee_position.start_date', '<=', now()->toDateString())
+                    ->whereNull('employee_position.end_date')
+                    ->count();
 
-                return (object)[
+                return [
                     'branch_name' => $branch->branch_name,
                     'total_honorary_member' => $total_honorary_member,
                     'total_member' => $total_member,
-                    'total_employee' => 0,
-                    'current_term' => $current_term
+                    'total_employee' => $total_employee,
+                    'current_term' => (object) $current_term
                 ];
             });
-
-        // dd($branches);
 
         return view('hq-report.hq-report-index', [
             'branches' => $branches

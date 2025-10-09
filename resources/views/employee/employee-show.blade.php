@@ -58,8 +58,13 @@
                                 </li>
                             @endif
                             <li class="list-group-item">
-                                <b>តួនាទី</b> <a
-                                    class="float-right text-dark">{{ $current_position->position->kh_name }}</a>
+                                <b>តួនាទី</b> <a class="float-right text-dark">
+                                    @if ($current_position->opt_position_name)
+                                        {{ $current_position->opt_position_name }}
+                                    @else
+                                        {{ $current_position->position->kh_name }}
+                                    @endif
+                                </a>
                             </li>
                         </ul>
                         <div class="row g-4">

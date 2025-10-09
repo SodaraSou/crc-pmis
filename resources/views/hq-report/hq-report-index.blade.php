@@ -23,17 +23,17 @@
                         </div>
                         <div class="col-4"></div>
                     </div>
-                    <div class="row my-3">
+                    <div class="row my-4">
                         <div class="col-12 text-center">
-                            <div class="khm">
-                                បញ្ជីររាយនាមមន្រ្តីប្រតិបត្តិស្នាក់ការកណ្តាលកាកបាទក្រហមកម្ពុជា</div>
+                            <div class="khm">របាយការណ៌សមាជិកគណ:កិត្តិយសសមាជិកគណ:កម្មាធិការមន្រ្តីប្រតិបត្តិ ២៥ សាខារាជធានី/ខេត្ត</div>
                         </div>
                     </div>
                 </div>
                 <table class="table table-sm table-bordered cell-center">
                     <thead>
                         <tr>
-                            <th class="khm text-center font-weight-normal" colspan="4"></th>
+                            <th class="khm text-center font-weight-normal">ល.រ</th>
+                            <th class="khm text-center font-weight-normal" colspan="4">អង្គភាព</th>
                             <th class="khm text-center font-weight-normal" colspan="2">សមាជិកគណ:កិត្តិយស</th>
                             <th class="khm text-center font-weight-normal" colspan="2">សមាជិកគណ:កម្មាធិការ</th>
                             <th class="khm text-center font-weight-normal" colspan="2">មន្រ្តីប្រតិបត្តិ</th>
@@ -43,11 +43,13 @@
                     <tbody>
                         @foreach ($branches as $branch)
                             <tr>
-                                <td class="khm text-center" colspan="4">{{ $branch->branch_name }}</td>
-                                <td class="khm text-center" colspan="2">{{ $branch->total_honorary_member }}</td>
-                                <td class="khm text-center" colspan="2">{{ $branch->total_member }}</td>
-                                <td class="khm text-center" colspan="2">{{ $branch->total_employee }}</td>
-                                <td class="khm text-center" colspan="2">{{ $branch->current_term->kh_name }}</td>
+                                <td class="text-center">{{ $loop->iteration }}</td>
+                                <td class="khs text-center" colspan="4">{{ $branch['branch_name'] }}</td>
+                                <td class="text-center" colspan="2">{{ $branch['total_honorary_member'] }}</td>
+                                <td class="text-center" colspan="2">{{ $branch['total_member'] }}</td>
+                                <td class="text-center" colspan="2">{{ $branch['total_employee'] }}</td>
+                                <td class="khs text-center" colspan="2">{{ $branch['current_term']->kh_name ?? 'N/A' }}
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

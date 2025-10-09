@@ -121,11 +121,11 @@
                     @enderror --}}
                 </div>
                 <div class="col-12 col-md-6 form-group">
-                    <label>ស្ថានភាពបុគ្គលិក
+                    <label>ស្ថានភាពការងារ
                         {{-- <span class="text-danger">*</span> --}}
                     </label>
                     <select wire:model="form.employee_status_id" class="form-control">
-                        <option value="">សូមជ្រើសរើសស្ថានភាពបុគ្គលិក</option>
+                        <option value="">សូមជ្រើសរើសស្ថានភាពការងារ</option>
                         @foreach ($employee_statuses as $employee_status)
                             <option wire:key="{{ $employee_status->id }}" value="{{ $employee_status->id }}">
                                 {{ $employee_status->kh_name }}

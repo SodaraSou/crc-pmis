@@ -116,7 +116,7 @@ class EmployeePositonCreateForm extends Component
 
             session()->flash('toast', [
                 'type' => 'success',
-                'message' => 'ដំណែងមន្ត្រីប្រតិបត្តិបង្កើតដោយជោគជ័យ!'
+                'message' => 'តួនាទីមន្ត្រីបង្កើតដោយជោគជ័យ!'
             ]);
 
             $encrypt_id = Crypt::encrypt($this->employee->id);

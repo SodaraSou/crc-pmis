@@ -60,6 +60,12 @@ html {
         padding: 0 !important;
     }
 
+    .card,
+    .card-body {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
     #printable-area,
     #printable-area * {
         visibility: visible;

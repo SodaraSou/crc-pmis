@@ -27,6 +27,7 @@ return new class extends Migration
             $table->foreignId('ad_district_id')->nullable()->constrained('districts');
             $table->foreignId('ad_commune_id')->nullable()->constrained('communes');
             $table->foreignId('ad_village_id')->nullable()->constrained('villages');
+            $table->integer('member_position_order')->nullable();
             $table->boolean('active')->default(true);
             $table->foreignId('created_by')->constrained('users');
             $table->foreignId('updated_by')->nullable()->constrained('users');

@@ -11,8 +11,11 @@
                     @if ($preview_sub_branch_img)
                         <img src="{{ $preview_sub_branch_img->temporaryUrl() }}"
                             class="profile-user-img img-fluid img-circle w-100 h-100" style="object-fit: cover;">
-                    @else
+                    @elseif($sub_branch_img)
                         <img src="{{ $sub_branch_img }}" class="profile-user-img img-fluid img-circle w-100 h-100"
+                            style="object-fit: cover;">
+                    @else
+                        <img src="{{ asset('default.png') }}" class="profile-user-img img-fluid img-circle w-100 h-100"
                             style="object-fit: cover;">
                     @endif
                     <div wire:loading wire:target="preview_sub_branch_img" class="position-absolute"
