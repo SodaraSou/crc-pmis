@@ -1,6 +1,6 @@
 <div>
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h4>បញ្ជីអនុសាខា</h4>
+        <h4>តារាងអនុសាខា</h4>
         {{-- @if ($user->hasRole('System Manager'))
             <a href="{{ route('sub-branch.create', $branch->id) }}" class="btn btn-success"><i class="fa fa-plus mr-1"></i>
                 បង្កើតអនុសាខាថ្មី</a>

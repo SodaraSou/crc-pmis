@@ -1,6 +1,6 @@
 <div>
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h4>បញ្ជីសាខា</h4>
+        <h4>សាខា​ 25 រាជធានី/ខេត្ត</h4>
         {{-- <a href="{{ route('branch.create') }}" class="btn btn-success float-sm-right"><i class="fa fa-plus mr-1"></i>
             បង្កើតថ្មី</a> --}}
     </div>
