@@ -9,19 +9,19 @@ class HqReportController extends Controller
 {
     public function reportIndex()
     {
-        $committees = DB::table('committees')
-            ->where('committee_level_id', '<', 3)
-            ->select('id', 'kh_name')
+        $branches = DB::table('branches')
+            ->select(
+                'branches.id as branch_id',
+                'branches.kh_name as branch_name',
+            )
             ->get()
-            ->map(function ($committee) {
-                $baseQuery = DB::table('committee_member')
-                    ->join('members', 'members.id', '=', 'committee_member.member_id')
+            ->map(function ($branch) {
+                $base_query = DB::table('committee_member')
                     ->leftJoin('branch_terms', 'branch_terms.id', '=', 'committee_member.branch_term_id')
                     ->leftJoin('sub_branch_terms', 'sub_branch_terms.id', '=', 'committee_member.sub_branch_term_id')
                     ->leftJoin('committees', 'committees.id', '=', 'committee_member.committee_id')
-                    ->where('committee_member.committee_id', $committee->id)
+                    ->where('committees.branch_id', $branch->branch_id)
                     ->where('committee_member.active', true)
-                    ->where('members.active', true)
                     ->where(function ($query) {
                         $query->where(function ($q) {
                             $q->where('branch_terms.active', true)
@@ -35,22 +35,19 @@ class HqReportController extends Controller
                             });
                     });
 
-                $total_honorary_member = $baseQuery->where('committees.committee_type_id', 1)->count();
-                $total_member = $baseQuery->where('committees.committee_type_id', 2)->count();
+                $total_honorary_member = $base_query->where('committees.committee_type_id', 1)->count();
+                $total_member = $base_query->where('committees.committee_type_id', 2)->count();
 
                 return (object)[
-                    'id' => $committee->id,
-                    'kh_name' => $committee->kh_name,
+                    'branch_name' => $branch->branch_name,
                     'total_honorary_member' => $total_honorary_member,
                     'total_member' => $total_member,
                     'total_employee' => 0,
                 ];
             });
 
-        // dd($committees);
-
         return view('hq-report.hq-report-index', [
-            'committees' => $committees
+            'branches' => $branches
         ]);
     }
 

@@ -41,13 +41,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($committees as $committee)
+                        @foreach ($branches as $branch)
                             <tr>
-                                <td class="khm" colspan="4">{{ $committee->kh_name }}</td>
-                                <td colspan="2" class="text-center">{{ $committee->total_honorary_member }}</td>
-                                <td colspan="2"></td>
-                                <td colspan="2"></td>
-                                <td colspan="2"></td>
+                                <td class="khm text-center" colspan="4">{{ $branch->branch_name }}</td>
+                                <td class="khm text-center" colspan="2">{{ $branch->total_honorary_member }}</td>
+                                <td class="khm text-center" colspan="2">{{ $branch->total_member }}</td>
+                                <td class="khm text-center" colspan="2">{{ $branch->total_employee }}</td>
+                                <td class="khm text-center" colspan="2"></td>
                             </tr>
                         @endforeach
                     </tbody>
