@@ -42,26 +42,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($committees as $committee)
+                        @foreach ($members as $member)
                             <tr>
-                                <td class="khm" colspan="6">{{ $committee->kh_name }}</td>
+                                <td class="khs text-center">{{ $loop->iteration }}</td>
+                                <td class="khs text-center">{{ $member->member_name }}</td>
+                                <td class="khs text-center">{{ $member->gender }}</td>
+                                <td class="khs text-center">{{ $member->gov_position }}</td>
+                                <td class="khs text-center">{{ $member->committee_position }}</td>
+                                <td class="khs text-center">
+                                    @if ($member->branch_term)
+                                        {{ $member->branch_term }}
+                                    @else
+                                        {{ $member->sub_branch_term }}
+                                    @endif
+                                </td>
                             </tr>
-                            @foreach ($committee->members as $member)
-                                <tr>
-                                    <td class="khs text-center">{{ $loop->iteration }}</td>
-                                    <td class="khs text-center">{{ $member->kh_name }}</td>
-                                    <td class="khs text-center">{{ $member->gender_abbr }}</td>
-                                    <td class="khs text-center">{{ $member->gov_position }}</td>
-                                    <td class="khs text-center">{{ $member->committee_position }}</td>
-                                    <td class="khs text-center">
-                                        @if ($member->branch_term)
-                                            {{ $member->branch_term }}
-                                        @else
-                                            {{ $member->sub_branch_term }}
-                                        @endif
-                                    </td>
-                                </tr>
-                            @endforeach
                         @endforeach
                     </tbody>
                 </table>
