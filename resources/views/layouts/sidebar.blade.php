@@ -197,19 +197,19 @@
                         <li class="nav-item" id="hq-employee-report">
                             <a href="{{ route('hq-report.employee-report') }}" class="nav-link">
                                 <i class="fas fa-angle-double-right nav-icon"></i>
-                                <p>របាយការណ៌មន្រ្តីប្រតិបត្តិ</p>
+                                <p>មន្រ្តីប្រតិបត្តិ</p>
                             </a>
                         </li>
                         <li class="nav-item" id="hq-honorary-committee-report">
                             <a href="{{ route('hq-report.honorary-committee-report') }}" class="nav-link">
                                 <i class="fas fa-angle-double-right nav-icon"></i>
-                                <p>របាយការណ៌គណ:កិត្តិយស</p>
+                                <p>គណ:កិត្តិយស</p>
                             </a>
                         </li>
                         <li class="nav-item" id="hq-committee-report">
                             <a href="{{ route('hq-report.committee-report') }}" class="nav-link">
                                 <i class="fas fa-angle-double-right nav-icon"></i>
-                                <p>របាយការណ៌គណ:កម្មាធិការ</p>
+                                <p>គណ:កម្មាធិការ</p>
                             </a>
                         </li>
                     </ul>

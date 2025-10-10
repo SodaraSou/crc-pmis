@@ -12,10 +12,10 @@
                     <div class="card-body box-profile">
                         <div class="text-center">
                             @if ($employee->profile_img)
-                                <img class="profile-user-img img-fluid img-circle" src="{{ $employee->profile_img }}"
+                                <img class="profile-user-img img-fluid img-thumbnail" src="{{ $employee->profile_img }}"
                                     alt="User profile picture">
                             @else
-                                <img class="profile-user-img img-fluid img-circle" src="{{ asset('default.png') }}"
+                                <img class="profile-user-img img-fluid img-thumbnail" src="{{ asset('default.png') }}"
                                     alt="User profile picture">
                             @endif
                         </div>
@@ -26,7 +26,7 @@
 
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">
-                                <b>ថ្នាក់បុគ្គលិក</b> <a
+                                <b>ថ្នាក់មន្រ្តី</b> <a
                                     class="float-right text-dark">{{ $current_position->employee_level->kh_name }}</a>
                             </li>
                             @if ($current_position->employee_level_id == 2)

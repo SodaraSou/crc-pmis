@@ -10,18 +10,18 @@
                 <div class="mr-4 position-relative" style="width: 120px; height: 120px;">
                     @if ($preview_sub_branch_img)
                         <img src="{{ $preview_sub_branch_img->temporaryUrl() }}"
-                            class="profile-user-img img-fluid img-circle w-100 h-100" style="object-fit: cover;">
+                            class="profile-user-img img-fluid img-thumbnail w-100 h-100" style="object-fit: cover;">
                     @elseif($sub_branch_img)
-                        <img src="{{ $sub_branch_img }}" class="profile-user-img img-fluid img-circle w-100 h-100"
+                        <img src="{{ $sub_branch_img }}" class="profile-user-img img-fluid img-thumbnail w-100 h-100"
                             style="object-fit: cover;">
                     @else
-                        <img src="{{ asset('default.png') }}" class="profile-user-img img-fluid img-circle w-100 h-100"
-                            style="object-fit: cover;">
+                        <img src="{{ asset('default.png') }}"
+                            class="profile-user-img img-fluid img-thumbnail w-100 h-100" style="object-fit: cover;">
                     @endif
                     <div wire:loading wire:target="preview_sub_branch_img" class="position-absolute"
                         style="top:0; left:0; width:100%; height:100%;">
                         <div class="d-flex justify-content-center align-items-center w-100 h-100"
-                            style="background: rgba(255,255,255,0.8); border-radius: 50%;">
+                            style="background: rgba(255,255,255,0.8);">
                             <div class="spinner-border text-info"></div>
                         </div>
                     </div>
