@@ -183,7 +183,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-chart-line"></i>
                         <p>
-                            របាយការណ៌ថ្នាក់កណ្តាល
+                            របាយការណ៌
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -191,7 +191,13 @@
                         <li class="nav-item" id="hq-report-index">
                             <a href="{{ route('hq-report.report-index') }}" class="nav-link">
                                 <i class="fas fa-angle-double-right nav-icon"></i>
-                                <p>របាយការណ៌ទូទៅ</p>
+                                <p>របាយការណ៌សាខា</p>
+                            </a>
+                        </li>
+                        <li class="nav-item" id="sub-branch-report-index">
+                            <a href="{{ route('hq-report.report-index') }}" class="nav-link">
+                                <i class="fas fa-angle-double-right nav-icon"></i>
+                                <p>របាយការណ៌អនុសាខា</p>
                             </a>
                         </li>
                         <li class="nav-item" id="hq-employee-report">
