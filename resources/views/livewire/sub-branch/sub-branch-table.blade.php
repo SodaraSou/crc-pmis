@@ -16,7 +16,7 @@
                                 <h2 class="lead"><b>{{ $sub_branch->kh_name }}</b></h2>
                             </div>
                             <div class="col-5 text-center">
-                                <img src="{{ asset('Cambodian_Red_Cross_Logo.png') }}" class="img-circle img-fluid"
+                                <img src="{{ asset('default.png') }}" class="img-thumbnail img-fluid"
                                     style="width: 120px; height: 120px;">
                             </div>
                         </div>
