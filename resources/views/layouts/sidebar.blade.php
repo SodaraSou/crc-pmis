@@ -179,7 +179,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item" id="hq-report">
+                <li class="nav-item" id="report">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-chart-line"></i>
                         <p>
@@ -188,32 +188,32 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item" id="hq-report-index">
-                            <a href="{{ route('hq-report.report-index') }}" class="nav-link">
+                        <li class="nav-item" id="branch-report">
+                            <a href="{{ route('report.branch-report') }}" class="nav-link">
                                 <i class="fas fa-angle-double-right nav-icon"></i>
-                                <p>របាយការណ៌សាខា</p>
+                                <p>សាខា</p>
                             </a>
                         </li>
-                        <li class="nav-item" id="sub-branch-report-index">
-                            <a href="{{ route('hq-report.report-index') }}" class="nav-link">
+                        <li class="nav-item" id="sub-branch-report">
+                            <a href="{{ route('report.sub-branch-report') }}" class="nav-link">
                                 <i class="fas fa-angle-double-right nav-icon"></i>
-                                <p>របាយការណ៌អនុសាខា</p>
+                                <p>អនុសាខា</p>
                             </a>
                         </li>
-                        <li class="nav-item" id="hq-employee-report">
-                            <a href="{{ route('hq-report.employee-report') }}" class="nav-link">
+                        <li class="nav-item" id="employee-report">
+                            <a href="{{ route('report.employee-report') }}" class="nav-link">
                                 <i class="fas fa-angle-double-right nav-icon"></i>
                                 <p>មន្រ្តីប្រតិបត្តិ</p>
                             </a>
                         </li>
-                        <li class="nav-item" id="hq-honorary-committee-report">
-                            <a href="{{ route('hq-report.honorary-committee-report') }}" class="nav-link">
+                        <li class="nav-item" id="honorary-committee-report">
+                            <a href="{{ route('report.honorary-committee-report') }}" class="nav-link">
                                 <i class="fas fa-angle-double-right nav-icon"></i>
                                 <p>គណ:កិត្តិយស</p>
                             </a>
                         </li>
-                        <li class="nav-item" id="hq-committee-report">
-                            <a href="{{ route('hq-report.committee-report') }}" class="nav-link">
+                        <li class="nav-item" id="committee-report">
+                            <a href="{{ route('report.committee-report') }}" class="nav-link">
                                 <i class="fas fa-angle-double-right nav-icon"></i>
                                 <p>គណ:កម្មាធិការ</p>
                             </a>
