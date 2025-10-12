@@ -5,9 +5,37 @@
 @endsection
 
 @section('content')
-    <div class="card">
-        <div class="card-header">
-            <button id="btn-print" class="btn btn-primary float-right"><i class="fa fa-print"></i> បោះពុម្ភ</button>
+    <div class="container">
+        <livewire:report.employee-report />
+    </div>
+    {{-- <div class="card">
+        <div class="card-body">
+            <form action="{{ route('report.employee-report') }}" method="GET">
+                <div class="row">
+                    <div class="col-12 col-md-3">
+                        <label>នាយកដ្ឋាន</label>
+                        <select class="form-control" name="department_id">
+                            <option value="">សូមជ្រើសរើសនាយកដ្ឋាន</option>
+                            @foreach ($departments as $department)
+                                <option value="{{ $department->id }}"
+                                    {{ request('department_id') == $department->id ? 'selected' : '' }}>
+                                    {{ $department->kh_name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-3"></div>
+                    <div class="col-12 col-md-3 d-flex justify-content-end align-items-center">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-filter"></i>
+                            ច្រោះ</button>
+                    </div>
+                    <div class="col-12 col-md-3 d-flex justify-content-end align-items-center">
+                        <button id="btn-print" type="button" class="btn btn-primary float-right"><i
+                                class="fa fa-print"></i>
+                            បោះពុម្ភ</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
     <div class="container">
@@ -72,7 +100,7 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection
 
 @section('js')

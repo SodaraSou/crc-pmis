@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Branch;
+use App\Models\Department;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -71,9 +73,9 @@ class ReportController extends Controller
         return view('report.sub-branch-report');
     }
 
-    public function employeeReport()
+    public function employeeReport(Request $request)
     {
-        $employees_grouped_by_department = DB::table('employees')
+        $query = DB::table('employees')
             ->leftJoin('genders', 'genders.id', '=', 'employees.gender_id')
             ->leftJoin('employee_position', 'employee_position.employee_id', '=', 'employees.id')
             ->leftJoin('positions', 'positions.id', '=', 'employee_position.position_id')
@@ -94,15 +96,21 @@ class ReportController extends Controller
                 'genders.kh_abbr as gender',
                 'positions.kh_name as position',
                 'employee_position.opt_position_name',
-            )
+            );
+
+        if ($request->has('department_id')) {
+            $query->where('departments.id', $request->department_id);
+        }
+
+        $employees_grouped_by_department = $query
             ->orderBy('departments.department_order')
             ->orderBy('employees.employee_position_order')
             ->get()
             ->groupBy('department_name');
 
-        // dd($employees_grouped_by_department);
-
         return view('report.employee-report', [
+            'branches' => Branch::all(),
+            'departments' => Department::all(),
             'employees_grouped_by_department' => $employees_grouped_by_department
         ]);
     }
