@@ -2,6 +2,9 @@
 
 namespace App\Livewire\Report;
 
+use App\Models\Branch;
+use App\Models\Department;
+use App\Models\SubBranch;
 use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Url;
 use Livewire\Component;
@@ -9,19 +12,76 @@ use Livewire\Component;
 class EmployeeReport extends Component
 {
     #[Url(except: '')]
-    public $branch_id = '';
-    public $branch = null;
+    public $branch_id = 0;
+    public $filter_branch = null;
 
     #[Url(except: '')]
     public $sub_branch_id = '';
-    public $sub_branch = null;
+    public $filter_sub_branch = null;
+    public $sub_branches = [];
 
     #[Url(except: '')]
     public $department_id = '';
-    public $department = null;
+    public $filter_department = null;
 
-    public function mount() {
-        
+    public function mount()
+    {
+        if ($this->branch_id) {
+            $this->filter_branch = Branch::find($this->branch_id);
+            $this->sub_branches = SubBranch::where('branch_id', $this->branch_id)->get();
+        }
+
+        if ($this->sub_branch_id) {
+            $this->filter_sub_branch = SubBranch::find($this->sub_branch_id);
+        }
+
+        if ($this->department_id) {
+            $this->filter_department = Department::find($this->department_id);
+        }
+    }
+
+    public function resetFilter()
+    {
+        $this->reset('branch_id', 'sub_branch_id', 'department_id');
+        $this->filter_branch = null;
+        $this->filter_sub_branch = null;
+        $this->filter_department = null;
+        $this->sub_branches = [];
+    }
+
+    public function removeFilter($filter)
+    {
+        if ($filter == 'branch') {
+            $this->sub_branch_id = '';
+            $this->filter_sub_branch = null;
+            $this->sub_branches = [];
+            $this->branch_id = 0;
+            $this->filter_branch = null;
+        } elseif ($filter == 'sub_branch') {
+            $this->sub_branch_id = '';
+            $this->filter_sub_branch = null;
+        } elseif ($filter == 'department') {
+            $this->department_id = '';
+            $this->filter_department = null;
+        }
+    }
+
+    public function updatedBranchId()
+    {
+        $this->filter_branch = Branch::find($this->branch_id);
+        $this->sub_branch_id = '';
+        $this->filter_sub_branch = null;
+        $this->sub_branches = SubBranch::where('branch_id', $this->branch_id)->get();
+    }
+
+    public function updatedSubBranchId()
+    {
+        $this->filter_sub_branch = SubBranch::find($this->sub_branch_id);
+    }
+
+    public function updatedDepartmentId()
+    {
+        $this->filter_department = Department::find($this->department_id);
     }
 
     public function render()
@@ -49,6 +109,15 @@ class EmployeeReport extends Component
                 'employee_position.opt_position_name',
             );
 
+        if ($this->branch_id) {
+            $query->where('employee_position.branch_id', $this->branch_id)
+                ->whereNull('employee_position.sub_branch_id');
+        }
+
+        if ($this->sub_branch_id) {
+            $query->where('employee_position.sub_branch_id', $this->sub_branch_id);
+        }
+
         if ($this->department_id) {
             $query->where('departments.id', $this->department_id);
         }
@@ -60,6 +129,8 @@ class EmployeeReport extends Component
             ->groupBy('department_name');
 
         return view('livewire.report.employee-report', [
+            'branches' => Branch::all(),
+            'departments' => Department::all(),
             'employees_grouped_by_department' => $employees_grouped_by_department
         ]);
     }
