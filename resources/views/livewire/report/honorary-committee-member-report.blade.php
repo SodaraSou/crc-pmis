@@ -40,7 +40,22 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="col-12 col-md-3 form-group"></div>
+                <div class="col-12 col-md-3 form-group">
+                    <label>អាណត្តិ</label>
+                    <select wire:model.live="term_id" class="form-control">
+                        <option value="">ជ្រើសរើសអាណត្តិ</option>
+                        @foreach ($terms as $term)
+                            <option wire:key="{{ $term->id }}" value="{{ $term->id }}">
+                                {{ $term->kh_name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-3"></div>
+                <div class="col-12 col-md-3"></div>
+                <div class="col-12 col-md-3"></div>
                 <div class="col-12 col-md-3 d-flex justify-content-end align-items-center">
                     <button id="btn-print" type="button" class="btn btn-primary float-right"><i
                             class="fa fa-print"></i> បោះពុម្ភ</button>
@@ -66,19 +81,16 @@
                     <div class="col-12 text-center">
                         <div class="khm">
                             <h5 style="margin-bottom: 16px;">បញ្ជីររាយនាម</h5>
-                            <h5 style="margin-bottom: 16px;">សមាជិកគណ:កិត្តិយស
-                                {{-- @if ($department_id)
-                                    {{ $filter_department->kh_name }}
+                            <h5 style="margin-bottom: 16px;">សមាជិក
+                                @if ($filter_committee)
+                                    {{ $filter_committee->kh_name }}
                                 @endif
-                                @if ($branch_id == 0)
-                                    ទីស្នាក់ការកណ្តាល កាកបាទក្រហមកម្ពុជា
-                                @elseif ($branch_id > 0 && !$sub_branch_id)
-                                    {{ $filter_branch->kh_name }}
-                                @elseif ($sub_branch_id)
-                                    {{ $filter_sub_branch->kh_name }}
-                                @endif --}}
                             </h5>
-                            <h5 style="margin-bottom: 0px;"></h5>
+                            <h5 style="margin-bottom: 0px;">
+                                @if ($filter_term)
+                                    {{ $filter_term->kh_name }}
+                                @endif
+                            </h5>
                         </div>
                     </div>
                 </div>
@@ -91,7 +103,6 @@
                         <th class="khm text-center font-weight-normal" colspan="1">ភេទ</th>
                         <th class="khm text-center font-weight-normal">ឋាន:តួនាទី</th>
                         <th class="khm text-center font-weight-normal">តួនាទី ក្នុងកក្រក</th>
-                        <th class="khm text-center font-weight-normal">អាណត្តិបច្ចុប្បន្ន</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -102,13 +113,6 @@
                             <td class="khs text-center">{{ $member->gender }}</td>
                             <td class="khs text-center">{{ $member->gov_position }}</td>
                             <td class="khs text-center">{{ $member->committee_position }}</td>
-                            <td class="khs text-center">
-                                @if ($member->branch_term)
-                                    {{ $member->branch_term }}
-                                @else
-                                    {{ $member->sub_branch_term }}
-                                @endif
-                            </td>
                         </tr>
                     @endforeach
                 </tbody>

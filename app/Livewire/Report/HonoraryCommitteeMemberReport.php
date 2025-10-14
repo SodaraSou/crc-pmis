@@ -32,15 +32,59 @@ class HonoraryCommitteeMemberReport extends Component
     public $filter_term = null;
     public $terms = [];
 
-    public function mount() {}
+    public function mount()
+    {
+        if ($this->committee_level_id) {
+            $this->filter_committee_level = CommitteeLevel::find($this->committee_level_id);
+            if ($this->committee_level_id == 3) {
+                $this->branches = Branch::all();
+            } else {
+                $this->committees = Committee::where('committee_level_id', $this->committee_level_id)
+                    ->where('committee_type_id', 1)
+                    ->get();
+            }
+        }
+
+        if ($this->branch_id) {
+            $this->filter_branch = Branch::find($this->branch_id);
+            $this->committees = Committee::where('branch_id', $this->branch_id)
+                ->where('committee_type_id', 1)
+                ->where('committee_level_id', 3)
+                ->get();
+        }
+
+        if ($this->committee_id) {
+            $this->filter_committee = Committee::find($this->committee_id);
+            if ($this->committee_level_id < 3) {
+                $this->terms = BranchTerm::where('active', true)
+                    ->where('branch_id', $this->filter_committee->branch->id)
+                    ->get();
+            } else {
+                $this->terms = SubBranchTerm::where('active', true)
+                    ->where('sub_branch_id', $this->filter_committee->sub_branch->id)
+                    ->get();
+            }
+        }
+
+        if ($this->term_id) {
+            if ($this->committee_level_id == 3) {
+                $this->filter_term = SubBranchTerm::find($this->term_id);
+            } else {
+                $this->filter_term = BranchTerm::find($this->term_id);
+            }
+        }
+    }
 
     public function updatedCommitteeLevelId()
     {
+        $this->filter_committee_level = CommitteeLevel::find($this->committee_level_id);
         if ($this->committee_level_id == 3) {
             $this->branches = Branch::all();
-            $this->reset('committee_id');
+            $this->reset(['branch_id', 'committee_id', 'term_id']);
             $this->filter_committee = null;
             $this->committees = [];
+            $this->filter_term = null;
+            $this->terms = [];
         } else {
             $this->committees = Committee::where('committee_level_id', $this->committee_level_id)
                 ->where('committee_type_id', 1)
@@ -50,6 +94,10 @@ class HonoraryCommitteeMemberReport extends Component
 
     public function updatedBranchId()
     {
+        $this->filter_branch = Branch::find($this->branch_id);
+        $this->reset(['committee_id', 'term_id']);
+        $this->filter_committee = $this->filter_term = null;
+        $this->terms = [];
         $this->committees = Committee::where('branch_id', $this->branch_id)
             ->where('committee_type_id', 1)
             ->where('committee_level_id', 3)
@@ -59,14 +107,25 @@ class HonoraryCommitteeMemberReport extends Component
     public function updatedCommitteeId()
     {
         $this->filter_committee = Committee::find($this->committee_id);
+        $this->reset('term_id');
+        $this->filter_term = null;
         if ($this->committee_level_id < 3) {
             $this->terms = BranchTerm::where('active', true)
                 ->where('branch_id', $this->filter_committee->branch->id)
                 ->get();
-        } elseif ($this->committee_level_id == 3) {
+        } else {
             $this->terms = SubBranchTerm::where('active', true)
                 ->where('sub_branch_id', $this->filter_committee->sub_branch->id)
                 ->get();
+        }
+    }
+
+    public function updatedTermId()
+    {
+        if ($this->committee_level_id == 3) {
+            $this->filter_term = SubBranchTerm::find($this->term_id);
+        } else {
+            $this->filter_term = BranchTerm::find($this->term_id);
         }
     }
 
@@ -81,20 +140,7 @@ class HonoraryCommitteeMemberReport extends Component
             ->leftJoin('sub_branch_terms', 'sub_branch_terms.id', '=', 'committee_member.sub_branch_term_id')
             ->where('members.active', true)
             ->where('committee_member.active', true)
-            ->where('committees.branch_id', 0)
             ->where('committees.committee_type_id', 1)
-            ->where(function ($query) {
-                $query->where(function ($q) {
-                    $q->where('branch_terms.active', true)
-                        ->where('branch_terms.start_date', '<=', now()->toDateString())
-                        ->whereNull('branch_terms.end_date');
-                })
-                    ->orWhere(function ($q) {
-                        $q->where('sub_branch_terms.active', true)
-                            ->where('sub_branch_terms.start_date', '<=', now()->toDateString())
-                            ->whereNull('sub_branch_terms.end_date');
-                    });
-            })
             ->select(
                 'members.kh_name as member_name',
                 'members.member_position_order as member_position_order',
@@ -104,6 +150,18 @@ class HonoraryCommitteeMemberReport extends Component
                 'branch_terms.kh_name as branch_term',
                 'sub_branch_terms.kh_name as sub_branch_term'
             );
+
+        if ($this->committee_id) {
+            $query->where('committee_member.committee_id', $this->committee_id);
+        }
+
+        if ($this->term_id) {
+            if ($this->committee_level_id < 3) {
+                $query->where('committee_member.branch_term_id', $this->term_id);
+            } else {
+                $query->where('committee_member.sub_branch_term_id', $this->term_id);
+            }
+        }
 
         return view('livewire.report.honorary-committee-member-report', [
             'committee_levels' => CommitteeLevel::all(),
