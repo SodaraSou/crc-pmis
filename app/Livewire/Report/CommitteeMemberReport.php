@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 
-class HonoraryCommitteeMemberReport extends Component
+class CommitteeMemberReport extends Component
 {
     #[Url(except: '')]
     public $branch_id = '';
@@ -34,7 +34,7 @@ class HonoraryCommitteeMemberReport extends Component
         if ($this->branch_id) {
             $this->filter_branch = Branch::find($this->branch_id);
             $this->committees = Committee::where('branch_id', $this->branch_id)
-                ->where('committee_type_id', 1)
+                ->where('committee_type_id', 2)
                 ->get();
         }
 
@@ -94,7 +94,7 @@ class HonoraryCommitteeMemberReport extends Component
         $this->terms = [];
         $this->filter_branch = Branch::find($this->branch_id);
         $this->committees = Committee::where('branch_id', $this->branch_id)
-            ->where('committee_type_id', 1)
+            ->where('committee_type_id', 2)
             ->get();
     }
 
@@ -135,7 +135,7 @@ class HonoraryCommitteeMemberReport extends Component
             ->leftJoin('sub_branch_terms', 'sub_branch_terms.id', '=', 'committee_member.sub_branch_term_id')
             ->where('members.active', true)
             ->where('committee_member.active', true)
-            ->where('committees.committee_type_id', 1)
+            ->where('committees.committee_type_id', 2)
             ->select(
                 'members.kh_name as member_name',
                 'members.member_position_order as member_position_order',
@@ -158,7 +158,7 @@ class HonoraryCommitteeMemberReport extends Component
             }
         }
 
-        return view('livewire.report.honorary-committee-member-report', [
+        return view('livewire.report.committee-member-report', [
             'members' => $this->term_id ? $query->orderBy('members.member_position_order')->get() : []
         ]);
     }

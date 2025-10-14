@@ -5,6 +5,9 @@
 @endsection
 
 @section('content')
+    <div class="container">
+        <livewire:report.committee-member-report />
+    </div>
 @endsection
 
 @section('js')

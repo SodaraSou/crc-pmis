@@ -16,7 +16,7 @@
                 <div class="col-12 col-md-3 form-group">
                     <label>គណ:កិត្តិយស</label>
                     <select wire:model.live="committee_id" class="form-control">
-                        <option value="">ជ្រើសរើសគណ:កិត្តិយស</option>
+                        <option value="">ជ្រើសរើសគណ:កម្មាធិការ</option>
                         @foreach ($committees as $committee)
                             <option wire:key="{{ $committee->id }}" value="{{ $committee->id }}">
                                 {{ $committee->kh_name }}
