@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Employee extends Model
 {
     protected $fillable = [
+        'title',
         'kh_name',
         'en_name',
         'family_situation_id',
@@ -31,6 +33,7 @@ class Employee extends Model
         'ad_street_number',
         'ad_street_name',
         'ad_house_number',
+        'employee_position_order',
         'active',
         'created_by',
         'updated_by'
@@ -100,12 +103,30 @@ class Employee extends Model
     {
         return $this->belongsToMany(Position::class)
             ->using(EmployeePosition::class)
-            ->withPivot('id', 'department_id', 'office_id', 'branch_id', 'sub_branch_id', 'group_id', 'start_date', 'opt_position_name', 'end_date');
+            ->withPivot(
+                'id',
+                'department_id',
+                'office_id',
+                'branch_id',
+                'sub_branch_id',
+                'group_id',
+                'start_date',
+                'opt_position_name',
+                'end_date'
+            );
     }
 
     public function employee_positions(): HasMany
     {
         return $this->hasMany(EmployeePosition::class);
+    }
+
+    public function current_position(): HasOne
+    {
+        return $this->hasOne(EmployeePosition::class)
+            ->where('active', true)
+            ->where('start_date', '<=', now()->toDateString())
+            ->whereNull('end_date');
     }
 
     public function educations(): HasMany

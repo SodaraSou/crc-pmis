@@ -18,6 +18,7 @@ return new class extends Migration
             $table->boolean('active')->default(true);
             $table->foreignId('branch_id')->constrained();
             $table->foreignId('district_id')->constrained();
+            $table->string('sub_branch_img')->nullable();
             $table->timestamps();
         });
     }

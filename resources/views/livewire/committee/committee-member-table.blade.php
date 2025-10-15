@@ -100,7 +100,9 @@
                 <thead>
                     <tr>
                         <th>ល.រ</th>
-                        <th>ឈ្មោះខ្មែរ</th>
+                        <th>ឈ្មោះ</th>
+                        <th>ឋាន:តួនាទី</th>
+                        <th>តួនាទី​ កក្រក</th>
                         <th class="text-center">អាណត្តិ</th>
                         <th class="text-center">សកម្មភាព</th>
                     </tr>
@@ -110,6 +112,8 @@
                         <tr wire:key='{{ $member->id }}' aria-expanded="false">
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $member->kh_name }}</td>
+                            <td>{{ $member->current_membership->gov_position }}</td>
+                            <td>{{ $member->current_membership->committee_position->kh_name }}</td>
                             <td class="text-center">
                                 <button class="btn btn-sm btn-success" data-widget="expandable-table"><i
                                         class="fa fa-eye" aria-hidden="true"></i></button>
@@ -132,18 +136,17 @@
                             </td>
                         </tr>
                         <tr class="expandable-body d-none">
-                            <td colspan="4">
+                            <td colspan="6">
                                 <div style="display: none;">
                                     <div class="timeline timeline-inverse">
-                                        @php
-                                            $terms = $member->committee_members()->where('active', true)->get();
-                                        @endphp
-                                        @foreach ($terms as $term)
+                                        @foreach ($member->committee_members as $term)
                                             <div class="time-label">
                                                 <span class="bg-success">
                                                     @if ($term->committee->committee_level_id < 3)
+                                                        {{ $term->committee->kh_name }}
                                                         {{ $term->branch_term->kh_name }}
                                                     @elseif ($term->committee->committee_level_id == 3)
+                                                        {{ $term->committee->kh_name }}
                                                         {{ $term->sub_branch_term->kh_name }}
                                                     @endif
                                                 </span>
@@ -153,25 +156,32 @@
                                                 <div class="timeline-item">
                                                     <h3 class="timeline-header">{{ $term->committee->kh_name }}</h3>
                                                     <div class="timeline-body">
+                                                        <div>
+                                                            តួនាទី: {{ $term->committee_position->kh_name }}
+                                                        </div>
                                                         @if ($term->committee->committee_level_id < 3)
+                                                            <div>
+                                                                អាណត្តិ: {{ $term->branch_term->kh_name }}
+                                                            </div>
                                                             <div>
                                                                 រយ:ពេល: {{ $term->branch_term->start_date }} ដល់
                                                                 {{ $term->branch_term->end_date }}
                                                             </div>
                                                         @elseif ($term->committee->committee_level_id == 3)
                                                             <div>
-                                                                រយ:ពេល: {{ $term->sub_branch_term->start_date }} ដល់
+                                                                អាណត្តិ: {{ $term->sub_branch_term->kh_name }}
+                                                            </div>
+                                                            <div>
+                                                                រយ:ពេល: {{ $term->sub_branch_term->start_date }}
+                                                                ដល់
                                                                 {{ $term->sub_branch_term->end_date }}
                                                             </div>
                                                         @endif
-                                                        <div>
-                                                            តួនាទី: {{ $term->committee_position->kh_name }}
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         @endforeach
-                                        @if ($terms->count() > 0)
+                                        @if ($member->committee_members->count() > 0)
                                             <div>
                                                 <i class="far fa-clock bg-gray"></i>
                                             </div>

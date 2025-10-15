@@ -7,13 +7,17 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card card-danger card-outline">
                     <div class="card-body box-profile">
                         <div class="text-center">
-                            {{--                        <img class="profile-user-img img-fluid img-circle" --}}
-                            {{--                             src="{{$employee->profile_img}}" --}}
-                            {{--                             alt="User profile picture"> --}}
+                            @if ($employee->profile_img)
+                                <img class="profile-user-img img-fluid img-thumbnail" src="{{ $employee->profile_img }}"
+                                    alt="User profile picture">
+                            @else
+                                <img class="profile-user-img img-fluid img-thumbnail" src="{{ asset('default.png') }}"
+                                    alt="User profile picture">
+                            @endif
                         </div>
 
                         <h3 class="profile-username text-center">{{ $employee->kh_name }}</h3>
@@ -22,7 +26,7 @@
 
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">
-                                <b>ថ្នាក់បុគ្គលិក</b> <a
+                                <b>ថ្នាក់មន្រ្តី</b> <a
                                     class="float-right text-dark">{{ $current_position->employee_level->kh_name }}</a>
                             </li>
                             @if ($current_position->employee_level_id == 2)
@@ -54,8 +58,13 @@
                                 </li>
                             @endif
                             <li class="list-group-item">
-                                <b>តួនាទី</b> <a
-                                    class="float-right text-dark">{{ $current_position->position->kh_name }}</a>
+                                <b>តួនាទី</b> <a class="float-right text-dark">
+                                    @if ($current_position->opt_position_name)
+                                        {{ $current_position->opt_position_name }}
+                                    @else
+                                        {{ $current_position->position->kh_name }}
+                                    @endif
+                                </a>
                             </li>
                         </ul>
                         <div class="row g-4">
@@ -78,7 +87,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-header p-2">
                         <ul class="nav nav-pills">
@@ -120,26 +129,26 @@
                                         <td>
                                             <dl class="row mb-0">
                                                 <dt class="col-sm-4">ភូមិ</dt>
-                                                <dd class="col-sm-8">{{ $employee->bp_village->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $employee->bp_village->kh_name ?? 'N/A' }}</dd>
 
                                                 <dt class="col-sm-4">ឃុំ/សង្កាត់</dt>
-                                                <dd class="col-sm-8">{{ $employee->bp_commune->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $employee->bp_commune->kh_name ?? 'N/A' }}</dd>
 
                                                 <dt class="col-sm-4">ក្រុង/ស្រុក/ខណ្ឌ</dt>
-                                                <dd class="col-sm-8">{{ $employee->bp_district->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $employee->bp_district->kh_name ?? 'N/A' }}</dd>
 
                                                 <dt class="col-sm-4">រាជធានី/ខេត្ត</dt>
-                                                <dd class="col-sm-8">{{ $employee->bp_province->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $employee->bp_province->kh_name ?? 'N/A' }}</dd>
                                             </dl>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>ស្ថានភាពគ្រួសារ</th>
-                                        <td>{{ $employee->family_situation->kh_name }}</td>
+                                        <td>{{ $employee->family_situation->kh_name ?? 'N/A' }}</td>
                                     </tr>
                                     <tr>
                                         <th>ស្ថានភាពបុគ្គលិក</th>
-                                        <td>{{ $employee->employee_status->kh_name }}</td>
+                                        <td>{{ $employee->employee_status->kh_name ?? 'N/A' }}</td>
                                     </tr>
                                     <tr>
                                         <th>លេខអត្តសញ្ញាណប័ណ្ខ</th>
@@ -171,16 +180,16 @@
                                                 @endif
 
                                                 <dt class="col-sm-4">ភូមិ</dt>
-                                                <dd class="col-sm-8">{{ $employee->ad_village->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $employee->ad_village->kh_name ?? 'N/A' }}</dd>
 
                                                 <dt class="col-sm-4">ឃុំ/សង្កាត់</dt>
-                                                <dd class="col-sm-8">{{ $employee->ad_commune->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $employee->ad_commune->kh_name ?? 'N/A' }}</dd>
 
                                                 <dt class="col-sm-4">ក្រុង/ស្រុក/ខណ្ឌ</dt>
-                                                <dd class="col-sm-8">{{ $employee->ad_district->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $employee->ad_district->kh_name ?? 'N/A' }}</dd>
 
                                                 <dt class="col-sm-4">រាជធានី/ខេត្ត</dt>
-                                                <dd class="col-sm-8">{{ $employee->ad_province->kh_name }}</dd>
+                                                <dd class="col-sm-8">{{ $employee->ad_province->kh_name ?? 'N/A' }}</dd>
                                             </dl>
                                         </td>
                                     </tr>

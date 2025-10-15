@@ -26,7 +26,6 @@ class SubBranchCommitteeMemberTable extends Component
 
     public SubBranch $sub_branch;
     public Committee $committee;
-    public $current_term = null;
 
     public function mount(SubBranch $sub_branch)
     {
@@ -36,14 +35,8 @@ class SubBranchCommitteeMemberTable extends Component
             }
         ]);
         $this->committee = $this->sub_branch->committees->first();
-        $today = now()->toDateString();
-        $this->current_term = SubBranchTerm::where('active', true)
-            ->where('sub_branch_id', $this->sub_branch->id)
-            ->where('start_date', "<=", $today)
-            ->where('end_date',  ">=", $today)
-            ->first();
-        if ($this->current_term) {
-            $this->term_id = $this->current_term->id;
+        if ($this->sub_branch->current_term) {
+            $this->term_id = $this->sub_branch->current_term->id;
         }
     }
 
@@ -61,7 +54,8 @@ class SubBranchCommitteeMemberTable extends Component
                     ->whereHas('sub_branch_term', function ($sbt) {
                         $sbt->where('sub_branch_terms.active', true);
                     });
-            });
+            })
+            ->with(['current_membership']);
 
 
         if ($this->search) {
@@ -74,7 +68,6 @@ class SubBranchCommitteeMemberTable extends Component
                     ->where('sub_branch_term_id', $this->term_id);
             });
         }
-
 
         return view('livewire.sub-branch.sub-branch-committee-member-table', [
             'members' => $query->paginate($this->per_page),

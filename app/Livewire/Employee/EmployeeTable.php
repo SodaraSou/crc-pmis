@@ -143,7 +143,8 @@ class EmployeeTable extends Component
     {
         $query = Employee::query();
 
-        $query->where('active', true);
+        $query->where('active', true)
+            ->with(['current_position']);
 
         if ($this->search) {
             $query->where('kh_name', 'like', '%' . $this->search . '%');

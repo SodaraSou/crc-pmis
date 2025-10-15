@@ -7,7 +7,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card card-danger card-outline">
                     <div class="card-body box-profile">
                         <div class="text-center">
@@ -18,38 +18,19 @@
                         <h3 class="profile-username text-center">{{ $member->kh_name }}</h3>
                         <p class="text-muted text-center">{{ $member->en_name }}</p>
                         <ul class="list-group list-group-unbordered mb-3">
-                            @php
-                                $today = now()->toDateString();
-                                $current_committee = $member
-                                    ->committee_members()
-                                    ->where('active', true)
-                                    ->whereHas('branch_term', function ($bt) use ($today) {
-                                        $bt->where('active', true)
-                                            ->where('start_date', '<=', $today)
-                                            ->where('end_date', '>=', $today);
-                                    })
-                                    ->orWhereHas('sub_branch_term', function ($sbt) use ($today) {
-                                        $sbt->where('active', true)
-                                            ->where('start_date', '<=', $today)
-                                            ->where('end_date', '>=', $today);
-                                    })
-                                    ->first();
-                            @endphp
-                            @if ($current_committee)
-                                <li class="list-group-item">
-                                    <b>{{ $current_committee->committee->kh_name }}</b>
-                                </li>
-                                <li class="list-group-item">
-                                    @if ($current_committee->committee->committee_level_id < 3)
-                                        <b>អាណត្តិបច្ចុប្បន្ន: {{ $current_committee->branch_term->kh_name }}</b>
-                                    @elseif ($current_committee->committee->committee_level_id == 3)
-                                        <b>អាណត្តិបច្ចុប្បន្ន: {{ $current_committee->sub_branch_term->kh_name }}</b>
-                                    @endif
-                                </li>
-                                <li class="list-group-item">
-                                    <b>តួនាទី: {{ $current_committee->committee_position->kh_name }}</b>
-                                </li>
-                            @endif
+                            <li class="list-group-item">
+                                <b>{{ $member->current_membership->committee->kh_name }}</b>
+                            </li>
+                            <li class="list-group-item">
+                                @if ($member->current_membership->committee->committee_level_id < 3)
+                                    <b>អាណត្តិបច្ចុប្បន្ន: {{ $member->current_membership->branch_term->kh_name }}</b>
+                                @elseif ($member->current_membership->committee->committee_level_id == 3)
+                                    <b>អាណត្តិបច្ចុប្បន្ន: {{ $member->current_membership->sub_branch_term->kh_name }}</b>
+                                @endif
+                            </li>
+                            <li class="list-group-item">
+                                <b>តួនាទី: {{ $member->current_membership->committee_position->kh_name }}</b>
+                            </li>
                         </ul>
                         <div class="row g-4">
                             <div class="col-12 mb-2">
@@ -65,7 +46,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-header p-2">
                         <ul class="nav nav-pills">
@@ -133,9 +114,6 @@
                             </div>
                             <div class="tab-pane" id="timeline">
                                 <div class="timeline timeline-inverse">
-                                    @php
-                                        $terms = $member->committee_members()->where('active', true)->get();
-                                    @endphp
                                     @foreach ($terms as $term)
                                         <div class="time-label">
                                             <span class="bg-success">

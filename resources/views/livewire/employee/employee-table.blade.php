@@ -113,9 +113,8 @@
                         <th>
                             ឈ្មោះ
                         </th>
-                        <th>
-                            ឈ្មោះឡាតាំង
-                        </th>
+                        <th>នាយកដ្ឋាន</th>
+                        <th>តួនាទី​</th>
                         <th class="text-center">សកម្មភាព</th>
                     </tr>
                 </thead>
@@ -124,7 +123,14 @@
                         <tr wire:key='{{ $employee->id }}'>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $employee->kh_name }}</td>
-                            <td>{{ $employee->en_name }}</td>
+                            <td>{{ $employee->current_position->department->kh_name }}</td>
+                            <td>
+                                @if ($employee->current_position->opt_position_name)
+                                    {{ $employee->current_position->opt_position_name }}
+                                @else
+                                    {{ $employee->current_position->position->kh_name }}
+                                @endif
+                            </td>
                             <td>
                                 <div class="d-flex justify-content-center align-items-center">
                                     <a href="{{ route('employee.show', Crypt::encrypt($employee->id)) }}"

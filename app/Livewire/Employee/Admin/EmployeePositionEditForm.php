@@ -138,7 +138,7 @@ class EmployeePositionEditForm extends Component
 
             session()->flash('toast', [
                 'type' => 'success',
-                'message' => 'ដំណែងមន្ត្រីប្រតិបត្តិកែប្រែដោយជោគជ័យ!'
+                'message' => 'តួនាទីមន្ត្រីកែប្រែដោយជោគជ័យ!'
             ]);
 
             $encrypt_id = Crypt::encrypt($this->employee_position->employee_id);

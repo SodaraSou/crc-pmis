@@ -23,8 +23,17 @@ class DistrictController extends Controller
 
     public function edit(District $district)
     {
+        $district_id = $district->id;
+        $sub_branch = $district->subBranch;
+        $honorary_committee = $sub_branch->committees()->where('committee_type_id', 1)->first();
+        $committee = $sub_branch->committees()->where('committee_type_id', 2)->first();
+
         return view('district.district-edit', [
-            "district" => $district
+            'district_id' => $district_id,
+            "district" => $district,
+            'sub_branch' => $sub_branch,
+            'honorary_committee' => $honorary_committee,
+            'committee' => $committee
         ]);
     }
 }

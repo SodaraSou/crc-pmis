@@ -166,7 +166,8 @@ class HonoraryCommitteeMemberTable extends Component
         $query->where('active', true)
             ->whereHas('committees', function ($q) {
                 $q->where('committee_type_id', 1);
-            });
+            })
+            ->with(['committee_members', 'current_membership']);
 
         if ($this->search) {
             $query->where('kh_name', 'like', '%' . $this->search . '%');

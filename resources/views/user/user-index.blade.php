@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    @livewire('user.user-table')
+    <div class="container">
+        <livewire:user.user-table />
+    </div>
 @endsection
 
 @section('js')

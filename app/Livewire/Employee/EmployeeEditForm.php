@@ -14,9 +14,12 @@ use App\Models\Village;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\View\View;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class EmployeeEditForm extends Component
 {
+    use WithFileUploads;
+
     public EmployeeForm $form;
 
     public $bp_districts = [];

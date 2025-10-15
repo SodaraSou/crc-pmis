@@ -46,7 +46,7 @@ class BranchEmployeeTable extends Component
             if ($this->department_id) {
                 $ep->where('department_id', $this->department_id);
             }
-        });
+        })->with(['current_position']);
 
         return view('livewire.branch.branch-employee-table', [
             'employees' => $query->paginate($this->per_page),

@@ -32,7 +32,7 @@
                 <thead>
                     <tr>
                         <th>ល.រ</th>
-                        <th>ឈ្មោះខ្មែរ</th>
+                        <th>ឈ្មោះ</th>
                         <th>ឋាន:តួនាទី</th>
                         <th>តួនាទី​ កក្រក</th>
                         <th class="text-center">សកម្មភាព</th>
@@ -41,23 +41,20 @@
                 <tbody>
                     @foreach ($members as $member)
                         <tr wire:key='{{ $member->id }}'>
-                            <td>{{ $member->id }}</td>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $member->kh_name }}</td>
-                            @php
-                                $committee_membership = $member->committees->first();
-                            @endphp
-                            <td>{{ $committee_membership->pivot->gov_position }}</td>
-                            <td>{{ $committee_membership->pivot->committee_position->kh_name }}</td>
+                            <td>{{ $member->current_membership->gov_position }}</td>
+                            <td>{{ $member->current_membership->committee_position->kh_name }}</td>
                             <td>
                                 <div class="d-flex justify-content-center align-items-center">
                                     <a href="{{ route('honorary-committee-member.show', $member->id) }}"
                                         class="btn btn-sm btn-primary mr-2">
                                         <i class="fa fa-eye" aria-hidden="true"></i>
                                     </a>
-                                    <a href="{{ route('honorary-committee-member.edit', $member->id) }}"
+                                    {{-- <a href="{{ route('honorary-committee-member.edit', $member->id) }}"
                                         class="btn btn-sm btn-info mr-2">
                                         <i class="fa fa-pen" aria-hidden="true"></i>
-                                    </a>
+                                    </a> --}}
                                 </div>
                             </td>
                         </tr>

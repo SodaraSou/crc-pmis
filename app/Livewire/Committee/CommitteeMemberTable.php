@@ -45,7 +45,6 @@ class CommitteeMemberTable extends Component
     {
         $this->user = Auth::user();
 
-
         if ($this->committee_level_id) {
             $this->filter_committee_level = CommitteeLevel::find($this->committee_level_id);
             $this->committees = Committee::where('active', true)
@@ -167,7 +166,8 @@ class CommitteeMemberTable extends Component
         $query->where('active', true)
             ->whereHas('committees', function ($q) {
                 $q->where('committee_type_id', 2);
-            });
+            })
+            ->with(['committee_members', 'current_membership']);
 
 
         if ($this->search) {

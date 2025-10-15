@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    @livewire('role.role-table')
+    <div class="container">
+        <livewire:role.role-table />
+    </div>
 @endsection
 
 @section('js')

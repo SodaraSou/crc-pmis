@@ -1,10 +1,10 @@
 <div>
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h4>អាណត្តិ</h4>
-        <a href="{{ route('term.create', ['sub_branch_id' => $sub_branch->id]) }}" class="btn btn-success">
+        <h4>តារាងអាណត្តិ</h4>
+        {{-- <a href="{{ route('term.create', ['sub_branch_id' => $sub_branch->id]) }}" class="btn btn-success">
             <i class="fa fa-plus mr-1"></i>
             បង្កើតថ្មី
-        </a>
+        </a> --}}
     </div>
     <table class="table table-bordered table-hover">
         <thead>
@@ -19,19 +19,15 @@
         <tbody>
             @foreach ($terms as $term)
                 <tr wire:key='{{ $term->id }}'>
-                    <td>{{ $term->id }}</td>
+                    <td>{{ $loop->iteration }}</td>
                     <td>{{ $term->kh_name }}</td>
                     <td>{{ $term->start_date }}</td>
                     <td>{{ $term->end_date }}</td>
                     <td>
                         <div class="d-flex justify-content-center align-items-center">
-                            <a href="" class="btn btn-sm btn-info text-white mr-2">
+                            {{-- <a href="" class="btn btn-sm btn-info text-white mr-2">
                                 <i class="fa fa-pen"></i>
-                            </a>
-                            <button class="btn btn-sm btn-danger"
-                                wire:click="$dispatch('alert_delete', {term_id: {{ $term->id }}})">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </button>
+                            </a> --}}
                         </div>
                     </td>
                 </tr>

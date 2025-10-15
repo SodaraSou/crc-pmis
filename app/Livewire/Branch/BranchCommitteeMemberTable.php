@@ -26,7 +26,6 @@ class BranchCommitteeMemberTable extends Component
 
     public Branch $branch;
     public Committee $committee;
-    public $current_term = null;
 
     public function mount(Branch $branch)
     {
@@ -36,14 +35,8 @@ class BranchCommitteeMemberTable extends Component
             }
         ]);
         $this->committee = $this->branch->committees->first();
-        $today = now()->toDateString();
-        $this->current_term = BranchTerm::where('active', true)
-            ->where('branch_id', $this->branch->id)
-            ->where('start_date', "<=", $today)
-            ->where('end_date',  ">=", $today)
-            ->first();
-        if ($this->current_term) {
-            $this->term_id = $this->current_term->id;
+        if ($this->branch->current_term) {
+            $this->term_id = $this->branch->current_term->id;
         }
     }
 
@@ -61,7 +54,8 @@ class BranchCommitteeMemberTable extends Component
                     ->whereHas('branch_term', function ($bt) {
                         $bt->where('branch_terms.active', true);
                     });
-            });
+            })
+            ->with(['current_membership']);
 
 
         if ($this->search) {

@@ -1,12 +1,12 @@
 <div>
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h4>បញ្ជីសាខា</h4>
+        <h4>សាខា​ 25 រាជធានី/ខេត្ត</h4>
         {{-- <a href="{{ route('branch.create') }}" class="btn btn-success float-sm-right"><i class="fa fa-plus mr-1"></i>
             បង្កើតថ្មី</a> --}}
     </div>
     <div class="row">
         @foreach ($branches as $branch)
-            <div wire:key="{{ $branch->id }}" class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch flex-column">
+            <div wire:key="{{ $branch->id }}" class="col-12 col-md-6">
                 <div class="card bg-light d-flex flex-fill">
                     <div class="card-header text-muted border-bottom-0">
                         <div class="row">
@@ -27,7 +27,7 @@
                                             </ul> --}}
                             </div>
                             <div class="col-5 text-center">
-                                <img src="{{ asset('Cambodian_Red_Cross_Logo.png') }}" class="img-circle img-fluid"
+                                <img src="{{ asset('default.png') }}" class="img-thumbnail img-fluid"
                                     style="width: 120px; height: 120px;">
                             </div>
                         </div>

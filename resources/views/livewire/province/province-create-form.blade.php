@@ -4,6 +4,33 @@
     </div>
     <form wire:submit.prevent="save">
         <div class="card-body">
+            <div class="d-flex align-items-center justify-content-center mb-3">
+                <div class="mr-4 position-relative" style="width: 120px; height: 120px;">
+                    @if ($branch_img)
+                        <img src="{{ $branch_img->temporaryUrl() }}"
+                            class="profile-user-img img-fluid img-thumbnail w-100 h-100" style="object-fit: cover;">
+                    @else
+                        <img src="{{ asset('default.png') }}"
+                            class="profile-user-img img-fluid img-thumbnail w-100 h-100" style="object-fit: cover;">
+                    @endif
+                    <div wire:loading wire:target="branch_img" class="position-absolute"
+                        style="top:0; left:0; width:100%; height:100%;">
+                        <div class="d-flex justify-content-center align-items-center w-100 h-100"
+                            style="background: rgba(255,255,255,0.8);">
+                            <div class="spinner-border text-success"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" wire:model="branch_img">
+                        <label class="custom-file-label">សូមបញ្ចូលរូបថត</label>
+                        @error('branch_img')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+            </div>
             <div class="form-group">
                 <label>លេខកូដ</label>
                 <input wire:model="code" class="form-control" placeholder="សូមបញ្ចូលលេខកូដ">
@@ -12,7 +39,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label>ឈ្មោះខ្មែរ</label>
+                <label>ឈ្មោះ</label>
                 <input wire:model="kh_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះខ្មែរ">
                 @error('kh_name')
                     <span class="text-danger">{{ $message }}</span>

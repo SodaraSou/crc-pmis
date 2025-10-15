@@ -34,27 +34,10 @@ class CommitteeController extends Controller
 
     public function showMember(Member $member)
     {
-        $today = now()->toDateString();
-        $current_committee = CommitteeMember::where('active', true)
-            ->where('member_id', $member->id)
-            ->where(function ($q) use ($today) {
-                $q->whereHas('branch_term', function ($bt) use ($today) {
-                    $bt->where('active', true)
-                        ->where('start_date', '<=', $today)
-                        ->where('end_date', '>=', $today);
-                })
-                    ->orWhereHas('sub_branch_term', function ($sbt) use ($today) {
-                        $sbt->where('active', true)
-                            ->where('start_date', '<=', $today)
-                            ->where('end_date', '>=', $today);
-                    });
-            })
-            ->first();
         $terms = $member->committee_members()->where('active', true)->get();
 
         return view('committee.committee-member-show', [
             'member' => $member,
-            'current_committee' => $current_committee,
             'terms' => $terms
         ]);
     }

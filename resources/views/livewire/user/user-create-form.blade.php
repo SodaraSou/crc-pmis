@@ -9,14 +9,14 @@
                     <label>ឈ្មោះខ្មែរ<span class="text-danger">*</span></label>
                     <input wire:model="kh_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះខ្មែរ">
                     @error('kh_name')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-12 col-md-6 form-group">
                     <label>ឈ្មោះឡាតាំង<span class="text-danger">*</span></label>
                     <input wire:model="name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះឡាតាំង">
                     @error('name')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
@@ -25,14 +25,14 @@
                     <label>អុីម៉ែល<span class="text-danger">*</span></label>
                     <input wire:model="email" class="form-control" placeholder="សូមបញ្ចូលអុីម៉ែល">
                     @error('email')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-12 col-md-6 form-group">
                     <label>លេខទូរស័ព្ទ<span class="text-danger">*</span></label>
                     <input wire:model="phone_number" class="form-control" placeholder="សូមបញ្ចូលលេខទូរស័ព្ទ">
                     @error('phone_number')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
@@ -48,7 +48,7 @@
                         @endforeach
                     </select>
                     @error('user_level_id')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-12 col-md-6 form-group">
@@ -62,7 +62,7 @@
                         @endforeach
                     </select>
                     @error('selected_role')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
@@ -78,11 +78,11 @@
                         @endforeach
                     </select>
                     @error('branch_id')
-                    <span class="text-danger">{{ $errors->first('branch_id') }}</span>
+                        <span class="text-danger">{{ $errors->first('branch_id') }}</span>
                     @enderror
                 </div>
                 <div class="col-12 col-md-6 form-group">
-                    @if($user_level_id == 3)
+                    @if ($user_level_id == 3)
                         <label>អនុសាសា<span class="text-danger">*</span></label>
                     @else
                         <label>អនុសាសា</label>
@@ -96,7 +96,7 @@
                         @endforeach
                     </select>
                     @error('sub_branch_id')
-                    <span class="text-danger">{{ $errors->first('sub_branch_id') }}</span>
+                        <span class="text-danger">{{ $errors->first('sub_branch_id') }}</span>
                     @enderror
                 </div>
             </div>
@@ -105,27 +105,27 @@
                     <label>លេខសម្ងាត់<span class="text-danger">*</span></label>
                     <input type="password" wire:model="password" class="form-control" placeholder="សូមបញ្ចូលលេខសម្ងាត់">
                     @error('password')
-                    <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-success"><i class="fa fa-save mr-1"></i> រក្សាទុក</button>
+            <button type="submit" class="btn btn-success float-right"><i class="fa fa-save mr-1"></i> រក្សាទុក</button>
         </div>
     </form>
 </div>
 
 @script
-<script>
-    window.addEventListener("create_fail", event => {
-        Swal.fire({
-            title: "មានបញ្ហា!",
-            text: event.detail.message,
-            icon: "error",
-            confirmButtonText: "អូខេ",
-            confirmButtonColor: "#dc3545"
+    <script>
+        window.addEventListener("create_fail", event => {
+            Swal.fire({
+                title: "មានបញ្ហា!",
+                text: event.detail.message,
+                icon: "error",
+                confirmButtonText: "អូខេ",
+                confirmButtonColor: "#dc3545"
+            });
         });
-    });
-</script>
+    </script>
 @endscript
