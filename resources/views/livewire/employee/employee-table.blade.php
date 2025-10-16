@@ -129,6 +129,11 @@
                                     {{ $employee->current_position->opt_position_name }}
                                 @else
                                     {{ $employee->current_position->position->kh_name }}
+                                    @if ($employee->current_position->position->female_kh_name)
+                                        {{ $employee->current_position->position->female_kh_name }}
+                                    @else
+                                        {{ $employee->current_position->position->male_kh_name }}
+                                    @endif
                                 @endif
                             </td>
                             <td>

@@ -62,7 +62,11 @@
                                     @if ($current_position->opt_position_name)
                                         {{ $current_position->opt_position_name }}
                                     @else
-                                        {{ $current_position->position->kh_name }}
+                                        @if ($employee->gender_id == 1)
+                                            {{ $current_position->position->female_kh_name }}
+                                        @else
+                                            {{ $current_position->position->male_kh_name }}
+                                        @endif
                                     @endif
                                 </a>
                             </li>
@@ -217,7 +221,13 @@
                                                 <i class="fas fa-suitcase bg-primary"></i>
                                             @endif
                                             <div class="timeline-item">
-                                                <h3 class="timeline-header">{{ $position->position->kh_name }}</h3>
+                                                <h3 class="timeline-header">
+                                                    @if ($employee->gender_id == 1)
+                                                        {{ $position->position->female_kh_name }}
+                                                    @else
+                                                        {{ $position->position->male_kh_name }}
+                                                    @endif
+                                                </h3>
                                                 <div class="timeline-body">
                                                     @if (!$position->sub_branch_id)
                                                         <div>

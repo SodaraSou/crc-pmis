@@ -104,8 +104,10 @@ class EmployeeReport extends Component
                 'departments.kh_name as department_name',
                 'departments.department_order',
                 'offices.kh_name as office_name',
+                'genders.id as gender_id',
                 'genders.kh_abbr as gender',
-                'positions.kh_name as position',
+                'positions.female_kh_name as position_female',
+                'positions.male_kh_name as position_male',
                 'employee_position.opt_position_name',
             );
 

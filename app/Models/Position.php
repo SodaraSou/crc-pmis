@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Position extends Model
 {
     protected $fillable = [
-        'kh_name',
+        'male_kh_name',
+        'female_kh_name',
         'en_name',
     ];
 
