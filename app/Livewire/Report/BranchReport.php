@@ -22,17 +22,10 @@ class BranchReport extends Component
                     ->leftJoin('committees', 'committees.id', '=', 'committee_member.committee_id')
                     ->where('committees.branch_id', $branch->branch_id)
                     ->where('committee_member.active', true)
-                    ->where(function ($query) {
-                        $query->where(function ($q) {
-                            $q->where('branch_terms.active', true)
-                                ->where('branch_terms.start_date', '<=', now()->toDateString())
-                                ->whereNull('branch_terms.end_date');
-                        })
-                            ->orWhere(function ($q) {
-                                $q->where('sub_branch_terms.active', true)
-                                    ->where('sub_branch_terms.start_date', '<=', now()->toDateString())
-                                    ->whereNull('sub_branch_terms.end_date');
-                            });
+                    ->where(function ($q) {
+                        $q->where('branch_terms.active', true)
+                            ->where('branch_terms.start_date', '<=', now()->toDateString())
+                            ->whereNull('branch_terms.end_date');
                     });
 
                 $total_honorary_member = (clone $base_query)->where('committees.committee_type_id', 1)->count();

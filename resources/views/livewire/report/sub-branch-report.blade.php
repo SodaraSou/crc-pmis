@@ -6,12 +6,12 @@
                     <label>សាខា</label>
                     <select wire:model.live="branch_id" class="form-control">
                         <option value="">ជ្រើសរើសសាខា</option>
-                        @foreach ($branches as $branch)
-                            @if ($branch->id == 0)
+                        @foreach ($branches as $sub_branch)
+                            @if ($sub_branch->id == 0)
                                 @continue
                             @endif
-                            <option wire:key="{{ $branch->id }}" value="{{ $branch->id }}">
-                                {{ $branch->kh_name }}
+                            <option wire:key="{{ $sub_branch->id }}" value="{{ $sub_branch->id }}">
+                                {{ $sub_branch->kh_name }}
                             </option>
                         @endforeach
                     </select>
@@ -30,7 +30,7 @@
                         <span wire:key="filter-pill-gender"
                             class="badge badge-pill badge-info d-inline-flex align-items-center mr-2">
                             សាខា: {{ $filter_branch->kh_name }}
-                            <a href="#" wire:click.prevent="removeFilter('branch')" class="text-white ml-2">
+                            <a href="#" wire:click.prevent="removeFilter('sub_branch')" class="text-white ml-2">
                                 <span class="sr-only">Remove filter option</span>
                                 <svg style="width:.5em;height:.5em" stroke="currentColor" fill="none"
                                     viewBox="0 0 8 8">
@@ -47,19 +47,25 @@
     <div class="card" id="printable-area">
         <div class="card-body">
             <div>
-                <div class="row">
+                <div class="row" style="margin-bottom: 32px;">
                     <div class="col-4"></div>
                     <div class="col-4 text-center">
                         <img src="{{ asset('Cambodian_Red_Cross_Logo.png') }}" alt="crc-logo"
                             style="width: 120px; height: 120px;" class="mb-3">
-                        <div class="khm">កាកបាទក្រហមកម្ពុជា</div>
+                        <div class="khm">
+                            <h5 style="margin-bottom: 0px;">កាកបាទក្រហមកម្ពុជា</h5>
+                        </div>
                     </div>
                     <div class="col-4"></div>
                 </div>
-                <div class="row my-4">
+                <div class="row" style="margin-bottom: 32px;">
                     <div class="col-12 text-center">
-                        <div class="khm">របាយការណ៌សមាជិកគណ:កិត្តិយសសមាជិកគណ:កម្មាធិការមន្រ្តីប្រតិបត្តិ ២៥
-                            សាខារាជធានី/ខេត្ត</div>
+                        <div class="khm">
+                            <h5 style="margin-bottom: 16px;">របាយការណ៌បូកសរុប</h5>
+                            <h5 style="margin-bottom: 16px;">សមាជិកគណ:កិត្តិយស សមាជិកគណ:កម្មាធិការ មន្រ្តីប្រតិបត្តិ
+                            </h5>
+                            <h5 style="margin-bottom: 0px;">{{ $filter_branch->kh_name }}</h5>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -75,18 +81,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach ($branches as $branch)
+                    @foreach ($sub_branches as $sub_branch)
                         <tr>
                             <td class="text-center">{{ $loop->iteration }}</td>
-                            <td class="khs text-center" colspan="4">{{ $branch['branch_name'] }}</td>
-                            <td class="text-center" colspan="2">{{ $branch['total_honorary_member'] }}</td>
-                            <td class="text-center" colspan="2">{{ $branch['total_member'] }}</td>
-                            <td class="text-center" colspan="2">{{ $branch['total_employee'] }}</td>
+                            <td class="khs text-center" colspan="4">{{ $sub_branch['sub_branch_name'] }}</td>
+                            <td class="text-center" colspan="2">{{ $sub_branch['total_honorary_member'] }}</td>
+                            <td class="text-center" colspan="2">{{ $sub_branch['total_member'] }}</td>
+                            <td class="text-center" colspan="2">{{ $sub_branch['total_employee'] }}</td>
                             <td class="khs text-center" colspan="2">
-                                {{ $branch['current_term']->kh_name ?? 'N/A' }}
+                                {{ $sub_branch['current_term']->kh_name ?? 'N/A' }}
                             </td>
                         </tr>
-                    @endforeach --}}
+                    @endforeach
                 </tbody>
             </table>
         </div>

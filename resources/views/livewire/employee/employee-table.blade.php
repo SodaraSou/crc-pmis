@@ -113,6 +113,9 @@
                         <th>
                             ឈ្មោះ
                         </th>
+                        <th>
+                            សាខា
+                        </th>
                         <th>នាយកដ្ឋាន</th>
                         <th>តួនាទី​</th>
                         <th class="text-center">សកម្មភាព</th>
@@ -123,6 +126,7 @@
                         <tr wire:key='{{ $employee->id }}'>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $employee->kh_name }}</td>
+                            <td>{{ $employee->current_position->branch->kh_name }}</td>
                             <td>{{ $employee->current_position->department->kh_name }}</td>
                             <td>
                                 @if ($employee->current_position->opt_position_name)

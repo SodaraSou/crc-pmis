@@ -8,19 +8,27 @@
         <div class="card" id="printable-area">
             <div class="card-body">
                 <div>
-                    <div class="row">
+                    <div class="row" style="margin-bottom: 32px;">
                         <div class="col-4"></div>
                         <div class="col-4 text-center">
                             <img src="{{ asset('Cambodian_Red_Cross_Logo.png') }}" alt="crc-logo"
                                 style="width: 120px; height: 120px;" class="mb-3">
-                            <div class="khm">កាកបាទក្រហមកម្ពុជា</div>
+                            <div class="khm">
+                                <h5 style="margin-bottom: 0px;">
+                                    កាកបាទក្រហមកម្ពុជា
+                                </h5>
+                            </div>
                         </div>
                         <div class="col-4"></div>
                     </div>
-                    <div class="row my-4">
+                    <div class="row" style="margin-bottom: 32px;">
                         <div class="col-12 text-center">
-                            <div class="khm">របាយការណ៌សមាជិកគណ:កិត្តិយសសមាជិកគណ:កម្មាធិការមន្រ្តីប្រតិបត្តិ ២៥
-                                សាខារាជធានី/ខេត្ត</div>
+                            <div class="khm">
+                                <h5 style="margin-bottom: 16px;">របាយការណ៌បូកសរុប</h5>
+                                <h5 style="margin-bottom: 16px;">សមាជិកគណ:កិត្តិយស សមាជិកគណ:កម្មាធិការ មន្រ្តីប្រតិបត្តិ
+                                </h5>
+                                <h5 style="margin-bottom: 0px;">២៥ សាខារាជធានី/ខេត្ត</h5>
+                            </div>
                         </div>
                     </div>
                 </div>

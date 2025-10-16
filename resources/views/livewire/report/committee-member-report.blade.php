@@ -110,7 +110,7 @@
                     <div class="col-12 text-center">
                         <div class="khm">
                             <h5 style="margin-bottom: 16px;">បញ្ជីររាយនាម</h5>
-                            <h5 style="margin-bottom: 16px;">សមាជិក
+                            <h5 style="margin-bottom: 0px;">សមាជិក
                                 @if ($filter_committee)
                                     {{ $filter_committee->kh_name }}
                                 @endif
@@ -118,7 +118,6 @@
                                     {{ $filter_term->kh_name }}
                                 @endif
                             </h5>
-                            <h5 style="margin-bottom: 0px;"></h5>
                         </div>
                     </div>
                 </div>

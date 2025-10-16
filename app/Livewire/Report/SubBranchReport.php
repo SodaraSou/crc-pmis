@@ -3,7 +3,6 @@
 namespace App\Livewire\Report;
 
 use App\Models\Branch;
-use App\Models\SubBranch;
 use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Url;
 use Livewire\Component;
@@ -14,17 +13,11 @@ class SubBranchReport extends Component
     public $branch_id = 1;
     public $filter_branch = null;
     public $branches = [];
-    public $sub_branches = [];
 
     public function mount()
     {
         $this->branches = Branch::all();
         $this->filter_branch = Branch::find($this->branch_id);
-    }
-
-    public function updatedBranchId()
-    {
-        $this->sub_branches = SubBranch::where('branch_id', $this->branch_id)->get();
     }
 
     public function render()
@@ -74,6 +67,8 @@ class SubBranchReport extends Component
                 ];
             });
 
-        return view('livewire.report.sub-branch-report');
+        return view('livewire.report.sub-branch-report', [
+            'sub_branches' => $sub_branches
+        ]);
     }
 }
