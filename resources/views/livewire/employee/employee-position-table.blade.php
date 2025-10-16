@@ -28,7 +28,13 @@
                 @foreach ($positions as $position)
                     <tr wire:key='{{ $position->id }}'>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $position->position->kh_name }}</td>
+                        <td>
+                            @if ($position->female_kh_name)
+                                {{ $position->position->female_kh_name }}
+                            @else
+                                {{ $position->position->male_kh_name }}
+                            @endif
+                        </td>
                         <td>{{ $position->start_date }}</td>
                         <td>{{ $position->end_date }}</td>
                         <td>

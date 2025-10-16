@@ -14,16 +14,16 @@ class GenderSeeder extends Seeder
     {
         Gender::insert([
             [
-                'en_name' => 'Female',
-                'kh_name' => 'ស្រី',
-                'en_abbr' => 'F',
-                'kh_abbr' => 'ស'
-            ],
-            [
                 'en_name' => 'Male',
                 'kh_name' => 'ប្រុស',
                 'en_abbr' => 'M',
                 'kh_abbr' => 'ប'
+            ],
+            [
+                'en_name' => 'Female',
+                'kh_name' => 'ស្រី',
+                'en_abbr' => 'F',
+                'kh_abbr' => 'ស'
             ],
         ]);
     }

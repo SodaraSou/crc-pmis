@@ -44,22 +44,29 @@
                     @enderror --}}
                         </div>
                         <div class="col-12 col-md-4 form-group">
-                            <label>ឈ្មោះ<span class="text-danger">*</span></label>
-                            <input wire:model="form.kh_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះ">
-                            @error('form.kh_name')
+                            <label>គោត្តនាម<span class="text-danger">*</span></label>
+                            <input wire:model="form.kh_last_name" class="form-control" placeholder="សូមបញ្ចូលគោត្តនាម">
+                            @error('form.kh_last_name')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="col-12 col-md-4 form-group">
-                            <label>ឈ្មោះឡាតាំង<span class="text-danger">*</span></label>
-                            <input wire:model="form.en_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះឡាតាំង">
-                            @error('form.en_name')
+                            <label>នាម<span class="text-danger">*</span></label>
+                            <input wire:model="form.kh_first_name" class="form-control" placeholder="សូមបញ្ចូលនាម">
+                            @error('form.kh_first_name')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 form-group">
+                <div class="col-12 col-md-4 form-group">
+                    <label>ឈ្មោះឡាតាំង<span class="text-danger">*</span></label>
+                    <input wire:model="form.en_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះឡាតាំង">
+                    @error('form.en_name')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="col-12 col-md-4 form-group">
                     <label>ភេទ<span class="text-danger">*</span></label>
                     <select wire:model="form.gender_id" class="form-control">
                         <option value="">សូមជ្រើសរើសភេទ</option>
@@ -73,7 +80,7 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="col-12 col-md-6 form-group" x-init="$('#dob').datetimepicker({ format: 'YYYY-MM-DD' });
+                <div class="col-12 col-md-4 form-group" x-init="$('#dob').datetimepicker({ format: 'YYYY-MM-DD' });
                 $('#dob').on('change.datetimepicker', function(e) {
                     if (e.date) {
                         $wire.form.dob = e.date.format('YYYY-MM-DD');
@@ -415,7 +422,9 @@
                                 <option value="">សូមជ្រើសរើសតួនាទី</option>
                                 @foreach ($positions as $position)
                                     <option wire:key="{{ $position->id }}" value="{{ $position->id }}">
-                                        {{ $position->kh_name }}
+                                        {{ $position->male_kh_name }}@if ($position->female_kh_name)
+                                            /{{ $position->female_kh_name }}
+                                        @endif
                                     </option>
                                 @endforeach
                             </select>

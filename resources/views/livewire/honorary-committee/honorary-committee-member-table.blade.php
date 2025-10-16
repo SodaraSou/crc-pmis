@@ -101,7 +101,7 @@
                     <tr>
                         <th>ល.រ</th>
                         <th>ឈ្មោះ</th>
-                        <th>ឋាន:តួនាទី</th>
+                        <th>គណ:កិត្តិយស</th>
                         <th>តួនាទី​ កក្រក</th>
                         <th class="text-center">អាណត្តិ</th>
                         <th class="text-center">សកម្មភាព</th>
@@ -111,8 +111,8 @@
                     @foreach ($members as $member)
                         <tr wire:key='{{ $member->id }}' aria-expanded="false">
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $member->kh_name }}</td>
-                            <td>{{ $member->current_membership->gov_position }}</td>
+                            <td>{{ $member->kh_last_name }} {{ $member->kh_first_name }}</td>
+                            <td>{{ $member->current_membership->committee->kh_name }}</td>
                             <td>{{ $member->current_membership->committee_position->kh_name }}</td>
                             <td class="text-center">
                                 <button class="btn btn-sm btn-success" data-widget="expandable-table"><i

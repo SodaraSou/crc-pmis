@@ -110,7 +110,7 @@
                     <div class="col-12 text-center">
                         <div class="khm">
                             <h5 style="margin-bottom: 16px;">បញ្ជីររាយនាម</h5>
-                            <h5 style="margin-bottom: 16px;">សមាជិក
+                            <h5 style="margin-bottom: 0px;">សមាជិក
                                 @if ($filter_committee)
                                     {{ $filter_committee->kh_name }}
                                 @endif
@@ -118,7 +118,6 @@
                                     {{ $filter_term->kh_name }}
                                 @endif
                             </h5>
-                            <h5 style="margin-bottom: 0px;"></h5>
                         </div>
                     </div>
                 </div>
@@ -137,7 +136,7 @@
                     @foreach ($members as $member)
                         <tr>
                             <td class="khs text-center">{{ $loop->iteration }}</td>
-                            <td class="khs text-center">{{ $member->member_name }}</td>
+                            <td class="khs text-center">{{ $member->last_name }} {{ $member->first_name }}</td>
                             <td class="khs text-center">{{ $member->gender }}</td>
                             <td class="khs text-center">{{ $member->gov_position }}</td>
                             <td class="khs text-center">{{ $member->committee_position }}</td>

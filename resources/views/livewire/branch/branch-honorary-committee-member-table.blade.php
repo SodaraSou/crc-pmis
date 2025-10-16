@@ -42,7 +42,7 @@
                     @foreach ($members as $member)
                         <tr wire:key='{{ $member->id }}'>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $member->kh_name }}</td>
+                            <td>{{ $member->kh_last_name }} {{ $member->kh_first_name }}</td>
                             <td>{{ $member->current_membership->gov_position }}</td>
                             <td>{{ $member->current_membership->committee_position->kh_name }}</td>
                             <td>

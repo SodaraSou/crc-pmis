@@ -109,7 +109,8 @@
                                 @continue
                             @endif
                             <option wire:key="{{ $position->id }}" value="{{ $position->id }}">
-                                {{ $position->kh_name }}
+                                {{ $position->male_kh_name }}@if ($position->female_kh_name)
+                                    /{{ $position->female_kh_name }}
                             </option>
                         @endforeach
                     </select>

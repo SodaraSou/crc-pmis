@@ -113,6 +113,9 @@
                         <th>
                             ឈ្មោះ
                         </th>
+                        <th>
+                            សាខា
+                        </th>
                         <th>នាយកដ្ឋាន</th>
                         <th>តួនាទី​</th>
                         <th class="text-center">សកម្មភាព</th>
@@ -122,13 +125,18 @@
                     @foreach ($employees as $employee)
                         <tr wire:key='{{ $employee->id }}'>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $employee->kh_name }}</td>
+                            <td>{{ $employee->kh_last_name }} {{ $employee->kh_first_name }}</td>
+                            <td>{{ $employee->current_position->branch->kh_name }}</td>
                             <td>{{ $employee->current_position->department->kh_name }}</td>
                             <td>
                                 @if ($employee->current_position->opt_position_name)
                                     {{ $employee->current_position->opt_position_name }}
                                 @else
-                                    {{ $employee->current_position->position->kh_name }}
+                                    @if ($employee->current_position->position->female_kh_name)
+                                        {{ $employee->current_position->position->female_kh_name }}
+                                    @else
+                                        {{ $employee->current_position->position->male_kh_name }}
+                                    @endif
                                 @endif
                             </td>
                             <td>

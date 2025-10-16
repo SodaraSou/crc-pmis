@@ -99,13 +99,16 @@ class EmployeeReport extends Component
             ->whereNull('employee_position.end_date')
             ->select(
                 'employees.title',
-                'employees.kh_name as name',
+                'employees.kh_first_name as first_name',
+                'employees.kh_last_name as last_name',
                 'employees.phone_number',
                 'departments.kh_name as department_name',
                 'departments.department_order',
                 'offices.kh_name as office_name',
+                'genders.id as gender_id',
                 'genders.kh_abbr as gender',
-                'positions.kh_name as position',
+                'positions.female_kh_name as position_female',
+                'positions.male_kh_name as position_male',
                 'employee_position.opt_position_name',
             );
 

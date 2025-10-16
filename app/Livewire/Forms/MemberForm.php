@@ -17,8 +17,11 @@ class MemberForm extends Form
 
     public $title = '';
 
-    #[Validate('required', message: 'សូមបញ្ចូលឈ្មោះ')]
-    public $kh_name = '';
+    #[Validate('required', message: 'សូមបញ្ចូលនាម')]
+    public $kh_first_name = '';
+
+    #[Validate('required', message: 'សូមបញ្ចូលគោត្តនាម')]
+    public $kh_last_name = '';
 
     #[Validate('required', message: 'សូមបញ្ចូលឈ្មោះឡាតាំង')]
     public $en_name = '';
@@ -52,6 +55,8 @@ class MemberForm extends Form
 
     // #[Validate('required', message: 'សូមជ្រើសរើសភូមិ')]
     public $ad_village_id = null;
+
+    public $member_position_order = 100;
 
     public $committee_level_id = null;
 
@@ -89,7 +94,8 @@ class MemberForm extends Form
     {
         $this->member = $member;
         $this->title = $member->title;
-        $this->kh_name = $member->kh_name;
+        $this->kh_first_name = $member->kh_first_name;
+        $this->kh_last_name = $member->kh_last_name;
         $this->en_name = $member->en_name;
         $this->gender_id = $member->gender_id;
         $this->phone_number = $member->phone_number;
@@ -101,14 +107,18 @@ class MemberForm extends Form
         $this->ad_district_id = $member->ad_district_id;
         $this->ad_commune_id  = $member->ad_commune_id;
         $this->ad_village_id  = $member->ad_village_id;
+        $this->member_position_order = $member->member_position_order;
     }
 
     public function store()
     {
         DB::transaction(function () {
+            $user = Auth::user();
+
             $member = Member::create([
                 'title' => $this->title,
-                'kh_name' => $this->kh_name,
+                'kh_first_name' => $this->kh_first_name,
+                'kh_last_name' => $this->kh_last_name,
                 'en_name' => $this->en_name,
                 'gender_id' => $this->gender_id,
                 'phone_number' => $this->phone_number,
@@ -120,7 +130,8 @@ class MemberForm extends Form
                 'ad_district_id' => $this->ad_district_id,
                 'ad_commune_id'  => $this->ad_commune_id,
                 'ad_village_id'  => $this->ad_village_id,
-                'created_by' => Auth::user()->id,
+                'member_position_order' => $this->member_position_order,
+                'created_by' => $user->id,
             ]);
 
             if ($this->committee_level_id < 3) {
@@ -130,7 +141,7 @@ class MemberForm extends Form
                     'committee_id' => $this->committee_id,
                     'committee_position_id' => $this->committee_position_id,
                     'gov_position' => $this->gov_position,
-                    'created_by' => Auth::user()->id,
+                    'created_by' => $user->id,
                 ]);
             } else if ($this->committee_level_id == 3) {
                 CommitteeMember::create([
@@ -139,7 +150,7 @@ class MemberForm extends Form
                     'committee_id' => $this->committee_id,
                     'committee_position_id' => $this->committee_position_id,
                     'gov_position' => $this->gov_position,
-                    'created_by' => Auth::user()->id,
+                    'created_by' => $user->id,
                 ]);
             }
         });
@@ -150,7 +161,8 @@ class MemberForm extends Form
         DB::transaction(function () {
             $this->member->update([
                 'title' => $this->title,
-                'kh_name' => $this->kh_name,
+                'kh_first_name' => $this->kh_first_name,
+                'kh_last_name' => $this->kh_last_name,
                 'en_name' => $this->en_name,
                 'gender_id' => $this->gender_id,
                 'phone_number' => $this->phone_number,
@@ -162,6 +174,7 @@ class MemberForm extends Form
                 'ad_district_id' => $this->ad_district_id,
                 'ad_commune_id'  => $this->ad_commune_id,
                 'ad_village_id'  => $this->ad_village_id,
+                'member_position_order' => $this->member_position_order,
                 'updated_by' => Auth::user()->id,
             ]);
         });

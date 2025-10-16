@@ -12,7 +12,8 @@ class Employee extends Model
 {
     protected $fillable = [
         'title',
-        'kh_name',
+        'kh_first_name',
+        'kh_last_name',
         'en_name',
         'family_situation_id',
         'gender_id',

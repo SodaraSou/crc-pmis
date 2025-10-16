@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="row g-4">
-                <div class="col-12 col-md-6 form-group">
+                <div class="col-12 col-md-4 form-group">
                     <label>ភេទ<span class="text-danger">*</span></label>
                     <select wire:model="form.gender_id" class="form-control">
                         <option value="">សូមជ្រើសរើសភេទ</option>
@@ -44,7 +44,7 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="col-12 col-md-6 form-group">
+                <div class="col-12 col-md-4 form-group">
                     <label>លេខទូរស័ព្ទ
                         {{-- <span class="text-danger">*</span> --}}
                     </label>
@@ -52,6 +52,11 @@
                     {{-- @error('form.phone_number')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror --}}
+                </div>
+                <div class="col-12 col-md-4 form-group">
+                    <label>លំដាប់សមាជិក</label>
+                    <input wire:model="form.member_position_order" class="form-control"
+                        placeholder="សូមបញ្ចូលលំដាប់់តួនាទី">
                 </div>
             </div>
             <div>

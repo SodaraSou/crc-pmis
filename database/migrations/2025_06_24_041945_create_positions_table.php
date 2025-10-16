@@ -12,7 +12,8 @@ return new class extends Migration {
     {
         Schema::create('positions', function (Blueprint $table) {
             $table->id();
-            $table->string('kh_name');
+            $table->string('male_kh_name');
+            $table->string('female_kh_name')->nullable();
             $table->string('en_name')->nullable();
             $table->timestamps();
         });

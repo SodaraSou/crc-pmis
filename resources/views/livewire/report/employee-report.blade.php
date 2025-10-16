@@ -145,16 +145,24 @@
                                 <td class="khs text-center">
                                     @if ($employee->title)
                                         {{ $employee->title }}
-                                    @endif {{ $employee->name }}
+                                    @endif {{ $employee->last_name }} {{ $employee->first_name }}
                                 </td>
                                 <td class="khs text-center" colspan="1">{{ $employee->gender }}</td>
                                 <td class="khs text-center">
                                     @if ($employee->opt_position_name)
                                         {{ $employee->opt_position_name }}
                                     @elseif ($employee->office_name)
-                                        {{ $employee->position }}{{ $employee->office_name }}
+                                        @if ($employee->gender_id == 1)
+                                            {{ $employee->position_female }}{{ $employee->office_name }}
+                                        @else
+                                            {{ $employee->position_male }}{{ $employee->office_name }}
+                                        @endif
                                     @else
-                                        {{ $employee->position }}
+                                        @if ($employee->gender_id == 1)
+                                            {{ $employee->position_female }}
+                                        @else
+                                            {{ $employee->position_male }}
+                                        @endif
                                     @endif
                                 </td>
                                 <td class="khs text-center">{{ $employee->phone_number }}</td>
