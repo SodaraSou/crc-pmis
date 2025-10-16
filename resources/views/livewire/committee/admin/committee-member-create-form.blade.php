@@ -281,6 +281,11 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
+                <div class="col-12 col-md-4 form-group">
+                    <label>លំដាប់សមាជិក</label>
+                    <input wire:model="form.member_position_order" class="form-control"
+                        placeholder="សូមបញ្ចូលលំដាប់់តួនាទី">
+                </div>
             </div>
         </div>
         <div class="card-footer">

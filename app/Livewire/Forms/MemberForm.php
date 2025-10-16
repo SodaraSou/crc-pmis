@@ -53,6 +53,8 @@ class MemberForm extends Form
     // #[Validate('required', message: 'សូមជ្រើសរើសភូមិ')]
     public $ad_village_id = null;
 
+    public $member_position_order = 100;
+
     public $committee_level_id = null;
 
     public $committee_id = null;
@@ -101,11 +103,14 @@ class MemberForm extends Form
         $this->ad_district_id = $member->ad_district_id;
         $this->ad_commune_id  = $member->ad_commune_id;
         $this->ad_village_id  = $member->ad_village_id;
+        $this->member_position_order = $member->member_position_order;
     }
 
     public function store()
     {
         DB::transaction(function () {
+            $user = Auth::user();
+
             $member = Member::create([
                 'title' => $this->title,
                 'kh_name' => $this->kh_name,
@@ -120,7 +125,8 @@ class MemberForm extends Form
                 'ad_district_id' => $this->ad_district_id,
                 'ad_commune_id'  => $this->ad_commune_id,
                 'ad_village_id'  => $this->ad_village_id,
-                'created_by' => Auth::user()->id,
+                'member_position_order' => $this->member_position_order,
+                'created_by' => $user->id,
             ]);
 
             if ($this->committee_level_id < 3) {
@@ -130,7 +136,7 @@ class MemberForm extends Form
                     'committee_id' => $this->committee_id,
                     'committee_position_id' => $this->committee_position_id,
                     'gov_position' => $this->gov_position,
-                    'created_by' => Auth::user()->id,
+                    'created_by' => $user->id,
                 ]);
             } else if ($this->committee_level_id == 3) {
                 CommitteeMember::create([
@@ -139,7 +145,7 @@ class MemberForm extends Form
                     'committee_id' => $this->committee_id,
                     'committee_position_id' => $this->committee_position_id,
                     'gov_position' => $this->gov_position,
-                    'created_by' => Auth::user()->id,
+                    'created_by' => $user->id,
                 ]);
             }
         });
@@ -162,6 +168,7 @@ class MemberForm extends Form
                 'ad_district_id' => $this->ad_district_id,
                 'ad_commune_id'  => $this->ad_commune_id,
                 'ad_village_id'  => $this->ad_village_id,
+                'member_position_order' => $this->member_position_order,
                 'updated_by' => Auth::user()->id,
             ]);
         });
