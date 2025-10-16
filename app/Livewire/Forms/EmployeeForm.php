@@ -18,8 +18,11 @@ class EmployeeForm extends Form
 
     public $title = '';
 
-    #[Validate('required', message: 'សូមបញ្ចូលឈ្មោះ')]
-    public $kh_name = '';
+    #[Validate('required', message: 'សូមបញ្ចូលនាម')]
+    public $kh_first_name = '';
+
+    #[Validate('required', message: 'សូមបញ្ចូលគោត្តនាម')]
+    public $kh_last_name = '';
 
     #[Validate('required', message: 'សូមបញ្ចូលឈ្មោះឡាតាំង')]
     public $en_name = '';
@@ -134,7 +137,8 @@ class EmployeeForm extends Form
     {
         $this->employee = $employee;
         $this->title = $employee->title;
-        $this->kh_name = $employee->kh_name;
+        $this->kh_first_name = $employee->kh_first_name;
+        $this->kh_last_name = $employee->kh_last_name;
         $this->en_name = $employee->en_name;
         $this->family_situation_id = $employee->family_situation_id;
         $this->gender_id = $employee->gender_id;
@@ -163,7 +167,8 @@ class EmployeeForm extends Form
         return DB::transaction(function () {
             $employee = Employee::create([
                 'title' => $this->title,
-                'kh_name' => $this->kh_name,
+                'kh_first_name' => $this->kh_first_name,
+                'kh_last_name' => $this->kh_last_name,
                 'en_name' => $this->en_name,
                 'family_situation_id' => $this->family_situation_id,
                 'gender_id' => $this->gender_id,
@@ -229,7 +234,8 @@ class EmployeeForm extends Form
 
         $this->employee->update([
             'title' => $this->title,
-            'kh_name' => $this->kh_name,
+            'kh_first_name' => $this->kh_first_name,
+            'kh_last_name' => $this->kh_last_name,
             'en_name' => $this->en_name,
             'family_situation_id' => $this->family_situation_id,
             'gender_id' => $this->gender_id,

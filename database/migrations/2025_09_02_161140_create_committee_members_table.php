@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('members', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->string('kh_name');
+            $table->string('kh_first_name');
+            $table->string('kh_last_name');
             $table->string('en_name');
             $table->string('member_img')->nullable();
             $table->foreignId('gender_id')->constrained();

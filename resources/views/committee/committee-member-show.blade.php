@@ -15,7 +15,8 @@
                             {{--                             src="{{$member->profile_img}}" --}}
                             {{--                             alt="User profile picture"> --}}
                         </div>
-                        <h3 class="profile-username text-center">{{ $member->kh_name }}</h3>
+                        <h3 class="profile-username text-center">{{ $member->kh_last_name }} {{ $member->kh_first_name }}
+                        </h3>
                         <p class="text-muted text-center">{{ $member->en_name }}</p>
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">

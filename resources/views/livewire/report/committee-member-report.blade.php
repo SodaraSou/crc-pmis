@@ -136,7 +136,7 @@
                     @foreach ($members as $member)
                         <tr>
                             <td class="khs text-center">{{ $loop->iteration }}</td>
-                            <td class="khs text-center">{{ $member->member_name }}</td>
+                            <td class="khs text-center">{{ $member->last_name }} {{ $member->first_name }}</td>
                             <td class="khs text-center">{{ $member->gender }}</td>
                             <td class="khs text-center">{{ $member->gov_position }}</td>
                             <td class="khs text-center">{{ $member->committee_position }}</td>

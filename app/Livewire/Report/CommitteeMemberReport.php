@@ -137,7 +137,8 @@ class CommitteeMemberReport extends Component
             ->where('committee_member.active', true)
             ->where('committees.committee_type_id', 2)
             ->select(
-                'members.kh_name as member_name',
+                'members.kh_first_name as first_name',
+                'members.kh_last_name as last_name',
                 'members.member_position_order as member_position_order',
                 'genders.kh_abbr as gender',
                 'committee_member.gov_position as gov_position',

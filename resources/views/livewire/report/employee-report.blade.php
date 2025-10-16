@@ -145,7 +145,7 @@
                                 <td class="khs text-center">
                                     @if ($employee->title)
                                         {{ $employee->title }}
-                                    @endif {{ $employee->name }}
+                                    @endif {{ $employee->last_name }} {{ $employee->first_name }}
                                 </td>
                                 <td class="khs text-center" colspan="1">{{ $employee->gender }}</td>
                                 <td class="khs text-center">

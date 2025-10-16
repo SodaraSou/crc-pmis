@@ -17,8 +17,11 @@ class MemberForm extends Form
 
     public $title = '';
 
-    #[Validate('required', message: 'សូមបញ្ចូលឈ្មោះ')]
-    public $kh_name = '';
+    #[Validate('required', message: 'សូមបញ្ចូលនាម')]
+    public $kh_first_name = '';
+
+    #[Validate('required', message: 'សូមបញ្ចូលគោត្តនាម')]
+    public $kh_last_name = '';
 
     #[Validate('required', message: 'សូមបញ្ចូលឈ្មោះឡាតាំង')]
     public $en_name = '';
@@ -91,7 +94,8 @@ class MemberForm extends Form
     {
         $this->member = $member;
         $this->title = $member->title;
-        $this->kh_name = $member->kh_name;
+        $this->kh_first_name = $member->kh_first_name;
+        $this->kh_last_name = $member->kh_last_name;
         $this->en_name = $member->en_name;
         $this->gender_id = $member->gender_id;
         $this->phone_number = $member->phone_number;
@@ -113,7 +117,8 @@ class MemberForm extends Form
 
             $member = Member::create([
                 'title' => $this->title,
-                'kh_name' => $this->kh_name,
+                'kh_first_name' => $this->kh_first_name,
+                'kh_last_name' => $this->kh_last_name,
                 'en_name' => $this->en_name,
                 'gender_id' => $this->gender_id,
                 'phone_number' => $this->phone_number,
@@ -156,7 +161,8 @@ class MemberForm extends Form
         DB::transaction(function () {
             $this->member->update([
                 'title' => $this->title,
-                'kh_name' => $this->kh_name,
+                'kh_first_name' => $this->kh_first_name,
+                'kh_last_name' => $this->kh_last_name,
                 'en_name' => $this->en_name,
                 'gender_id' => $this->gender_id,
                 'phone_number' => $this->phone_number,

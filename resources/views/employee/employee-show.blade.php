@@ -20,7 +20,9 @@
                             @endif
                         </div>
 
-                        <h3 class="profile-username text-center">{{ $employee->kh_name }}</h3>
+                        <h3 class="profile-username text-center">{{ $employee->kh_first_name }}
+                            {{ $employee->kh_last_name }}
+                        </h3>
 
                         <p class="text-muted text-center">{{ $employee->en_name }}</p>
 
@@ -62,7 +64,7 @@
                                     @if ($current_position->opt_position_name)
                                         {{ $current_position->opt_position_name }}
                                     @else
-                                        @if ($employee->gender_id == 1)
+                                        @if ($employee->gender_id == 1 && $employee->current_position->position->female_kh_name)
                                             {{ $current_position->position->female_kh_name }}
                                         @else
                                             {{ $current_position->position->male_kh_name }}
@@ -222,7 +224,7 @@
                                             @endif
                                             <div class="timeline-item">
                                                 <h3 class="timeline-header">
-                                                    @if ($employee->gender_id == 1)
+                                                    @if ($employee->gender_id == 1 && $position->position->female_kh_name)
                                                         {{ $position->position->female_kh_name }}
                                                     @else
                                                         {{ $position->position->male_kh_name }}
