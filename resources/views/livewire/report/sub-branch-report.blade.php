@@ -16,17 +16,7 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="col-12 col-md-3 form-group">
-                    <label>អនុសាខា</label>
-                    <select wire:model.live="sub_branch_id" class="form-control">
-                        <option value="">ជ្រើសរើស​អនុសាខា</option>
-                        @foreach ($sub_branches as $sub_branch)
-                            <option wire:key="{{ $sub_branch->id }}" value="{{ $sub_branch->id }}">
-                                {{ $sub_branch->kh_name }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
+                <div class="col-12 col-md-3 form-group"></div>
                 <div class="col-12 col-md-3 form-group"></div>
                 <div class="col-12 col-md-3 d-flex justify-content-end align-items-center">
                     <button id="btn-print" class="btn btn-primary float-right"><i class="fa fa-print"></i>
@@ -34,26 +24,13 @@
                 </div>
             </div>
             <div class="d-flex align-items-center">
-                @if ($branch_id || $sub_branch_id)
+                @if ($branch_id)
                     <span class="mr-1">Applied Filters:</span>
                     @if ($branch_id)
                         <span wire:key="filter-pill-gender"
                             class="badge badge-pill badge-info d-inline-flex align-items-center mr-2">
                             សាខា: {{ $filter_branch->kh_name }}
                             <a href="#" wire:click.prevent="removeFilter('branch')" class="text-white ml-2">
-                                <span class="sr-only">Remove filter option</span>
-                                <svg style="width:.5em;height:.5em" stroke="currentColor" fill="none"
-                                    viewBox="0 0 8 8">
-                                    <path stroke-linecap="round" stroke-width="1.5" d="M1 1l6 6m0-6L1 7"></path>
-                                </svg>
-                            </a>
-                        </span>
-                    @endif
-                    @if ($sub_branch_id)
-                        <span wire:key="filter-pill-gender"
-                            class="badge badge-pill badge-info d-inline-flex align-items-center mr-2">
-                            អនុសាខា: {{ $filter_sub_branch->kh_name }}
-                            <a href="#" wire:click.prevent="removeFilter('sub_branch')" class="text-white ml-2">
                                 <span class="sr-only">Remove filter option</span>
                                 <svg style="width:.5em;height:.5em" stroke="currentColor" fill="none"
                                     viewBox="0 0 8 8">

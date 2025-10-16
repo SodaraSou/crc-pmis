@@ -11,23 +11,20 @@ use Livewire\Component;
 class SubBranchReport extends Component
 {
     #[Url(except: '')]
-    public $branch_id = '';
+    public $branch_id = 1;
     public $filter_branch = null;
     public $branches = [];
-
-    #[Url(except: '')]
-    public $sub_branch_id = '';
-    public $filter_sub_branch = null;
     public $sub_branches = [];
-
-    public function updatedBranchId()
-    {
-        $this->sub_branches = SubBranch::where('branch_id', $this->branch_id)->get();
-    }
 
     public function mount()
     {
         $this->branches = Branch::all();
+        $this->filter_branch = Branch::find($this->branch_id);
+    }
+
+    public function updatedBranchId()
+    {
+        $this->sub_branches = SubBranch::where('branch_id', $this->branch_id)->get();
     }
 
     public function render()
