@@ -5,6 +5,9 @@
 @endsection
 
 @section('content')
+    <div class="container">
+        <livewire:report.sub-branch-report />
+    </div>
 @endsection
 
 @section('js')
