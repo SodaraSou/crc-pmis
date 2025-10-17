@@ -152,13 +152,13 @@
                                     @if ($employee->opt_position_name)
                                         {{ $employee->opt_position_name }}
                                     @elseif ($employee->office_name)
-                                        @if ($employee->gender_id == 1)
+                                        @if ($employee->gender_id == 2)
                                             {{ $employee->position_female }}{{ $employee->office_name }}
                                         @else
                                             {{ $employee->position_male }}{{ $employee->office_name }}
                                         @endif
                                     @else
-                                        @if ($employee->gender_id == 1)
+                                        @if ($employee->gender_id == 2)
                                             {{ $employee->position_female }}
                                         @else
                                             {{ $employee->position_male }}
@@ -175,3 +175,4 @@
         </div>
     </div>
 </div>
+    

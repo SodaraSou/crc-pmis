@@ -132,7 +132,7 @@
                                 @if ($employee->current_position->opt_position_name)
                                     {{ $employee->current_position->opt_position_name }}
                                 @else
-                                    @if ($employee->current_position->position->female_kh_name)
+                                    @if ($employee->gender_id == 2 && $employee->current_position->position->female_kh_name)
                                         {{ $employee->current_position->position->female_kh_name }}
                                     @else
                                         {{ $employee->current_position->position->male_kh_name }}

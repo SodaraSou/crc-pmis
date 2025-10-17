@@ -36,7 +36,6 @@ return new class extends Migration
             $table->string('ad_street_number')->nullable();
             $table->string('ad_street_name')->nullable();
             $table->string('ad_house_number')->nullable();
-            $table->integer('employee_position_order')->nullable();
             $table->boolean('active')->default(true);
             $table->foreignId('created_by')->constrained('users');
             $table->foreignId('updated_by')->nullable()->constrained('users');

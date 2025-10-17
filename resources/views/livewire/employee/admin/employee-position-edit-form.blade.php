@@ -122,6 +122,11 @@
                     <label>ឈ្មោះតួនាទី (Optional)</label>
                     <input wire:model="opt_position_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះតួនាទី">
                 </div>
+                <div class="col-12 col-md-6 form-group">
+                    <label>លំដាប់តួនាទី</label>
+                    <input wire:model="employee_position_order" class="form-control"
+                        placeholder="សូមបញ្ចូលលំដាប់តួនាទី">
+                </div>
                 <div class="col-12 col-md-6 form-group" x-init="$('#position_start_date').datetimepicker({ format: 'YYYY-MM-DD' });
                 $('#position_start_date').on('change.datetimepicker', function(e) {
                     if (e.date) {

@@ -127,7 +127,7 @@ class EmployeeReport extends Component
 
         $employees_grouped_by_department = $query
             ->orderBy('departments.department_order')
-            ->orderBy('employees.employee_position_order')
+            ->orderBy('employee_position.employee_position_order')
             ->get()
             ->groupBy('department_name');
 
