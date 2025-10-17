@@ -103,6 +103,21 @@
                     @enderror --}}
                 </div>
                 <div class="col-12 col-md-6 form-group">
+                    <label>ស្ថានភាពការងារ<span class="text-danger">*</span>
+                    </label>
+                    <select wire:model="form.employee_status_id" class="form-control">
+                        <option value="">សូមជ្រើសរើសស្ថានភាពការងារ</option>
+                        @foreach ($employee_statuses as $employee_status)
+                            <option wire:key="{{ $employee_status->id }}" value="{{ $employee_status->id }}">
+                                {{ $employee_status->kh_name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    {{-- @error('form.employee_status_id')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror --}}
+                </div>
+                <div class="col-12 col-md-6 form-group">
                     <label>ស្ថានភាពគ្រួសារ
                         {{-- <span class="text-danger">*</span> --}}
                     </label>
@@ -118,7 +133,7 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror --}}
                 </div>
-                <div class="col-12 col-md-6 form-group">
+                <div class="col-12 col-md-4 form-group">
                     <label>លេខអត្តសញ្ញាណប័ណ្ខ
                         {{-- <span class="text-danger">*</span> --}}
                     </label>
@@ -127,23 +142,7 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror --}}
                 </div>
-                <div class="col-12 col-md-6 form-group">
-                    <label>ស្ថានភាពការងារ
-                        {{-- <span class="text-danger">*</span> --}}
-                    </label>
-                    <select wire:model="form.employee_status_id" class="form-control">
-                        <option value="">សូមជ្រើសរើសស្ថានភាពការងារ</option>
-                        @foreach ($employee_statuses as $employee_status)
-                            <option wire:key="{{ $employee_status->id }}" value="{{ $employee_status->id }}">
-                                {{ $employee_status->kh_name }}
-                            </option>
-                        @endforeach
-                    </select>
-                    {{-- @error('form.employee_status_id')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror --}}
-                </div>
-                <div class="col-12 col-md-6 form-group">
+                <div class="col-12 col-md-4 form-group">
                     <label>លេខទូរស័ព្ទ
                         {{-- <span class="text-danger">*</span> --}}
                     </label>
@@ -152,7 +151,7 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror --}}
                 </div>
-                <div class="col-12 col-md-6 form-group">
+                <div class="col-12 col-md-4 form-group">
                     <label>អុីម៉ែល
                         {{-- <span class="text-danger">*</span> --}}
                     </label>

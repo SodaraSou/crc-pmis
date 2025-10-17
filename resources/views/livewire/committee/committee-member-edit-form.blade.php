@@ -15,12 +15,21 @@
                     @enderror --}}
                 </div>
                 <div class="col-12 col-md-4 form-group">
-                    <label>ឈ្មោះ<span class="text-danger">*</span></label>
-                    <input wire:model="form.kh_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះ">
-                    @error('form.kh_name')
+                    <label>គោត្តនាម<span class="text-danger">*</span></label>
+                    <input wire:model="form.kh_last_name" class="form-control" placeholder="សូមបញ្ចូលគោត្តនាម">
+                    @error('form.kh_last_name')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
+                <div class="col-12 col-md-4 form-group">
+                    <label>នាម<span class="text-danger">*</span></label>
+                    <input wire:model="form.kh_first_name" class="form-control" placeholder="សូមបញ្ចូលនាម">
+                    @error('form.kh_first_name')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+            <div class="row g-4">
                 <div class="col-12 col-md-4 form-group">
                     <label>ឈ្មោះឡាតាំង<span class="text-danger">*</span></label>
                     <input wire:model="form.en_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះឡាតាំង">
@@ -28,8 +37,6 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-            </div>
-            <div class="row g-4">
                 <div class="col-12 col-md-4 form-group">
                     <label>ភេទ<span class="text-danger">*</span></label>
                     <select wire:model="form.gender_id" class="form-control">
