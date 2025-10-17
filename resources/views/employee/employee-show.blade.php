@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    {{ $employee->kh_name }}
+    {{ $employee->kh_last_name }} {{ $employee->kh_first_name }}
 @endsection
 
 @section('content')
@@ -20,8 +20,8 @@
                             @endif
                         </div>
 
-                        <h3 class="profile-username text-center">{{ $employee->kh_first_name }}
-                            {{ $employee->kh_last_name }}
+                        <h3 class="profile-username text-center">
+                            {{ $employee->kh_last_name }} {{ $employee->kh_first_name }}
                         </h3>
 
                         <p class="text-muted text-center">{{ $employee->en_name }}</p>
@@ -116,7 +116,7 @@
                                 <table class="table table-bordered">
                                     <tr>
                                         <th>ឈ្មោះ</th>
-                                        <td>{{ $employee->kh_name }}</td>
+                                        <td>{{ $employee->kh_last_name }} {{ $employee->kh_first_name }}</td>
                                     </tr>
                                     <tr>
                                         <th>ឈ្មោះឡាតាំង</th>

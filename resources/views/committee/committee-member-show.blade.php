@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    {{ $member->kh_name }}
+    {{ $member->kh_last_name }} {{ $member->kh_first_name }}
 @endsection
 
 @section('content')
@@ -64,7 +64,7 @@
                                 <table class="table table-bordered">
                                     <tr>
                                         <th>ឈ្មោះ</th>
-                                        <td>{{ $member->kh_name }}</td>
+                                        <td>{{ $member->kh_last_name }} {{ $member->kh_first_name }}</td>
                                     </tr>
                                     <tr>
                                         <th>ឈ្មោះឡាតាំង</th>
