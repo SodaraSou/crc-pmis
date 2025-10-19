@@ -36,6 +36,8 @@ class HonoraryCommitteeMemberTermForm extends Component
     #[Validate('required', message: 'សូមបញ្ចូលតួនាទីក្នុងរដ្ឋាភិបាល')]
     public $gov_position = null;
 
+    public $member_position_order = 100;
+
     public function mount(Member $member)
     {
         $this->member = $member;
@@ -91,6 +93,7 @@ class HonoraryCommitteeMemberTermForm extends Component
                     'committee_id' => $this->committee_id,
                     'committee_position_id' => $this->committee_position_id,
                     'gov_position' => $this->gov_position,
+                    'member_position_order' => $this->member_position_order,
                     'created_by' => Auth::user()->id,
                 ]);
             } else if ($this->committee_level_id == 3) {
@@ -100,6 +103,7 @@ class HonoraryCommitteeMemberTermForm extends Component
                     'committee_id' => $this->committee_id,
                     'committee_position_id' => $this->committee_position_id,
                     'gov_position' => $this->gov_position,
+                    'member_position_order' => $this->member_position_order,
                     'created_by' => Auth::user()->id,
                 ]);
             }
