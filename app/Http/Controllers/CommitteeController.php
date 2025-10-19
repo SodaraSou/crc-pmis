@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Committee;
 use App\Models\CommitteeMember;
 use App\Models\Member;
 
@@ -29,6 +28,13 @@ class CommitteeController extends Controller
     {
         return view('committee.committee-member-term-add', [
             'member' => $member
+        ]);
+    }
+
+    public function editTerm(CommitteeMember $committee_member)
+    {
+        return view('committee.committee-member-term-edit', [
+            'committee_member' => $committee_member,
         ]);
     }
 

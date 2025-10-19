@@ -38,6 +38,10 @@
                         </td>
                         <td>
                             <div class="d-flex justify-content-center align-items-center">
+                                <a href="{{ route('honorary-committe-member.term-edit', [$term->id]) }}"
+                                    class="btn btn-sm btn-info mr-2">
+                                    <i class="fa fa-pen" aria-hidden="true"></i>
+                                </a>
                                 <button class="btn btn-sm btn-danger"
                                     wire:click="$dispatch('alert_delete', {committee_member_id: {{ $term->id }}})">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
