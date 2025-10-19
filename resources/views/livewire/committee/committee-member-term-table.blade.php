@@ -16,6 +16,7 @@
                     <th>ឈ្មោះខ្មែរ</th>
                     <th>សាខា/អនុសាខា</th>
                     <th>តួនាទី​ កក្រក</th>
+                    <th>លំដាប់តួនាទី​</th>
                     <th class="text-center">សកម្មភាព</th>
                 </tr>
             </thead>
@@ -35,6 +36,9 @@
                         </td>
                         <td>
                             {{ $term->committee_position->kh_name }}
+                        </td>
+                        <td>
+                            {{ $term->member_position_order }}
                         </td>
                         <td>
                             <div class="d-flex justify-content-center align-items-center">
