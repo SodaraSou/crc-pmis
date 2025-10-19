@@ -139,10 +139,10 @@ class HonoraryCommitteeMemberReport extends Component
             ->select(
                 'members.kh_first_name as first_name',
                 'members.kh_last_name as last_name',
-                'members.member_position_order as member_position_order',
                 'genders.kh_abbr as gender',
                 'committee_member.gov_position as gov_position',
                 'committee_positions.kh_name as committee_position',
+                'committee_member.member_position_order as member_position_order',
                 'branch_terms.kh_name as branch_term',
                 'sub_branch_terms.kh_name as sub_branch_term'
             );
@@ -160,7 +160,7 @@ class HonoraryCommitteeMemberReport extends Component
         }
 
         return view('livewire.report.honorary-committee-member-report', [
-            'members' => $this->term_id ? $query->orderBy('members.member_position_order')->get() : []
+            'members' => $this->term_id ? $query->orderBy('committee_member.member_position_order')->get() : []
         ]);
     }
 }
