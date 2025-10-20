@@ -32,9 +32,7 @@ class EmployeePositionTable extends Component
         try {
             $employee_position = EmployeePosition::find($employee_position_id);
             if ($employee_position) {
-                $employee_position->update([
-                    'active' => false,
-                ]);
+                $employee_position->delete();
                 $this->dispatch('delete_success');
             } else {
                 $this->dispatch('delete_fail');

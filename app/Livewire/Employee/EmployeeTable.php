@@ -119,19 +119,21 @@ class EmployeeTable extends Component
     public function delete($employee_id)
     {
         try {
-            $member = Employee::where('id', $employee_id)->first();
+            $employee = Employee::where('id', $employee_id)->first();
 
-            $member->update([
-                'active' => false,
-                'updated_by' => $this->user->id
-            ]);
+            $employee->delete();
 
-            EmployeePosition::where('active', true)
-                ->where('employee_id', $employee_id)
-                ->update([
-                    'active' => false,
-                    'updated_by' => $this->user->id
-                ]);
+            // $member->update([
+            //     'active' => false,
+            //     'updated_by' => $this->user->id
+            // ]);
+
+            // EmployeePosition::where('active', true)
+            //     ->where('employee_id', $employee_id)
+            //     ->update([
+            //         'active' => false,
+            //         'updated_by' => $this->user->id
+            //     ]);
 
             $this->dispatch('delete_success');
         } catch (\Exception $e) {
