@@ -31,9 +31,7 @@ class CommitteeMemberTermTable extends Component
         try {
             $committee_member = CommitteeMember::find($committee_member_id);
             if ($committee_member) {
-                $committee_member->update([
-                    'active' => false,
-                ]);
+                $committee_member->delete();
                 $this->dispatch('delete_success');
             } else {
                 $this->dispatch('delete_fail');

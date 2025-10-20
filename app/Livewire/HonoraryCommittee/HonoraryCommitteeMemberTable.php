@@ -141,17 +141,19 @@ class HonoraryCommitteeMemberTable extends Component
         try {
             $member = Member::where('id', $member_id)->first();
 
-            $member->update([
-                'active' => false,
-                'updated_by' => $this->user->id
-            ]);
+            $member->delete();
 
-            CommitteeMember::where('active', true)
-                ->where('member_id', $member_id)
-                ->update([
-                    'active' => false,
-                    'updated_by' => $this->user->id
-                ]);
+            // $member->update([
+            //     'active' => false,
+            //     'updated_by' => $this->user->id
+            // ]);
+
+            // CommitteeMember::where('active', true)
+            //     ->where('member_id', $member_id)
+            //     ->update([
+            //         'active' => false,
+            //         'updated_by' => $this->user->id
+            //     ]);
 
             $this->dispatch('delete_success');
         } catch (\Exception $e) {

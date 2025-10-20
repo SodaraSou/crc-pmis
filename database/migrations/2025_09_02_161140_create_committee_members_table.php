@@ -36,7 +36,7 @@ return new class extends Migration
 
         Schema::create('committee_member', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('member_id')->constrained();
+            $table->foreignId('member_id')->constrained()->cascadeOnDelete();
             $table->foreignId('branch_term_id')->nullable()->constrained();
             $table->foreignId('sub_branch_term_id')->nullable()->constrained();
             $table->foreignId('committee_position_id')->constrained();
