@@ -21,6 +21,7 @@ class EmployeePosition extends Pivot
         'opt_position_name',
         'start_date',
         'end_date',
+        'employee_position_order',
         'active',
         'created_by',
         'updated_by'

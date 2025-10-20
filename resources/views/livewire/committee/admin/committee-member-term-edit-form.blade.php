@@ -1,12 +1,12 @@
-<div class="card card-success">
+<div class="card card-info">
     <div class="card-header">
-        <h3 class="card-title">បន្ថែមអាណត្តិ</h3>
+        <h3 class="card-title">កែប្រែអាណត្តិសមាជិក</h3>
     </div>
     <form wire:submit.prevent="save">
         <div class="card-body">
             <div class="row g-4">
                 <div class="col-12 col-md-4 form-group">
-                    <label>ថ្នាក់គណ:កម្មាធិការ<span class="text-danger">*</span></label>
+                    <label>ថ្នាក់គណ:កិត្តិយស<span class="text-danger">*</span></label>
                     <select wire:model.live="committee_level_id" class="form-control">
                         <option value="">សូមជ្រើសរើសថ្នាក់</option>
                         @foreach ($committee_levels as $committee_level)
@@ -39,9 +39,9 @@
                     </div>
                 @endif
                 <div class="col-12 col-md-4 form-group">
-                    <label>គណ:កម្មាធិការ<span class="text-danger">*</span></label>
+                    <label>គណ:កិត្តិយស<span class="text-danger">*</span></label>
                     <select wire:model.live="committee_id" class="form-control">
-                        <option value="">សូមជ្រើសរើសគណ:កម្មាធិការ</option>
+                        <option value="">សូមជ្រើសរើសថ្នាក់</option>
                         @foreach ($committees as $committee)
                             <option wire:key="{{ $committee->id }}" value="{{ $committee->id }}">
                                 {{ $committee->kh_name }}
@@ -94,12 +94,11 @@
             </div>
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-success float-right"><i class="fa fa-save mr-1"></i>
+            <button type="submit" class="btn btn-info float-right"><i class="fa fa-save mr-1"></i>
                 រក្សាទុក</button>
         </div>
     </form>
 </div>
-
 
 @script
     <script>
@@ -109,7 +108,7 @@
             });
         });
 
-        $wire.on("create_fail", (event) => {
+        $wire.on("update_fail", (event) => {
             Swal.fire({
                 title: "មានបញ្ហា!",
                 text: event.message,

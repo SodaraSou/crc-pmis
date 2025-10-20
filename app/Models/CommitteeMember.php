@@ -16,6 +16,7 @@ class CommitteeMember extends Pivot
         'committee_id',
         'committee_position_id',
         'gov_position',
+        'member_position_order',
         'active',
         'created_by',
         'updated_by',

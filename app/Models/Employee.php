@@ -34,7 +34,6 @@ class Employee extends Model
         'ad_street_number',
         'ad_street_name',
         'ad_house_number',
-        'employee_position_order',
         'active',
         'created_by',
         'updated_by'

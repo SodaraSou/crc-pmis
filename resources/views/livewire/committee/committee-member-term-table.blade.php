@@ -16,6 +16,7 @@
                     <th>ឈ្មោះខ្មែរ</th>
                     <th>សាខា/អនុសាខា</th>
                     <th>តួនាទី​ កក្រក</th>
+                    <th>លំដាប់តួនាទី​</th>
                     <th class="text-center">សកម្មភាព</th>
                 </tr>
             </thead>
@@ -37,7 +38,14 @@
                             {{ $term->committee_position->kh_name }}
                         </td>
                         <td>
+                            {{ $term->member_position_order }}
+                        </td>
+                        <td>
                             <div class="d-flex justify-content-center align-items-center">
+                                <a href="{{ route('committe-member.term-edit', [$term->id]) }}"
+                                    class="btn btn-sm btn-info mr-2">
+                                    <i class="fa fa-pen" aria-hidden="true"></i>
+                                </a>
                                 <button class="btn btn-sm btn-danger"
                                     wire:click="$dispatch('alert_delete', {committee_member_id: {{ $term->id }}})">
                                     <i class="fa fa-trash" aria-hidden="true"></i>

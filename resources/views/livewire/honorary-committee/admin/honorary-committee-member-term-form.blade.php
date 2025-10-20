@@ -5,7 +5,7 @@
     <form wire:submit.prevent="save">
         <div class="card-body">
             <div class="row g-4">
-                <div class="col-12 col-md-6 form-group">
+                <div class="col-12 col-md-4 form-group">
                     <label>ថ្នាក់គណ:កិត្តិយស<span class="text-danger">*</span></label>
                     <select wire:model.live="committee_level_id" class="form-control">
                         <option value="">សូមជ្រើសរើសថ្នាក់</option>
@@ -19,7 +19,26 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="col-12 col-md-6 form-group">
+                @if ($committee_level_id == 3)
+                    <div class="col-12 col-md-4 form-group">
+                        <label>សាខា<span class="text-danger">*</span></label>
+                        <select wire:model.live="branch_id" class="form-control">
+                            <option value="">សូមជ្រើសរើសសាខា</option>
+                            @foreach ($branches as $branch)
+                                @if ($branch->id == 0)
+                                    @continue
+                                @endif
+                                <option wire:key="{{ $branch->id }}" value="{{ $branch->id }}">
+                                    {{ $branch->kh_name }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('branch_id')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                @endif
+                <div class="col-12 col-md-4 form-group">
                     <label>គណ:កិត្តិយស<span class="text-danger">*</span></label>
                     <select wire:model.live="committee_id" class="form-control">
                         <option value="">សូមជ្រើសរើសថ្នាក់</option>
@@ -33,8 +52,6 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-            </div>
-            <div class="row g-4">
                 <div class="col-12 col-md-4 form-group">
                     <label>អាណត្តិ<span class="text-danger">*</span></label>
                     <select wire:model="term_id" class="form-control">
@@ -70,6 +87,10 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
+                <div class="col-12 col-md-4 form-group">
+                    <label>លំដាប់សមាជិក</label>
+                    <input wire:model="member_position_order" class="form-control" placeholder="សូមបញ្ចូលលំដាប់់តួនាទី">
+                </div>
             </div>
         </div>
         <div class="card-footer">
@@ -78,7 +99,6 @@
         </div>
     </form>
 </div>
-
 
 @script
     <script>

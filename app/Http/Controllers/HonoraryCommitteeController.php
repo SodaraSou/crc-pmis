@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CommitteeMember;
 use App\Models\Member;
 
 class HonoraryCommitteeController extends Controller
@@ -37,6 +38,13 @@ class HonoraryCommitteeController extends Controller
     {
         return view('honorary-committee.honorary-committee-member-term-add', [
             'member' => $member
+        ]);
+    }
+
+    public function editTerm(CommitteeMember $committee_member)
+    {
+        return view('honorary-committee.honorary-committee-member-term-edit', [
+            'committee_member' => $committee_member
         ]);
     }
 }

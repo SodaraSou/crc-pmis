@@ -107,7 +107,6 @@ class MemberForm extends Form
         $this->ad_district_id = $member->ad_district_id;
         $this->ad_commune_id  = $member->ad_commune_id;
         $this->ad_village_id  = $member->ad_village_id;
-        $this->member_position_order = $member->member_position_order;
     }
 
     public function store()
@@ -130,7 +129,6 @@ class MemberForm extends Form
                 'ad_district_id' => $this->ad_district_id,
                 'ad_commune_id'  => $this->ad_commune_id,
                 'ad_village_id'  => $this->ad_village_id,
-                'member_position_order' => $this->member_position_order,
                 'created_by' => $user->id,
             ]);
 
@@ -141,6 +139,7 @@ class MemberForm extends Form
                     'committee_id' => $this->committee_id,
                     'committee_position_id' => $this->committee_position_id,
                     'gov_position' => $this->gov_position,
+                    'member_position_order' => $this->member_position_order,
                     'created_by' => $user->id,
                 ]);
             } else if ($this->committee_level_id == 3) {
@@ -150,6 +149,7 @@ class MemberForm extends Form
                     'committee_id' => $this->committee_id,
                     'committee_position_id' => $this->committee_position_id,
                     'gov_position' => $this->gov_position,
+                    'member_position_order' => $this->member_position_order,
                     'created_by' => $user->id,
                 ]);
             }
@@ -174,7 +174,6 @@ class MemberForm extends Form
                 'ad_district_id' => $this->ad_district_id,
                 'ad_commune_id'  => $this->ad_commune_id,
                 'ad_village_id'  => $this->ad_village_id,
-                'member_position_order' => $this->member_position_order,
                 'updated_by' => Auth::user()->id,
             ]);
         });

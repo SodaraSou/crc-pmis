@@ -25,7 +25,6 @@ class Member extends Model
         'ad_district_id',
         'ad_commune_id',
         'ad_village_id',
-        'member_position_order',
         'active',
         'created_by',
         'updated_by',

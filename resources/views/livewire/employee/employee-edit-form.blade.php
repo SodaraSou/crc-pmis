@@ -116,20 +116,7 @@
                     @enderror --}}
                 </div>
                 <div class="col-12 col-md-6 form-group">
-                    <label>លេខអត្តសញ្ញាណប័ណ្ខ
-                        {{-- <span class="text-danger">*</span> --}}
-                    </label>
-                    <input wire:model="form.national_id" class="form-control" placeholder="សូមបញ្ចូលលេខអត្តសញ្ញាណប័ណ្ខ">
-                    {{-- @error('form.national_id')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror --}}
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-12 col-md-6 form-group">
-                    <label>ស្ថានភាពការងារ
-                        {{-- <span class="text-danger">*</span> --}}
-                    </label>
+                    <label>ស្ថានភាពការងារ<span class="text-danger">*</span></label>
                     <select wire:model="form.employee_status_id" class="form-control">
                         <option value="">សូមជ្រើសរើសស្ថានភាពការងារ</option>
                         @foreach ($employee_statuses as $employee_status)
@@ -142,7 +129,18 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror --}}
                 </div>
-                <div class="col-12 col-md-6 form-group">
+            </div>
+            <div class="row g-4">
+                <div class="col-12 col-md-4 form-group">
+                    <label>លេខអត្តសញ្ញាណប័ណ្ខ
+                        {{-- <span class="text-danger">*</span> --}}
+                    </label>
+                    <input wire:model="form.national_id" class="form-control" placeholder="សូមបញ្ចូលលេខអត្តសញ្ញាណប័ណ្ខ">
+                    {{-- @error('form.national_id')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror --}}
+                </div>
+                <div class="col-12 col-md-4 form-group">
                     <label>លេខទូរស័ព្ទ
                         {{-- <span class="text-danger">*</span> --}}
                     </label>
@@ -151,9 +149,7 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror --}}
                 </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-12 col-md-6 form-group">
+                <div class="col-12 col-md-4 form-group">
                     <label>អុីម៉ែល
                         {{-- <span class="text-danger">*</span> --}}
                     </label>
@@ -161,11 +157,6 @@
                     {{-- @error('form.email')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror --}}
-                </div>
-                <div class="col-12 col-md-6 form-group">
-                    <label>លំដាប់តួនាទី</label>
-                    <input wire:model="form.employee_position_order" class="form-control"
-                        placeholder="សូមបញ្ចូលលំដាប់តួនាទី">
                 </div>
             </div>
             <div>

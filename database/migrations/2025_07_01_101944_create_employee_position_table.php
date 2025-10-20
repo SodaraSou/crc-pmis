@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreignId('sub_branch_id')->nullable()->constrained()->cascadeOnDelete();
             $table->foreignId('group_id')->nullable()->constrained();
             $table->string('opt_position_name')->nullable();
+            $table->integer('employee_position_order')->nullable();
             $table->date('start_date');
             $table->date('end_date')->nullable();
             $table->boolean('active')->default(true);

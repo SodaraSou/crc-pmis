@@ -54,6 +54,8 @@ class EmployeePositionEditForm extends Component
 
     public $end_date = null;
 
+    public $employee_position_order = 100;
+
     public function mount(Employee $employee, EmployeePosition $employee_position): void
     {
         $this->employee = $employee;
@@ -67,6 +69,7 @@ class EmployeePositionEditForm extends Component
         $this->opt_position_name = $employee_position->opt_position_name;
         $this->start_date = $employee_position->start_date;
         $this->end_date = $employee_position->end_date;
+        $this->employee_position_order = $employee_position->employee_position_order;
 
         if ($employee_position->department_id > 1) {
             $this->offices = Office::where('department_id', $employee_position->department_id)->get();
@@ -133,6 +136,7 @@ class EmployeePositionEditForm extends Component
                 'opt_position_name' => $this->opt_position_name,
                 'start_date' => $this->start_date,
                 'end_date' => $this->end_date,
+                'employee_position_order' => $this->employee_position_order,
                 'updated_by' => Auth::user()->id,
             ]);
 
