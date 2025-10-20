@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Committee\Admin;
 
+use App\Models\Branch;
 use App\Models\BranchTerm;
 use App\Models\Committee;
 use App\Models\CommitteeLevel;
@@ -14,6 +15,8 @@ use Livewire\Component;
 
 class CommitteeMemberTermEditForm extends Component
 {
+    public $branch_id = '';
+    public $branches = [];
     public $committee_levels = [];
     public $committee_positions = [];
     public $committees = [];
@@ -62,6 +65,9 @@ class CommitteeMemberTermEditForm extends Component
         $this->committee_position_id = $committee_member->committee_position_id;
         $this->gov_position = $committee_member->gov_position;
         $this->member_position_order = $committee_member->member_position_order;
+        if ($this->committee_level_id == 3) {
+            $this->branches = Branch::all();
+        }
     }
 
     public function updatedCommitteeLevelId(): void
@@ -69,6 +75,32 @@ class CommitteeMemberTermEditForm extends Component
         $this->terms = [];
         $this->committees = Committee::where('committee_level_id', $this->committee_level_id)
             ->where('committee_type_id', 2)
+            ->get();
+        if ($this->committee_level_id == 3) {
+            $this->branches = Branch::all();
+        }
+    }
+
+    protected function rules(): array
+    {
+        return [
+            'branch_id' => $this->committee_level_id == 3 ? 'required' : 'nullable'
+        ];
+    }
+
+    protected function messages(): array
+    {
+        return [
+            'branch_id.required' => 'សូមជ្រើសរើសសាខា'
+        ];
+    }
+
+    public function updatedBranchId()
+    {
+        $this->committees = Committee::where('active', true)
+            ->where('committee_level_id', $this->committee_level_id)
+            ->where('committee_type_id', 1)
+            ->where('branch_id', $this->branch_id)
             ->get();
     }
 

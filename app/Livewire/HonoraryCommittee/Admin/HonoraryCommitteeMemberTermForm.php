@@ -2,6 +2,7 @@
 
 namespace App\Livewire\HonoraryCommittee\Admin;
 
+use App\Models\Branch;
 use App\Models\BranchTerm;
 use App\Models\Committee;
 use App\Models\CommitteeLevel;
@@ -16,6 +17,10 @@ use Livewire\Component;
 class HonoraryCommitteeMemberTermForm extends Component
 {
     public Member $member;
+
+    public $branch_id = '';
+
+    public $branches = [];
 
     public $committees = [];
 
@@ -47,6 +52,32 @@ class HonoraryCommitteeMemberTermForm extends Component
     {
         $this->committees = Committee::where('committee_level_id', $this->committee_level_id)
             ->where('committee_type_id', 1)
+            ->get();
+        if ($this->committee_level_id == 3) {
+            $this->branches = Branch::all();
+        }
+    }
+
+    protected function rules(): array
+    {
+        return [
+            'branch_id' => $this->committee_level_id == 3 ? 'required' : 'nullable'
+        ];
+    }
+
+    protected function messages(): array
+    {
+        return [
+            'branch_id.required' => 'សូមជ្រើសរើសសាខា'
+        ];
+    }
+
+    public function updatedBranchId()
+    {
+        $this->committees = Committee::where('active', true)
+            ->where('committee_level_id', $this->committee_level_id)
+            ->where('committee_type_id', 1)
+            ->where('branch_id', $this->branch_id)
             ->get();
     }
 

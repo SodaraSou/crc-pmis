@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Committee\Admin;
 
+use App\Models\Branch;
 use App\Models\BranchTerm;
 use App\Models\Committee;
 use App\Models\CommitteeLevel;
@@ -16,6 +17,10 @@ use Livewire\Component;
 class CommitteeMemberTermForm extends Component
 {
     public Member $member;
+
+    public $branch_id = '';
+
+    public $branches = [];
 
     public $committees = [];
 
@@ -36,6 +41,8 @@ class CommitteeMemberTermForm extends Component
     #[Validate('required', message: 'សូមបញ្ចូលតួនាទីក្នុងរដ្ឋាភិបាល')]
     public $gov_position = null;
 
+    public $member_position_order = 100;
+
     public function mount(Member $member)
     {
         $this->member = $member;
@@ -46,7 +53,34 @@ class CommitteeMemberTermForm extends Component
         $this->committees = Committee::where('committee_level_id', $this->committee_level_id)
             ->where('committee_type_id', 2)
             ->get();
+        if ($this->committee_level_id == 3) {
+            $this->branches = Branch::all();
+        }
     }
+
+    protected function rules(): array
+    {
+        return [
+            'branch_id' => $this->committee_level_id == 3 ? 'required' : 'nullable'
+        ];
+    }
+
+    protected function messages(): array
+    {
+        return [
+            'branch_id.required' => 'សូមជ្រើសរើសសាខា'
+        ];
+    }
+
+    public function updatedBranchId()
+    {
+        $this->committees = Committee::where('active', true)
+            ->where('committee_level_id', $this->committee_level_id)
+            ->where('committee_type_id', 1)
+            ->where('branch_id', $this->branch_id)
+            ->get();
+    }
+
 
     public function updatedCommitteeId(): void
     {
@@ -87,6 +121,7 @@ class CommitteeMemberTermForm extends Component
                     'committee_id' => $this->committee_id,
                     'committee_position_id' => $this->committee_position_id,
                     'gov_position' => $this->gov_position,
+                    'member_position_order' => $this->member_position_order,
                     'created_by' => Auth::user()->id,
                 ]);
             } else if ($this->committee_level_id == 3) {
@@ -95,6 +130,7 @@ class CommitteeMemberTermForm extends Component
                     'sub_branch_term_id' => $this->term_id,
                     'committee_id' => $this->committee_id,
                     'committee_position_id' => $this->committee_position_id,
+                    'member_position_order' => $this->member_position_order,
                     'gov_position' => $this->gov_position,
                     'created_by' => Auth::user()->id,
                 ]);
