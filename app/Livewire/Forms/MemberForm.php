@@ -75,7 +75,6 @@ class MemberForm extends Form
             'committee_id' => $this->is_edit ? 'nullable' : 'required',
             'term_id' => $this->is_edit ? 'nullable' : 'required',
             'committee_position_id' => $this->is_edit ? 'nullable' : 'required',
-            'gov_position' => $this->is_edit ? 'nullable' : 'required',
         ];
     }
 
@@ -86,7 +85,6 @@ class MemberForm extends Form
             'committee_id.required' => 'សូមជ្រើសរើស',
             'term_id.required' => 'សូមជ្រើសរើសអាណត្តិ',
             'committee_position_id.required' => 'សូមជ្រើសរើសតួនាទី',
-            'gov_position.required' => 'សូមបញ្ចូលតួនាទីក្នុងរដ្ឋាភិបាល',
         ];
     }
 

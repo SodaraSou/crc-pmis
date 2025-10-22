@@ -38,7 +38,6 @@ class CommitteeMemberTermForm extends Component
     #[Validate('required', message: 'សូមជ្រើសរើសតួនាទី')]
     public $committee_position_id = null;
 
-    #[Validate('required', message: 'សូមបញ្ចូលតួនាទីក្នុងរដ្ឋាភិបាល')]
     public $gov_position = null;
 
     public $member_position_order = 100;

@@ -274,7 +274,7 @@
                     @enderror
                 </div>
                 <div class="col-12 col-md-4 form-group">
-                    <label>តួនាទីក្នុងរដ្ឋាភិបាល<span class="text-danger">*</span></label>
+                    <label>តួនាទីក្នុងរដ្ឋាភិបាល</label>
                     <input wire:model="form.gov_position" class="form-control"
                         placeholder="សូមបញ្ចូលតួនាទីក្នុងរដ្ឋាភិបាល">
                     @error('form.gov_position')
