@@ -31,7 +31,7 @@
             </div>
             <div class="row g-4">
                 <div class="col-12 col-md-4 form-group">
-                    <label>ឈ្មោះឡាតាំង<span class="text-danger">*</span></label>
+                    <label>ឈ្មោះឡាតាំង</label>
                     <input wire:model="form.en_name" class="form-control" placeholder="សូមបញ្ចូលឈ្មោះឡាតាំង">
                     @error('form.en_name')
                         <span class="text-danger">{{ $message }}</span>

@@ -23,7 +23,6 @@ class MemberForm extends Form
     #[Validate('required', message: 'សូមបញ្ចូលគោត្តនាម')]
     public $kh_last_name = '';
 
-    #[Validate('required', message: 'សូមបញ្ចូលឈ្មោះឡាតាំង')]
     public $en_name = '';
 
     #[Validate('required', message: 'សូមជ្រើសរើសភេទ')]
