@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->string('kh_first_name');
             $table->string('kh_last_name');
-            $table->string('en_name');
+            $table->string('en_name')->nullable();
             $table->string('member_img')->nullable();
             $table->foreignId('gender_id')->constrained();
             $table->string('phone_number')->nullable();
