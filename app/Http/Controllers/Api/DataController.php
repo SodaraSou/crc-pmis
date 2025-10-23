@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
 use App\Models\Branch;
+use App\Models\Commune;
 use App\Models\District;
 use App\Models\EmployeeStatus;
 use App\Models\FamilySituation;
 use App\Models\Gender;
 use App\Models\Province;
-use Illuminate\Http\Request;
+use App\Models\SubBranch;
+use App\Models\Village;
 
 class DataController extends BaseController
 {
-    public function getFamilySituation()
+    public function getFamilySituations()
     {
         $family_situations = FamilySituation::all();
 
@@ -49,14 +50,31 @@ class DataController extends BaseController
     }
 
 
-    public function getCommunes() {}
+    public function getCommunes($district_id)
+    {
+        $communes = Commune::where('district_id', $district_id)->get();
 
-    public function getVillages() {}
+        return $this->successResponse($communes);
+    }
+
+    public function getVillages($commune_id)
+    {
+        $villages = Village::where('commune_id', $commune_id)->get();
+
+        return $this->successResponse($villages);
+    }
 
     public function getBranches()
     {
         $branches = Branch::all();
 
         return $this->successResponse($branches);
+    }
+
+    public function getSubBranches($branch_id)
+    {
+        $sub_branches = SubBranch::where('branch_id', $branch_id)->get();
+
+        return $this->successResponse($sub_branches);
     }
 }
